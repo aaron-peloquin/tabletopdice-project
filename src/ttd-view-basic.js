@@ -10,7 +10,6 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
-import './ttd/ttd-tray.js';
 
 class TtdViewBasic extends PolymerElement {
   static get template() {
@@ -24,8 +23,7 @@ class TtdViewBasic extends PolymerElement {
       </style>
 
         <div class="card">
-          <h1>Hello ttd-view-basic</h1>
-          <ttd-tray></ttd-tray>
+          <slot></slot>
         </div>
     `;
   }

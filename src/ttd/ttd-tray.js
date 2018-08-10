@@ -14,8 +14,7 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 class TtdTray extends PolymerElement {
   static get template() {
     return html`
-        <h1>TTD</h1>
-        <slot>Tray created!</slot>
+      <slot></slot>
     `;
   }
   static get properties() {
@@ -36,6 +35,7 @@ class TtdTray extends PolymerElement {
   }
 
   ready(){
+    super.ready();
     // Add listener for _clearResults to clear this tray's roll results.
     this.addEventListener('_clearResults', e => {this.clearResults(e)});
     this.addEventListener('_recalculateSum', e => {this.recalculateSum(e)});
