@@ -10,8 +10,9 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import './ttd/ttd-tray.js';
 
-class MyView3 extends PolymerElement {
+class TtdViewBasic extends PolymerElement {
   static get template() {
     return html`
       <style include="shared-styles">
@@ -22,14 +23,16 @@ class MyView3 extends PolymerElement {
         }
       </style>
 
-      <div class="card">
-        <div class="circle">3</div>
-        <h1>View Three</h1>
-        <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-        <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
-      </div>
+        <div class="card">
+          <h1>Hello ttd-view-basic</h1>
+          <ttd-tray></ttd-tray>
+        </div>
     `;
+  }
+  constructor() {
+    super();
+    this.attachShadow({mode: 'open', delegatesFocus: true});
   }
 }
 
-window.customElements.define('my-view3', MyView3);
+window.customElements.define('ttd-view-basic', TtdViewBasic);

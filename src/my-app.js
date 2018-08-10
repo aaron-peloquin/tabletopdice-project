@@ -86,7 +86,7 @@ class MyApp extends PolymerElement {
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="view1" href="[[rootPath]]view1">View One</a>
             <a name="view2" href="[[rootPath]]view2">View Two</a>
-            <a name="view3" href="[[rootPath]]view3">View Three</a>
+            <a name="basic-dice-roller" href="[[rootPath]]basic-dice-roller">Dice Roller</a>
           </iron-selector>
         </app-drawer>
 
@@ -96,14 +96,16 @@ class MyApp extends PolymerElement {
           <app-header slot="header" condenses="" reveals="" effects="waterfall">
             <app-toolbar>
               <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-              <div main-title="">My App</div>
+              <div main-title="">Tabletop Dice</div>
             </app-toolbar>
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
             <my-view1 name="view1"></my-view1>
             <my-view2 name="view2"></my-view2>
-            <my-view3 name="view3"></my-view3>
+            <ttd-view-basic name="basic-dice-roller">
+              <ttd-tray></ttd-tray>
+            </ttd-view-basic>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -131,12 +133,11 @@ class MyApp extends PolymerElement {
 
   _routePageChanged(page) {
      // Show the corresponding page according to the route.
-     //
      // If no page was found in the route data, page will be an empty string.
-     // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
+     // Show views that are called out, otherwise if the 'page' doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'view1';
-    } else if (['view1', 'view2', 'view3'].indexOf(page) !== -1) {
+    } else if (['view1', 'view2', 'basic-dice-roller'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -160,9 +161,9 @@ class MyApp extends PolymerElement {
       case 'view2':
         import('./my-view2.js');
         break;
-      case 'view3':
-        import('./my-view3.js');
-        break;
+      case 'basic-dice-roller':
+        import('./ttd-view-basic.js');
+      break;
       case 'view404':
         import('./my-view404.js');
         break;
