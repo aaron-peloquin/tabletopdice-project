@@ -29,10 +29,6 @@ class TtdViewBasic extends PolymerElement {
         </div>
     `;
   }
-  constructor() {
-    super();
-    this.attachShadow({mode: 'open', delegatesFocus: true});
-  }
 }
 
 window.customElements.define('ttd-view-basic', TtdViewBasic);

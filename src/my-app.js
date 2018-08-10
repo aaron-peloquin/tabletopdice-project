@@ -104,7 +104,6 @@ class MyApp extends PolymerElement {
             <my-view1 name="view1"></my-view1>
             <my-view2 name="view2"></my-view2>
             <ttd-view-basic name="basic-dice-roller">
-              <ttd-tray></ttd-tray>
             </ttd-view-basic>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
@@ -163,7 +162,7 @@ class MyApp extends PolymerElement {
         break;
       case 'basic-dice-roller':
         import('./ttd-view-basic.js');
-      break;
+        break;
       case 'view404':
         import('./my-view404.js');
         break;
