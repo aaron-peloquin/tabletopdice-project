@@ -1,9 +1,9 @@
 {
-  "name": "polymer-starter-kit",
-  "version": "4.0.0",
-  "description": "A starting point for Polymer apps",
-  "author": "The Polymer Authors",
-  "license": "BSD-3-Clause",
+  "name": "tabletopdice",
+  "version": "0.0.1",
+  "description": "A tabletop dice rolling web application",
+  "author": "Aaron P",
+  "license": "MIT",
   "repository": "Polymer/polymer-starter-kit",
   "scripts": {
     "start": "polymer serve",
