@@ -16,42 +16,75 @@ class TtdViewBasic extends PolymerElement {
     return html`
       <style include="shared-styles">
         :host {
-          --num-cols: 1;
+          /* [Responsive] Tiny Styles */
+          --cols-num: 4;
+          --cols-grid-template: 1fr 1fr 1fr 1fr;
+          --cols-default-child: span 2;
+          --cols-ttd-exclude: span 3;
+          --cols-ttd-clear: span 4;
+          --cols-ttd-sum: span 1;
+
+          --font-size-all: 8vw;
+
           display: block;
           padding: 10px;
+          font-size: var(--font-size-all);
+          max-width: 800px;
+          margin: 0 auto;
         }
 
-        /* Tiny Mobile Styles */
         ttd-tray{
           width: 100%;
           display: inline-grid;
-          grid-gap: 5px;
+          grid-gap: 1rem;
           grid-template-rows: auto;
-          grid-template-columns: --num-cols 1fr;
+          grid-template-columns: var( --cols-grid-template);
         }
 
         ttd-tray > *{
-          border: 1px solid black;
+          background-color: black;
+          grid-column-end: var(--cols-default-child);
+          overflow: hidden;
         }
 
-        ttd-history{
-          grid-column: 1 / span --num-cols;
+        /* History always takes up 1 whole row */
+        ttd-tray ttd-history{
+          grid-column-end: span var(--cols-num);
         }
 
-        /* Mobile Styles */
+        ttd-tray ttd-exclude{
+          grid-column-end: var(--cols-ttd-exclude);
+        }
+
+        ttd-tray ttd-clear{
+          grid-column-end: var(--cols-ttd-clear);
+        }
+
+        ttd-tray ttd-sum{
+          grid-column-end: var(--cols-ttd-sum);
+        }
+/*
+        /* [Responsive] Small Styles */
         @media (min-width: 350px) {
           :host{
-            --num-cols: 2;
-          }
+            --cols-num: 6;
+            --cols-grid-template: 1fr 1fr 1fr 1fr 1fr 1fr;
+            --cols-default-child: span 2;
+            --cols-ttd-exclude: span 4;
+            --cols-ttd-clear: span 2;
+            --cols-ttd-sum: span 2;
+
+            --font-size-all: 2.7rem;
+            }
         }
 
-        /* Mobile Styles */
-        @media (max-width: 850px) {
+        /* [Responsive] Medium + Styles */
+        @media (min-width: 850px) {
           :host{
-            --num-cols: 3;
           }
-        }
 
+        }
+*/
 
       </style>
 
@@ -60,13 +93,13 @@ class TtdViewBasic extends PolymerElement {
             <ttd-tray>
               <ttd-history></ttd-history>
               <ttd-sum></ttd-sum>
+              <ttd-exclude></ttd-exclude>
               <ttd-die sides="4"></ttd-die>
               <ttd-die></ttd-die>
               <ttd-die sides="8"></ttd-die>
               <ttd-die sides="10"></ttd-die>
               <ttd-die sides="12"></ttd-die>
               <ttd-die sides="20"></ttd-die>
-              <ttd-exclude></ttd-exclude>
               <ttd-custom></ttd-custom>
               <ttd-custom-roll></ttd-custom-roll>
               <ttd-clear></ttd-clear>
