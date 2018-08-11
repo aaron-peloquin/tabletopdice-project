@@ -21,6 +21,7 @@ class TtdViewBasic extends PolymerElement {
           --cols-grid-template: 1fr 1fr 1fr 1fr;
           --cols-default-child: span 2;
           --cols-ttd-exclude: span 3;
+          --cols-ttd-custom: var(--cols-default-child);
           --cols-ttd-clear: span 4;
           --cols-ttd-sum: span 1;
 
@@ -63,29 +64,39 @@ class TtdViewBasic extends PolymerElement {
         ttd-tray ttd-sum{
           grid-column-end: var(--cols-ttd-sum);
         }
-/*
+
+        ttd-tray ttd-custom{
+          grid-column-end: var(--cols-ttd-custom);
+        }
+
         /* [Responsive] Small Styles */
-        @media (min-width: 350px) {
+        @media (min-width: 500px) {
           :host{
             --cols-num: 6;
             --cols-grid-template: 1fr 1fr 1fr 1fr 1fr 1fr;
             --cols-default-child: span 2;
             --cols-ttd-exclude: span 4;
-            --cols-ttd-clear: span 2;
-            --cols-ttd-sum: span 2;
+            --cols-ttd-clear: var(--cols-default-child);
+            --cols-ttd-sum: var(--cols-default-child);
 
             --font-size-all: 2.7rem;
             }
         }
 
         /* [Responsive] Medium + Styles */
-        @media (min-width: 850px) {
+        @media (min-width: 640px) {
           :host{
+            --cols-ttd-custom: span 4;
+            --cols-ttd-clear: span 6;
           }
-
         }
-*/
 
+        /* [Responsive] Large + Styles */
+        @media (min-width: 800px) {
+          :host{
+            --cols-ttd-custom: var(--cols-default-child);
+            --cols-ttd-clear: var(--cols-default-child);
+          }
       </style>
 
         <div class="card">
