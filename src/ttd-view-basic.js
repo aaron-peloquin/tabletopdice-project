@@ -9,6 +9,7 @@
  */
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import {} from '@polymer/polymer/lib/elements/dom-if.js';
 import './shared-styles.js';
 
 class TtdViewBasic extends PolymerElement {
@@ -100,25 +101,65 @@ class TtdViewBasic extends PolymerElement {
       </style>
 
         <div class="card">
-          <slot>
-            <ttd-tray>
-              <ttd-history></ttd-history>
-              <ttd-sum></ttd-sum>
-              <ttd-exclude></ttd-exclude>
-              <ttd-die sides="4"></ttd-die>
-              <ttd-die></ttd-die>
-              <ttd-die sides="8"></ttd-die>
-              <ttd-die sides="10"></ttd-die>
-              <ttd-die sides="12"></ttd-die>
-              <ttd-die sides="20"></ttd-die>
-              <ttd-custom></ttd-custom>
-              <ttd-custom-roll></ttd-custom-roll>
-              <ttd-clear></ttd-clear>
-            </ttd-tray>
-          </slot>
+          <template is="dom-if" if="[[!browserSupported]]">
+            <p><strong>Unsupported Browser</strong></p>
+            <p>
+              <div>Supported Browsers:</div>
+              <ul>
+                <li>Google Chrome</li>
+                <li>Microsoft Edge</li>
+                <li><em>Firefox</em></li>
+              </ul>
+          </template>
+          <template is="dom-if" if="[[browserSupported]]">
+            <slot>
+              <ttd-tray>
+                <ttd-history></ttd-history>
+                <ttd-sum></ttd-sum>
+                <ttd-exclude></ttd-exclude>
+                <ttd-die sides="4"></ttd-die>
+                <ttd-die></ttd-die>
+                <ttd-die sides="8"></ttd-die>
+                <ttd-die sides="10"></ttd-die>
+                <ttd-die sides="12"></ttd-die>
+                <ttd-die sides="20"></ttd-die>
+                <ttd-custom></ttd-custom>
+                <ttd-custom-roll></ttd-custom-roll>
+                <ttd-clear></ttd-clear>
+              </ttd-tray>
+            </slot>
+          </template>
         </div>
     `;
   }
+
+  static get properties() {
+    return {
+      browserSupported: {
+        type: Boolean,
+        value: true,
+      },
+    };
+  }
+
+  ready(){
+    super.ready();
+    //Check if this browser is currently supported.
+    this.browserSupported = this.isSupported();
+    console.log('am i support?',this.browserSupported);
+  }
+
+  isSupported() {
+    var ua = window.navigator.userAgent;
+    var ieClassic = (ua.indexOf("MSIE")>0);
+    var ieEleven = (!!ua.match(/Trident\/7\./));
+    if (ieClassic || ieEleven){
+      return false;//This is IE.
+    }
+    return true; //This is not IE
+  }
+  
+
 }
 
 window.customElements.define('ttd-view-basic', TtdViewBasic);
