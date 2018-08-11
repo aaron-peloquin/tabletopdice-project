@@ -106,8 +106,13 @@ class MyApp extends PolymerElement {
             <ttd-view-basic name="basic-dice-roller">
               <ttd-tray>
                 <ttd-history></ttd-history>
+                <ttd-sum></ttd-sum>
                 <ttd-die sides="4"></ttd-die>
                 <ttd-die></ttd-die>
+                <ttd-exclude></ttd-exclude>
+                <ttd-custom></ttd-custom>
+                <ttd-custom-roll></ttd-custom-roll>
+                <ttd-clear></ttd-clear>
               </ttd-tray>
             </ttd-view-basic>
             <my-view404 name="view404"></my-view404>
@@ -169,7 +174,12 @@ class MyApp extends PolymerElement {
         import('./ttd-view-basic.js');
         import('./ttd/ttd-tray.js');
         import('./ttd/ttd-history.js');
+        import('./ttd/ttd-sum.js');
         import('./ttd/ttd-die.js');
+        import('./ttd/ttd-clear.js');
+        import('./ttd/ttd-exclude.js');
+        import('./ttd/ttd-custom.js');
+        import('./ttd/ttd-custom-roll.js');
         break;
       case 'view404':
         import('./my-view404.js');
