@@ -44,9 +44,21 @@ class TtdViewBasic extends PolymerElement {
         }
 
         ttd-tray > *{
-          background-color: black;
+          background-color: var(--app-ttd-default-background-color);
+          color: var(--app-ttd-child-color);
           grid-column-end: var(--cols-default-child);
           overflow: hidden;
+        }
+        ttd-history,
+        ttd-sum,
+        ttd-clear{
+          background-color: var(--app-ttd-secondary-background-color);
+          color: var(--app-ttd-secondary-color);
+        }
+
+        ttd-custom,
+        ttd-custom-roll{
+          background-color: var(--app-ttd-special-background-color);
         }
 
         /* History always takes up 1 whole row */
@@ -56,6 +68,7 @@ class TtdViewBasic extends PolymerElement {
 
         ttd-tray ttd-exclude{
           grid-column-end: var(--cols-ttd-exclude);
+          font-family: var(--app-font-family);
         }
 
         ttd-tray ttd-clear{
@@ -114,7 +127,7 @@ class TtdViewBasic extends PolymerElement {
           <template is="dom-if" if="[[browserSupported]]">
             <slot>
               <ttd-tray>
-                <ttd-history></ttd-history>
+                <ttd-history excited></ttd-history>
                 <ttd-sum></ttd-sum>
                 <ttd-exclude></ttd-exclude>
                 <ttd-die sides="4"></ttd-die>

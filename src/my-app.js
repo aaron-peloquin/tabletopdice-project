@@ -36,8 +36,24 @@ class MyApp extends PolymerElement {
     return html`
       <style>
         :host {
-          --app-primary-color: #5c378c;
-          --app-secondary-color: black;
+
+          --app-font-family: 'Cinzel', serif;             /* App font family */
+          --app-font-weight: Bolder;                      /* App font weight */
+
+          /* Color variables */
+          --app-primary-color: #487D70;                   /* App Heading Color */
+          --app-secondary-color: black;                   /* App Font Color */
+          --app-card-background: #487D70;                 /* Card Background */
+          --app-ttd-child-color: #EFEFEF;                 /* TTD child element font color */
+          --app-ttd-default-background-color: #74C9B5;    /* TTD child element background color (default) */
+          --app-ttd-special-background-color: #A8BFB9;    /* TTD child element background color (special) */
+          --app-ttd-secondary-background-color: #386157;  /* TTD child element background color (secondary) */
+          --app-ttd-secondary-color: #ffffff;             /* TTD child element background color (secondary) */
+          --app-ttd-clean-color: #222;                    /* TTD child element color (clean) */
+          --app-ttd-clean-background-color: #fff;         /* TTD child element background color (clean) */
+
+          font-family: var(--app-font-family);
+          font-weight: var(--app-font-weight);
 
           display: block;
         }

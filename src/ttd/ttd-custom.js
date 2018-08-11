@@ -44,6 +44,10 @@ class TtdCustom extends TtdChildHelper {
           font-size: inherit;
           border: 0;
           min-width: 0;
+          font-family: var(--app-font-family);
+          font-weight: var(--app-font-weight);
+          background-color: var(--app-ttd-clean-background-color);
+          color: var(--app-ttd-clean-color);
         }
         input:focus{
           outline: none;
@@ -95,6 +99,7 @@ class TtdCustom extends TtdChildHelper {
 
   roll(){
     this.rolled++;
+    this.customSides = Math.round(this.customSides);
     this.trayElement.roll(parseInt(this.customSides));
   }
 

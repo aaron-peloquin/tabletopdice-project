@@ -54,8 +54,8 @@ class TtdHistory extends TtdChildHelper {
 
         li > img{
           vertical-align: middle;
-          -webkit-filter: invert(60%);
-          -filter: invert(60%);
+          -webkit-filter: invert(90%);
+          -filter: invert(90%);
         }
 
         li > span{

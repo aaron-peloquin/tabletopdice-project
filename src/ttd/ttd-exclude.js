@@ -23,6 +23,13 @@ class TtdExclude extends TtdChildHelper {
         select:focus{
           outline: none;
         }
+        select,
+        option{
+          font-family: var(--app-font-family);
+          font-weight: var(--app-font-weight);
+          background-color: var(--app-ttd-clean-background-color);
+          color: var(--app-ttd-clean-color);
+        }
       </style>
       <select value="{{excludeDie::change}}">
         <option value="0">[[defaultLanguage]]</option>
