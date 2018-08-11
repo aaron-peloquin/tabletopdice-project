@@ -16,14 +16,62 @@ class TtdViewBasic extends PolymerElement {
     return html`
       <style include="shared-styles">
         :host {
+          --num-cols: 1;
           display: block;
-
           padding: 10px;
         }
+
+        /* Tiny Mobile Styles */
+        ttd-tray{
+          width: 100%;
+          display: inline-grid;
+          grid-gap: 5px;
+          grid-template-rows: auto;
+          grid-template-columns: --num-cols 1fr;
+        }
+
+        ttd-tray > *{
+          border: 1px solid black;
+        }
+
+        ttd-history{
+          grid-column: 1 / span --num-cols;
+        }
+
+        /* Mobile Styles */
+        @media (min-width: 350px) {
+          :host{
+            --num-cols: 2;
+          }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 850px) {
+          :host{
+            --num-cols: 3;
+          }
+        }
+
+
       </style>
 
         <div class="card">
-          <slot></slot>
+          <slot>
+            <ttd-tray>
+              <ttd-history></ttd-history>
+              <ttd-sum></ttd-sum>
+              <ttd-die sides="4"></ttd-die>
+              <ttd-die></ttd-die>
+              <ttd-die sides="8"></ttd-die>
+              <ttd-die sides="10"></ttd-die>
+              <ttd-die sides="12"></ttd-die>
+              <ttd-die sides="20"></ttd-die>
+              <ttd-exclude></ttd-exclude>
+              <ttd-custom></ttd-custom>
+              <ttd-custom-roll></ttd-custom-roll>
+              <ttd-clear></ttd-clear>
+            </ttd-tray>
+          </slot>
         </div>
     `;
   }

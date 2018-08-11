@@ -36,7 +36,7 @@ class MyApp extends PolymerElement {
     return html`
       <style>
         :host {
-          --app-primary-color: #4285f4;
+          --app-primary-color: #5c378c;
           --app-secondary-color: black;
 
           display: block;
@@ -103,18 +103,7 @@ class MyApp extends PolymerElement {
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
             <my-view1 name="view1"></my-view1>
             <my-view2 name="view2"></my-view2>
-            <ttd-view-basic name="basic-dice-roller">
-              <ttd-tray>
-                <ttd-history></ttd-history>
-                <ttd-sum></ttd-sum>
-                <ttd-die sides="4"></ttd-die>
-                <ttd-die></ttd-die>
-                <ttd-exclude></ttd-exclude>
-                <ttd-custom></ttd-custom>
-                <ttd-custom-roll></ttd-custom-roll>
-                <ttd-clear></ttd-clear>
-              </ttd-tray>
-            </ttd-view-basic>
+            <ttd-view-basic name="basic-dice-roller"></ttd-view-basic>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
