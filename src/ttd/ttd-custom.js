@@ -1,4 +1,5 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import {} from '@polymer/polymer/lib/elements/dom-if.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
@@ -38,6 +39,7 @@ class TtdCustom extends TtdChildHelper {
 
         input{
           height: 100%;
+          width: 100%;
           margin-right: -1px;
           font-size: inherit;
           border: 0;
