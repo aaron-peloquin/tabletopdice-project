@@ -1,7 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 import {} from '@polymer/polymer/lib/elements/dom-repeat.js';
-import {} from '@polymer/polymer/lib/elements/dom-if.js';
 
 /**
  * `ttd-history`
