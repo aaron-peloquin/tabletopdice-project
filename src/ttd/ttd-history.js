@@ -15,7 +15,10 @@ class TtdHistory extends TtdChildHelper {
   static get template() {
     return html`
       <style>
-        :host{
+        *{
+          overflow: -moz-scrollbars-none;
+        }
+      :host{
           -ms-overflow-style: -ms-autohiding-scrollbar;
           overflow-x: scroll;
         }

@@ -33,7 +33,7 @@ class TtdCustom extends TtdChildHelper {
         }
 
         div > *{
-          grid-column: 1;
+          grid-row: 1;
         }
 
         input{

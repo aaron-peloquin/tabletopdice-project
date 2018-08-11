@@ -22,6 +22,7 @@ class TtdSum extends TtdChildHelper {
         span{
           display: table-cell;
           vertical-align: middle;
+          overflow: hidden;
         }
       </style>
       <span>[[sum]]</span>
