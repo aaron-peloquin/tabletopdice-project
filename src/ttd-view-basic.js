@@ -160,6 +160,11 @@ class TtdViewBasic extends PolymerElement {
         type: Boolean,
         value: true,
       },
+      page: {
+        type: String,
+        reflectToAttribute: true,
+        notify: true,
+      },
     };
   }
 
@@ -167,7 +172,6 @@ class TtdViewBasic extends PolymerElement {
     super.ready();
     //Check if this browser is currently supported.
     this.browserSupported = this.isSupported();
-    console.log('am i support?',this.browserSupported);
   }
 
   isSupported() {
