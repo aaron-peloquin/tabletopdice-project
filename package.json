@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "polymer-cli": "^1.7.1",
+    "sw-precache": "^5.2.1",
     "wct-browser-legacy": "^1.0.0"
   },
   "engines": {
