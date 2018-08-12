@@ -36,7 +36,6 @@ class MyApp extends PolymerElement {
     return html`
       <style>
         :host {
-
           --app-font-family: 'Cinzel', serif;             /* App font family */
           --app-font-weight: Bolder;                      /* App font weight */
 
@@ -57,6 +56,10 @@ class MyApp extends PolymerElement {
           font-weight: var(--app-font-weight);
 
           display: block;
+        }
+
+        iron-pages > *{
+          padding: 15px;
         }
 
         app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -101,8 +104,8 @@ class MyApp extends PolymerElement {
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="app-view-home" href="[[rootPath]]app-view-home">Home</a>
-            <a name="view2" href="[[rootPath]]view2">View Two</a>
+            <a name="app-view-home" href="[[rootPath]]">Home</a>
+            <a name="app-view-about" href="[[rootPath]]app-view-about">About</a>
             <a name="basic-dice-roller" href="[[rootPath]]basic-dice-roller">Dice Roller</a>
           </iron-selector>
         </app-drawer>
@@ -117,11 +120,11 @@ class MyApp extends PolymerElement {
             </app-toolbar>
           </app-header>
 
-          <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <app-view-home name="app-view-home"></app-view-home>
-            <my-view2 name="view2"></my-view2>
-            <ttd-view-basic name="basic-dice-roller"></ttd-view-basic>
-            <my-view404 name="view404"></my-view404>
+          <iron-pages selected="{{page}}" attr-for-selected="name" role="main">
+            <app-view-home page="{{page}}" name="app-view-home"></app-view-home>
+            <app-view-about page="{{page}}" name="app-view-about"></app-view-about>
+            <ttd-view-basic page="{{page}}" name="basic-dice-roller"></ttd-view-basic>
+            <my-view404 page="{{page}}" name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
       </app-drawer-layout>
@@ -152,7 +155,7 @@ class MyApp extends PolymerElement {
      // Show views that are called out, otherwise if the 'page' doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'app-view-home';
-    } else if (['app-view-home', 'view2', 'basic-dice-roller'].indexOf(page) !== -1) {
+    } else if (['app-view-home', 'app-view-about', 'basic-dice-roller'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -173,8 +176,8 @@ class MyApp extends PolymerElement {
       case 'app-view-home':
         import('./app-view-home.js');
         break;
-      case 'view2':
-        import('./my-view2.js');
+      case 'app-view-about':
+        import('./app-view-about.js');
         break;
       case 'basic-dice-roller':
         import('./ttd-view-basic.js');
