@@ -19,7 +19,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       }
 
       .card {
-        max-width: 800px;
+        max-width: 700px;
         margin: 0 auto;
         padding: 0;
         display: grid;
