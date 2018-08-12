@@ -9,21 +9,21 @@ This project includes a number of modular polymer elements located in the /src/t
 ### Example
 ```html
 <ttd-tray>
-	<!-- Displays a readout of the dice that have been rolled. -->
-	<ttd-history excited></ttd-history>
+    <!-- Displays a readout of the dice that have been rolled. -->
+    <ttd-history excited></ttd-history>
 
-	<!-- Displays a readout of the sum from all dice that have been rolled. -->
-	<ttd-sum></ttd-sum>
-
-	<!-- Creates a 20-sided die button -->
+    <!-- Creates a 20-sided die button -->
     <ttd-die sides="20"></ttd-die>
-    
+
     <!-- Creates a 6-sided die button -->
     <ttd-die></ttd-die>
-    
+
     <!-- Creates a 44-sided die button -->
     <ttd-die sides="44"></ttd-die>
-    
+
+    <!-- Displays a readout of the sum from all dice that have been rolled. -->
+    <ttd-sum></ttd-sum>
+
     <!-- Creates a 44-sided die button -->
     <ttd-clear>Erase Roll Data</ttd-clear>
 </ttd-tray>
@@ -46,11 +46,11 @@ This element has an optional attribute of `excited`. Adding this attribute cause
 
 A user may copy/paste from this element to recieve the sides of the die rolled as well. This text is also visible to screen readers (ie `3(from d6) 1(from d6) 4!(from d4) 12(from d20) 20!(from d20)`).
 
-### &lt;ttd-sum&gt;
-Displays a readout of the sum from all dice rolled.
-
 ### &lt;ttd-die&gt;
 Creates a clickable ui element that rolls a die. The `sides` attribute sets how many sides each `<ttd-die>` element has.
+
+### &lt;ttd-sum&gt;
+Displays a readout of the sum from all dice rolled.
 
 ### &lt;ttd-clear&gt;
 Creates a clickable ui element that resets the application's roll data. You may slot in your own copy text, but the default is "Clear".
