@@ -19,12 +19,25 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       }
 
       .card {
-        margin: 5px;
-        padding: 16px;
-        color: #757575;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0;
+        display: grid;
+        color: var(--app-secondary-color);
         border-radius: 5px;
         background-color: var(--app-card-background);
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+
+      img.logo,
+      .card > h1{
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .copy-box{
+        padding: 15px;
+        background-color: var(--app-copybox-background);
       }
 
       .circle {
@@ -40,9 +53,10 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       }
 
       h1 {
-        margin: 16px 0;
-        color: #212121;
-        font-size: 22px;
+        font-size: 2rem;
+        margin: 0;
+        background: var(--app-primary-color);
+        color: #EFEFEF;
       }
     </style>
   </template>

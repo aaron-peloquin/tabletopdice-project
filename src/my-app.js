@@ -44,11 +44,12 @@ class MyApp extends PolymerElement {
           --app-primary-color: #487D70;                   /* App Heading Color */
           --app-secondary-color: black;                   /* App Font Color */
           --app-card-background: #487D70;                 /* Card Background */
+          --app-copybox-background: #74C9B5;              /* TTD child element background color (default) */
           --app-ttd-child-color: #EFEFEF;                 /* TTD child element font color */
           --app-ttd-default-background-color: #74C9B5;    /* TTD child element background color (default) */
           --app-ttd-special-background-color: #A8BFB9;    /* TTD child element background color (special) */
           --app-ttd-secondary-background-color: #386157;  /* TTD child element background color (secondary) */
-          --app-ttd-secondary-color: #ffffff;             /* TTD child element background color (secondary) */
+          --app-ttd-secondary-color: #FFFFFF;             /* TTD child element background color (secondary) */
           --app-ttd-clean-color: #222;                    /* TTD child element color (clean) */
           --app-ttd-clean-background-color: #fff;         /* TTD child element background color (clean) */
 
@@ -100,7 +101,7 @@ class MyApp extends PolymerElement {
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="view1" href="[[rootPath]]view1">View One</a>
+            <a name="app-view-home" href="[[rootPath]]app-view-home">Home</a>
             <a name="view2" href="[[rootPath]]view2">View Two</a>
             <a name="basic-dice-roller" href="[[rootPath]]basic-dice-roller">Dice Roller</a>
           </iron-selector>
@@ -117,7 +118,7 @@ class MyApp extends PolymerElement {
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <my-view1 name="view1"></my-view1>
+            <app-view-home name="app-view-home"></app-view-home>
             <my-view2 name="view2"></my-view2>
             <ttd-view-basic name="basic-dice-roller"></ttd-view-basic>
             <my-view404 name="view404"></my-view404>
@@ -150,8 +151,8 @@ class MyApp extends PolymerElement {
      // If no page was found in the route data, page will be an empty string.
      // Show views that are called out, otherwise if the 'page' doesn't exist, show 'view404'.
     if (!page) {
-      this.page = 'view1';
-    } else if (['view1', 'view2', 'basic-dice-roller'].indexOf(page) !== -1) {
+      this.page = 'app-view-home';
+    } else if (['app-view-home', 'view2', 'basic-dice-roller'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -169,8 +170,8 @@ class MyApp extends PolymerElement {
     // Note: `polymer build` doesn't like string concatenation in the import
     // statement, so break it up.
     switch (page) {
-      case 'view1':
-        import('./my-view1.js');
+      case 'app-view-home':
+        import('./app-view-home.js');
         break;
       case 'view2':
         import('./my-view2.js');
