@@ -1,8 +1,8 @@
 {
   "name": "Tabletop Dice",
   "short_name": "TTD",
-  "theme_color": "#7851a9",
-  "background_color": "#7851a9",
+  "theme_color": "#487D70",
+  "background_color": "#74C9B5",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/",
