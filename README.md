@@ -1,10 +1,10 @@
 # TabletopDice.com Application
 This web application is intended for use during a tabletop gaming session. It is currently hosted at [TabletopDice.com](https://TabletopDice.com/).
 
-_* Dice graphics in this application were generiously donated by Arvil._
+_* All graphics of dice in this application were generiously donated by Arvil._
 
 ## Usage
-This project includes a number of polymer elements located in the /src/ttd/ folder. They reference the dice images in /images/ folder, too.
+This project includes a number of modular polymer elements located in the /src/ttd/ folder. They reference the dice images in /images/ folder, too.
 
 ### Example
 ```html
@@ -29,7 +29,7 @@ This project includes a number of polymer elements located in the /src/ttd/ fold
 </ttd-tray>
 ```
 ### &lt;ttd-tray&gt;
-This custom element wraps around all other &lt;ttd-*&gt; elements, handling click events and shared data between them. I opted to use this method, since it means you can run multiple instances of dice trays on a single page.
+This custom element is **required** to wrap around all other &lt;ttd-*&gt; elements, handling click events and shared data between them. I opted to use this method, since it means you can run multiple instances of dice trays on a single page.
 
 Events that can be fired or listened to on this element:
 * **_updateHistory** dispatched whenever this.results is changed
@@ -40,14 +40,34 @@ Events that can be fired or listened to on this element:
 
 
 ### &lt;ttd-history&gt;
-### &lt;ttd-sum&gt;
-### &lt;ttd-die&gt;
-### &lt;ttd-clear&gt;
-Clears the application's roll data.
+Displays a historical readout (in `<ol>` / `<li>` format) of rolls, comes nativly with horizontal scrolling. Results are displayed as the value rolled with an image of the die behind it.
 
+This element has an optional attribute of `excited`. Adding this attribute causes the program to add a `!` to critical rolls (when the result rolled is the same as the sides of the die).
+
+A user may copy/paste from this element to recieve the sides of the die rolled as well. This text is also visible to screen readers (ie `3(from d6) 1(from d6) 4!(from d4) 12(from d20) 20!(from d20)`).
+
+### &lt;ttd-sum&gt;
+Displays a readout of the sum from all dice rolled.
+
+### &lt;ttd-die&gt;
+Creates a clickable ui element that rolls a die. The `sides` attribute sets how many sides each `<ttd-die>` element has.
+
+### &lt;ttd-clear&gt;
+Creates a clickable ui element that resets the application's roll data. You may slot in your own copy text, but the default is "Clear".
 
 
 ## This project utlizes:
-* Polymer v3 (PWA, ES, SPA)
-	* Used Polymer Starter Kit as a base
-* CSS Grid
+These are the key things I focused on learning while building this application. 
+* Javascript
+	* Polymer v3. I used the polymer starter kit as a base.
+      * Single Page Application (SPA)
+      * Progressive Web App (PWA)
+    * Web Components
+	* Some ES
+* CSS
+	* Grid
+	* Variables
+* AWS 
+	* Route 53
+    * Simple Storage Service (S3)
+    * CloudFront with a Certificate for HTTPS and HTTP/2
