@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: http://TabletopDice.com/sitemap.xml
