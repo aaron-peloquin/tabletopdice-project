@@ -55,6 +55,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       h1 {
         font-size: 2rem;
         margin: 0;
+        margin-top: 15px;
         background: var(--app-primary-color);
         color: #EFEFEF;
       }
