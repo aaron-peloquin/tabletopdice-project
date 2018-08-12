@@ -18,8 +18,16 @@ class TtdHistory extends TtdChildHelper {
           overflow: -moz-scrollbars-none;
         }
       :host{
+          padding: 10px;
           -ms-overflow-style: -ms-autohiding-scrollbar;
           overflow-x: scroll;
+
+          -webkit-touch-callout: text; /* iOS Safari */
+          -webkit-user-select: text; /* Safari */
+          -khtml-user-select: text; /* Konqueror HTML */
+          -moz-user-select: text; /* Firefox */
+          -ms-user-select: text; /* Internet Explorer/Edge */
+          user-select: text; /* Non-prefixed version, currently supported by Chrome and Opera */
         }
         :host::-webkit-scrollbar {
           display: none;
@@ -65,12 +73,16 @@ class TtdHistory extends TtdChildHelper {
           text-align: center;
         }
 
+        .invisible-text{
+          font-size: 0px;
+        }
+
       </style>
-      <ol>
+      <ol title="Copy/paste (ctrl+a, ctrl+c) for dice roll log">
         <dom-repeat items="{{results}}">
           <template>
             <li>
-              <span>[[resultText(item)]]</span>
+              <span>[[resultText(item)]]<span class="invisible-text">(from d[[item.sides]]) </span></span>
               <img src="[[dieImageURI(item.sides)]]" />
             </li>
           </template>

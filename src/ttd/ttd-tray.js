@@ -14,6 +14,16 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 class TtdTray extends PolymerElement {
   static get template() {
     return html`
+      <style>
+        :host{
+          -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+          -khtml-user-select: none; /* Konqueror HTML */
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+        }
+      </style>
       <slot></slot>
     `;
   }

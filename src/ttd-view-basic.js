@@ -31,8 +31,12 @@ class TtdViewBasic extends PolymerElement {
           display: block;
           padding: 10px;
           font-size: var(--font-size-all);
-          max-width: 800px;
           margin: 0 auto;
+        }
+
+        .tray-wrapper{
+          margin: 21px;
+
         }
 
         ttd-tray{
@@ -40,15 +44,17 @@ class TtdViewBasic extends PolymerElement {
           display: inline-grid;
           grid-gap: 1rem;
           grid-template-rows: auto;
-          grid-template-columns: var( --cols-grid-template);
+          grid-template-columns: var(--cols-grid-template);
         }
 
         ttd-tray > *{
+          border-radius: 5px;
           background-color: var(--app-ttd-default-background-color);
           color: var(--app-ttd-child-color);
           grid-column-end: var(--cols-default-child);
           overflow: hidden;
         }
+
         ttd-history,
         ttd-sum,
         ttd-clear{
@@ -114,34 +120,36 @@ class TtdViewBasic extends PolymerElement {
       </style>
 
         <div class="card">
-          <template is="dom-if" if="[[!browserSupported]]">
-            <p><strong>Unsupported Browser</strong></p>
-            <p>
-              <div>Supported Browsers:</div>
-              <ul>
-                <li>Google Chrome</li>
-                <li>Microsoft Edge</li>
-                <li><em>Firefox</em></li>
-              </ul>
-          </template>
-          <template is="dom-if" if="[[browserSupported]]">
-            <slot>
-              <ttd-tray>
-                <ttd-history excited></ttd-history>
-                <ttd-sum></ttd-sum>
-                <ttd-exclude></ttd-exclude>
-                <ttd-die sides="4"></ttd-die>
-                <ttd-die></ttd-die>
-                <ttd-die sides="8"></ttd-die>
-                <ttd-die sides="10"></ttd-die>
-                <ttd-die sides="12"></ttd-die>
-                <ttd-die sides="20"></ttd-die>
-                <ttd-custom></ttd-custom>
-                <ttd-custom-roll></ttd-custom-roll>
-                <ttd-clear></ttd-clear>
-              </ttd-tray>
-            </slot>
-          </template>
+          <div class="tray-wrapper">
+            <template is="dom-if" if="[[!browserSupported]]">
+              <p><strong>Unsupported Browser</strong></p>
+              <p>
+                <div>Supported Browsers:</div>
+                <ul>
+                  <li>Google Chrome</li>
+                  <li>Microsoft Edge</li>
+                  <li><em>Firefox</em></li>
+                </ul>
+            </template>
+            <template is="dom-if" if="[[browserSupported]]">
+              <slot>
+                <ttd-tray>
+                  <ttd-history excited></ttd-history>
+                  <ttd-sum></ttd-sum>
+                  <ttd-exclude></ttd-exclude>
+                  <ttd-die sides="4"></ttd-die>
+                  <ttd-die></ttd-die>
+                  <ttd-die sides="8"></ttd-die>
+                  <ttd-die sides="10"></ttd-die>
+                  <ttd-die sides="12"></ttd-die>
+                  <ttd-die sides="20"></ttd-die>
+                  <ttd-custom></ttd-custom>
+                  <ttd-custom-roll></ttd-custom-roll>
+                  <ttd-clear></ttd-clear>
+                </ttd-tray>
+              </slot>
+            </template>
+          </div>
         </div>
     `;
   }

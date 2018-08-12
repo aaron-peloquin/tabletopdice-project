@@ -18,7 +18,14 @@ class TtdSum extends TtdChildHelper {
           display: table;
           height:100%;
           width: 100%;
-        }
+
+          -webkit-touch-callout: text; /* iOS Safari */
+          -webkit-user-select: text; /* Safari */
+          -khtml-user-select: text; /* Konqueror HTML */
+          -moz-user-select: text; /* Firefox */
+          -ms-user-select: text; /* Internet Explorer/Edge */
+          user-select: text; /* Non-prefixed version, currently supported by Chrome and Opera */
+              }
         span{
           display: table-cell;
           vertical-align: middle;
