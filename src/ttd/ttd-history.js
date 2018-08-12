@@ -78,7 +78,7 @@ class TtdHistory extends TtdChildHelper {
         }
 
       </style>
-      <ol title="Copy/paste (ctrl+a, ctrl+c) for dice roll log">
+      <ol title="Copy for dice roll log">
         <dom-repeat items="{{results}}">
           <template>
             <li>
