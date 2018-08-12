@@ -104,8 +104,8 @@ class MyApp extends PolymerElement {
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="app-view-home" href="[[rootPath]]">Home</a>
-            <a name="app-view-about" href="[[rootPath]]app-view-about">About</a>
+            <a name="home" href="[[rootPath]]">Home</a>
+            <a name="about" href="[[rootPath]]about">About</a>
             <a name="basic-dice-roller" href="[[rootPath]]basic-dice-roller">Dice Roller</a>
           </iron-selector>
         </app-drawer>
@@ -115,14 +115,14 @@ class MyApp extends PolymerElement {
 
           <app-header slot="header" condenses="" reveals="" effects="waterfall">
             <app-toolbar>
-              <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
+              <paper-icon-button aria-label="Navigation Menu" icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
               <div main-title="">Tabletop Dice</div>
             </app-toolbar>
           </app-header>
 
           <iron-pages selected="{{page}}" attr-for-selected="name" role="main">
             <app-view-home page="{{page}}" name="app-view-home"></app-view-home>
-            <app-view-about page="{{page}}" name="app-view-about"></app-view-about>
+            <app-view-about page="{{page}}" name="about"></app-view-about>
             <ttd-view-basic page="{{page}}" name="basic-dice-roller"></ttd-view-basic>
             <my-view404 page="{{page}}" name="view404"></my-view404>
           </iron-pages>
@@ -155,7 +155,7 @@ class MyApp extends PolymerElement {
      // Show views that are called out, otherwise if the 'page' doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'app-view-home';
-    } else if (['app-view-home', 'app-view-about', 'basic-dice-roller'].indexOf(page) !== -1) {
+    } else if (['app-view-home', 'about', 'basic-dice-roller'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -176,7 +176,7 @@ class MyApp extends PolymerElement {
       case 'app-view-home':
         import('./app-view-home.js');
         break;
-      case 'app-view-about':
+      case 'about':
         import('./app-view-about.js');
         break;
       case 'basic-dice-roller':
