@@ -55,15 +55,15 @@ class TtdViewBasic extends PolymerElement {
           overflow: hidden;
         }
 
-        ttd-history,
-        ttd-sum,
-        ttd-clear{
+        ttd-tray ttd-history,
+        ttd-tray ttd-sum,
+        ttd-tray ttd-clear{
           background-color: var(--app-ttd-secondary-background-color);
           color: var(--app-ttd-secondary-color);
         }
 
-        ttd-custom,
-        ttd-custom-roll{
+        ttd-tray ttd-custom,
+        ttd-tray ttd-custom-roll{
           background-color: var(--app-ttd-special-background-color);
         }
 
