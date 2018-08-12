@@ -25,14 +25,17 @@ class TtdSum extends TtdChildHelper {
           -moz-user-select: text; /* Firefox */
           -ms-user-select: text; /* Internet Explorer/Edge */
           user-select: text; /* Non-prefixed version, currently supported by Chrome and Opera */
-              }
+        }
         span{
           display: table-cell;
           vertical-align: middle;
           overflow: hidden;
         }
+        .invisible-text{
+          font-size: 0px;
+        }
       </style>
-      <span>[[sum]]</span>
+      <span>[[sum]]<span class="invisible-text"> Total</span></span>
     `;
   }
 
