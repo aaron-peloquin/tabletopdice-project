@@ -6,6 +6,8 @@
   ],
   "extraDependencies": [
     "manifest.json",
+    "robots.txt",
+    "sitemap.xml",
     "node_modules/@webcomponents/webcomponentsjs/*.js",
     "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
     "node_modules/@webcomponents/webcomponentsjs/bundles/*.js"
