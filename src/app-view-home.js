@@ -29,7 +29,15 @@ class AppViewHome extends PolymerElement {
           transition: transform 640ms ease-in-out;    /* Gives the feeling of rolling the die */  
         }
 
-        a.start-rolling{
+        .start-rolling{
+          text-align: center;
+          padding: 15px;
+          border-radius: 15px;
+          background-color: var(--app-card-background);
+          box-shadow: 2px 2px 2px 2px #eeeeee;
+        }
+        
+        .start-rolling a{
           color: #FFF;
           font-size: 2rem;
           text-align: center;
@@ -39,13 +47,7 @@ class AppViewHome extends PolymerElement {
           display: block;
         }
         
-        p.start-rolling{
-          text-align: center;
-          padding: 15px;
-          border-radius: 15px;
-          background-color: var(--app-card-background);
-          box-shadow: 2px 2px 2px 2px #eeeeee;
-        }
+        
 
       </style>
 
@@ -57,7 +59,7 @@ class AppViewHome extends PolymerElement {
             Built with love for the tabletop gaming community.
           </p>
           <p class="start-rolling">
-            <a class="start-rolling" on-click="gotoRoll" href="[[rootPath]]basic-dice-roller">Start Rolling</a>
+            <a on-click="gotoRoll" href="[[rootPath]]basic-dice-roller">Start Rolling</a>
           </p>
         </div>
       </div>
