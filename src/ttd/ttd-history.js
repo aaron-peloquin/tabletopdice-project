@@ -14,9 +14,6 @@ class TtdHistory extends TtdChildHelper {
   static get template() {
     return html`
       <style>
-        *{
-          overflow: -moz-scrollbars-none;
-        }
       :host{
           padding: 10px;
           -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -32,11 +29,12 @@ class TtdHistory extends TtdChildHelper {
         :host::-webkit-scrollbar {
           display: none;
         }
+
         ol {
           margin: 0;
           padding: 0;
           height: 100%;
-          min-height: 64px;
+          min-height: 65px;
 
           /* horizontal scrollbar functionality */
           -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -47,6 +45,13 @@ class TtdHistory extends TtdChildHelper {
         /* horizontal scrollbar functionality */
         ol::-webkit-scrollbar {
           display: none;
+        }
+        /* disable horizontal scrollbar functionality in firefox due to inability to hide them properly */
+        @-moz-document url-prefix() {
+          :host,
+          ol {
+            overflow-x: hidden;
+          }
         }
 
         ol > li {
@@ -76,7 +81,6 @@ class TtdHistory extends TtdChildHelper {
         .invisible-text{
           font-size: 0px;
         }
-
       </style>
       <ol title="Copy for dice roll log">
         <dom-repeat items="{{results}}">

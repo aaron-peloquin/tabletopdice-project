@@ -18,6 +18,7 @@ class AppAdsense extends PolymerElement {
           display: table;
           height: 100%;
           width: 100%;
+          padding: 0px;
         }
         div{
             display: table-cell;
