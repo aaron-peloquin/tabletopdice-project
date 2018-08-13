@@ -126,6 +126,7 @@ class MyApp extends PolymerElement {
             <app-view-about page="{{page}}" name="about"></app-view-about>
             <ttd-view-quick page="{{page}}" name="quick-dice-roller"></ttd-view-quick>
             <ttd-view-basic page="{{page}}" name="basic-dice-roller"></ttd-view-basic>
+            <ttd-view-advanced page="{{page}}" name="advanced-dice-roller"></ttd-view-advanced>
             <my-view404 page="{{page}}" name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -162,6 +163,7 @@ class MyApp extends PolymerElement {
         'about',
         'quick-dice-roller',
         'basic-dice-roller',
+        'advanced-dice-roller',
       ].indexOf(page) !== -1) {
       this.page = page;
     } else {
@@ -196,8 +198,19 @@ class MyApp extends PolymerElement {
         import('./ttd/ttd-clear.js');
         import('./ttd/ttd-exclude.js');
         break;
-      case 'basic-dice-roller':
+        case 'basic-dice-roller':
         import('./ttd-view-basic.js');
+        import('./ttd/ttd-tray.js');
+        import('./ttd/ttd-history.js');
+        import('./ttd/ttd-sum.js');
+        import('./ttd/ttd-die.js');
+        import('./ttd/ttd-clear.js');
+        import('./ttd/ttd-exclude.js');
+        import('./ttd/ttd-custom.js');
+        import('./ttd/ttd-custom-roll.js');
+        break;
+      case 'advanced-dice-roller':
+        import('./ttd-view-advanced.js');
         import('./ttd/ttd-tray.js');
         import('./ttd/ttd-history.js');
         import('./ttd/ttd-sum.js');
