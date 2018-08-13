@@ -33,11 +33,6 @@ class AppViewAbout extends PolymerElement {
             Decades later, I never seem to forget my phone when coming to the table,
             so I decided to build this in service to all of my fellow kin who share my curse.
           </p>
-          <p>
-            This site is currently maintained by one developer,
-            it's AWS hosting is supported by google ads, so if you have an AdBlocker installed,
-            please disable it- but honestly, hosting doesn't cost that much.
-          </p>
         </div>
 
         <h1>Contact &amp; Feedback</h1>
