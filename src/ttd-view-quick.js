@@ -131,6 +131,7 @@ class TtdViewQuick extends PolymerElement {
                 </ttd-tray>
               </slot>
             </template>
+            <app-adsense></app-adsense>
           </div>
         </div>
     `;

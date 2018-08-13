@@ -148,6 +148,7 @@ class TtdViewBasic extends PolymerElement {
                   <ttd-clear></ttd-clear>
                 </ttd-tray>
               </slot>
+              <app-adsense></app-adsense>
             </template>
           </div>
         </div>
