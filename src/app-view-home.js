@@ -53,14 +53,11 @@ class AppViewHome extends PolymerElement {
       <div class="card">
         <h1>Simple Dice Rolling</h1>
         <div class="copy-box">
-          <p class="start-rolling">
-            <a class="start-rolling" on-click="gotoRoll" href="[[rootPath]]basic-dice-roller">Start Roll'in</a>
+         <p>
+            Built with love for the tabletop gaming community.
           </p>
-          <p>
-            This website is a progressive web app (PWA), meaning you can
-            access it's pages while offline after visiting them once. Your 
-            device may also support saving (linking) this website to your 
-            desktop/homescreen.
+          <p class="start-rolling">
+            <a class="start-rolling" on-click="gotoRoll" href="[[rootPath]]basic-dice-roller">Start Rolling</a>
           </p>
         </div>
       </div>
