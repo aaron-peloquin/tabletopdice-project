@@ -90,7 +90,8 @@ class TtdExclude extends TtdChildHelper {
 
     //Report to google analytics
     gtag('event', 'update-exclude', {
-      'die': this.die
+      'die': this.die,
+      'eventLabel': this.die
     });
     this.trayElement.dispatchEvent(new CustomEvent('_recalculateSum'));
   }
