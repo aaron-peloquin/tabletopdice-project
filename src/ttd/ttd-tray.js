@@ -56,6 +56,21 @@ class TtdTray extends PolymerElement {
     var value = Math.floor(Math.random() * Math.floor(sides)) + 1;
     this.results.push({"sides":sides,"result":value});
 
+    //Report to Google Analytics
+    gtag('event', 'roll', {
+      'sides': sides,
+      'result': value
+    });
+
+    if(sides==20){
+      if(value==20){
+        gtag('event', 'natural-twenty');
+      }
+      else if(value==1){
+        gtag('event', 'natural-one');
+      }
+    }
+
     this.dispatchEvent(new CustomEvent('_recalculateSum'));
     this.updateHistoricalNodes();
   }
@@ -64,6 +79,7 @@ class TtdTray extends PolymerElement {
   recalculateSum(){
     var exclude = this.exclude;
     var newSum = 0;
+
     // Loop throuh all results and add them together, excluding any rolls that were made by the excluded die.
     if(this.results.length>0){
       this.results.forEach(function(roll){
@@ -80,7 +96,6 @@ class TtdTray extends PolymerElement {
 
   // Update the results of all historical listeners.
   updateHistoricalNodes(){
-    // Reverse order of the results so newest rolls are at the beginning of the array.
     // Dispatch _updateHistory event to all child elements that are listening.
     this.dispatchEvent(new CustomEvent('_updateHistory', {detail: {data:this.results}}));
   }

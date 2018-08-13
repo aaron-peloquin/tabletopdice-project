@@ -77,6 +77,11 @@ class TtdExclude extends TtdChildHelper {
       return false;
     }
     this.trayElement.exclude = this.excludeDie;
+
+    //Report to google analytics
+    gtag('event', 'update-exclude', {
+      'exclude': this.excludeDie
+    });
     this.trayElement.dispatchEvent(new CustomEvent('_recalculateSum'));
   }
 }
