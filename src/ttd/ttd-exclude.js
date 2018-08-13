@@ -35,7 +35,7 @@ class TtdExclude extends TtdChildHelper {
       <select value="{{die::change}}">
         <option value="0" selected$="{{isSelected(type)}}">[[defaultLanguage]]</option>
         <template is="dom-repeat" items="{{types}}" as="sides">
-            <option value="[[type]]" selected$='[[_computeSelected(sides, die)]]'>[[prefix]][[sides]][[append]]</option>
+            <option value="[[sides]]" selected$='[[_computeSelected(sides, die)]]'>[[prefix]][[sides]][[append]]</option>
         </template>
       </select>
     `;
@@ -75,12 +75,7 @@ class TtdExclude extends TtdChildHelper {
       return false;
     }
 
-    if(this.die!=0){
-      var temp = this.die;
-      this.die = temp;
-    }
-
-    console.log("die",this.die);
+    this.trayElement.exclude = this.die;
   }
   
   _computeSelected(t,d){
@@ -91,7 +86,7 @@ class TtdExclude extends TtdChildHelper {
     if (!this.trayElement){
       return false;
     }
-    this.trayElement.die = this.die;
+    this.trayElement.exclude = this.die;
 
     //Report to google analytics
     gtag('event', 'update-exclude', {
