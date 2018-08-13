@@ -179,6 +179,7 @@ class MyApp extends PolymerElement {
     //
     // Note: `polymer build` doesn't like string concatenation in the import
     // statement, so break it up.
+    import('./app-adsense.js');
     switch (page) {
       case 'app-view-home':
         import('./app-view-home.js');
