@@ -1,4 +1,5 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import {} from '@polymer/polymer/lib/elements/dom-if.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
@@ -31,20 +32,17 @@ class TtdExclude extends TtdChildHelper {
           color: var(--app-ttd-clean-color);
         }
       </style>
-      <select value="{{excludeDie::change}}">
-        <option value="0">[[defaultLanguage]]</option>
-        <option value="20">[[prefix]]20[[append]]</option>
-        <option value="12">[[prefix]]12[[append]]</option>
-        <option value="10">[[prefix]]10[[append]]</option>
-        <option value="8">[[prefix]]8[[append]]</option>
-        <option value="6">[[prefix]]6[[append]]</option>
-        <option value="4">[[prefix]]4[[append]]</option>
+      <select value="{{die::change}}">
+        <option value="0" selected$="{{isSelected(type)}}">[[defaultLanguage]]</option>
+        <template is="dom-repeat" items="{{types}}" as="sides">
+            <option value="[[type]]" selected$='[[_computeSelected(sides, die)]]'>[[prefix]][[sides]][[append]]</option>
+        </template>
       </select>
     `;
   }
   static get properties() {
     return {
-      excludeDie: {
+      die: {
         type: Number,
         value: 0,
         observer: 'updateExcludedDie',
@@ -61,6 +59,12 @@ class TtdExclude extends TtdChildHelper {
         type: String,
         value: "s",
       },
+      types: {
+        type: Array,
+        value: function(){
+          return [20, 12, 10, 8, 6, 4];
+        },
+      }
     };
   }
 
@@ -70,17 +74,28 @@ class TtdExclude extends TtdChildHelper {
     if (!this.trayElement){
       return false;
     }
+
+    if(this.die!=0){
+      var temp = this.die;
+      this.die = temp;
+    }
+
+    console.log("die",this.die);
   }
   
+  _computeSelected(t,d){
+    return t===d;
+  }
+
   updateExcludedDie(){
     if (!this.trayElement){
       return false;
     }
-    this.trayElement.exclude = this.excludeDie;
+    this.trayElement.die = this.die;
 
     //Report to google analytics
     gtag('event', 'update-exclude', {
-      'exclude': this.excludeDie
+      'die': this.die
     });
     this.trayElement.dispatchEvent(new CustomEvent('_recalculateSum'));
   }
