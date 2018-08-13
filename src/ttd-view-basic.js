@@ -122,7 +122,7 @@ class TtdViewBasic extends PolymerElement {
         <div class="card">
           <div class="tray-wrapper">
             <template is="dom-if" if="[[!browserSupported]]">
-              <p><strong>Unsupported Browser</strong></p>
+              <h1>Unsupported Browser</h1>
               <p>
                 <div>Supported Browsers:</div>
                 <ul>
