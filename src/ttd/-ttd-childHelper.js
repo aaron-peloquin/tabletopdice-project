@@ -12,7 +12,15 @@ class TtdChildHelper extends PolymerElement {
 
   // Loop through parents of the node and return the first <ttd-tray> element.
   findTray(){
-    this.trayElement = this.closest("ttd-tray");
+    var el = this;
+    while (el.parentNode) {
+      el = el.parentNode;
+      if (el.tagName == 'TTD-TRAY'){
+        this.trayElement = el;
+        break;
+      }
+    }
+    //this.trayElement = this.closest("ttd-tray");
     if(!this.trayElement){
       console.error("<"+this.nodeName.toLowerCase()+"> elements must be wrapped in a <ttd-tray> element");
     }
