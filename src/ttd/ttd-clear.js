@@ -29,15 +29,6 @@ class TtdClear extends TtdChildHelper {
     `;
   }
 
-  static get properties() {
-    return {
-      prop1: {
-        type: String,
-        value: 'ttd-clear',
-      },
-    };
-  }
-
   ready(){
 		super.ready();
 		this.findTray();
