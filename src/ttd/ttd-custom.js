@@ -57,11 +57,17 @@ class TtdCustom extends TtdChildHelper {
           display: table-cell;
           vertical-align: middle;
         }
+
+        .invisible-text{
+          font-size: 0px;
+        }
+
       </style>
       <form>
         <div>
           <span><template is="dom-if" if="[[rolled]]">{{rolled}}</template>d</span>
-          <input type="number" value="{{customSides::input}}" />
+          <label class="invisible-text" for="custom-die">Custom die value</label>
+          <input id="custom-die" type="number" value="{{customSides::input}}" />
         </div>
       </form>
     `;
