@@ -106,7 +106,8 @@ class MyApp extends PolymerElement {
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="home" href="[[rootPath]]">Home</a>
             <a name="about" href="[[rootPath]]about">About</a>
-            <a name="basic-dice-roller" href="[[rootPath]]basic-dice-roller">Dice Roller</a>
+            <a name="basic-dice-roller" href="[[rootPath]]quick-dice-roller">Roll Quick</a>
+            <a name="basic-dice-roller" href="[[rootPath]]basic-dice-roller">Roll Basic</a>
           </iron-selector>
         </app-drawer>
 
@@ -123,6 +124,7 @@ class MyApp extends PolymerElement {
           <iron-pages selected="{{page}}" attr-for-selected="name" role="main">
             <app-view-home page="{{page}}" name="app-view-home"></app-view-home>
             <app-view-about page="{{page}}" name="about"></app-view-about>
+            <ttd-view-quick page="{{page}}" name="quick-dice-roller"></ttd-view-quick>
             <ttd-view-basic page="{{page}}" name="basic-dice-roller"></ttd-view-basic>
             <my-view404 page="{{page}}" name="view404"></my-view404>
           </iron-pages>
@@ -155,7 +157,12 @@ class MyApp extends PolymerElement {
      // Show views that are called out, otherwise if the 'page' doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'app-view-home';
-    } else if (['app-view-home', 'about', 'basic-dice-roller'].indexOf(page) !== -1) {
+    } else if ([
+        'app-view-home',
+        'about',
+        'quick-dice-roller',
+        'basic-dice-roller',
+      ].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -178,6 +185,15 @@ class MyApp extends PolymerElement {
         break;
       case 'about':
         import('./app-view-about.js');
+        break;
+      case 'quick-dice-roller':
+        import('./ttd-view-quick.js');
+        import('./ttd/ttd-tray.js');
+        import('./ttd/ttd-history.js');
+        import('./ttd/ttd-sum.js');
+        import('./ttd/ttd-die.js');
+        import('./ttd/ttd-clear.js');
+        import('./ttd/ttd-exclude.js');
         break;
       case 'basic-dice-roller':
         import('./ttd-view-basic.js');
