@@ -36,7 +36,7 @@ class MyApp extends PolymerElement {
     return html`
       <style>
         :host {
-          --app-font-family: 'Cinzel', serif;             /* App font family */
+          --app-font-family: "Cinzel", "Georgia", serif;  /* App font family */
           --app-font-weight: Bolder;                      /* App font weight */
 
           /* Color variables */
