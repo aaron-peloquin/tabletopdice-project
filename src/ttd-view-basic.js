@@ -136,7 +136,7 @@ class TtdViewBasic extends PolymerElement {
                 <ttd-tray>
                   <ttd-history excited></ttd-history>
                   <ttd-sum></ttd-sum>
-                  <ttd-exclude></ttd-exclude>
+                  <ttd-exclude die="20"></ttd-exclude>
                   <ttd-die sides="4"></ttd-die>
                   <ttd-die></ttd-die>
                   <ttd-die sides="8"></ttd-die>
