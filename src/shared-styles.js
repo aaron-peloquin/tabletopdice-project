@@ -14,10 +14,6 @@ const $_documentContainer = document.createElement('template');
 $_documentContainer.innerHTML = `<dom-module id="shared-styles">
   <template>
     <style>
-      :host{
-
-      }
-
       .card {
         max-width: 700px;
         margin: 0 auto;
@@ -58,6 +54,11 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         margin-top: 15px;
         background: var(--app-primary-color);
         color: #EFEFEF;
+      }
+
+      h2{
+        font-size: 1.25rem;
+        text-align: center;
       }
     </style>
   </template>
