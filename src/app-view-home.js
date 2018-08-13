@@ -46,8 +46,6 @@ class AppViewHome extends PolymerElement {
           width: 100%;
           display: block;
         }
-        
-        
 
       </style>
 
@@ -55,9 +53,9 @@ class AppViewHome extends PolymerElement {
       <div class="card">
         <h1>Simple Dice Rolling</h1>
         <div class="copy-box">
-         <p>
-            Built with love for the tabletop gaming community.
-          </p>
+          <h2>
+            Built with love for the tabletop gaming community &lt;3
+          </h2>
           <p class="start-rolling">
             <a on-click="gotoRoll" href="[[rootPath]]basic-dice-roller">Start Rolling</a>
           </p>
