@@ -122,12 +122,12 @@ class MyApp extends PolymerElement {
           </app-header>
 
           <iron-pages selected="{{page}}" attr-for-selected="name" role="main">
-            <app-view-home page="{{page}}" name="app-view-home"></app-view-home>
-            <app-view-about page="{{page}}" name="about"></app-view-about>
-            <ttd-view-quick page="{{page}}" name="quick-dice-roller"></ttd-view-quick>
-            <ttd-view-basic page="{{page}}" name="basic-dice-roller"></ttd-view-basic>
-            <ttd-view-advanced page="{{page}}" name="advanced-dice-roller"></ttd-view-advanced>
-            <my-view404 page="{{page}}" name="view404"></my-view404>
+            <app-view-home name="app-view-home"></app-view-home>
+            <app-view-about name="about"></app-view-about>
+            <ttd-view-quick name="quick-dice-roller"></ttd-view-quick>
+            <ttd-view-basic name="basic-dice-roller"></ttd-view-basic>
+            <ttd-view-advanced name="advanced-dice-roller"></ttd-view-advanced>
+            <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
       </app-drawer-layout>
@@ -181,7 +181,6 @@ class MyApp extends PolymerElement {
     //
     // Note: `polymer build` doesn't like string concatenation in the import
     // statement, so break it up.
-    import('./app-adsense.js');
     switch (page) {
       case 'app-view-home':
         import('./app-view-home.js');

@@ -130,7 +130,7 @@ class TtdViewQuick extends PolymerElement {
               </slot>
             </template>
           </div>
-          <app-adsense></app-adsense>
+          <app-monetizer></app-monetizer>
         </div>
     `;
   }

@@ -77,7 +77,7 @@ class AppViewHome extends PolymerElement {
     };
   }
 
-  gotoRoll(){
+  gotoRoll() {
     this.page = 'basic-dice-roller';
   }
 }

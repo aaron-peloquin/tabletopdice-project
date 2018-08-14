@@ -1,14 +1,14 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 
 /**
- * `app-adsense`
- * Clears all rolled value data from the application
+ * `app-monetizer`
+ * Internal ads element
  *
  * @customElement
  * @polymer
  * @demo demo/index.html
  */
-class AppAdsense extends PolymerElement {
+class AppMonetizer extends PolymerElement {
   static get template() {
     return html`
       <style>
@@ -31,9 +31,14 @@ class AppAdsense extends PolymerElement {
     `;
   }
 
+
+  ready(){
+    super.ready();
+  }
+
   track(){
-    
+    console.log('ad clicked');
   }
 }
 
-window.customElements.define('app-adsense', AppAdsense);
+window.customElements.define('app-monetizer', AppMonetizer);

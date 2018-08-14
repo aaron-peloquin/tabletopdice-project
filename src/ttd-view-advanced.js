@@ -150,7 +150,7 @@ class TtdViewAdvanced extends PolymerElement {
               </slot>
             </template>
           </div>
-          <app-adsense>Ads for high rollers</app-adsense>
+          <app-monetizer>Ads for high rollers</app-monetizer>
         </div>
     `;
   }
