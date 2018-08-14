@@ -35,7 +35,7 @@ class TtdSum extends TtdChildHelper {
           font-size: 0px;
         }
       </style>
-      <span>[[sum]]<span class="invisible-text"> Total</span></span>
+      <span>[[sum]]<span class="invisible-text">(Total)</span></span>
     `;
   }
 
