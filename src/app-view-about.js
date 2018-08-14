@@ -21,20 +21,6 @@ class AppViewAbout extends PolymerElement {
       </style>
 
       <div class="card">
-        <h1>About</h1>
-        <div class="copy-box">
-          <p>
-            TabletopDice.com was created out of my love for tabletop gaming.
-          </p>
-          <p>
-            I've been playing since my brother's friends introduced me
-            to D&D 2nd edition when I was 12 years old,
-            and I've had a bad habbit of forgetting my dice since then.
-            Decades later, I never seem to forget my phone when coming to the table,
-            so I decided to build this in service to all of my fellow kin who share my curse.
-          </p>
-        </div>
-
         <h1>Usage</h1>
         <div class="copy-box">
           <p>
@@ -56,8 +42,22 @@ class AppViewAbout extends PolymerElement {
           </p>
           -->
 
-          </div>
+        </div>
 
+        <h1>History</h1>
+        <div class="copy-box">
+          <p>
+            TabletopDice.com was created out of my love for tabletop gaming.
+          </p>
+          <p>
+            I've been playing since my brother's friends introduced me
+            to D&D 2nd edition when I was 12 years old,
+            and I've had a bad habbit of forgetting my dice since then.
+            Decades later, I never seem to forget my phone when coming to the table,
+            so I decided to build this in service to all of my fellow kin who share my curse.
+          </p>
+        </div>
+  
         <h1>Contact &amp; Feedback</h1>
         <div class="copy-box">
           <p>
