@@ -28,7 +28,7 @@
       "html": {
         "minify": true
       },
-      "bundle": false,
+      "bundle": true,
       "addServiceWorker": true
     }
   ],

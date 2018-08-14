@@ -11,6 +11,15 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import {} from '@polymer/polymer/lib/elements/dom-if.js';
 import './shared-styles.js';
+import './app-monetizer.js';
+import './ttd/ttd-tray.js';
+import './ttd/ttd-history.js';
+import './ttd/ttd-sum.js';
+import './ttd/ttd-die.js';
+import './ttd/ttd-clear.js';
+import './ttd/ttd-exclude.js';
+import './ttd/ttd-custom.js';
+import './ttd/ttd-custom-roll.js';
 
 class TtdViewBasic extends PolymerElement {
   static get template() {

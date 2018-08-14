@@ -1,5 +1,4 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import {} from '@polymer/polymer/lib/elements/dom-if.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**

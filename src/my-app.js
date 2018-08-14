@@ -158,13 +158,7 @@ class MyApp extends PolymerElement {
      // Show views that are called out, otherwise if the 'page' doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'app-view-home';
-    } else if ([
-        'app-view-home',
-        'about',
-        'quick-dice-roller',
-        'basic-dice-roller',
-        'advanced-dice-roller',
-      ].indexOf(page) !== -1) {
+    } else if (['app-view-home','about','quick-dice-roller','basic-dice-roller','advanced-dice-roller'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -188,36 +182,12 @@ class MyApp extends PolymerElement {
       case 'about':
         import('./app-view-about.js');
         break;
-      case 'quick-dice-roller':
-        import('./ttd-view-quick.js');
-        import('./ttd/ttd-tray.js');
-        import('./ttd/ttd-history.js');
-        import('./ttd/ttd-sum.js');
-        import('./ttd/ttd-die.js');
-        import('./ttd/ttd-clear.js');
-        import('./ttd/ttd-exclude.js');
-        break;
-        case 'basic-dice-roller':
-        import('./ttd-view-basic.js');
-        import('./ttd/ttd-tray.js');
-        import('./ttd/ttd-history.js');
-        import('./ttd/ttd-sum.js');
-        import('./ttd/ttd-die.js');
-        import('./ttd/ttd-clear.js');
-        import('./ttd/ttd-exclude.js');
-        import('./ttd/ttd-custom.js');
-        import('./ttd/ttd-custom-roll.js');
-        break;
       case 'advanced-dice-roller':
         import('./ttd-view-advanced.js');
-        import('./ttd/ttd-tray.js');
-        import('./ttd/ttd-history.js');
-        import('./ttd/ttd-sum.js');
-        import('./ttd/ttd-die.js');
-        import('./ttd/ttd-clear.js');
-        import('./ttd/ttd-exclude.js');
-        import('./ttd/ttd-custom.js');
-        import('./ttd/ttd-custom-roll.js');
+      case 'basic-dice-roller':
+        import('./ttd-view-basic.js');
+      case 'quick-dice-roller':
+        import('./ttd-view-quick.js');
         break;
       case 'view404':
         import('./my-view404.js');
