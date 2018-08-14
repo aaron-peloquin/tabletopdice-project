@@ -86,7 +86,7 @@ class TtdHistory extends TtdChildHelper {
         <dom-repeat items="{{results}}">
           <template>
             <li>
-              <span>[[resultText(item)]]<span class="invisible-text">(from d[[item.sides]]) </span></span>
+              <span>[[formatResultString(item)]]<span class="invisible-text">(from d[[item.sides]]) </span></span>
               <img src="[[dieImageURI(item.sides)]]" />
             </li>
           </template>
@@ -121,7 +121,7 @@ class TtdHistory extends TtdChildHelper {
     this.results = e.detail.data.slice(0).reverse();
   }
 
-  resultText(r){
+  formatResultString(r){
     return r.result.toLocaleString() + (this.excited && r.result==r.sides?'!':'');
   }
 }

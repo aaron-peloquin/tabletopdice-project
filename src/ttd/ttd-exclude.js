@@ -32,9 +32,9 @@ class TtdExclude extends TtdChildHelper {
         }
       </style>
       <select value="{{die::change}}">
-        <option value="0" selected$="{{isSelected(type)}}">[[defaultLanguage]]</option>
+        <option value="0" selected$="{{parseSelected(0, die)}}">[[defaultLanguage]]</option>
         <template is="dom-repeat" items="{{types}}" as="sides">
-            <option value="[[sides]]" selected$='[[_computeSelected(sides, die)]]'>[[prefix]][[sides]][[append]]</option>
+            <option value="[[sides]]" selected$='[[parseSelected(sides, die)]]'>[[prefix]][[sides]][[append]]</option>
         </template>
       </select>
     `;
@@ -77,7 +77,7 @@ class TtdExclude extends TtdChildHelper {
     this.trayElement.exclude = this.die;
   }
   
-  _computeSelected(t,d){
+  parseSelected(t,d){
     return t===d;
   }
 
