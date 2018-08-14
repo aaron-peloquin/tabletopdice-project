@@ -69,6 +69,7 @@ class TtdHistory extends TtdChildHelper {
           vertical-align: middle;
           -webkit-filter: invert(90%);
           -filter: invert(90%);
+          margin: 0 auto;
         }
 
         li > span{
