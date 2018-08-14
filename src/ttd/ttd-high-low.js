@@ -26,25 +26,44 @@ class TtdHighLow extends TtdChildHelper {
           user-select: text; /* Non-prefixed version, currently supported by Chrome and Opera */
         }
 
-        span{
+        div{
+          display: grid;
+          grid-template-rows: 1fr 1fr 1fr;
+        }
+
+        span.result,
+        img{
+          grid-row: 1fr;
+          justify-self: center;
+          width: 50%;
+          font-size: 1.75rem;
         }
 
         .invisible-text{
           font-size: 0px;
         }
       </style>
-      <span>{{max}}<span class="invisible-text">(high), </span><hr />{{min}}<span class="invisible-text">(low)</span>
+      <div class="results-wrapper">
+        <span class="result">{{max}}<span class="invisible-text">(high), </span></span>
+        <img src="[[dieImageURI(die)]]" />
+        <span class="result">{{min}}<span class="invisible-text">(low)</span></span>
+      </div>
       `;
   }
   static get properties() {
     return {
+      die: {
+        type: Number,
+        value: 20,
+        reflectToAttribute: true,
+      },
       min: {
         type: Number,
-        value: 0,
+        value: '',
       },
       max: {
         type: Number,
-        value: 0,
+        value: '',
       },
     };
   }
@@ -62,15 +81,18 @@ class TtdHighLow extends TtdChildHelper {
   updateMinMax(e){
     this.min = 0;
     this.max = 0;
+    var dieSides = this.die;
     var min = null;
     var max = null;
 
     e.detail.data.forEach(function(r){
-      if (max === null || max < r.result){
-        max = r.result;
-      }
-      if (min === null || min > r.result){
-        min = r.result;
+      if(dieSides==r.sides){
+        if (max === null || max < r.result){
+          max = r.result;
+        }
+        if (min === null || min > r.result){
+          min = r.result;
+        }
       }
     });
     this.min  = min;
