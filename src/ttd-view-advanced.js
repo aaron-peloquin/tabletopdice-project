@@ -20,6 +20,7 @@ import './ttd/ttd-clear.js';
 import './ttd/ttd-exclude.js';
 import './ttd/ttd-custom.js';
 import './ttd/ttd-custom-roll.js';
+import './ttd/ttd-high-low.js';
 
 class TtdViewAdvanced extends PolymerElement {
   static get template() {
@@ -29,6 +30,8 @@ class TtdViewAdvanced extends PolymerElement {
           /* [Responsive] Tiny Styles */
           --cols-num: 4;
           --cols-grid-template: 1fr 1fr 1fr 1fr;
+          --cols-ttd-history: span 3;
+          --cols-ttd-high-low: span 1;
           --cols-default-child: span 2;
           --cols-ttd-exclude: span 3;
           --cols-ttd-custom: var(--cols-default-child);
@@ -65,6 +68,7 @@ class TtdViewAdvanced extends PolymerElement {
         }
 
         ttd-tray ttd-history,
+        ttd-tray ttd-high-low,
         ttd-tray ttd-sum,
         ttd-tray ttd-clear{
           background-color: var(--app-ttd-secondary-background-color);
@@ -78,11 +82,15 @@ class TtdViewAdvanced extends PolymerElement {
 
         /* History always takes up 1 whole row */
         ttd-tray ttd-history{
-          grid-column-end: span var(--cols-num);
+          grid-column-end: var(--cols-ttd-history);
+        }
+
+        ttd-tray ttd-high-low{
+          grid-column-end: var(--cols-ttd-high-low);
         }
 
         ttd-tray ttd-exclude{
-          grid-column-end: var(--cols-ttd-exclude);
+          grid-column-end: span var(--cols-num);
           font-family: var(--app-font-family);
         }
 
@@ -144,8 +152,9 @@ class TtdViewAdvanced extends PolymerElement {
               <slot>
                 <ttd-tray>
                   <ttd-history excited></ttd-history>
+                  <ttd-high-low sides="20"></ttd-high-low>
                   <ttd-sum></ttd-sum>
-                  <ttd-exclude></ttd-exclude>
+                  <ttd-exclude die="20"></ttd-exclude>
                   <ttd-die sides="4"></ttd-die>
                   <ttd-die></ttd-die>
                   <ttd-die sides="8"></ttd-die>
