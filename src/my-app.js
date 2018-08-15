@@ -37,14 +37,14 @@ class MyApp extends PolymerElement {
           --app-font-weight: Bolder;                      /* App font weight */
 
           /* Color variables */
-          --app-primary-color: #487D70;                   /* App Heading Color */
+          --app-primary-color: #5b3b2e;                   /* App Heading Color */
           --app-secondary-color: black;                   /* App Font Color */
-          --app-card-background: #487D70;                 /* Card Background */
-          --app-copybox-background: #74C9B5;              /* TTD child element background color (default) */
+          --app-card-background: #5b3b2e;                 /* Card Background */
+          --app-copybox-background: #c1a082;              /* TTD child element background color (default) */
           --app-ttd-child-color: #EFEFEF;                 /* TTD child element font color */
-          --app-ttd-default-background-color: #74C9B5;    /* TTD child element background color (default) */
-          --app-ttd-special-background-color: #A8BFB9;    /* TTD child element background color (special) */
-          --app-ttd-secondary-background-color: #386157;  /* TTD child element background color (secondary) */
+          --app-ttd-default-background-color: #845b43;    /* TTD child element background color (default) */
+          --app-ttd-special-background-color: #466920;    /* TTD child element background color (special) */
+          --app-ttd-secondary-background-color: #33482f;  /* TTD child element background color (secondary) */
           --app-ttd-secondary-color: #FFFFFF;             /* TTD child element background color (secondary) */
           --app-ttd-clean-color: #222;                    /* TTD child element color (clean) */
           --app-ttd-clean-background-color: #fff;         /* TTD child element background color (clean) */
