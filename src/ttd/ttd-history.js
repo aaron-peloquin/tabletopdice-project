@@ -37,10 +37,14 @@ class TtdHistory extends TtdChildHelper {
         }
 
         ol {
-          margin: 0;
+          margin: 0 5px;
           padding: 0;
           height: 100%;
-          min-height: 65px;
+          min-height: 75px;
+
+          display: grid;
+          grid-gap: 10px;
+          grid-template-columns: repeat(auto-fill, 70px);
 
           /* horizontal scrollbar functionality */
           -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -61,9 +65,15 @@ class TtdHistory extends TtdChildHelper {
         }
 
         ol > li {
+          box-shadow: -1px -1px 1px 1px #aaa;
           display: inline-grid;
-          height: 100%;
+          border-radius: 10px;
           align-items: center;
+          margin: 2px 2px 2px 5px;
+          padding: 2px;
+          align-self: center;
+          justify-self: center;
+          grid-row: 1;
         }
 
         li > *{

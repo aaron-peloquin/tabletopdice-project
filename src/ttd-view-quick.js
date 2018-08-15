@@ -30,10 +30,10 @@ class TtdViewQuick extends PolymerElement {
 
           --font-size-all: 8vw;
 
-          display: block;
-          padding: 10px;
           font-size: var(--font-size-all);
+          display: block;
           margin: 0 auto;
+          padding: 10px;
         }
 
         .tray-wrapper{
@@ -50,11 +50,13 @@ class TtdViewQuick extends PolymerElement {
         }
 
         ttd-tray > *{
-          border-radius: 5px;
           background-color: var(--app-ttd-default-background-color);
-          color: var(--app-ttd-child-color);
+          box-shadow: 2px 2px 2px 1px var(--app-ttd-clean-color);
           grid-column-end: var(--cols-default-child);
+          color: var(--app-ttd-child-color);
+          border-radius: 5px;
           overflow: hidden;
+
         }
 
         ttd-tray ttd-history,

@@ -57,10 +57,11 @@ class TtdViewAdvanced extends PolymerElement {
         }
 
         ttd-tray > *{
-          border-radius: 5px;
           background-color: var(--app-ttd-default-background-color);
-          color: var(--app-ttd-child-color);
+          box-shadow: 2px 2px 2px 1px var(--app-ttd-clean-color);
           grid-column-end: var(--cols-default-child);
+          color: var(--app-ttd-child-color);
+          border-radius: 5px;
           overflow: hidden;
         }
 
@@ -87,7 +88,7 @@ class TtdViewAdvanced extends PolymerElement {
         }
 
         ttd-tray ttd-exclude{
-          grid-column-end: span var(--cols-num);
+          grid-column-end: var(--cols-ttd-exclude);
           font-family: var(--app-font-family);
         }
 
@@ -108,6 +109,7 @@ class TtdViewAdvanced extends PolymerElement {
           :host{
             --cols-num: 6;
             --cols-grid-template: 1fr 1fr 1fr 1fr 1fr 1fr;
+            --cols-ttd-history: span 5;
             --cols-default-child: span 2;
             --cols-ttd-exclude: span 4;
             --cols-ttd-clear: var(--cols-default-child);
@@ -150,8 +152,8 @@ class TtdViewAdvanced extends PolymerElement {
                 <ttd-tray>
                   <ttd-history excited></ttd-history>
                   <ttd-high-low sides="20"></ttd-high-low>
-                  <ttd-sum></ttd-sum>
                   <ttd-exclude die="20"></ttd-exclude>
+                  <ttd-sum></ttd-sum>
                   <ttd-die sides="4"></ttd-die>
                   <ttd-die></ttd-die>
                   <ttd-die sides="8"></ttd-die>

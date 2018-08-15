@@ -39,10 +39,14 @@ class TtdHighLow extends TtdChildHelper {
 
         span.result,
         img{
-          grid-row: 1fr;
           justify-self: center;
+          align-self: center;
+          font-size: 1.25rem;
+          grid-row: 1fr;
+        }
+
+        img{
           width: 50%;
-          font-size: 1.75rem;
         }
 
         .invisible-text{
