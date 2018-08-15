@@ -1,13 +1,19 @@
-import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+/**
+ * @license
+ * Copyright (c) 2018 The Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/LICENSE
+ * The complete set of authors may be found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/AUTHORS
+ */
+
+ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
- * `ttd-history`
- * Displays a historical readout of all previously rolled dice
+ * `ttd-high-low`
+ * Displays the highest and lowest result from a specific die type.
  *
  * @customElement
  * @polymer
- * @demo demo/index.html
  */
 class TtdHighLow extends TtdChildHelper {
   static get template() {
@@ -50,6 +56,14 @@ class TtdHighLow extends TtdChildHelper {
       </div>
       `;
   }
+
+  /**
+   * @param {num} die The number of sides on the die you want to report for
+   * @param {num} min The current minimum result of your chosen die,
+   * updated automatically on _updateHistory listener
+   * @param {num} max The current maximum result of yoru chosen die,
+   * updated automatically on _updateHistory listener
+   */
   static get properties() {
     return {
       die: {
@@ -77,8 +91,11 @@ class TtdHighLow extends TtdChildHelper {
     this.trayElement.addEventListener('_updateHistory', e => {this.updateMinMax(e)});
   }
 
-  //Loop through the _updateHistory results and set our this.max and this.min.
+  /**
+   * @param {obj} e eventListener contains the updated data from _updateHistory listener.
+   */
   updateMinMax(e){
+    console.log("e",typeof e);
     this.min = 0;
     this.max = 0;
     var dieSides = this.die;

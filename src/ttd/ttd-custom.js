@@ -1,10 +1,18 @@
-import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+/**
+ * @license
+ * Copyright (c) 2018 The Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/LICENSE
+ * The complete set of authors may be found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/AUTHORS
+ */
+
+ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {} from '@polymer/polymer/lib/elements/dom-if.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
  * `ttd-custom`
- * Allow the app visitor to define a custom sided die (ie 1d100 or 1d32), then roll that die
+ * Allow the app visitor to define a custom sided die (ie 1d100 or 1d32),
+ * then roll that die on form submit or from a tray event of _rollCustomDie
  *
  * @customElement
  * @polymer
@@ -70,9 +78,16 @@ class TtdCustom extends TtdChildHelper {
           <input id="custom-die" type="number" value="{{customSides::input}}" />
         </div>
       </form>
-    `;
+      `;
   }
 
+  /**
+   * @param {num} customSides Tied to the input#custom-die element in this template
+   * automatically updates on user input
+   * triggers this.resetDie() on change
+   * @param {num} rolled The number of times this custom die has been rolled,
+   * resets when the customSides is changed or results are cleared
+   */
   static get properties() {
     return {
       customSides: {
@@ -98,6 +113,9 @@ class TtdCustom extends TtdChildHelper {
     this.shadowRoot.querySelector('form').addEventListener('submit', e=>{this.submitRoll(e)});
 	}
 
+    /**
+   * @param {obj} e eventListener contains the updated data from the <form>'s submit event.
+   */
   submitRoll(e){
     e.preventDefault();
     this.roll();

@@ -1,14 +1,11 @@
 /**
  * @license
- * Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+ * Copyright (c) 2018 The Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/LICENSE
+ * The complete set of authors may be found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/AUTHORS
  */
 
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
 
 class AppViewAbout extends PolymerElement {
@@ -26,22 +23,6 @@ class AppViewAbout extends PolymerElement {
           <p>
             This application provides a number of different dice tray interfaces, each one becoming more advanced than the one before it.
           </p>
-          <h2><a on-click="gotoQuick" href="[[rootPath]]quick-dice-roller">Quick Roll</a></h2>
-          <p>
-            This dice tray interface is meant to be the most straightforward stripped down version of the dice tray. It provides the standard array of polyhedral dice most commonly used in tabletop gaming to determine skill checks, chance to hit, deal damage, and make saving throws.
-          </p>
-          <h2><a on-click="gotoBasic" href="[[rootPath]]basic-dice-roller">Basic Roll</a></h2>
-          <p>
-            Building on the quick dice tray, this tray adds a total sum field, the ability to exclude one die type from the sum, and a custom die builder so you can roll a die with any number of sides.
-          </p>
-
-          <!--
-          <h2><a on-click="gotoAdvanced" href="[[rootPath]]basic-dice-roller">Basic Roll</a></h2>
-          <p>
-            Building on the basic dice tray, this tray adds.. more fields, coming soon.
-          </p>
-          -->
-
         </div>
 
         <h1>History</h1>
@@ -84,18 +65,6 @@ class AppViewAbout extends PolymerElement {
       },
     };
   }
-
-  gotoQuick(){
-    this.page = 'quick-dice-roller';
-  }
-
-  gotoBasic(){
-    this.page = 'basic-dice-roller';
-  }
-  gotoAdvanced(){
-    this.page = 'advanced-dice-roller';
-  }
-
 }
 
 window.customElements.define('app-view-about', AppViewAbout);

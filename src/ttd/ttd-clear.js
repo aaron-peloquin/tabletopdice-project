@@ -1,3 +1,10 @@
+/**
+ * @license
+ * Copyright (c) 2018 The Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/LICENSE
+ * The complete set of authors may be found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/AUTHORS
+ */
+
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 

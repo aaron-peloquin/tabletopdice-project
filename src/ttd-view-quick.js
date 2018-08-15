@@ -137,6 +137,16 @@ class TtdViewQuick extends PolymerElement {
             </template>
           </div>
           <app-monetizer></app-monetizer>
+          <div class="card">
+            <h1>Quick Dice Tray</h1>
+            <div class="copy-box">
+              <p>
+                This dice tray is meant to be the most straightforward stripped down version.
+                It provides the only a readout of the dice rolled, and the standard array of polyhedral dice most commonly used in tabletop gaming to
+                determine skill checks, chance to hit, deal damage, and make saving throws.
+              </p>
+            </div>
+          </div>
         </div>
     `;
   }

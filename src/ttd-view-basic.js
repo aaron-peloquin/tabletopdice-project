@@ -1,11 +1,8 @@
 /**
  * @license
- * Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+ * Copyright (c) 2018 The Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/LICENSE
+ * The complete set of authors may be found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/AUTHORS
  */
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
@@ -160,6 +157,17 @@ class TtdViewBasic extends PolymerElement {
             </template>
           </div>
           <app-monetizer></app-monetizer>
+          <div class="card">
+            <h1>Basic dice tray</h1>
+            <div class="copy-box">
+              <p>
+                The basic dice tray offers a history readout of all dice rolls,
+                  a sum field of all dice rolls (and the option to exclude one dice type from this sum),
+                  the standard array of polyhedral dice,
+                  and a custom die builder so you can roll a die with however many sides sides you may need.
+              </p>
+            </div>
+          </div>
         </div>
     `;
   }
