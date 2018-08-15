@@ -67,8 +67,8 @@ class TtdTray extends PolymerElement {
     gtag('event', 'roll', {
       'sides': sides,
       'result': value,
-      'eventLabel': sides,
-      'eventValue': value
+      'event_label': sides,
+      'value': value
     });
 
     if(sides==20){

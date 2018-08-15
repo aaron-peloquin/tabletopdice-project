@@ -13,7 +13,6 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
  *
  * @customElement
  * @polymer
- * @demo demo/index.html
  */
 class AppMonetizer extends PolymerElement {
   static get template() {
@@ -36,11 +35,6 @@ class AppMonetizer extends PolymerElement {
       </style>
       <div on-click="track"><slot>&#123; Ad Placeholder &#125;</slot></div>
     `;
-  }
-
-
-  ready(){
-    super.ready();
   }
 
   track(){

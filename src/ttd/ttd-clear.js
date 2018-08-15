@@ -14,7 +14,6 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
  *
  * @customElement
  * @polymer
- * @demo demo/index.html
  */
 class TtdClear extends TtdChildHelper {
   static get template() {

@@ -46,6 +46,15 @@ class TtdExclude extends TtdChildHelper {
       </select>
     `;
   }
+
+  /**
+   * @param {num} die The die to exclude from the total that is sent to sum elements. Runs
+   * updateExcludedDie whenever it is updated
+   * @param {str} defaultLanguage The default language used in the <option> when no die is selected
+   * @param {str} prefix The default language used in <options> before the number of sides written to markup
+   * @param {str} append The default language used in <options> after the number of sides is written to markup
+   * @param {array} types The types of dice that can be excluded from the sum.
+   */
   static get properties() {
     return {
       die: {
@@ -84,6 +93,11 @@ class TtdExclude extends TtdChildHelper {
     this.trayElement.exclude = this.die;
   }
   
+  /**
+   * @param {var} t 
+   * @param {var} d
+   * @returns {bool} If t is exactly equal to d, return true, otherwise return false. 
+   */
   parseSelected(t,d){
     return t===d;
   }
@@ -97,7 +111,7 @@ class TtdExclude extends TtdChildHelper {
     //Report to google analytics
     gtag('event', 'update-exclude', {
       'die': this.die,
-      'eventLabel': this.die
+      'event_label': this.die
     });
     this.trayElement.dispatchEvent(new CustomEvent('_recalculateSum'));
   }
