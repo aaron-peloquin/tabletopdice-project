@@ -125,53 +125,57 @@ class TtdViewBasic extends PolymerElement {
           }
       </style>
 
+      <div class="card">
+        <div class="tray-wrapper">
+          <template is="dom-if" if="[[!browserSupported]]">
+            <h1>Unsupported Browser</h1>
+            <p>
+              <div>Supported Browsers:</div>
+              <ul>
+                <li>Google Chrome</li>
+                <li>Microsoft Edge</li>
+                <li><em>Firefox</em></li>
+              </ul>
+          </template>
+          <template is="dom-if" if="[[browserSupported]]">
+            <slot>
+              <ttd-tray>
+                <ttd-history excited></ttd-history>
+                <ttd-sum></ttd-sum>
+                <ttd-exclude die="20"></ttd-exclude>
+                <ttd-die sides="4"></ttd-die>
+                <ttd-die></ttd-die>
+                <ttd-die sides="8"></ttd-die>
+                <ttd-die sides="10"></ttd-die>
+                <ttd-die sides="12"></ttd-die>
+                <ttd-die sides="20"></ttd-die>
+                <ttd-custom></ttd-custom>
+                <ttd-custom-roll></ttd-custom-roll>
+                <ttd-clear></ttd-clear>
+              </ttd-tray>
+            </slot>
+          </template>
+        </div>
+        <app-monetizer></app-monetizer>
         <div class="card">
-          <div class="tray-wrapper">
-            <template is="dom-if" if="[[!browserSupported]]">
-              <h1>Unsupported Browser</h1>
-              <p>
-                <div>Supported Browsers:</div>
-                <ul>
-                  <li>Google Chrome</li>
-                  <li>Microsoft Edge</li>
-                  <li><em>Firefox</em></li>
-                </ul>
-            </template>
-            <template is="dom-if" if="[[browserSupported]]">
-              <slot>
-                <ttd-tray>
-                  <ttd-history excited></ttd-history>
-                  <ttd-sum></ttd-sum>
-                  <ttd-exclude die="20"></ttd-exclude>
-                  <ttd-die sides="4"></ttd-die>
-                  <ttd-die></ttd-die>
-                  <ttd-die sides="8"></ttd-die>
-                  <ttd-die sides="10"></ttd-die>
-                  <ttd-die sides="12"></ttd-die>
-                  <ttd-die sides="20"></ttd-die>
-                  <ttd-custom></ttd-custom>
-                  <ttd-custom-roll></ttd-custom-roll>
-                  <ttd-clear></ttd-clear>
-                </ttd-tray>
-              </slot>
-            </template>
-          </div>
-          <app-monetizer></app-monetizer>
-          <div class="card">
-            <h1>Basic dice tray</h1>
-            <div class="copy-box">
-              <p>
-                The basic dice tray offers a history readout of all dice rolls,
-                  a sum field of all dice rolls (and the option to exclude one dice type from this sum),
-                  the standard array of polyhedral dice,
-                  and a custom die builder so you can roll a die with however many sides sides you may need.
-              </p>
-            </div>
+          <h1>Basic dice tray</h1>
+          <div class="copy-box">
+            <p>
+              The basic dice tray offers a history readout of all dice rolls,
+                a sum field of all dice rolls (and the option to exclude one dice type from this sum),
+                the standard array of polyhedral dice,
+                and a custom die builder so you can roll a die with however many sides sides you may need.
+            </p>
           </div>
         </div>
+      </div>
     `;
   }
 
+  /**
+   * @param {bool} browserSupported Updated when element initalizes, runs isSupported() to determin if the user is in IE.
+   * @param {str} page This paramiter is shared between all views and the main my-app.js. It's the currently loaded page
+   */
   static get properties() {
     return {
       browserSupported: {
@@ -189,10 +193,10 @@ class TtdViewBasic extends PolymerElement {
   ready(){
     super.ready();
     //Check if this browser is currently supported.
-    this.browserSupported = this.isSupported();
+    this.browserSupported = this.browserIsSupported();
   }
 
-  isSupported() {
+  browserIsSupported() {
     var ua = window.navigator.userAgent;
     var ieClassic = (ua.indexOf("MSIE")>0);
     var ieEleven = (!!ua.match(/Trident\/7\./));
@@ -201,8 +205,6 @@ class TtdViewBasic extends PolymerElement {
     }
     return true; //This is not IE
   }
-  
-
 }
 
 window.customElements.define('ttd-view-basic', TtdViewBasic);

@@ -109,48 +109,52 @@ class TtdViewQuick extends PolymerElement {
 
       </style>
 
+      <div class="card">
+        <div class="tray-wrapper">
+          <template is="dom-if" if="[[!browserSupported]]">
+            <h1>Unsupported Browser</h1>
+            <p>
+              <div>Supported Browsers:</div>
+              <ul>
+                <li>Google Chrome</li>
+                <li>Microsoft Edge</li>
+                <li><em>Firefox</em></li>
+              </ul>
+          </template>
+          <template is="dom-if" if="[[browserSupported]]">
+            <slot>
+              <ttd-tray>
+                <ttd-history excited></ttd-history>
+                <ttd-die sides="4"></ttd-die>
+                <ttd-die></ttd-die>
+                <ttd-die sides="8"></ttd-die>
+                <ttd-die sides="10"></ttd-die>
+                <ttd-die sides="12"></ttd-die>
+                <ttd-die sides="20"></ttd-die>
+                <ttd-clear></ttd-clear>
+              </ttd-tray>
+            </slot>
+          </template>
+        </div>
+        <app-monetizer></app-monetizer>
         <div class="card">
-          <div class="tray-wrapper">
-            <template is="dom-if" if="[[!browserSupported]]">
-              <h1>Unsupported Browser</h1>
-              <p>
-                <div>Supported Browsers:</div>
-                <ul>
-                  <li>Google Chrome</li>
-                  <li>Microsoft Edge</li>
-                  <li><em>Firefox</em></li>
-                </ul>
-            </template>
-            <template is="dom-if" if="[[browserSupported]]">
-              <slot>
-                <ttd-tray>
-                  <ttd-history excited></ttd-history>
-                  <ttd-die sides="4"></ttd-die>
-                  <ttd-die></ttd-die>
-                  <ttd-die sides="8"></ttd-die>
-                  <ttd-die sides="10"></ttd-die>
-                  <ttd-die sides="12"></ttd-die>
-                  <ttd-die sides="20"></ttd-die>
-                  <ttd-clear></ttd-clear>
-                </ttd-tray>
-              </slot>
-            </template>
-          </div>
-          <app-monetizer></app-monetizer>
-          <div class="card">
-            <h1>Quick Dice Tray</h1>
-            <div class="copy-box">
-              <p>
-                This dice tray is meant to be the most straightforward stripped down version.
-                It provides the only a readout of the dice rolled, and the standard array of polyhedral dice most commonly used in tabletop gaming to
-                determine skill checks, chance to hit, deal damage, and make saving throws.
-              </p>
-            </div>
+          <h1>Quick Dice Tray</h1>
+          <div class="copy-box">
+            <p>
+              This dice tray is meant to be the most straightforward stripped down version.
+              It provides the only a readout of the dice rolled, and the standard array of polyhedral dice most commonly used in tabletop gaming to
+              determine skill checks, chance to hit, deal damage, and make saving throws.
+            </p>
           </div>
         </div>
+      </div>
     `;
   }
 
+  /**
+   * @param {bool} browserSupported Updated when element initalizes, runs isSupported() to determin if the user is in IE.
+   * @param {str} page This paramiter is shared between all views and the main my-app.js. It's the currently loaded page
+   */
   static get properties() {
     return {
       browserSupported: {
@@ -180,8 +184,6 @@ class TtdViewQuick extends PolymerElement {
     }
     return true; //This is not IE
   }
-  
-
 }
 
 window.customElements.define('ttd-view-quick', TtdViewQuick);
