@@ -34,7 +34,7 @@ class AppMonetizer extends PolymerElement {
             background-color: lightgrey;
         }
       </style>
-      <div on-click="track"><slot>Placeholder Ad</slot></div>
+      <div on-click="track"><slot>&#123; Ad Placeholder &#125;</slot></div>
     `;
   }
 
