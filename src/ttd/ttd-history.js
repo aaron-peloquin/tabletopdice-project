@@ -55,6 +55,7 @@ class TtdHistory extends TtdChildHelper {
         ol::-webkit-scrollbar {
           display: none;
         }
+
         /* disable horizontal scrollbar functionality in firefox due to inability to hide them properly */
         @-moz-document url-prefix() {
           :host,
@@ -108,7 +109,7 @@ class TtdHistory extends TtdChildHelper {
           </template>
         </dom-repeat>
       </ol>
-`;
+    `;
   }
 
   /**
@@ -135,11 +136,11 @@ class TtdHistory extends TtdChildHelper {
    * Add [_updateHistory] to update the local results
    */
 	ready() {
-		super.ready();
-		this.findTray();
-		if (!this.trayElement) {
-			return false;
-		}
+    super.ready();
+    this.findTray();
+    if (!this.trayElement) {
+      return false;
+    }
     this.trayElement.addEventListener('_updateHistory', e => {this.updateHistory(e)});
   }
 
