@@ -23,13 +23,12 @@ class TtdClear extends TtdChildHelper {
           text-align: center;
           display: table;
           height:100%;
-					width: 100%;
+          width: 100%;
         }
         div{
           display: table-cell;
           vertical-align: middle;
         }
-
       </style>
       <div on-click="clear"><slot>Clear</slot></div>
     `;
