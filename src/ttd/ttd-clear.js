@@ -39,12 +39,12 @@ class TtdClear extends TtdChildHelper {
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    */
   ready() {
-		super.ready();
-		this.findTray();
-		if (!this.trayElement) {
-			return false;
-		}
-	}
+    super.ready();
+    this.findTray();
+    if (!this.trayElement) {
+      return false;
+    }
+  }
 
   /**
    * Dispatches the [_clearResults] event on the <ttd-tray> element
@@ -59,3 +59,4 @@ class TtdClear extends TtdChildHelper {
 }
 
 window.customElements.define('ttd-clear', TtdClear);
+
