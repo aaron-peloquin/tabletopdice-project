@@ -17,8 +17,8 @@ import {} from '@polymer/polymer/lib/elements/dom-if.js';
  * @polymer
  */
 class TtdDie extends TtdChildHelper {
-  static get template() {
-    return html`
+	static get template() {
+		return html`
 			<style>
 				:host{
 					text-align: center;
@@ -31,11 +31,11 @@ class TtdDie extends TtdChildHelper {
 					vertical-align: middle;
 				}
 			</style>
-			<div on-click="roll">
+				<div on-click="roll">
 				<template is="dom-if" if="[[rolled]]">{{rolled}}</template>d[[sides]]
 			</div>
 		`;
-  }
+	}
 
 	/**
 	 * @param {num} sides The number of sides this die button has when rolled, the max random result
@@ -53,7 +53,6 @@ class TtdDie extends TtdChildHelper {
 			},
 		};
 	}
-
 
 	/**
    * Element ready for use, fire super.ready() for native functionality
