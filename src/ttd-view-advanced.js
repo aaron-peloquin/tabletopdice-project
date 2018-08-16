@@ -42,7 +42,7 @@ class TtdViewAdvanced extends PolymerElement {
           --cols-ttd-clear: span 4;
           --cols-ttd-sum: span 1;
 
-          --font-size-all: 8vw;
+          --font-size-all: 3vw;
 
           display: block;
           padding: 10px;
@@ -63,10 +63,11 @@ class TtdViewAdvanced extends PolymerElement {
           grid-template-columns: var(--cols-grid-template);
 
           grid-template-areas:
-            "hist hist hist hist sum hl"
-            "exc exc exc . clr clr"
-            "d4 d4 d6 d6 d8 d8"
-            "d10 d10 d12 d12 d20 d20"
+            "hist hist hist hist hl10 hl20"
+            "exc exc exc sum clr clr"
+            "d4 d6 d8 d10 d12 d20"
+/*          "d4 d4 d6 d6 d8 d8"         */
+/*          "d10 d10 d12 d12 d20 d20"   */
             "str1 str1 str1 str1 str1 str1"
             "str2 str2 str2 str2 str2 str2";
         }
@@ -75,8 +76,12 @@ class TtdViewAdvanced extends PolymerElement {
           grid-area: hist;
         }
 
-        ttd-high-low{
-          grid-area: hl;
+        ttd-high-low[die="10"]{
+          grid-area: hl10;
+        }
+
+        ttd-high-low[die="20"]{
+          grid-area: hl20;
         }
 
         ttd-exclude{
@@ -93,6 +98,7 @@ class TtdViewAdvanced extends PolymerElement {
 
         ttd-die{
           grid-area:  d6 ;
+          font-size: 2rem;
         }
 
         ttd-die[sides="4"]{
@@ -215,17 +221,18 @@ class TtdViewAdvanced extends PolymerElement {
             <template is="dom-if" if="[[browserSupported]]">
               <slot>
                 <ttd-tray>
+                  <ttd-clear></ttd-clear>
                   <ttd-history excited></ttd-history>
-                  <ttd-high-low sides="20"></ttd-high-low>
-                  <ttd-exclude die="20"></ttd-exclude>
                   <ttd-sum></ttd-sum>
+                  <ttd-exclude die="20"></ttd-exclude>
+                  <ttd-high-low die="10"></ttd-high-low>
+                  <ttd-high-low die="20"></ttd-high-low>
                   <ttd-die sides="4"></ttd-die>
                   <ttd-die></ttd-die>
                   <ttd-die sides="8"></ttd-die>
                   <ttd-die sides="10"></ttd-die>
                   <ttd-die sides="12"></ttd-die>
                   <ttd-die sides="20"></ttd-die>
-                  <ttd-clear></ttd-clear>
                 </ttd-tray>
               </slot>
             </template>

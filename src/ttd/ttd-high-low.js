@@ -73,7 +73,6 @@ class TtdHighLow extends TtdChildHelper {
       die: {
         type: Number,
         value: 20,
-        reflectToAttribute: true,
       },
       min: {
         type: Number,
@@ -97,6 +96,7 @@ class TtdHighLow extends TtdChildHelper {
     if (!this.trayElement) {
       return false;
     }
+    console.log(this.die);
     this.trayElement.addEventListener('_updateHistory', e => {this.updateMinMax(e)});
   }
 
