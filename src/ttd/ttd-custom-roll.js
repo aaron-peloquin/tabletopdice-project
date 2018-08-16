@@ -23,7 +23,7 @@ class TtdCustomRoll extends TtdChildHelper {
           text-align: center;
           display: table;
           height:100%;
-					width: 100%;
+          width: 100%;
         }
         span{
           display: table-cell;
@@ -40,10 +40,10 @@ class TtdCustomRoll extends TtdChildHelper {
    * Add [click] that will roll all custom die elements
    */
   ready() {
-		super.ready();
-		this.findTray();
-		if (!this.trayElement) {
-			return false;
+    super.ready();
+    this.findTray();
+    if (!this.trayElement) {
+      return false;
     }
     this.addEventListener('click',e => {this.rollCustomDie(e)});
 	}
@@ -53,10 +53,10 @@ class TtdCustomRoll extends TtdChildHelper {
    * @returns {void}
    */
   rollCustomDie() {
-		if (!this.trayElement) {
-			return false;
-    }
-    this.trayElement.dispatchEvent(new CustomEvent('_rollCustomDie'));
+  if (!this.trayElement) {
+    return false;
+  }
+  this.trayElement.dispatchEvent(new CustomEvent('_rollCustomDie'));
   }
 }
 

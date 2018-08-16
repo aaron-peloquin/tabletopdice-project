@@ -94,10 +94,10 @@ class TtdCustom extends TtdChildHelper {
         value: 100,
         observer: 'resetDie',
       },
-			rolled: {
-				type: Number,
-				value: 0,
-			},
+      rolled: {
+        type: Number,
+        value: 0,
+      },
     };
   }
 
@@ -109,17 +109,17 @@ class TtdCustom extends TtdChildHelper {
    * Add [submit] to also roll this custom die
    */
   ready() {
-		super.ready();
-		this.findTray();
-		if (!this.trayElement) {
-			return false;
+    super.ready();
+    this.findTray();
+    if (!this.trayElement) {
+      return false;
     }
     this.trayElement.addEventListener('_clearResults', e => {this.resetDie(e)});
     this.trayElement.addEventListener('_rollCustomDie',e => {this.roll(e)});
     this.shadowRoot.querySelector('form').addEventListener('submit', e=>{this.submitRoll(e)});
 	}
 
-    /**
+  /**
    * @param {obj} e eventListener contains the updated data from the <form>'s submit event
    * @returns {void}
    */
