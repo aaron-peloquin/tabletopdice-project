@@ -51,12 +51,11 @@ class TtdClear extends TtdChildHelper {
    * @returns {void}
    */
   clear() {
-		if (!this.trayElement) {
-			return false;
-		}
+    if (!this.trayElement) {
+      return false;
+    }
     this.trayElement.dispatchEvent(new CustomEvent('_clearResults'));
   }
 }
 
 window.customElements.define('ttd-clear', TtdClear);
-
