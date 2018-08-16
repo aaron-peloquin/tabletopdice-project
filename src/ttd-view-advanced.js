@@ -33,7 +33,7 @@ class TtdViewAdvanced extends PolymerElement {
         :host {
           /* [Responsive] Tiny Styles */
           --cols-num: 4;
-          --cols-grid-template: 1fr 1fr 1fr 1fr;
+          --cols-grid-template: 1fr 1fr 1fr 1fr 1fr 1fr;
           --cols-ttd-history: span 3;
           --cols-ttd-high-low: span 1;
           --cols-default-child: span 2;
@@ -61,12 +61,64 @@ class TtdViewAdvanced extends PolymerElement {
           grid-gap: 1rem;
           grid-template-rows: auto;
           grid-template-columns: var(--cols-grid-template);
+
+          grid-template-areas:
+            "hist hist hist hist sum hl"
+            "exc exc exc . clr clr"
+            "d4 d4 d6 d6 d8 d8"
+            "d10 d10 d12 d12 d20 d20"
+            "str1 str1 str1 str1 str1 str1"
+            "str2 str2 str2 str2 str2 str2";
+        }
+
+        ttd-history{
+          grid-area: hist;
+        }
+
+        ttd-high-low{
+          grid-area: hl;
+        }
+
+        ttd-exclude{
+          grid-area: exc;
+        }
+
+        ttd-sum{
+          grid-area: sum;
+        }
+
+        ttd-clear{
+          grid-area:  clr ;
+        }
+
+        ttd-die{
+          grid-area:  d6 ;
+        }
+
+        ttd-die[sides="4"]{
+          grid-area:  d4 ;
+        }
+
+        ttd-die[sides="8"]{
+          grid-area:  d8 ;
+        }
+
+        ttd-die[sides="10"]{
+          grid-area:  d10 ;
+        }
+
+        ttd-die[sides="12"]{
+          grid-area:  d12 ;
+        }
+
+        ttd-die[sides="20"]{
+          grid-area:  d20 ;
         }
 
         ttd-tray > *{
           background-color: var(--app-ttd-default-background-color);
           box-shadow: 2px 2px 2px 1px var(--app-ttd-clean-color), -1px -1px 2px 1px var(--app-ttd-child-color);
-          grid-column-end: var(--cols-default-child);
+/*          grid-column-end: var(--cols-default-child);*/
           color: var(--app-ttd-child-color);
           border-radius: 5px;
           overflow: hidden;
@@ -86,6 +138,7 @@ class TtdViewAdvanced extends PolymerElement {
         }
 
         /* History always takes up 1 whole row */
+/*
         ttd-tray ttd-history{
           grid-column-end: var(--cols-ttd-history);
         }
@@ -110,8 +163,9 @@ class TtdViewAdvanced extends PolymerElement {
         ttd-tray ttd-custom{
           grid-column-end: var(--cols-ttd-custom);
         }
-
+*/
         /* [Responsive] Small Styles */
+/*
         @media (min-width: 500px) {
           :host{
             --cols-num: 6;
@@ -125,22 +179,25 @@ class TtdViewAdvanced extends PolymerElement {
             --font-size-all: 2.7rem;
             }
         }
-
+*/
         /* [Responsive] Medium + Styles */
+/*
         @media (min-width: 640px) {
           :host{
             --cols-ttd-custom: span 4;
             --cols-ttd-clear: span 6;
           }
         }
-
+*/
         /* [Responsive] Large + Styles */
+/*
         @media (min-width: 800px) {
           :host{
             --cols-ttd-custom: var(--cols-default-child);
             --cols-ttd-clear: var(--cols-default-child);
           }
-      </style>
+*/
+          </style>
 
         <div class="card">
           <h1>Advanced dice tray</h1>
@@ -168,8 +225,6 @@ class TtdViewAdvanced extends PolymerElement {
                   <ttd-die sides="10"></ttd-die>
                   <ttd-die sides="12"></ttd-die>
                   <ttd-die sides="20"></ttd-die>
-                  <ttd-custom></ttd-custom>
-                  <ttd-custom-roll></ttd-custom-roll>
                   <ttd-clear></ttd-clear>
                 </ttd-tray>
               </slot>
