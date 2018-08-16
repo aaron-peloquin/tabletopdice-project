@@ -11,11 +11,10 @@ import {} from '@polymer/polymer/lib/elements/dom-if.js';
 
 /**
  * `ttd-die`
- * Rolls a die with standard sides (eg: 1d4, 1d8).
+ * Rolls a die with standard sides (1d4, 1d8, etc-)
  *
  * @customElement
  * @polymer
- * @demo demo/index.html
  */
 class TtdDie extends TtdChildHelper {
   static get template() {
@@ -55,24 +54,35 @@ class TtdDie extends TtdChildHelper {
 		};
 	}
 
-	ready(){
+  /**
+   * Element ready for use, fire super.ready() for native functionality
+   * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Add [_clearResults] to reset the rolled count
+   */
+	ready() {
 		super.ready();
 		this.findTray();
-		if (!this.trayElement){
+		if (!this.trayElement) {
 			return false;
 		}
 		this.trayElement.addEventListener('_clearResults', e => {this.resetDie(e)});
 	}
 
-	roll(){
+	/**
+	 * Roll this die, incriment the number of times rolled
+	 */
+	roll() {
 		this.rolled++;
-		if (!this.trayElement){
+		if (!this.trayElement) {
 			return false;
 		}
 		this.trayElement.roll(this.sides);
 	}
 
-	resetDie(){
+	/**
+	 * Reset the number of times this die has been rolled
+	 */
+	resetDie() {
 		this.rolled = 0;
 	}
 

@@ -12,7 +12,7 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
 /**
  * `ttd-custom`
  * Allow the app visitor to define a custom sided die (ie 1d100 or 1d32),
- * then roll that die on form submit or from a tray event of _rollCustomDie
+ * then roll that die on form submit or from a tray event of [_rollCustomDie]
  *
  * @customElement
  * @polymer
@@ -101,10 +101,17 @@ class TtdCustom extends TtdChildHelper {
     };
   }
 
-  ready(){
+  /**
+   * Element ready for use, fire super.ready() for native functionality
+   * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Add [_clearResults] to reset the rolled count
+   * Add [_rollCustomDie] to roll this custom die
+   * Add [submit] to also roll this custom die
+   */
+  ready() {
 		super.ready();
 		this.findTray();
-		if (!this.trayElement){
+		if (!this.trayElement) {
 			return false;
     }
     this.trayElement.addEventListener('_clearResults', e => {this.resetDie(e)});
@@ -113,20 +120,29 @@ class TtdCustom extends TtdChildHelper {
 	}
 
     /**
-   * @param {obj} e eventListener contains the updated data from the <form>'s submit event.
+   * @param {obj} e eventListener contains the updated data from the <form>'s submit event
+   * @returns {void}
    */
-  submitRoll(e){
+  submitRoll(e) {
     e.preventDefault();
     this.roll();
   }
 
-  roll(){
+  /**
+   * Rolls this custom die
+   * @returns {void}
+   */
+  roll() {
     this.rolled++;
     this.customSides = Math.round(this.customSides);
     this.trayElement.roll(parseInt(this.customSides));
   }
 
-  resetDie(){
+  /**
+   * Reset the number of times this die has been rolled
+   * @returns {void}
+   */
+  resetDie() {
     this.rolled = 0;
   }
 }

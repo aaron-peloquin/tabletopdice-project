@@ -38,7 +38,7 @@ class TtdTray extends PolymerElement {
     return {
       results: {
         type: Array,
-        value: function(){ return []; },
+        value: function() { return []; },
       },
       sum: {
         type: Number,
@@ -51,15 +51,27 @@ class TtdTray extends PolymerElement {
     };
   }
 
-  ready(){
+  /**
+   * Element ready for use, fire super.ready() for native functionality
+   * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Add [_clearResults] to clear this.results and this.sum, then update all listeners
+   * Add [_recalculateSum] to recalculate the sum
+   */
+  ready() {
     super.ready();
     // Add listener for _clearResults to clear this tray's roll results.
     this.addEventListener('_clearResults', e => {this.clearResults(e)});
     this.addEventListener('_recalculateSum', e => {this.recalculateSum(e)});
   }
 
-  // Called by child elements to roll a basic die.
-  roll(sides){
+  /**
+   * Roll a basic die and updates this.sum and this.results
+   * Reports to Google with the result rolled, and any criticals
+   * Dispatch [_recalculateSum] and call updateHistoricalNodes()
+   * @param {num} sides The number of sides
+   * @returns {void}
+   */
+  roll(sides) {
     var value = Math.floor(Math.random() * Math.floor(sides)) + 1;
     this.results.push({"sides":sides,"result":value});
 
@@ -71,11 +83,11 @@ class TtdTray extends PolymerElement {
       'value': value
     });
 
-    if(sides==20){
-      if(value==20){
+    if(sides==20) {
+      if(value==20) {
         gtag('event', 'natural-twenty');
       }
-      else if(value==1){
+      else if(value==1) {
         gtag('event', 'natural-one');
       }
     }
@@ -84,40 +96,50 @@ class TtdTray extends PolymerElement {
     this.updateHistoricalNodes();
   }
 
-  // Change the current .sum values.
-  recalculateSum(){
+  /**
+   * recalculates sum values, then calls updateSumNodes()
+   * @returns {void}
+   */
+  recalculateSum() {
     var exclude = this.exclude;
     var newSum = 0;
 
-    // Loop throuh all results and add them together, excluding any rolls that were made by the excluded die.
-    if(this.results.length>0){
-      this.results.forEach(function(roll){
-        if(roll.sides!=exclude){
+    
+    if(this.results.length>0) {
+      this.results.forEach(function(roll) {
+        // Exclude any rolls that were made by the excluded die
+        if(roll.sides!=exclude) {
           newSum += roll.result;
         }
       });
     }
 
-    // Update this.sum and push to nodes.
+    // Update this.sum, then push out to listeners
     this.sum = newSum;
     this.updateSumNodes();
   }
 
-  // Update the results of all historical listeners.
-  updateHistoricalNodes(){
-    // Dispatch _updateHistory event to all child elements that are listening.
+  /**
+   * Send this.results to all [_updateHistory] listeners
+   * @returns {void}
+   */
+  updateHistoricalNodes() {
     this.dispatchEvent(new CustomEvent('_updateHistory', {detail: {data:this.results}}));
   }
 
-  // Update the sum of all sum listeners.
-  updateSumNodes(){
-    // Dispatch _updateSum event to all child elements that are listening.
-    var newSum = this.sum;
-    this.dispatchEvent(new CustomEvent('_updateSum', {detail: {data:newSum}}));
+  /**
+   * Send this.sum to all [_updateSum] listeners
+   * @returns {void}
+   */
+  updateSumNodes() {
+    this.dispatchEvent(new CustomEvent('_updateSum', {detail: {data:this.sum}}));
   }
 
-  // Clear historical roll data
-  clearResults(){
+  /**
+   * Clear this.results and this.sum, then update all listeners
+   * @returns {void}
+   */
+  clearResults() {
     this.results = [];
     this.updateHistoricalNodes();
 

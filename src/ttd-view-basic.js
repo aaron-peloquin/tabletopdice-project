@@ -18,6 +18,13 @@ import './ttd/ttd-exclude.js';
 import './ttd/ttd-custom.js';
 import './ttd/ttd-custom-roll.js';
 
+/**
+ * `ttd-view-basic`
+ * Standard implimentation of a dice tray.
+ *
+ * @customElement
+ * @polymer
+ */
 class TtdViewBasic extends PolymerElement {
   static get template() {
     return html`
@@ -191,7 +198,7 @@ class TtdViewBasic extends PolymerElement {
     };
   }
 
-  ready(){
+  ready() {
     super.ready();
     //Check if this browser is currently supported.
     this.browserSupported = this.browserIsSupported();
@@ -201,7 +208,7 @@ class TtdViewBasic extends PolymerElement {
     var ua = window.navigator.userAgent;
     var ieClassic = (ua.indexOf("MSIE")>0);
     var ieEleven = (!!ua.match(/Trident\/7\./));
-    if (ieClassic || ieEleven){
+    if (ieClassic || ieEleven) {
       return false;//This is IE.
     }
     return true; //This is not IE

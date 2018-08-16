@@ -31,7 +31,7 @@ This project includes a number of modular polymer elements located in the /src/t
 ### &lt;ttd-tray&gt;
 This custom element is **required** to wrap around all other &lt;ttd-*&gt; elements, handling click events and shared data between them. I opted to use this method, since it means you can run multiple instances of dice trays on a single page.
 
-Events that can be fired or listened to on this element:
+Events that can be dispatched (fired/called) or listened to on this element:
 * **_updateHistory** dispatched whenever this.results is changed
 * **_updateSum**, dispatched whenever this.sum is changed
 * **_recalculateSum**, dispatched whenever you would like the sum to be recalculated

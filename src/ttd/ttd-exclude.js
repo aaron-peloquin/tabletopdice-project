@@ -14,7 +14,6 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
  *
  * @customElement
  * @polymer
- * @demo demo/index.html
  */
 class TtdExclude extends TtdChildHelper {
   static get template() {
@@ -39,9 +38,9 @@ class TtdExclude extends TtdChildHelper {
         }
       </style>
       <select value="{{die::change}}">
-        <option value="0" selected$="{{parseSelected(0, die)}}">[[defaultLanguage]]</option>
+        <option value="0" selected$="{{parseSelected(0)}}">[[defaultLanguage]]</option>
         <template is="dom-repeat" items="{{types}}" as="sides">
-            <option value="[[sides]]" selected$='[[parseSelected(sides, die)]]'>[[prefix]][[sides]][[append]]</option>
+            <option value="[[sides]]" selected$='[[parseSelected(sides)]]'>[[prefix]][[sides]][[append]]</option>
         </template>
       </select>
     `;
@@ -76,17 +75,22 @@ class TtdExclude extends TtdChildHelper {
       },
       types: {
         type: Array,
-        value: function(){
+        value: function() {
           return [20, 12, 10, 8, 6, 4];
         },
       }
     };
   }
 
-  ready(){
+  /**
+   * Element ready for use, fire super.ready() for native functionality
+   * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Update <ttd-tray> to be this excluded die's default value
+   */
+  ready() {
     super.ready();
     this.findTray();
-    if (!this.trayElement){
+    if (!this.trayElement) {
       return false;
     }
 
@@ -94,21 +98,26 @@ class TtdExclude extends TtdChildHelper {
   }
   
   /**
-   * @param {var} t 
-   * @param {var} d
-   * @returns {bool} If t is exactly equal to d, return true, otherwise return false. 
+   * @param {var} s The sides of the <option> in this element's template to check
+   * @returns {bool} true if s is exactly equal to this.die
    */
-  parseSelected(t,d){
-    return t===d;
+   parseSelected(s) {
+    return s===this.die;
   }
 
-  updateExcludedDie(){
-    if (!this.trayElement){
+  /**
+   * Triggered when the dropdown is changed, updates <ttd-tray>.exclude value
+   * Reports update to Google Analytics
+   * Dispatch the [_recalculateSum] event
+   * @returns {void}
+   */
+  updateExcludedDie() {
+    if (!this.trayElement) {
       return false;
     }
     this.trayElement.exclude = this.die;
 
-    //Report to google analytics
+    //Report [update-exclude] to google analytics
     gtag('event', 'update-exclude', {
       'die': this.die,
       'event_label': this.die

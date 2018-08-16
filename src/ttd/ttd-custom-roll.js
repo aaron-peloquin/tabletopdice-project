@@ -34,17 +34,26 @@ class TtdCustomRoll extends TtdChildHelper {
     `;
   }
 
-  ready(){
+  /**
+   * Element ready for use, fire super.ready() for native functionality
+   * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Add [click] that will roll all custom die elements
+   */
+  ready() {
 		super.ready();
 		this.findTray();
-		if (!this.trayElement){
+		if (!this.trayElement) {
 			return false;
     }
     this.addEventListener('click',e => {this.rollCustomDie(e)});
 	}
 
-  rollCustomDie(){
-		if (!this.trayElement){
+  /**
+   * Dispatch event [_rollCustomDie] on <ttd-tray>
+   * @returns {void}
+   */
+  rollCustomDie() {
+		if (!this.trayElement) {
 			return false;
     }
     this.trayElement.dispatchEvent(new CustomEvent('_rollCustomDie'));

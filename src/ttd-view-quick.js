@@ -14,7 +14,13 @@ import './ttd/ttd-history.js';
 import './ttd/ttd-die.js';
 import './ttd/ttd-clear.js';
 
-
+/**
+ * `ttd-view-quick`
+ * Very simple implimentation of a dice tray.
+ *
+ * @customElement
+ * @polymer
+ */
 class TtdViewQuick extends PolymerElement {
   static get template() {
     return html`
@@ -168,7 +174,7 @@ class TtdViewQuick extends PolymerElement {
     };
   }
 
-  ready(){
+  ready() {
     super.ready();
     //Check if this browser is currently supported.
     this.browserSupported = this.isSupported();
@@ -178,7 +184,7 @@ class TtdViewQuick extends PolymerElement {
     var ua = window.navigator.userAgent;
     var ieClassic = (ua.indexOf("MSIE")>0);
     var ieEleven = (!!ua.match(/Trident\/7\./));
-    if (ieClassic || ieEleven){
+    if (ieClassic || ieEleven) {
       return false;//This is IE.
     }
     return true; //This is not IE

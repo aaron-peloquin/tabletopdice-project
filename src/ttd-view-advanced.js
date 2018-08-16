@@ -19,6 +19,13 @@ import './ttd/ttd-custom.js';
 import './ttd/ttd-custom-roll.js';
 import './ttd/ttd-high-low.js';
 
+/**
+ * `ttd-view-advanced`
+ * Advanced implimentation of a dice tray.
+ *
+ * @customElement
+ * @polymer
+ */
 class TtdViewAdvanced extends PolymerElement {
   static get template() {
     return html`
@@ -186,7 +193,7 @@ class TtdViewAdvanced extends PolymerElement {
     };
   }
 
-  ready(){
+  ready() {
     super.ready();
     //Check if this browser is currently supported.
     this.browserSupported = this.isSupported();
@@ -196,7 +203,7 @@ class TtdViewAdvanced extends PolymerElement {
     var ua = window.navigator.userAgent;
     var ieClassic = (ua.indexOf("MSIE")>0);
     var ieEleven = (!!ua.match(/Trident\/7\./));
-    if (ieClassic || ieEleven){
+    if (ieClassic || ieEleven) {
       return false;//This is IE.
     }
     return true; //This is not IE

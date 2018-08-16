@@ -14,7 +14,6 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
  *
  * @customElement
  * @polymer
- * @demo demo/index.html
  */
 class TtdHistory extends TtdChildHelper {
   static get template() {
@@ -111,11 +110,17 @@ class TtdHistory extends TtdChildHelper {
       </ol>
 `;
   }
+
+  /**
+   * @param {array} results Stores rolled results locally
+   * @param {bool} excited Paramiter that determins if we append a ! to
+   * the end of each result that matches it's sides
+   */
   static get properties() {
     return {
       results: {
         type: Array,
-        value: function(){ return []; },
+        value: function() { return []; },
       },
       excited: {
         type: Boolean,
@@ -124,21 +129,38 @@ class TtdHistory extends TtdChildHelper {
     };
   }
 
-	ready(){
+  /**
+   * Element ready for use, fire super.ready() for native functionality
+   * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Add [_updateHistory] to update the local results
+   */
+	ready() {
 		super.ready();
 		this.findTray();
-		if (!this.trayElement){
+		if (!this.trayElement) {
 			return false;
 		}
     this.trayElement.addEventListener('_updateHistory', e => {this.updateHistory(e)});
   }
 
-  updateHistory(e){
+  /**
+   * Update (and reverse) the local results
+   * @param {obj} e holds the new data dispatched from <ttd-tray>
+   * @returns {void}
+   */
+  updateHistory(e) {
     this.results = [];
     this.results = e.detail.data.slice(0).reverse();
   }
 
-  formatResultString(r){
+  /**
+   * Formats the display string with commas and may also append
+   * a ! symbol if it was a crit and excite is set to true
+   * @param {obj} r The individual roll result
+   * Containes the # of sides that were rolled, as well as the result of that roll
+   * @returns {str}
+   */
+  formatResultString(r) {
     return r.result.toLocaleString() + (this.excited && r.result==r.sides?'!':'');
   }
 }

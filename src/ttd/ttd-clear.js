@@ -35,19 +35,26 @@ class TtdClear extends TtdChildHelper {
     `;
   }
 
-  ready(){
+  /**
+   * Element ready for use, fire super.ready() for native functionality
+   * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   */
+  ready() {
 		super.ready();
 		this.findTray();
-		if (!this.trayElement){
+		if (!this.trayElement) {
 			return false;
 		}
 	}
 
-  clear(){
-		if (!this.trayElement){
+  /**
+   * Dispatches the [_clearResults] event on the <ttd-tray> element
+   * @returns {void}
+   */
+  clear() {
+		if (!this.trayElement) {
 			return false;
 		}
-    // Dispatch _clearResults event to all elements that are listening.
     this.trayElement.dispatchEvent(new CustomEvent('_clearResults'));
   }
 }

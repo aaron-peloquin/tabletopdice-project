@@ -11,9 +11,8 @@
  * `ttd-history`
  * Displays a historical readout of all previously rolled dice
  *
- * @customElement
+ * @helperClass
  * @polymer
- * @demo demo/index.html
  */
 class TtdChildHelper extends PolymerElement {
 
@@ -21,18 +20,18 @@ class TtdChildHelper extends PolymerElement {
    * Loop through parents of the node and attaches the first
    * parent <ttd-tray> element to this.trayElement.
    */
-  findTray(){
+  findTray() {
     var el = this;
     while (el.parentNode) {
       el = el.parentNode;
-      if (el.tagName == 'TTD-TRAY'){
+      if (el.tagName == 'TTD-TRAY') {
         this.trayElement = el;
         break;
       }
     }
 
     // If no <ttd-tray> was found, throw a console error to let the developer know what's wrong.
-    if(!this.trayElement){
+    if(!this.trayElement) {
       console.error("<"+this.nodeName.toLowerCase()+"> elements must be wrapped in a <ttd-tray> element");
     }
   }
@@ -43,10 +42,10 @@ class TtdChildHelper extends PolymerElement {
    * @param {number} dieSides The number of sides on a die you want to check for an image.
    * @returns {string} The file URI to display
    */
-  dieImageURI(dieSides){
+  dieImageURI(dieSides) {
     var uri = 'images/d';
     // To approve new images, add them to this array & name their files accordingly.
-    if([4,6,8,10,12,20].indexOf(dieSides)>-1){
+    if([4,6,8,10,12,20].indexOf(dieSides)>-1) {
       uri += dieSides+'.png';
     }
     else{

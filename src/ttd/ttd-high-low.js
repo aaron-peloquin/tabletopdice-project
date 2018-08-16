@@ -86,19 +86,26 @@ class TtdHighLow extends TtdChildHelper {
     };
   }
 
-	ready(){
+  /**
+   * Element ready for use, fire super.ready() for native functionality
+   * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Add [_clearResults] to reset the rolled count
+   */
+	ready() {
 		super.ready();
 		this.findTray();
-		if (!this.trayElement){
+		if (!this.trayElement) {
 			return false;
 		}
     this.trayElement.addEventListener('_updateHistory', e => {this.updateMinMax(e)});
   }
 
   /**
+   * Updates this.min and this.max
    * @param {obj} e eventListener contains the updated data from _updateHistory listener.
+   * @returns {void}
    */
-  updateMinMax(e){
+  updateMinMax(e) {
     console.log("e",typeof e);
     this.min = 0;
     this.max = 0;
@@ -106,12 +113,12 @@ class TtdHighLow extends TtdChildHelper {
     var min = null;
     var max = null;
 
-    e.detail.data.forEach(function(r){
-      if(dieSides==r.sides){
-        if (max === null || max < r.result){
+    e.detail.data.forEach(function(r) {
+      if(dieSides==r.sides) {
+        if (max === null || max < r.result) {
           max = r.result;
         }
-        if (min === null || min > r.result){
+        if (min === null || min > r.result) {
           min = r.result;
         }
       }

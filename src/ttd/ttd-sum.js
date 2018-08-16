@@ -10,11 +10,11 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
  * `ttd-sum`
- * Display the sum of all dice rolled
+ * Display the sum of all dice rolled, possibly excluding any results that the
+ * user selected to exclude with <ttd-exclude>
  *
  * @customElement
  * @polymer
- * @demo demo/index.html
  */
 class TtdSum extends TtdChildHelper {
   static get template() {
@@ -46,6 +46,9 @@ class TtdSum extends TtdChildHelper {
     `;
   }
 
+  /**
+   * @param {num} sum The current total of all rolled results
+   */
   static get properties() {
     return {
       sum: {
@@ -55,16 +58,26 @@ class TtdSum extends TtdChildHelper {
     };
   }
 
-	ready(){
+  /**
+   * Element ready for use, fire super.ready() for native functionality
+   * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Add [_updateSum] to update the local sum
+   */
+	ready() {
 		super.ready();
 		this.findTray();
-		if (!this.trayElement){
+		if (!this.trayElement) {
 			return false;
 		}
     this.trayElement.addEventListener('_updateSum', e => {this.updateSum(e)});
   }
 
-  updateSum(e){
+  /**
+   * Updates the local sum, formatting with comas
+   * @param {obj} e contains the new sum of all dice rolled
+   * @returns {void}
+   */
+  updateSum(e) {
     this.sum = 0;
     this.sum = e.detail.data.toLocaleString();
   }
