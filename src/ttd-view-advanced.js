@@ -58,7 +58,7 @@ class TtdViewAdvanced extends PolymerElement {
 
         ttd-tray > *{
           background-color: var(--app-ttd-default-background-color);
-          box-shadow: 2px 2px 2px 1px var(--app-ttd-clean-color);
+          box-shadow: 2px 2px 2px 1px var(--app-ttd-clean-color), -1px -1px 2px 1px var(--app-ttd-child-color);
           grid-column-end: var(--cols-default-child);
           color: var(--app-ttd-child-color);
           border-radius: 5px;
