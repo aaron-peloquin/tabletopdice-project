@@ -134,6 +134,7 @@ class TtdViewBasic extends PolymerElement {
       </style>
 
       <div class="card">
+        <h1>Basic dice tray</h1>
         <div class="tray-wrapper">
           <template is="dom-if" if="[[!browserSupported]]">
             <h1>Unsupported Browser</h1>
@@ -166,7 +167,6 @@ class TtdViewBasic extends PolymerElement {
         </div>
         <app-monetizer></app-monetizer>
         <div class="card">
-          <h1>Basic dice tray</h1>
           <div class="copy-box">
             <p>
               The basic dice tray offers a history readout of all dice rolls,

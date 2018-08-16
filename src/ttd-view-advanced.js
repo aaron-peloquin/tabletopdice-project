@@ -143,6 +143,7 @@ class TtdViewAdvanced extends PolymerElement {
       </style>
 
         <div class="card">
+          <h1>Advanced dice tray</h1>
           <div class="tray-wrapper">
             <template is="dom-if" if="[[!browserSupported]]">
               <h1>Unsupported Browser</h1>
@@ -175,7 +176,14 @@ class TtdViewAdvanced extends PolymerElement {
             </template>
           </div>
           <app-monetizer>Ads for high rollers</app-monetizer>
+          <div class="card">
+          <div class="copy-box">
+            <p>
+              The advanced dice tray offers..
+            </p>
+          </div>
         </div>
+      </div>
     `;
   }
 

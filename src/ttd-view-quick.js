@@ -115,6 +115,7 @@ class TtdViewQuick extends PolymerElement {
       </style>
 
       <div class="card">
+        <h1>Quick Dice Tray</h1>
         <div class="tray-wrapper">
           <template is="dom-if" if="[[!browserSupported]]">
             <h1>Unsupported Browser</h1>
@@ -143,7 +144,6 @@ class TtdViewQuick extends PolymerElement {
         </div>
         <app-monetizer></app-monetizer>
         <div class="card">
-          <h1>Quick Dice Tray</h1>
           <div class="copy-box">
             <p>
               This dice tray is meant to be the most straightforward stripped down version.
