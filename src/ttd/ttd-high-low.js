@@ -5,7 +5,7 @@
  * The complete set of authors may be found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/AUTHORS
  */
 
- import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
@@ -58,7 +58,7 @@ class TtdHighLow extends TtdChildHelper {
         <img src="[[dieImageURI(die)]]" />
         <span class="result">{{min}}<span class="invisible-text">(low)</span></span>
       </div>
-      `;
+    `;
   }
 
   /**
@@ -92,11 +92,11 @@ class TtdHighLow extends TtdChildHelper {
    * Add [_clearResults] to reset the rolled count
    */
 	ready() {
-		super.ready();
-		this.findTray();
-		if (!this.trayElement) {
-			return false;
-		}
+    super.ready();
+    this.findTray();
+    if (!this.trayElement) {
+      return false;
+    }
     this.trayElement.addEventListener('_updateHistory', e => {this.updateMinMax(e)});
   }
 
@@ -106,7 +106,6 @@ class TtdHighLow extends TtdChildHelper {
    * @returns {void}
    */
   updateMinMax(e) {
-    console.log("e",typeof e);
     this.min = 0;
     this.max = 0;
     var dieSides = this.die;

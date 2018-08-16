@@ -19,22 +19,22 @@ import {} from '@polymer/polymer/lib/elements/dom-if.js';
 class TtdDie extends TtdChildHelper {
   static get template() {
     return html`
-        <style>
-          :host{
-			text-align: center;
-			display: table;
-			height: 100%;
-			width: 100%;
-          }
-          div{
-			display: table-cell;
-			vertical-align: middle;
-          }
-        </style>
-        <div on-click="roll">
-          <template is="dom-if" if="[[rolled]]">{{rolled}}</template>d[[sides]]
-    	</div>
-      	`;
+			<style>
+				:host{
+					text-align: center;
+					display: table;
+					height: 100%;
+					width: 100%;
+				}
+				div{
+					display: table-cell;
+					vertical-align: middle;
+				}
+			</style>
+			<div on-click="roll">
+				<template is="dom-if" if="[[rolled]]">{{rolled}}</template>d[[sides]]
+			</div>
+		`;
   }
 
 	/**
