@@ -64,11 +64,11 @@ class TtdSum extends TtdChildHelper {
    * Add [_updateSum] to update the local sum
    */
 	ready() {
-		super.ready();
-		this.findTray();
-		if (!this.trayElement) {
-			return false;
-		}
+    super.ready();
+    this.findTray();
+    if (!this.trayElement) {
+      return false;
+    }
     this.trayElement.addEventListener('_updateSum', e => {this.updateSum(e)});
   }
 
