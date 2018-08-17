@@ -18,6 +18,7 @@ import './ttd/ttd-exclude.js';
 import './ttd/ttd-custom.js';
 import './ttd/ttd-custom-roll.js';
 import './ttd/ttd-high-low.js';
+import './ttd/ttd-string-parser.js';
 
 /**
  * `ttd-view-advanced`
@@ -101,28 +102,35 @@ class TtdViewAdvanced extends PolymerElement {
         }
 
         ttd-die{
-          grid-area:  d6 ;
+          grid-area:  d6;
           font-size: 2rem;
         }
 
         ttd-die[sides="4"]{
-          grid-area:  d4 ;
+          grid-area:  d4;
         }
 
         ttd-die[sides="8"]{
-          grid-area:  d8 ;
+          grid-area:  d8;
         }
 
         ttd-die[sides="10"]{
-          grid-area:  d10 ;
+          grid-area:  d10;
         }
 
         ttd-die[sides="12"]{
-          grid-area:  d12 ;
+          grid-area:  d12;
         }
 
         ttd-die[sides="20"]{
-          grid-area:  d20 ;
+          grid-area:  d20;
+        }
+
+        ttd-string-parser{
+          grid-area: str1;
+        }
+        ttd-string-parser[class="off-hand"]{
+          grid-area: str2;
         }
 
         ttd-tray > *{
@@ -228,6 +236,8 @@ class TtdViewAdvanced extends PolymerElement {
                   <ttd-die sides="10"></ttd-die>
                   <ttd-die sides="12"></ttd-die>
                   <ttd-die sides="20"></ttd-die>
+                  <ttd-string-parser class="main-hand"></ttd-string-parser>
+                  <ttd-string-parser class="off-hand"></ttd-string-parser>
                 </ttd-tray>
               </slot>
             </template>
