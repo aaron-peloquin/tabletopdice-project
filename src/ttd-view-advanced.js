@@ -18,7 +18,7 @@ import './ttd/ttd-exclude.js';
 import './ttd/ttd-custom.js';
 import './ttd/ttd-custom-roll.js';
 import './ttd/ttd-high-low.js';
-import './ttd/ttd-string-parser.js';
+import './ttd/ttd-equation.js';
 
 /**
  * `ttd-view-advanced`
@@ -65,9 +65,9 @@ class TtdViewAdvanced extends PolymerElement {
 
           /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
           grid-template-areas:
-            "hist hist hist hist hl10 hl20"
-            "exc exc exc sum clr clr"
-            "d4 d6 d8 d10 d12 d20"
+            "hist hist hist hist hist hl20"
+            "d4 d6 d8 exc exc clr"
+            "d10 d12 d20 sum sum clr"
             "str1 str1 str1 str1 str1 str1"
             "str2 str2 str2 str2 str2 str2";
         }
@@ -126,10 +126,10 @@ class TtdViewAdvanced extends PolymerElement {
           grid-area:  d20;
         }
 
-        ttd-string-parser{
+        ttd-equation{
           grid-area: str1;
         }
-        ttd-string-parser[class="off-hand"]{
+        ttd-equation[class="off-hand"]{
           grid-area: str2;
         }
 
@@ -228,7 +228,6 @@ class TtdViewAdvanced extends PolymerElement {
                   <ttd-history excited></ttd-history>
                   <ttd-sum></ttd-sum>
                   <ttd-exclude die="20"></ttd-exclude>
-                  <ttd-high-low die="10"></ttd-high-low>
                   <ttd-high-low die="20"></ttd-high-low>
                   <ttd-die sides="4"></ttd-die>
                   <ttd-die></ttd-die>
@@ -236,17 +235,21 @@ class TtdViewAdvanced extends PolymerElement {
                   <ttd-die sides="10"></ttd-die>
                   <ttd-die sides="12"></ttd-die>
                   <ttd-die sides="20"></ttd-die>
-                  <ttd-string-parser class="main-hand"></ttd-string-parser>
-                  <ttd-string-parser class="off-hand"></ttd-string-parser>
+                  <ttd-equation class="main-hand"></ttd-equation>
+                  <ttd-equation class="off-hand"></ttd-equation>
                 </ttd-tray>
               </slot>
             </template>
           </div>
-          <app-monetizer>Ads for high rollers</app-monetizer>
+          <app-monetizer>Ads for advanced rollers</app-monetizer>
           <div class="card">
           <div class="copy-box">
             <p>
-              The advanced dice tray offers..
+              The advanced dice tray offers a readout of all dice rolled,
+              the minimum and maximum result of all d20 rolls,
+              a standard array of polyhedron dice,
+              a sum of all dice roll results (with the option to exclude one type of dice, defaulted to d20),
+              and two 'dice equation fields' that allow you to
             </p>
           </div>
         </div>
