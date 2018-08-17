@@ -36,14 +36,14 @@ class TtdHistory extends TtdChildHelper {
         }
 
         ol {
-          margin: 0 5px;
+          margin: 0 10px;
           padding: 0;
           height: 100%;
           min-height: 75px;
 
           display: grid;
           grid-gap: 10px;
-          grid-template-columns: repeat(auto-fill, 70px);
+          grid-template-columns: repeat(auto-fill, 90px);
 
           /* horizontal scrollbar functionality */
           -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -69,11 +69,14 @@ class TtdHistory extends TtdChildHelper {
           display: inline-grid;
           border-radius: 10px;
           align-items: center;
-          margin: 2px 2px 2px 5px;
+          margin: 2px 2px 2px 15px;
           padding: 2px;
           align-self: center;
           justify-self: center;
           grid-row: 1;
+          background-color: var(--app-ttd-default-background-color);
+          color: #ddd;
+          min-width: 90px;
         }
 
         li > *{
@@ -95,6 +98,28 @@ class TtdHistory extends TtdChildHelper {
           text-align: center;
         }
 
+        @keyframes jitters {
+          0% { transform: translate(1px, 0px) rotate(2deg); }
+          10% { transform: translate(0px, 1px) rotate(1deg); }
+          20% { transform: translate(-1px, 0px) rotate(-1deg); }
+          30% { transform: translate(-2px, -1px) rotate(0deg); }
+          40% { transform: translate(-1px, 0px) rotate(1deg); }
+          50% { transform: translate(0px, 1px) rotate(2deg); }
+          60% { transform: translate(1px, 2px) rotate(3deg); }
+          70% { transform: translate(2px, 1px) rotate(4deg); }
+          80% { transform: translate(3px, 0px) rotate(3deg); }
+          90% { transform: translate(2px, 1px) rotate(2deg); }
+          100% { transform: translate(0px, 0px) rotate(1deg); }
+      }
+
+        .newest{
+          color: var(--app-copybox-background);
+        }
+
+        .tiny-text{
+          font-size:.75rem;
+        }
+
         .invisible-text{
           font-size: 0px;
         }
@@ -103,7 +128,9 @@ class TtdHistory extends TtdChildHelper {
         <dom-repeat items="{{results}}">
           <template>
             <li>
-              <span>[[formatResultString(item)]]<span class="invisible-text">(from d[[item.sides]]) </span></span>
+              <span>
+                [[formatResultString(item)]]<span class="tiny-text"> / <span class="invisible-text"> from 1d</span>{{item.sides}}<span class="invisible-text">, </span></span>
+              </span>
               <img src="[[dieImageURI(item.sides)]]" />
             </li>
           </template>
@@ -122,6 +149,7 @@ class TtdHistory extends TtdChildHelper {
       results: {
         type: Array,
         value: function() { return []; },
+        observer: 'addLatestClass',
       },
       excited: {
         type: Boolean,
@@ -134,7 +162,8 @@ class TtdHistory extends TtdChildHelper {
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    * Add [_updateHistory] to update the local results
-   */
+    * @returns {void}
+  */
 	ready() {
     super.ready();
     this.findTray();
@@ -152,6 +181,19 @@ class TtdHistory extends TtdChildHelper {
   updateHistory(e) {
     this.results = [];
     this.results = e.detail.data.slice(0).reverse();
+  }
+
+  /**
+   * Whenever results are modified, append "newst" class to the most recent roll's wrapping <li>.
+   * @returns {void}
+   */
+  addLatestClass(){
+    if(this.results.length>0) {
+      var myShadow = this.shadowRoot;
+      setTimeout(function(){
+        myShadow.querySelector('li').classList.add("newest")
+      },1);
+    }
   }
 
   /**

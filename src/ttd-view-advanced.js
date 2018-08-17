@@ -62,12 +62,11 @@ class TtdViewAdvanced extends PolymerElement {
           grid-template-rows: auto;
           grid-template-columns: var(--cols-grid-template);
 
+          /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
           grid-template-areas:
             "hist hist hist hist hl10 hl20"
             "exc exc exc sum clr clr"
             "d4 d6 d8 d10 d12 d20"
-/*          "d4 d4 d6 d6 d8 d8"         */
-/*          "d10 d10 d12 d12 d20 d20"   */
             "str1 str1 str1 str1 str1 str1"
             "str2 str2 str2 str2 str2 str2";
         }
@@ -94,6 +93,11 @@ class TtdViewAdvanced extends PolymerElement {
 
         ttd-clear{
           grid-area:  clr ;
+        }
+
+        ttd-die,
+        ttd-clear{
+          cursor: pointer;
         }
 
         ttd-die{
@@ -124,10 +128,28 @@ class TtdViewAdvanced extends PolymerElement {
         ttd-tray > *{
           background-color: var(--app-ttd-default-background-color);
           box-shadow: 2px 2px 2px 1px var(--app-ttd-clean-color), -1px -1px 2px 1px var(--app-ttd-child-color);
-/*          grid-column-end: var(--cols-default-child);*/
           color: var(--app-ttd-child-color);
           border-radius: 5px;
           overflow: hidden;
+        }
+
+        @keyframes jitters {
+          0% { transform: translate(1px, 0px) rotate(2deg); }
+          10% { transform: translate(0px, 1px) rotate(1deg); }
+          20% { transform: translate(-1px, 0px) rotate(-1deg); }
+          30% { transform: translate(-2px, -1px) rotate(0deg); }
+          40% { transform: translate(-1px, 0px) rotate(1deg); }
+          50% { transform: translate(0px, 1px) rotate(2deg); }
+          60% { transform: translate(1px, 2px) rotate(3deg); }
+          70% { transform: translate(2px, 1px) rotate(4deg); }
+          80% { transform: translate(3px, 0px) rotate(3deg); }
+          90% { transform: translate(2px, 1px) rotate(2deg); }
+          100% { transform: translate(0px, 0px) rotate(1deg); }
+      }
+
+      ttd-tray ttd-die:active{
+          animation: jitters;
+          animation-duration: .25s;
         }
 
         ttd-tray ttd-history,
@@ -143,33 +165,6 @@ class TtdViewAdvanced extends PolymerElement {
           background-color: var(--app-ttd-special-background-color);
         }
 
-        /* History always takes up 1 whole row */
-/*
-        ttd-tray ttd-history{
-          grid-column-end: var(--cols-ttd-history);
-        }
-
-        ttd-tray ttd-high-low{
-          grid-column-end: var(--cols-ttd-high-low);
-        }
-
-        ttd-tray ttd-exclude{
-          grid-column-end: var(--cols-ttd-exclude);
-          font-family: var(--app-font-family);
-        }
-
-        ttd-tray ttd-clear{
-          grid-column-end: var(--cols-ttd-clear);
-        }
-
-        ttd-tray ttd-sum{
-          grid-column-end: var(--cols-ttd-sum);
-        }
-
-        ttd-tray ttd-custom{
-          grid-column-end: var(--cols-ttd-custom);
-        }
-*/
         /* [Responsive] Small Styles */
 /*
         @media (min-width: 500px) {
