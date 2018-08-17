@@ -7,7 +7,7 @@
   "Scope": "/",
   "start_url": "/",
   "lang": "en-US",
-  ​​"orientation": "portrait-primary",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
