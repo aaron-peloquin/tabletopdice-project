@@ -42,7 +42,7 @@ class TtdSum extends TtdChildHelper {
           font-size: 0px;
         }
       </style>
-      <span><slot>= </slot>[[sum]]<span class="invisible-text">(Total)</span></span>
+      <span title="Roll results sum"><slot></slot>[[sum]]<span class="invisible-text">(Total)</span></span>
     `;
   }
 
