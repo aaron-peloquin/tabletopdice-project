@@ -34,7 +34,7 @@ class TtdViewAdvanced extends PolymerElement {
         :host {
           /* [Responsive] Tiny Styles */
           --cols-num: 4;
-          --cols-grid-template: 1fr 1fr 1fr 1fr 1fr 1fr;
+          --cols-grid-template: 1fr 1fr 1fr;
           --cols-ttd-history: span 3;
           --cols-ttd-high-low: span 1;
           --cols-default-child: span 2;
@@ -64,12 +64,14 @@ class TtdViewAdvanced extends PolymerElement {
           grid-template-columns: var(--cols-grid-template);
 
           /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
-          grid-template-areas:
-            "hist hist hist hist hist hl20"
-            "d4 d6 d8 exc exc clr"
-            "d10 d12 d20 sum sum clr"
-            "str1 str1 str1 str1 str1 str1"
-            "str2 str2 str2 str2 str2 str2";
+            grid-template-areas:
+              "hist hist hist"
+              "hl20 exc clr"
+              "hl20 sum sum"
+              "d4 d6 d8"
+              "d10 d12 d20"
+              "str1 str1 str1"
+              "str2 str2 str2";
         }
 
         ttd-history{
@@ -174,21 +176,19 @@ class TtdViewAdvanced extends PolymerElement {
         }
 
         /* [Responsive] Small Styles */
-/*
-        @media (min-width: 500px) {
+        @media (min-width: 550px) {
           :host{
-            --cols-num: 6;
             --cols-grid-template: 1fr 1fr 1fr 1fr 1fr 1fr;
-            --cols-ttd-history: span 5;
-            --cols-default-child: span 2;
-            --cols-ttd-exclude: span 4;
-            --cols-ttd-clear: var(--cols-default-child);
-            --cols-ttd-sum: var(--cols-default-child);
-
-            --font-size-all: 2.7rem;
-            }
+          }
+          ttd-tray{
+              grid-template-areas:
+                "hist hist hist hist hist hl20"
+                "d4 d6 d8 exc exc clr"
+                "d10 d12 d20 sum sum clr"
+                "str1 str1 str1 str1 str1 str1"
+                "str2 str2 str2 str2 str2 str2";
+          }
         }
-*/
         /* [Responsive] Medium + Styles */
 /*
         @media (min-width: 640px) {
@@ -249,7 +249,8 @@ class TtdViewAdvanced extends PolymerElement {
               the minimum and maximum result of all d20 rolls,
               a standard array of polyhedron dice,
               a sum of all dice roll results (with the option to exclude one type of dice, defaulted to d20),
-              and two 'dice equation fields' that allow you to
+              and two 'dice equation fields' that allows you to enter your own dice rules,
+              then clear the app and roll them all at once, displaying a total at the end.
             </p>
           </div>
         </div>
