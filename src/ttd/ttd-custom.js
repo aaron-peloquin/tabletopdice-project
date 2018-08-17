@@ -107,6 +107,7 @@ class TtdCustom extends TtdChildHelper {
    * Add [_clearResults] to reset the rolled count
    * Add [_rollCustomDie] to roll this custom die
    * Add [submit] to also roll this custom die
+   * @returns {void}
    */
   ready() {
     super.ready();

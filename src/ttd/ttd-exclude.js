@@ -86,6 +86,7 @@ class TtdExclude extends TtdChildHelper {
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    * Update <ttd-tray> to be this excluded die's default value
+   * @returns {void}
    */
   ready() {
     super.ready();

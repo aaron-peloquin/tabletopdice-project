@@ -37,6 +37,7 @@ class TtdClear extends TtdChildHelper {
   /**
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * @returns {void}
    */
   ready() {
     super.ready();

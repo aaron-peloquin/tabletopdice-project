@@ -58,6 +58,7 @@ static get template() {
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    * Add [_clearResults] to reset the rolled count
+   * @returns {void}
    */
   ready() {
     super.ready();
@@ -70,6 +71,7 @@ static get template() {
 
   /**
    * Roll this die, incriment the number of times rolled
+   * @returns {void}
    */
   roll() {
     this.rolled++;
@@ -81,6 +83,7 @@ static get template() {
 
   /**
    * Reset the number of times this die has been rolled
+   * @returns {void}
    */
   resetDie() {
     this.rolled = 0;

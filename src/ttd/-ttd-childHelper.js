@@ -8,17 +8,19 @@
  import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 
 /**
- * `ttd-history`
- * Displays a historical readout of all previously rolled dice
+ * `-TtdChildHelper`
+ * Extended by child elements of <ttd-tray> for shared functionality
  *
  * @helperClass
  * @polymer
+ * @export TtdChildHelper
  */
 class TtdChildHelper extends PolymerElement {
 
   /**
    * Loop through parents of the node and attaches the first
    * parent <ttd-tray> element to this.trayElement.
+   * @returns {void}
    */
   findTray() {
     var el = this;

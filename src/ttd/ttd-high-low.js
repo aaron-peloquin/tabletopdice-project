@@ -89,6 +89,7 @@ class TtdHighLow extends TtdChildHelper {
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    * Add [_clearResults] to reset the rolled count
+   * @returns {void}
    */
 	ready() {
     super.ready();
@@ -96,7 +97,6 @@ class TtdHighLow extends TtdChildHelper {
     if (!this.trayElement) {
       return false;
     }
-    console.log(this.die);
     this.trayElement.addEventListener('_updateHistory', e => {this.updateMinMax(e)});
   }
 

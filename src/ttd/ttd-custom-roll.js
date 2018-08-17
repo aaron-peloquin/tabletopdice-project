@@ -38,6 +38,7 @@ class TtdCustomRoll extends TtdChildHelper {
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    * Add [click] that will roll all custom die elements
+   * @returns {void}
    */
   ready() {
     super.ready();
