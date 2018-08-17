@@ -94,6 +94,7 @@ class TtdTray extends PolymerElement {
 
     this.dispatchEvent(new CustomEvent('_recalculateSum'));
     this.updateHistoricalNodes();
+    return value;
   }
 
   /**
@@ -133,6 +134,11 @@ class TtdTray extends PolymerElement {
    */
   updateSumNodes() {
     this.dispatchEvent(new CustomEvent('_updateSum', {detail: {data:this.sum}}));
+  }
+
+  fullRefresh() {
+    this.recalculateSum();
+    this.updateHistoricalNodes();
   }
 
   /**
