@@ -64,14 +64,14 @@ class TtdViewAdvanced extends PolymerElement {
           grid-template-columns: var(--cols-grid-template);
 
           /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
-            grid-template-areas:
-              "hist hist hist"
-              "hl20 exc clr"
-              "hl20 sum sum"
-              "d4 d6 d8"
-              "d10 d12 d20"
-              "str1 str1 str1"
-              "str2 str2 str2";
+          grid-template-areas:
+            "hist hist hist"
+            "hl20 exc clr"
+            "hl20 sum sum"
+            "d4 d6 d8"
+            "d10 d12 d20"
+            "str1 str1 str1"
+            "str2 str2 str2";
         }
 
         ttd-history{
@@ -155,9 +155,9 @@ class TtdViewAdvanced extends PolymerElement {
           80% { transform: translate(3px, 0px) rotate(3deg); }
           90% { transform: translate(2px, 1px) rotate(2deg); }
           100% { transform: translate(0px, 0px) rotate(1deg); }
-      }
+        }
 
-      ttd-tray ttd-die:active{
+        ttd-tray ttd-die:active{
           animation: jitters;
           animation-duration: .25s;
         }
@@ -189,24 +189,7 @@ class TtdViewAdvanced extends PolymerElement {
                 "str2 str2 str2 str2 str2 str2";
           }
         }
-        /* [Responsive] Medium + Styles */
-/*
-        @media (min-width: 640px) {
-          :host{
-            --cols-ttd-custom: span 4;
-            --cols-ttd-clear: span 6;
-          }
-        }
-*/
-        /* [Responsive] Large + Styles */
-/*
-        @media (min-width: 800px) {
-          :host{
-            --cols-ttd-custom: var(--cols-default-child);
-            --cols-ttd-clear: var(--cols-default-child);
-          }
-*/
-          </style>
+      </style>
 
         <div class="card">
           <h1>Advanced dice tray</h1>
