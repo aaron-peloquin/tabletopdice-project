@@ -80,7 +80,7 @@ class TtdTray extends PolymerElement {
       'sides': sides,
       'result': value,
       'event_label': sides,
-      'value': value
+      'custom_variable_1': value
     });
 
     if(sides==20) {
