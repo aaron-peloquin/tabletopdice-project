@@ -42,7 +42,7 @@ class TtdSum extends TtdChildHelper {
           font-size: 0px;
         }
       </style>
-      <span>[[sum]]<span class="invisible-text">(Total)</span></span>
+      <span><slot>= </slot>[[sum]]<span class="invisible-text">(Total)</span></span>
     `;
   }
 
@@ -62,6 +62,7 @@ class TtdSum extends TtdChildHelper {
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    * Add [_updateSum] to update the local sum
+   * @returns {void}
    */
 	ready() {
     super.ready();
