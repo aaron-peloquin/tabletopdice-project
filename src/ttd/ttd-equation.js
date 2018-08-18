@@ -13,7 +13,7 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
  * `ttd-equation`
  * Allows the user to input a string of "dice logic", then "roll" that string
  * It feels odd, but seems to be intuative to  me and my alpha testers, and it was
- * indipendantly requested by two of them, so I have a feeling it will be popular
+ * independently requested by two of them, so I have a feeling it will be popular
  *
  * @customElement
  * @polymer
