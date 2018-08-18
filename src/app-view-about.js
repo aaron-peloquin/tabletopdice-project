@@ -48,13 +48,6 @@ class AppViewAbout extends PolymerElement {
             Alternativly you can also contact me or send feedback, please email <a href="mailto:contact@tabletopdice.com">Contact@TabletopDice.com</a> directly.
           </p>
         </div>
-
-        <h1>Open Source</h1>
-        <div class="copy-box">
-          <p>
-            This is an open source project hosted on <a href="https://github.com/aaron-peloquin/tabletopdice-project/">github</a>.
-          </p>
-        </div>
       </div>
       `;
   }
