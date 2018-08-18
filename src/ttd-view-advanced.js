@@ -78,11 +78,7 @@ class TtdViewAdvanced extends PolymerElement {
           grid-area: hist;
         }
 
-        ttd-high-low[die="10"]{
-          grid-area: hl10;
-        }
-
-        ttd-high-low[die="20"]{
+        ttd-high-low{
           grid-area: hl20;
         }
 
