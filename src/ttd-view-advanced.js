@@ -163,7 +163,7 @@ class TtdViewAdvanced extends PolymerElement {
           background-color: var(--app-ttd-special-background-color);
         }
 
-        /* [Responsive] Small Styles */
+        /* [Responsive] Medium Styles */
         @media (min-width: 875px) {
           :host{
             --cols-grid-template: 1fr 1fr 1fr 1fr 1fr 1fr;
