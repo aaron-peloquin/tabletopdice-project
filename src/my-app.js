@@ -105,6 +105,7 @@ class MyApp extends PolymerElement {
             <a name="about" href="[[rootPath]]about">About</a>
             <a name="basic-dice-roller" href="[[rootPath]]quick-dice-roller">Roll Quick</a>
             <a name="basic-dice-roller" href="[[rootPath]]basic-dice-roller">Roll Basic</a>
+            <a name="advanced-dice-roller" href="[[rootPath]]advanced-dice-roller">Roll Advanced</a>
           </iron-selector>
         </app-drawer>
 
