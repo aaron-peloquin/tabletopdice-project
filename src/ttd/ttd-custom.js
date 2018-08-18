@@ -28,6 +28,7 @@ class TtdCustom extends TtdChildHelper {
           height:100%;
           width: 100%;
         }
+
         form{
           display: table-cell;
           vertical-align: middle;
@@ -56,9 +57,11 @@ class TtdCustom extends TtdChildHelper {
           background-color: var(--app-ttd-clean-background-color);
           color: var(--app-ttd-clean-color);
         }
+
         input:focus{
           outline: none;
         }
+
         span{
           padding: .25em;
           display: table-cell;
