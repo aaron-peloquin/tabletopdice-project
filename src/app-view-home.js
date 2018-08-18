@@ -54,10 +54,13 @@ class AppViewHome extends PolymerElement {
             Built with love for the tabletop gaming community &lt;3
           </h2>
           <p class="start-rolling">
-            <a on-click="gotoRoll" href="[[rootPath]]quick-dice-roller">Quick Dice</a>
+            <a href="[[rootPath]]quick-dice-roller">Quick Dice</a>
           </p>
           <p class="start-rolling">
-            <a on-click="gotoRoll" href="[[rootPath]]basic-dice-roller">Basic Dice</a>
+            <a href="[[rootPath]]basic-dice-roller">Basic Dice</a>
+          </p>
+          <p class="start-rolling">
+            <a href="[[rootPath]]advanced-dice-roller">Advanced Dice</a>
           </p>
         </div>
       </div>
@@ -74,9 +77,6 @@ class AppViewHome extends PolymerElement {
     };
   }
 
-  gotoRoll() {
-    this.page = 'basic-dice-roller';
-  }
 }
 
 window.customElements.define('app-view-home', AppViewHome);
