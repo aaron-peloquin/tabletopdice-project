@@ -89,15 +89,11 @@ class TtdEquation extends TtdChildHelper {
           vertical-align: middle;
         }
 
-        .invisible-text{
-          font-size: 0px;
-        }
-
       </style>
         <form>
           <div>
-            <label class="invisible-text" for="custom-string">Dice command string (eg: 1d8+3+(2d20*0))</label>
             <input id="custom-string"
+              aria-label="Dice command string (example: 1d8+3+(2d20*0)). Note: The maximum dice to roll is 999d999"
               title="Maximum 999 rolls of a 999 sided die per set, but no limit on string length or number of sets.. be careful!"
               placeholder="eg: 1d8+3+(2d20*0)"
               value="{{customString::input}}" />

@@ -73,15 +73,14 @@ class TtdCustom extends TtdChildHelper {
       <form>
         <div>
           <span><template is="dom-if" if="[[rolled]]">{{rolled}}</template>d</span>
-          <label class="invisible-text" for="custom-die">Custom die value</label>
-          <input id="custom-die" type="number" value="{{customSides::input}}" />
+          <input aria-label="Custom die value" type="number" value="{{customSides::input}}" />
         </div>
       </form>
       `;
   }
 
   /**
-   * @param {num} customSides Tied to the input#custom-die element in this template
+   * @param {num} customSides Tied to the <input> element in this template
    * automatically updates on user input
    * triggers this.resetDie() on change
    * @param {num} rolled The number of times this custom die has been rolled,

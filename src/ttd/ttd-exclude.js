@@ -36,8 +36,13 @@ class TtdExclude extends TtdChildHelper {
           background-color: var(--app-ttd-clean-background-color);
           color: var(--app-ttd-clean-color);
         }
+
+        .invisible-text{
+          font-size: 0px;
+          display: none;
+        }
       </style>
-      <select value="{{die::change}}">
+      <select aria-label="Select die to exclude from the sum" value="{{die::change}}">
         <option value="0" selected$="{{parseSelected(0)}}">[[defaultLanguage]]</option>
         <template is="dom-repeat" items="{{types}}" as="sides">
             <option value="[[sides]]" selected$='[[parseSelected(sides)]]'>[[prefix]][[sides]][[append]]</option>
