@@ -32,7 +32,7 @@ class TtdChildHelper extends PolymerElement {
       }
     }
 
-    // If no <ttd-tray> was found, throw a console error to let the developer know what's wrong.
+    /** If no <ttd-tray> was found, throw a console error to let the developer know what's wrong */
     if(!this.trayElement) {
       console.error("<"+this.nodeName.toLowerCase()+"> elements must be wrapped in a <ttd-tray> element");
     }
@@ -46,7 +46,7 @@ class TtdChildHelper extends PolymerElement {
    */
   dieImageURI(dieSides) {
     var uri = 'images/d';
-    // To approve new images, add them to this array & name their files accordingly.
+    /** To approve new images, add them to this array & name their files accordingly */
     if([4,6,8,10,12,20].indexOf(dieSides)>-1) {
       uri += dieSides+'.png';
     }
