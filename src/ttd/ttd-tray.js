@@ -76,17 +76,23 @@ class TtdTray extends PolymerElement {
     this.results.push({"sides":sides,"result":value});
 
     //Report to Google Analytics
-    gtag('event', 'roll', {
+    gtag('event', 'rollStandard', {
+      "event_category":"roll",
+      "event_label":"1d"+sides,
       'dieSides': sides,
       'rollResult': value
     });
 
     if(sides==20) {
       if(value==20) {
-        gtag('event', 'natural-twenty');
+        gtag('event', 'natural-twenty', {
+          "event_category":"critical",
+        });
       }
       else if(value==1) {
-        gtag('event', 'natural-one');
+        gtag('event', 'natural-one', {
+          "event_category":"critical",
+        });
       }
     }
 

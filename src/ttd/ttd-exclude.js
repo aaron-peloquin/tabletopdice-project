@@ -121,6 +121,8 @@ class TtdExclude extends TtdChildHelper {
 
     /** Report [update-exclude] to google analytics */
     gtag('event', 'update-exclude', {
+      "event_category":"config",
+      'event_label': "Exclude "+this.die,
       'dieSides': this.die,
     });
     this.trayElement.dispatchEvent(new CustomEvent('_recalculateSum'));

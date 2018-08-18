@@ -216,6 +216,8 @@ class TtdEquation extends TtdChildHelper {
         this.result = equationResult.toLocaleString();
         /** Report equation results to google analytics */
         gtag('event', 'rollEquation', {
+          "event_category":"roll",
+          'event_label': this.customString,
           'dieEquation': diceEquation,
           'rollResult': this.result
         });
@@ -226,7 +228,8 @@ class TtdEquation extends TtdChildHelper {
         this.result = "ERR";
         /** Report error to Google Analytics */
         gtag('event', 'rollEquationError', {
-          'dieEquation': diceEquation,
+          "event_category":"error",
+          'dieEquation': diceEquation
         });
       }
     }
