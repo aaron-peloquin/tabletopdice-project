@@ -39,10 +39,13 @@ class AppViewAbout extends PolymerElement {
           </p>
         </div>
   
-        <h1>Contact &amp; Feedback</h1>
+        <h1>Feedback & Contact</h1>
         <div class="copy-box">
           <p>
-            To contact me or send feedback, please email <a href="mailto:feedback@tabletopdice.com">Feedback@TabletopDice.com</a> directly.
+            Please take the time to fill out this <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfPABLn01U6BDjdygscafbasK6IVeGtK4vRcOba7C3mDJaEBQ/viewform">short survey</a> to help guide this app going forward.
+          </p>
+          <p>
+            Alternativly you can also contact me or send feedback, please email <a href="mailto:contact@tabletopdice.com">Contact@TabletopDice.com</a> directly.
           </p>
         </div>
 
