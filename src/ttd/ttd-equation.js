@@ -31,15 +31,18 @@ class TtdEquation extends TtdChildHelper {
           width: 100%;
 
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-          grid-template-areas: "input input input result result roll";
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas:
+            "string__ string__ roll__"
+            "exclude_ exclude_ result";
           grid-gap: 5px;
           align-items: center;
         }
 
         form{
           display: inline-grid;
-          grid-area: input;
+          grid-area: string__;
           height: 100%;
         }
 
@@ -80,13 +83,37 @@ class TtdEquation extends TtdChildHelper {
         }
 
         .roll{
-          grid-area: roll;
+          grid-area: roll__;
+        }
+
+        .exclude{
+          grid-area: exclude_;
+        }
+
+        select{
+          font-family: inherit;
+          font-weight: inherit;
+          width: 100%;
+          height: 100%;
+          margin-right: -1px;
+          min-width: 0;
+          grid-row: 1;
+          grid-column: 1;
         }
 
         span{
           padding: .25em;
           display: table-cell;
           vertical-align: middle;
+        }
+
+        /* [Responsive] Medium Styles */
+        @media (min-width: 600px) {
+          :host{
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: "string__ string__ string__ exclude_ result roll__";
+          }
         }
 
       </style>
@@ -97,9 +124,17 @@ class TtdEquation extends TtdChildHelper {
               title="Max: 999d999"
               placeholder="{{placeholder}}"
               value="{{customString::input}}" />
-          </form>
           </div>
-          <span class="result">{{result}}</span>
+        </form>
+        <div class="exclude">
+          <select aria-label="Select die to exclude from the this equation's result" value="{{excludeDie::change}}">
+            <option value="0" selected$="{{parseSelected(0)}}">[[defaultLanguage]]</option>
+            <template is="dom-repeat" items="{{diceTypes}}" as="sides">
+              <option value="[[sides]]" selected$='[[parseSelected(sides)]]'>[[prefix]][[sides]][[append]]</option>
+            </template>
+          </select>
+        </div>
+        <span class="result">{{result}}</span>
         <span class="roll" on-click="roll"><slot style="font-size:smaller">Roll</slot></span>
       </form>
       `;
@@ -110,6 +145,13 @@ class TtdEquation extends TtdChildHelper {
    * automatically updates on user input
    * triggers this.stringChanged() on change
    * @param {num} result The current result from running this dice equation
+   * @param {str} parsedEquation This displays the most recently
+   * parsed (and randomly rolled) equation
+   * @param {str} defaultLanguage The default language used in the <option> when no die is selected
+   * @param {str} prefix The default language used in <options> before the number of sides written to markup
+   * @param {str} append The default language used in <options> after the number of sides is written to markup
+   * @param {str} placeholder Placeholder text for the <input /> tag
+   * @param {num} excludeDie An optional die to exclude from this equation's result. Note, this die is still rolled
    */
   static get properties() {
     return {
@@ -121,6 +163,41 @@ class TtdEquation extends TtdChildHelper {
       result: {
         type: Number,
         value: 0,
+        reflectToAttribute: true,
+      },
+      parsedEquation: {
+        type: String,
+        value: "",
+        reflectToAttribute: true,
+      },
+      defaultLanguage: {
+        type: String,
+        value: "Add all dice",
+      },
+      prefix: {
+        type: String,
+        value: "Skip d",
+      },
+      append: {
+        type: String,
+        value: "s",
+      },
+      diceTypes: {
+        type: Array,
+        value: function() { return []; },
+      },
+      placeholder: {
+        type: String,
+        value: "",
+      },
+      excludeDie: {
+        type: Number,
+        value: 0,
+        reflectToAttribute: true,
+      },
+      widthLayoutChange: {
+        type: String,
+        value: '600px',
       },
     };
   }
@@ -129,6 +206,7 @@ class TtdEquation extends TtdChildHelper {
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    * Add [_clearResults] listener to clear results
+   * Update this.diceTypes with <ttd-tray>.standardPolyhedrons
    * Add [submit] to also roll this custom die
    * @returns {void}
    */
@@ -138,6 +216,8 @@ class TtdEquation extends TtdChildHelper {
     if (!this.trayElement) {
       return false;
     }
+
+    this.diceTypes = this.trayElement.standardPolyhedrons;
     this.trayElement.addEventListener('_clearResults', e => {this.clearResults(e)});
     this.shadowRoot.querySelector('form').addEventListener('submit', e=>{this.submitRoll(e)});
 	}
@@ -162,6 +242,14 @@ class TtdEquation extends TtdChildHelper {
   }
 
   /**
+   * @param {var} s The sides of the <option> in this element's template to check
+   * @returns {bool} true if s is exactly equal to this.excludeDie
+   */
+  parseSelected(s) {
+    return s===this.excludeDie;
+  }
+
+  /**
    * Parse and 'roll' the custom dice equation string (customString)
    * Push dice results into tray element, but do not use it's method to roll
    * Instead use our own internally to better track button clicks vs 
@@ -171,6 +259,7 @@ class TtdEquation extends TtdChildHelper {
   roll() {
     var rollResult = 0;
     var tray = this.trayElement;
+    var exclude = this.excludeDie;
     if(this.customString=='') {
       this.result = '';
     }
@@ -201,13 +290,16 @@ class TtdEquation extends TtdChildHelper {
 
           for(var i=0; i<diceNum;i++) {
             var value = Math.floor(Math.random() * Math.floor(diceSides)) + 1;
-            rollResult += value;
+            if(diceSides!=exclude) {
+              rollResult += value;
+            }
             tray.results.push({"sides":diceSides, "result":value});
           }
           return rollResult;
         }
       });
       tray.fullRefresh();
+      this.parsedEquation = diceEquation;
       try {
         /**
          * It should be reasonably safe to run eval() here, since we have already stripped out everything except
