@@ -23,6 +23,8 @@ class TtdEquation extends TtdChildHelper {
     return html`
       <style>
         :host {
+          height:100%;
+          width:100%;
           flex-wrap: nowrap;
           text-align: center;
           height:100%;

@@ -130,8 +130,9 @@ class TtdViewAdvanced extends PolymerElement {
 
         ttd-equation{
           grid-area: str1;
+          margin-bottom: 10px;
         }
-        ttd-equation[class="off-hand"]{
+        ttd-equation.off-hand{
           grid-area: str2;
         }
 
@@ -189,7 +190,13 @@ class TtdViewAdvanced extends PolymerElement {
                 "str2 str2 str2 str2 str2 str2";
           }
         }
-      </style>
+
+        @media screen and (min-width: 1200px) {
+          :host{
+             font-size: 32px;
+          }
+        }
+        </style>
 
         <div class="card">
           <h1>Advanced dice tray</h1>
