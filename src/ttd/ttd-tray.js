@@ -34,6 +34,14 @@ class TtdTray extends PolymerElement {
       <slot></slot>
     `;
   }
+
+  /**
+   * @param {array} results Holds all a local copy of all roll results, which
+   * can be cloned and pushed out to [_updateHistory] listeners
+   * @param {num} sum The current sum of all dice rolled so far, excluding
+   * the dice with sides equal to this.exclude
+   * @param {num} exclude The type of dice to exclude
+   */
   static get properties() {
     return {
       results: {
@@ -48,6 +56,11 @@ class TtdTray extends PolymerElement {
         type: Number,
         value: 0,
       },
+      standardPolyhedrons: {
+        type: Array,
+        reflectToAttribute: true,
+        value: function() { return [4,6,8,10,12,20]; }
+      },
     };
   }
 
@@ -56,6 +69,7 @@ class TtdTray extends PolymerElement {
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    * Add [_clearResults] to clear this.results and this.sum, then update all listeners
    * Add [_recalculateSum] to recalculate the sum
+   * @returns {void}
    */
   ready() {
     super.ready();
