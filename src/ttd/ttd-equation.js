@@ -131,6 +131,7 @@ class TtdEquation extends TtdChildHelper {
   /**
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Add [_clearResults] listener to clear results
    * Add [submit] to also roll this custom die
    * @returns {void}
    */
@@ -165,6 +166,9 @@ class TtdEquation extends TtdChildHelper {
 
   /**
    * Parse and "roll" this string of dice
+   * Push dice results into tray element, but do not use it's method to roll
+   * Instead use our own internally to better track button clicks vs 
+   * die equation strings in google analytics
    * @returns {str} The new this.result value;
    */
   roll() {
@@ -212,11 +216,21 @@ class TtdEquation extends TtdChildHelper {
          * It should be reasonably safe to run eval() here, since we have already stripped out everything except
          * for digits, the lowercase letter 'd', and equation symbols (+, -, *, /)
         */
-        this.result = Math.round(eval(diceEquation)).toLocaleString();
+        var equationResult = Math.round(eval(diceEquation));
+        this.result = equationResult.toLocaleString();
+        /** Report equation results to google analytics */
+        gtag('event', 'rollEquation', {
+          'dieEquation': diceEquation,
+          'rollResult': this.result
+        });
       }
       catch(e) {
         console.error('Invalid Dice String Equation: ',diceEquation);
         this.result = "ERR";
+        /** Report error to Google Analytics */
+        gtag('event', 'rollEquationError', {
+          'dieEquation': diceEquation,
+        });
       }
     }
       
