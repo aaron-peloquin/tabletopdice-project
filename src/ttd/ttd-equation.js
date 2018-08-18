@@ -92,10 +92,10 @@ class TtdEquation extends TtdChildHelper {
       </style>
         <form>
           <div>
-            <input id="custom-string"
+            <input
               aria-label="Dice command string (example: 1d8+3+(2d20*0)). Note: The maximum dice to roll is 999d999"
-              title="Maximum 999 rolls of a 999 sided die per set, but no limit on string length or number of sets.. be careful!"
-              placeholder="eg: 1d8+3+(2d20*0)"
+              title="Max: 999d999"
+              placeholder="{{placeholder}}"
               value="{{customString::input}}" />
           </form>
           </div>
@@ -106,9 +106,10 @@ class TtdEquation extends TtdChildHelper {
   }
 
   /**
-   * @param {str} customString Tied to the input#custom-string element in this template
+   * @param {str} customString Binded to the input element in this template
    * automatically updates on user input
    * triggers this.stringChanged() on change
+   * @param {num} result The current result from running this dice equation
    */
   static get properties() {
     return {
