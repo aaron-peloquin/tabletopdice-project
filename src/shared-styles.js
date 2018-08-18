@@ -12,7 +12,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
   <template>
     <style>
       .card {
-        max-width: 700px;
+        max-width: 900px;
         margin: 0 auto;
         padding: 0;
         display: grid;
