@@ -55,7 +55,7 @@ class TtdHighLow extends TtdChildHelper {
       </style>
       <div class="results-wrapper">
         <span class="result">{{max}}<span class="invisible-text">(high), </span></span>
-        <img src="[[dieImageURI(die)]]" />
+        <img src="[[dieImageURI(die)]]" alt="[[die]] sided die image" />
         <span class="result">{{min}}<span class="invisible-text">(low)</span></span>
       </div>
     `;
