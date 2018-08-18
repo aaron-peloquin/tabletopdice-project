@@ -37,6 +37,10 @@ class AppMonetizer extends PolymerElement {
     `;
   }
 
+  /**
+   * {Placeholder method}
+   * @returns {void}
+   */
   track() {
     console.log('ad clicked');
   }
