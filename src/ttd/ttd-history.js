@@ -131,7 +131,7 @@ class TtdHistory extends TtdChildHelper {
               <span>
                 [[formatResultString(item)]]<span class="tiny-text"> <span class="invisible-text">from </span>1d{{item.sides}}<span class="invisible-text">, </span></span>
               </span>
-              <img src="[[dieImageURI(item.sides)]]" aria-label="[[item.sides]] sided die image" />
+              <img src="[[dieImageURI(item.sides)]]" alt="[[item.sides]] sided die image" />
             </li>
           </template>
         </dom-repeat>
