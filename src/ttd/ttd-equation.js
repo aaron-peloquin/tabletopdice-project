@@ -224,6 +224,7 @@ class TtdEquation extends TtdChildHelper {
           'rollResult': this.result
         });
       }
+      /** Throw custom error on failure to parse. */
       catch(e) {
         console.error('Invalid Dice String Equation: ',diceEquation);
         this.result = "ERR";
