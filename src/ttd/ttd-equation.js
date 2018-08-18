@@ -165,7 +165,7 @@ class TtdEquation extends TtdChildHelper {
   }
 
   /**
-   * Parse and "roll" this string of dice
+   * Parse and 'roll' the custom dice equation string (customString)
    * Push dice results into tray element, but do not use it's method to roll
    * Instead use our own internally to better track button clicks vs 
    * die equation strings in google analytics
@@ -185,7 +185,7 @@ class TtdEquation extends TtdChildHelper {
         /** Get the number of dice and number of sides */
         var diceNumSides = m.split('d');
         if(diceNumSides.length!=2) {
-          //invalid dice string, return match.
+          /** invalid dice string (eg. 1d4 and 20d100), return matched string */
           return m;
         }
         else {
@@ -238,7 +238,7 @@ class TtdEquation extends TtdChildHelper {
   }
 
   /**
-   * Clears the result of this dice string 'roll'.
+   * Clears the result of this dice equation 'roll'.
    * @returns {void}
    */
   clearResults() {
