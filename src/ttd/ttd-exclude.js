@@ -40,8 +40,8 @@ class TtdExclude extends TtdChildHelper {
       </style>
       <select aria-label="Select die to exclude from the sum" value="{{die::change}}">
         <option value="0" selected$="{{parseSelected(0)}}">[[defaultLanguage]]</option>
-        <template is="dom-repeat" items="{{types}}" as="sides">
-            <option value="[[sides]]" selected$='[[parseSelected(sides)]]'>[[prefix]][[sides]][[append]]</option>
+        <template is="dom-repeat" items="{{diceTypes}}" as="sides">
+          <option value="[[sides]]" selected$='[[parseSelected(sides)]]'>[[prefix]][[sides]][[append]]</option>
         </template>
       </select>
     `;
@@ -53,7 +53,7 @@ class TtdExclude extends TtdChildHelper {
    * @param {str} defaultLanguage The default language used in the <option> when no die is selected
    * @param {str} prefix The default language used in <options> before the number of sides written to markup
    * @param {str} append The default language used in <options> after the number of sides is written to markup
-   * @param {array} types The types of dice that can be excluded from the sum.
+   * @param {array} diceTypes The types of dice that can be excluded from the sum.
    */
   static get properties() {
     return {
@@ -74,11 +74,9 @@ class TtdExclude extends TtdChildHelper {
         type: String,
         value: "s",
       },
-      types: {
+      diceTypes: {
         type: Array,
-        value: function() {
-          return [20, 12, 10, 8, 6, 4];
-        },
+        value: function() { return []; },
       }
     };
   }
@@ -86,6 +84,7 @@ class TtdExclude extends TtdChildHelper {
   /**
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Update this.diceTypes with <ttd-tray>.standardPolyhedrons
    * Update <ttd-tray> to be this excluded die's default value
    * @returns {void}
    */
@@ -96,6 +95,7 @@ class TtdExclude extends TtdChildHelper {
       return false;
     }
 
+    this.diceTypes = this.trayElement.standardPolyhedrons;
     this.trayElement.exclude = this.die;
   }
   
