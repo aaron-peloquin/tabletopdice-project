@@ -198,7 +198,7 @@ class TtdEquation extends TtdChildHelper {
           }
 
           /** Don't allow a user to roll a die with more than 999 times */
-          if(diceSides > 99) {
+          if(diceSides > 999) {
             diceSides = 999;
           }
 
