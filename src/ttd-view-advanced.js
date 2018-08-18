@@ -33,27 +33,18 @@ class TtdViewAdvanced extends PolymerElement {
       <style include="shared-styles">
         :host {
           /* [Responsive] Tiny Styles */
-          --cols-num: 4;
           --cols-grid-template: 1fr 1fr 1fr;
-          --cols-ttd-history: span 3;
-          --cols-ttd-high-low: span 1;
-          --cols-default-child: span 2;
-          --cols-ttd-exclude: span 3;
-          --cols-ttd-custom: var(--cols-default-child);
-          --cols-ttd-clear: span 4;
-          --cols-ttd-sum: span 1;
 
           --font-size-all: 3vw;
 
           display: block;
           padding: 10px;
-          font-size: var(--font-size-all);
+          font-size: 1rem;
           margin: 0 auto;
         }
 
         .tray-wrapper{
           margin: 21px;
-
         }
 
         ttd-tray{
@@ -176,6 +167,7 @@ class TtdViewAdvanced extends PolymerElement {
         @media (min-width: 550px) {
           :host{
             --cols-grid-template: 1fr 1fr 1fr 1fr 1fr 1fr;
+            font-size: 2rem;
           }
           ttd-tray{
               grid-template-areas:
