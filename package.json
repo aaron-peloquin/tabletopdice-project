@@ -26,7 +26,7 @@
     "http-server-ssl": "0.0.3"
   },
   "devDependencies": {
-    "polymer-cli": "^1.7.1",
+    "polymer-cli": "^1.8.0",
     "sw-precache": "^5.2.1",
     "wct-browser-legacy": "^1.0.0"
   },
