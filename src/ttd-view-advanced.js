@@ -260,7 +260,7 @@ class TtdViewAdvanced extends PolymerElement {
 
   ready() {
     super.ready();
-    //Check if this browser is currently supported.
+    /** Check if this browser is currently supported */
     this.browserSupported = this.isSupported();
   }
 
