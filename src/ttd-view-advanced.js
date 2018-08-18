@@ -177,7 +177,6 @@ class TtdViewAdvanced extends PolymerElement {
                 "die__10 die__10 die__12 die__12 die__20 die__20 clear__"
                 "equat_1 equat_1 equat_1 equat_1 equat_1 equat_1 equat_1"
                 "equat_2 equat_2 equat_2 equat_2 equat_2 equat_2 equat_2";
-  
             }
         }
 
