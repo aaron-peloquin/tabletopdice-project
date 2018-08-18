@@ -37,10 +37,6 @@ class TtdExclude extends TtdChildHelper {
           color: var(--app-ttd-clean-color);
         }
 
-        .invisible-text{
-          font-size: 0px;
-          display: none;
-        }
       </style>
       <select aria-label="Select die to exclude from the sum" value="{{die::change}}">
         <option value="0" selected$="{{parseSelected(0)}}">[[defaultLanguage]]</option>

@@ -64,11 +64,6 @@ class TtdCustom extends TtdChildHelper {
           display: table-cell;
           vertical-align: middle;
         }
-
-        .invisible-text{
-          font-size: 0px;
-        }
-
       </style>
       <form>
         <div>
