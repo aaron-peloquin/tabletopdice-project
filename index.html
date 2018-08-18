@@ -139,7 +139,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         function gtag() {dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-123710615-1');
+        gtag('config', 'UA-123710615-1', {
+          "custom_map": {
+            "dimension1":"dieSides",
+            "dimension2":"rollResult",
+            "dimension3":"dieEquation"
+          }
+        });
       </script>
     <!-- End Google Integrations -->
 
