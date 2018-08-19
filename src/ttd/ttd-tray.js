@@ -79,6 +79,37 @@ class TtdTray extends PolymerElement {
   }
 
   /**
+   * @param {num} max The maximum value returned. Minimum values are 1.
+   * @returns {num} a Random(y) number
+   */
+  random(max) {
+    var randomResult = 1;
+    if(typeof window.crypto == 'object') {
+      var requestBytes = Math.ceil(Math.log2(max) / 8);
+      if(requestBytes) {
+        var randomArray = new Uint8Array(requestBytes);
+        var maxNum = Math.pow(256, requestBytes);
+        while(true) {
+          window.crypto.getRandomValues(randomArray);
+          var val = 0;
+          for(var i=0; i<requestBytes; i++) {
+            val = (val << 8) + randomArray[i];
+          }
+          if(val + max - (val % max) < maxNum) {
+            randomResult = 1 + (val % max);
+            break;
+          }
+        }
+      }
+    }
+    else {
+      /** Not true random, but the best we can get without a ton of overhead */
+      randomResult = (Math.random() * max | 0) + 1;
+    }
+    return randomResult;
+  }
+
+  /**
    * Roll a basic die and updates this.sum and this.results
    * Reports to Google with the result rolled, and any criticals
    * Dispatch [_recalculateSum] and call updateHistoricalNodes()
@@ -86,7 +117,7 @@ class TtdTray extends PolymerElement {
    * @returns {void}
    */
   roll(sides) {
-    var value = Math.floor(Math.random() * Math.floor(sides)) + 1;
+    var value = this.random(sides);
     this.results.push({"sides":sides,"result":value});
 
     //Report to Google Analytics
