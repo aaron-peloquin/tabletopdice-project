@@ -120,11 +120,13 @@ class TtdExclude extends TtdChildHelper {
     this.trayElement.exclude = this.die;
 
     /** Report [update-exclude] to google analytics */
-    gtag('event', 'update-exclude', {
-      "event_category":"config",
-      'event_label': "Exclude "+this.die,
-      'dieSides': this.die,
-    });
+    if(typeof gtag=='function') {
+      gtag('event', 'update-exclude', {
+        "event_category":"config",
+        'event_label': "Exclude "+this.die,
+        'dieSides': this.die,
+      });
+    }
     this.trayElement.dispatchEvent(new CustomEvent('_recalculateSum'));
   }
 }

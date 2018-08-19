@@ -308,22 +308,26 @@ class TtdEquation extends TtdChildHelper {
         var equationResult = Math.round(eval(diceEquation));
         this.result = equationResult.toLocaleString();
         /** Report equation results to google analytics */
-        gtag('event', 'rollEquation', {
-          "event_category":"roll",
-          'event_label': this.customString,
-          'dieEquation': diceEquation,
-          'rollResult': this.result
-        });
+        if(typeof gtag=='function') {
+          gtag('event', 'rollEquation', {
+            "event_category":"roll",
+            'event_label': this.customString,
+            'dieEquation': diceEquation,
+            'rollResult': this.result
+          });
+        }
       }
       /** Throw custom error on failure to parse. */
       catch(e) {
         console.error('Invalid Dice String Equation: ',diceEquation);
         this.result = "ERR";
         /** Report error to Google Analytics */
-        gtag('event', 'rollEquationError', {
-          "event_category":"error",
-          'dieEquation': diceEquation
-        });
+        if(typeof gtag=='function') {
+          gtag('event', 'rollEquationError', {
+            "event_category":"error",
+            'dieEquation': diceEquation
+          });
+        }
       }
     }
       
