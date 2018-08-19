@@ -11,10 +11,9 @@ import './shared-styles.js';
 import './app-monetizer.js';
 import './ttd/ttd-tray.js';
 import './ttd/ttd-history.js';
-import './ttd/ttd-sum.js';
+import './ttd/ttd-total.js';
 import './ttd/ttd-die.js';
 import './ttd/ttd-clear.js';
-import './ttd/ttd-exclude.js';
 import './ttd/ttd-custom.js';
 import './ttd/ttd-custom-roll.js';
 import './ttd/ttd-high-low.js';
@@ -57,8 +56,8 @@ class TtdViewAdvanced extends PolymerElement {
           /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
           grid-template-areas:
             "history history history"
-            "highLow exclude exclude"
-            "highLow sum____ clear__"
+            "highLow total__ clear__"
+            "highLow total__ clear__"
             "die___4 die___6 die___8"
             "die__10 die__12 die__20"
             "equat_1 equat_1 equat_1"
@@ -73,12 +72,8 @@ class TtdViewAdvanced extends PolymerElement {
           grid-area: highLow;
         }
 
-        ttd-exclude{
-          grid-area: exclude;
-        }
-
-        ttd-sum{
-          grid-area: sum____;
+        ttd-total{
+          grid-area: total__;
         }
 
         ttd-clear{
@@ -152,7 +147,7 @@ class TtdViewAdvanced extends PolymerElement {
 
         ttd-tray ttd-history,
         ttd-tray ttd-high-low,
-        ttd-tray ttd-sum,
+        ttd-tray ttd-total,
         ttd-tray ttd-clear{
           background-color: var(--app-ttd-secondary-background-color);
           color: var(--app-ttd-secondary-color);
@@ -171,8 +166,8 @@ class TtdViewAdvanced extends PolymerElement {
           }
           ttd-tray{
               grid-template-areas:
-                "history history history history exclude exclude highLow"
-                "history history history history sum____ sum____ highLow"
+                "history history history history total__ total__ highLow"
+                "history history history history total__ total__ highLow"
                 "die___4 die___4 die___6 die___6 die___8 die___8 clear__"
                 "die__10 die__10 die__12 die__12 die__20 die__20 clear__"
                 "equat_1 equat_1 equat_1 equat_1 equat_1 equat_1 equat_1"
@@ -205,8 +200,7 @@ class TtdViewAdvanced extends PolymerElement {
                 <ttd-tray>
                   <ttd-clear></ttd-clear>
                   <ttd-history excited></ttd-history>
-                  <ttd-sum></ttd-sum>
-                  <ttd-exclude die="20"></ttd-exclude>
+                  <ttd-total exclude exclude-die="20"></ttd-total>
                   <ttd-high-low die="20"></ttd-high-low>
                   <ttd-die sides="4"></ttd-die>
                   <ttd-die></ttd-die>
@@ -227,7 +221,7 @@ class TtdViewAdvanced extends PolymerElement {
               The advanced dice tray offers a readout of all dice rolled,
               the minimum and maximum result of all d20 rolls,
               a standard array of polyhedron dice,
-              a sum of all dice roll results (with the option to exclude one type of dice, defaulted to d20),
+              a total of all dice roll results (with the option to exclude one type of dice, defaulted to d20),
               and two 'dice equation fields' that allows you to enter your own dice rules,
               then clear the app and roll them all at once, displaying a total at the end.
             </p>
