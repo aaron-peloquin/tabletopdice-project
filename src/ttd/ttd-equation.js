@@ -195,10 +195,6 @@ class TtdEquation extends TtdChildHelper {
         value: 0,
         reflectToAttribute: true,
       },
-      widthLayoutChange: {
-        type: String,
-        value: '600px',
-      },
     };
   }
 
