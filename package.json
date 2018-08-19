@@ -1,6 +1,6 @@
 {
   "name": "tabletopdice",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A tabletop dice rolling web application",
   "author": "Aaron P",
   "license": "MIT",
@@ -23,7 +23,6 @@
     "@polymer/paper-icon-button": "^3.0.0-pre.15",
     "@polymer/polymer": "^3.0.0",
     "@webcomponents/webcomponentsjs": "^2.0.0",
-    "http-server-ssl": "0.0.3"
   },
   "devDependencies": {
     "polymer-cli": "^1.8.0",
