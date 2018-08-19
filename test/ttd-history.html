@@ -14,28 +14,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>my-view1</title>
+    <title>ttd-tray-full</title>
 
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script src="../node_modules/wct-browser-legacy/browser.js"></script>
 
     <!-- Import the element to test -->
-    <script type="module" src="../src/my-view1.js"></script>
+    <script type="module" src="../src/ttd/ttd-tray.js"></script>
   </head>
   <body>
-    <test-fixture id="BasicView">
+    <test-fixture id="trayElement">
       <template>
-        <my-view1></my-view1>
+        <ttd-tray>
+          <ttd-tray></ttd-tray>
+        </ttd-tray>
       </template>
     </test-fixture>
 
     <script type="module">
-      suite('my-view1 tests', function() {
-        test('Number in circle should be 1', function() {
-          var myView = fixture('BasicView');
-          var circle = myView.shadowRoot.querySelector('.circle');
+      suite('<ttd-tray> tests', function() {
+        test('this.roll()', function() {
+          var tray = fixture('trayElement');
+          var randomNumber = tray.roll(999);
+          assert.equal(tray.sum,randomNumber);
+        });
 
-          assert.equal(circle.textContent, '1');
+        test('this.sum', function() {
+          var tray = fixture('trayElement');
+          var randomNumbers = tray.roll(999);
+          randomNumbers += tray.roll(999);
+          randomNumbers += tray.roll(999);
+          randomNumbers += tray.roll(999);
+          assert.equal(tray.sum,randomNumbers);
         });
       });
     </script>
