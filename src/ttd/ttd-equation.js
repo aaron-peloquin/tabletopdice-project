@@ -289,7 +289,7 @@ class TtdEquation extends TtdChildHelper {
           }
 
           for(var i=0; i<diceNum;i++) {
-            var value = Math.floor(Math.random() * Math.floor(diceSides)) + 1;
+            var value = tray.random(diceSides);
             if(diceSides!=exclude) {
               rollResult += value;
             }
