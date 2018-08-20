@@ -5,7 +5,8 @@
  * The complete set of authors may be found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/AUTHORS
  */
 
- import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import {} from '@polymer/polymer/lib/elements/dom-if.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
@@ -74,7 +75,7 @@ class TtdHistory extends TtdChildHelper {
           align-self: center;
           justify-self: center;
           grid-row: 1;
-          background-color: var(--app-ttd-default-background-color);
+          background-color: var(--ttd-default-background-color);
           color: #ddd;
           min-width: 90px;
         }
@@ -124,18 +125,20 @@ class TtdHistory extends TtdChildHelper {
           font-size: 0px;
         }
       </style>
-      <ol title="Copy for dice roll log">
-        <dom-repeat items="{{results}}">
-          <template>
-            <li>
-              <span>
-                [[formatResultString(item)]]<span class="tiny-text"> <span class="invisible-text">from </span>1d{{item.sides}}<span class="invisible-text">, </span></span>
-              </span>
-              <img src="[[dieImageURI(item.sides)]]" alt="[[item.sides]] sided die image" />
-            </li>
-          </template>
-        </dom-repeat>
-      </ol>
+      <template is="dom-if" if="[[results]]">
+        <ol title="Copy for dice roll log">
+          <dom-repeat items="{{results}}">
+            <template>
+              <li>
+                <span>
+                  [[formatResultString(item)]]<span class="tiny-text"> <span class="invisible-text">from </span>1d{{item.sides}}<span class="invisible-text">, </span></span>
+                </span>
+                <img src="[[dieImageURI(item.sides)]]" alt="[[item.sides]] sided die image" />
+              </li>
+            </template>
+          </dom-repeat>
+        </ol>
+      </template>
     `;
   }
 
