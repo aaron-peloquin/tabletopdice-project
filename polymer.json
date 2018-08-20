@@ -10,7 +10,8 @@
     "sitemap.xml",
     "node_modules/@webcomponents/webcomponentsjs/*.js",
     "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
-    "node_modules/@webcomponents/webcomponentsjs/bundles/*.js"
+    "node_modules/@webcomponents/webcomponentsjs/bundles/*.js",
+    "node_modules/seedrandom/seedrandom.min.js"
   ],
   "swPrecacheConfig": "sw-precache-config.js",
   "insertPrefetchLinks": true,
