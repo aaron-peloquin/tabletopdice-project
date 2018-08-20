@@ -83,30 +83,37 @@ class TtdTray extends PolymerElement {
    * @returns {num} a Random(y) number
    */
   random(max) {
-    var randomResult = 1;
-    if(typeof window.crypto == 'object') {
-      var requestBytes = Math.ceil(Math.log2(max) / 8);
-      if(requestBytes) {
-        var randomArray = new Uint8Array(requestBytes);
-        var maxNum = Math.pow(256, requestBytes);
-        while(true) {
-          window.crypto.getRandomValues(randomArray);
-          var val = 0;
-          for(var i=0; i<requestBytes; i++) {
-            val = (val << 8) + randomArray[i];
-          }
-          if(val + max - (val % max) < maxNum) {
-            randomResult = 1 + (val % max);
-            break;
-          }
-        }
-      }
-    }
-    else {
-      /** Not true random, but the best we can get without a ton of overhead */
-      randomResult = (Math.random() * max | 0) + 1;
-    }
-    return randomResult;
+    /** Utilize seedrandom.js for better random values. */
+    Math.seedrandom();
+    return (Math.random() * max | 0) + 1;
+
+    // var randomResult = 1;
+    // if(typeof window.crypto == 'object') {
+    //   /** How many bytes does the max number consume? */
+    //   var requestBytes = Math.ceil(Math.log2(max) / 8);
+    //   if(requestBytes) {
+    //     //Generate an array with requestBytes items
+    //     var randomArray = new Uint8Array(requestBytes);
+    //     var maxNum = Math.pow(256, requestBytes);
+    //     console.log(maxNum);
+    //     while(true) {
+    //       window.crypto.getRandomValues(randomArray);
+    //       var val = 0;
+    //       for(var i=0; i<requestBytes; i++) {
+    //         val = (val << 8) + randomArray[i];
+    //       }
+    //       if(val + max - (val % max) < maxNum) {
+    //         randomResult = 1 + (val % max);
+    //         break;
+    //       }
+    //     }
+    //   }
+    // }
+    // else {
+    //   /** Not true random, but the best we can get without a ton of overhead */
+    //   randomResult = (Math.random() * max | 0) + 1;
+    // }
+    // return randomResult;
   }
 
   /**
