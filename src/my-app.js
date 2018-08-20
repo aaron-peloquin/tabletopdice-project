@@ -42,12 +42,15 @@ class MyApp extends PolymerElement {
           --app-card-background: #33472f;                 /* Card Background */
           --app-copybox-background: #bbcca8;              /* TTD child element background color (default) */
           --app-ttd-child-color: #EFEFEF;                 /* TTD child element font color */
-          --app-ttd-default-background-color: #5b3b2e;   /* TTD child element background color (default) */
+          --ttd-default-background-color: #5b3b2e;    /* TTD child element background color (default) */
           --app-ttd-special-background-color: #845b43;    /* TTD child element background color (special) */
           --app-ttd-secondary-background-color: #653214;  /* TTD child element background color (secondary) */
           --app-ttd-secondary-color: #FFFFFF;             /* TTD child element background color (secondary) */
           --app-ttd-clean-color: #222;                    /* TTD child element color (clean) */
           --app-ttd-clean-background-color: #fff;         /* TTD child element background color (clean) */
+          --ttd-noninteractive-color: #EFEFEF;
+          --ttd-noninteractive-background-color: #653214;
+  
 
           font-family: var(--app-font-family);
           font-weight: var(--app-font-weight);
