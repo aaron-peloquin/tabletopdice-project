@@ -46,11 +46,12 @@ class TtdTotal extends TtdChildHelper {
         }
 
         select{
+          border: 0;
           display: table-cell;
-          height: 100%;
           font-size: inherit;
           font-weight: inherit;
           font-family: inherit;
+          height: 100%;
         }
 
         .invisible-text{
