@@ -257,7 +257,8 @@ class TtdEquation extends TtdChildHelper {
     var tray = this.trayElement;
     var exclude = this.excludeDie;
     if(this.customString=='') {
-      this.result = '';
+      this.result = 0;
+      this.shadowRoot.querySelector('input').focus();
     }
     else {
       tray.dispatchEvent(new CustomEvent('_clearResults'));
