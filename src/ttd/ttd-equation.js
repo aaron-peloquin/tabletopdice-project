@@ -36,7 +36,6 @@ class TtdEquation extends TtdChildHelper {
           grid-template-areas:
             "string__ string__ roll__"
             "exclude_ exclude_ result";
-          grid-gap: 5px;
           align-items: center;
         }
 
@@ -91,14 +90,15 @@ class TtdEquation extends TtdChildHelper {
         }
 
         select{
+          border: 0;
           font-family: inherit;
           font-weight: inherit;
-          width: 100%;
+          grid-column: 1;
+          grid-row: 1;
           height: 100%;
           margin-right: -1px;
           min-width: 0;
-          grid-row: 1;
-          grid-column: 1;
+          width: 100%;
         }
 
         span{
@@ -114,6 +114,9 @@ class TtdEquation extends TtdChildHelper {
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
             grid-template-areas: "string__ string__ string__ exclude_ result roll__";
           }
+          select{
+            border-left: 1px solid;
+          }
         }
 
       </style>
@@ -128,9 +131,9 @@ class TtdEquation extends TtdChildHelper {
         </form>
         <div class="exclude">
           <select aria-label="Select die to exclude from the this equation's result" value="{{excludeDie::change}}">
-            <option value="0" selected$="{{parseSelected(0)}}">[[defaultLanguage]]</option>
+            <option value="0" selected$="{{parseSelected(0)}}">All Dice</option>
             <template is="dom-repeat" items="{{diceTypes}}" as="sides">
-              <option value="[[sides]]" selected$='[[parseSelected(sides)]]'>[[prefix]][[sides]][[append]]</option>
+              <option value="[[sides]]" selected$='[[parseSelected(sides)]]'>Skip d[[sides]]s</option>
             </template>
           </select>
         </div>
@@ -169,18 +172,6 @@ class TtdEquation extends TtdChildHelper {
         type: String,
         value: "",
         reflectToAttribute: true,
-      },
-      defaultLanguage: {
-        type: String,
-        value: "Add all dice",
-      },
-      prefix: {
-        type: String,
-        value: "Skip d",
-      },
-      append: {
-        type: String,
-        value: "s",
       },
       diceTypes: {
         type: Array,
