@@ -30,151 +30,60 @@ class TtdViewAdvanced extends PolymerElement {
   static get template() {
     return html`
       <style include="shared-styles">
-        :host {
-          /* [Responsive] Tiny Styles */
-          --cols-grid-template: 1fr 1fr 1fr;
-
-          --font-size-all: 3vw;
-
-          display: block;
-          padding: 10px;
-          font-size: 1rem;
-          margin: 0 auto;
-        }
-
-        .tray-wrapper{
-          margin: 21px;
-        }
-
+        /* [Responsive] Tiny Styles */
         ttd-tray{
-          width: 100%;
-          display: inline-grid;
-          grid-gap: 1rem;
-          grid-template-rows: auto;
-          grid-template-columns: var(--cols-grid-template);
+          grid-template-columns: 1fr 1fr;
 
           /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
           grid-template-areas:
-            "history history history"
-            "highLow total__ clear__"
-            "highLow total__ clear__"
-            "die___4 die___6 die___8"
-            "die__10 die__12 die__20"
-            "equat_1 equat_1 equat_1"
-            "equat_2 equat_2 equat_2";
+            "history history"
+            "die___4 die___6"
+            "die___8 die__10"
+            "die__12 die__20"
+            "total__ total__"
+            "highLow clear__"
+            "equat_m equat_m"
+            "equat_o equat_o"
+            "equat_t equat_t";
         }
 
-        ttd-history{
-          grid-area: history;
-        }
+        /* [Responsive] Small Styles */
+        @media (min-width: 350px) {
+          ttd-tray{
+            grid-template-columns: 1fr 1fr 1fr;
 
-        ttd-high-low{
-          grid-area: highLow;
-        }
-
-        ttd-total{
-          grid-area: total__;
-        }
-
-        ttd-clear{
-          grid-area:  clear__;
-        }
-
-        ttd-die,
-        ttd-clear{
-          cursor: pointer;
-        }
-
-        ttd-die{
-          grid-area:  die___6;
-          font-size: 2rem;
-        }
-
-        ttd-die[sides="4"]{
-          grid-area:  die___4;
-        }
-
-        ttd-die[sides="8"]{
-          grid-area:  die___8;
-        }
-
-        ttd-die[sides="10"]{
-          grid-area:  die__10;
-        }
-
-        ttd-die[sides="12"]{
-          grid-area:  die__12;
-        }
-
-        ttd-die[sides="20"]{
-          grid-area:  die__20;
-        }
-
-        ttd-equation{
-          grid-area: equat_1;
-          margin-bottom: 10px;
-        }
-        ttd-equation.off-hand{
-          grid-area: equat_2;
-        }
-
-        ttd-tray > *{
-          background-color: var(--app-ttd-default-background-color);
-          box-shadow: 2px 2px 2px 1px var(--app-ttd-clean-color), -1px -1px 2px 1px var(--app-ttd-child-color);
-          color: var(--app-ttd-child-color);
-          border-radius: 5px;
-          overflow: hidden;
-        }
-
-        @keyframes jitters {
-          0% { transform: translate(1px, 0px) rotate(2deg); }
-          10% { transform: translate(0px, 1px) rotate(1deg); }
-          20% { transform: translate(-1px, 0px) rotate(-1deg); }
-          30% { transform: translate(-2px, -1px) rotate(0deg); }
-          40% { transform: translate(-1px, 0px) rotate(1deg); }
-          50% { transform: translate(0px, 1px) rotate(2deg); }
-          60% { transform: translate(1px, 2px) rotate(3deg); }
-          70% { transform: translate(2px, 1px) rotate(4deg); }
-          80% { transform: translate(3px, 0px) rotate(3deg); }
-          90% { transform: translate(2px, 1px) rotate(2deg); }
-          100% { transform: translate(0px, 0px) rotate(1deg); }
-        }
-
-        ttd-tray ttd-die:active{
-          animation: jitters;
-          animation-duration: .25s;
-        }
-
-        ttd-tray ttd-history,
-        ttd-tray ttd-high-low,
-        ttd-tray ttd-total,
-        ttd-tray ttd-clear{
-          background-color: var(--app-ttd-secondary-background-color);
-          color: var(--app-ttd-secondary-color);
-        }
-
-        ttd-tray ttd-custom,
-        ttd-tray ttd-custom-roll{
-          background-color: var(--app-ttd-special-background-color);
+            /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
+            grid-template-areas:
+              "history history history"
+              "highLow total__ clear__"
+              "highLow total__ clear__"
+              "die___4 die___6 die___8"
+              "die__10 die__12 die__20"
+              "equat_m equat_m equat_m"
+              "equat_o equat_o equat_o"
+              "equat_t equat_t equat_t";
+          }
         }
 
         /* [Responsive] Medium Styles */
         @media (min-width: 875px) {
           :host{
-            --cols-grid-template: 1fr 1fr 1fr 1fr 1fr 1fr;
             font-size: 2rem;
           }
           ttd-tray{
-              grid-template-areas:
-                "history history history history total__ total__ highLow"
-                "history history history history total__ total__ highLow"
-                "die___4 die___4 die___6 die___6 die___8 die___8 clear__"
-                "die__10 die__10 die__12 die__12 die__20 die__20 clear__"
-                "equat_1 equat_1 equat_1 equat_1 equat_1 equat_1 equat_1"
-                "equat_2 equat_2 equat_2 equat_2 equat_2 equat_2 equat_2";
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas:
+              "history history history history total__ total__ highLow"
+              "history history history history total__ total__ highLow"
+              "die___4 die___4 die___6 die___6 die___8 die___8 clear__"
+              "die__10 die__10 die__12 die__12 die__20 die__20 clear__"
+              "equat_m equat_m equat_m equat_m equat_m equat_m equat_m"
+              "equat_o equat_o equat_o equat_o equat_o equat_o equat_o"
+              "equat_t equat_t equat_t equat_t equat_t equat_t equat_t";
             }
         }
 
+        /** [Responsive] Large Styles */
         @media screen and (min-width: 1200px) {
           :host{
              font-size: 32px;
@@ -208,8 +117,9 @@ class TtdViewAdvanced extends PolymerElement {
                   <ttd-die sides="10"></ttd-die>
                   <ttd-die sides="12"></ttd-die>
                   <ttd-die sides="20"></ttd-die>
-                  <ttd-equation class="main-hand" placeholder="eg. 1d20+1d4+2d6+3"></ttd-equation>
-                  <ttd-equation class="off-hand" placeholder="eg. 2d20+1d12+2-5"></ttd-equation>
+                  <ttd-equation class="main-hand" placeholder="eg. 3d6+4"></ttd-equation>
+                  <ttd-equation class="off-hand" placeholder="eg. 1d20+1d8+2"></ttd-equation>
+                  <ttd-equation class="third-hand" placeholder="eg. (1d9+4d4)/1d8"></ttd-equation>
                 </ttd-tray>
               </slot>
             </template>
