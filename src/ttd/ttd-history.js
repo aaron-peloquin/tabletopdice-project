@@ -90,6 +90,12 @@ class TtdHistory extends TtdChildHelper {
           -webkit-filter: invert(90%);
           -filter: invert(90%);
           margin: 0 auto;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          -o-user-select: none;
+          user-select: none;
         }
 
         li > span{
