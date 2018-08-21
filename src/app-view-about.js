@@ -21,6 +21,9 @@ class AppViewAbout extends PolymerElement {
         <h1>Usage</h1>
         <div class="copy-box">
           <p>
+            Roll dice in your tabletop game to save against forgetting your dice.
+          </p>
+          <p>
             This application provides a number of different dice tray interfaces, each one becoming more advanced than the one before it.
             For usage of each dice tray's elements, read the description at the bottom of the dice tray's page.
           </p>

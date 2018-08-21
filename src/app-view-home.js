@@ -48,19 +48,19 @@ class AppViewHome extends PolymerElement {
 
       <img class="logo" src="/images/icons/icon-512x512.png" alt="Tabletop Dice Logo" />
       <div class="card">
-        <h1>Simple Dice Rolling</h1>
+        <h1>Dice Trays</h1>
         <div class="copy-box">
           <h2>
             Built with love for the tabletop gaming community &lt;3
           </h2>
           <p class="start-rolling">
-            <a href="[[rootPath]]quick-dice-roller">Quick Dice</a>
+            <a href="[[rootPath]]quick-dice-roller">Quick Dice Tray</a>
           </p>
           <p class="start-rolling">
-            <a href="[[rootPath]]basic-dice-roller">Basic Dice</a>
+            <a href="[[rootPath]]basic-dice-roller">Basic Dice Tray</a>
           </p>
           <p class="start-rolling">
-            <a href="[[rootPath]]advanced-dice-roller">Advanced Dice</a>
+            <a href="[[rootPath]]advanced-dice-roller">Advanced Dice Tray</a>
           </p>
         </div>
       </div>

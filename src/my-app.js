@@ -179,19 +179,32 @@ class MyApp extends PolymerElement {
     switch (page) {
       case 'app-view-home':
         import('./app-view-home.js');
+        document.title = 'TabletopDice.com';
         break;
       case 'about':
         import('./app-view-about.js');
+        document.title = 'About : TabletopDice.com';
+        document.getElementsByName("description")[0].content = "Roll dice in your tabletop game to save against forgetting your dice.";
+        break;
+      case 'quick-dice-roller':
+        import('./ttd-view-quick.js');
+        document.title = 'Quick Dice Tray : TabletopDice.com';
+        document.getElementsByName("description")[0].content = "Quickly roll dice in your tabletop game.";
+        break;
+      case 'basic-dice-roller':
+        import('./ttd-view-basic.js');
+        document.title = 'Basic Dice Tray : TabletopDice.com';
+        document.getElementsByName("description")[0].content = "Roll any type of dice in your tabletop game.";
         break;
       case 'advanced-dice-roller':
         import('./ttd-view-advanced.js');
-      case 'basic-dice-roller':
-        import('./ttd-view-basic.js');
-      case 'quick-dice-roller':
-        import('./ttd-view-quick.js');
+        document.title = 'Advanced Dice Tray : TabletopDice.com';
+        document.getElementsByName("description")[0].content = "Roll any type of dice in your tabletop game using an equation-like string of dice logic.";
         break;
       case 'view404':
         import('./my-view404.js');
+        document.title = '404 : TabletopDice.com';
+        document.getElementsByName("description")[0].content = "No page found";
         break;
     }
   }
