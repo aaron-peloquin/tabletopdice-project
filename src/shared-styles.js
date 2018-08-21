@@ -49,6 +49,11 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         text-align: center;
       }
 
+      dt{
+        font-size: larger;
+        text-decoration: underline;
+      }
+
       /** == TTD views CSS == */
       /** Setup CSS Animations */
       @keyframes buttonShake {
