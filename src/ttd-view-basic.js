@@ -109,11 +109,25 @@ class TtdViewBasic extends PolymerElement {
         <div class="card">
           <div class="copy-box">
             <p>
-              The basic dice tray offers a history readout of all dice rolls,
-                a sum field of all dice rolls (and the option to exclude one dice type from this sum),
-                the standard array of polyhedral dice,
-                and a custom die builder so you can roll a die with however many sides sides you may need.
+              The basic dice tray is meant to give most players everything they need for their tabletop gaming session while still being managable on a mobile device.
+              It provides the roll history, a total of all dice rolled (with an option to exclude one type of die), a clear button, the standard dice buttons, and a custom sided dice button (defaulted to a d100).
             </p>
+            <dl>
+              <dt>Roll History</dt>
+              <dd>Displays the full history of all dice since the last time you cleared the dice tray.</dd>
+
+              <dt>Total</dt>
+              <dd>Displays the sum of all dice rolled with a dropdown option to exclude a specific type of die, which is defaulted to exclude d20 results. Clearing results resets this total.</dd>
+
+              <dt>Clear Button</dt>
+              <dd>This button clears the dice tray, resetting it back to having no dice rolled.</dd>
+
+              <dt>Dice Button</dt>
+              <dd>A standard array of polyhdron dice most commonly used in tabletop gaming to makine ability checks, deal damage, and make saving throws.</dd>
+
+              <dt>Custom sided die</dt>
+              <dd>Allows you to set any number of sides on a die you want, then roll that die. Defaulted to act like a 1d100.</dd>
+            </dl>
           </div>
         </div>
       </div>

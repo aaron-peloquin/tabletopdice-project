@@ -128,13 +128,31 @@ class TtdViewAdvanced extends PolymerElement {
           <div class="card">
           <div class="copy-box">
             <p>
-              The advanced dice tray offers a readout of all dice rolled,
-              the minimum and maximum result of all d20 rolls,
-              a standard array of polyhedron dice,
-              a total of all dice roll results (with the option to exclude one type of dice, defaulted to d20),
-              and two 'dice equation fields' that allows you to enter your own dice rules,
-              then clear the app and roll them all at once, displaying a total at the end.
-            </p>
+              The advanced dice tray gamers complete control over their dice tray. Including most features from the basic dice tray, adding in two new elements;
+                a high/low readout for d20 rolls,
+                and replacing the custom sided die with three dice equation fields.
+
+              <dl>
+                <dt>Roll History</dt>
+                <dd>Displays the full history of all dice since the last time you cleared the dice tray.</dd>
+
+                <dt>Total</dt>
+                <dd>Displays the sum of all dice rolled with a dropdown option to exclude a specific type of die, which is defaulted to exclude d20 results. Clearing results resets this total.</dd>
+
+                <dt>d20 High / Low Readout</dt>
+                <dd>Displays the highest and lowest values from all d20 results rolled since the tray was last cleared.</dd>
+
+                <dt>Clear Button</dt>
+                <dd>This button clears the dice tray, resetting it back to having no dice rolled.</dd>
+
+                <dt>Dice Button</dt>
+                <dd>A standard array of polyhdron dice most commonly used in tabletop gaming to makine ability checks, deal damage, and make saving throws.</dd>
+
+                <dt>Dice Equations</dt>
+                <dd>Allows you to write dice like a math equation. You can add, subtract, multiply, divide, and use parense for order of opperations, interlaced with numbers and 'dice strings' (2d4, 1d8, etc-).<br /><br />Each dice string has a maximum of 999 dice and 999 sides, but this limit is only in place to prevent accidents. You can still write 999d999+999d999, if you choose to lock up your device for a few seconds- use with caution.</dd>
+              </dl>
+
+              </p>
           </div>
         </div>
       </div>
