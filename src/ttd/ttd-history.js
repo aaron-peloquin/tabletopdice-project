@@ -135,11 +135,15 @@ class TtdHistory extends TtdChildHelper {
         /* IE10+ CSS styles go here */
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
           ol {
-            -ms-grid-rows: 1fr;
-            }
+            display: flex;
+            height: 120px;
+          }
           ol > li {
-            width: 125px;
-            float:left;
+            display: inline-block;
+            flex-basis: 120px;
+          }
+          li > *{
+            display: block;
           }
         }
       </style>

@@ -104,10 +104,10 @@ class TtdViewAdvanced extends PolymerElement {
             <template is="dom-if" if="[[browserSupported]]">
               <slot>
                 <ttd-tray>
-                  <ttd-clear></ttd-clear>
                   <ttd-history excited></ttd-history>
                   <ttd-total exclude exclude-die="20"></ttd-total>
                   <ttd-high-low die="20"></ttd-high-low>
+                  <ttd-clear></ttd-clear>
                   <ttd-die sides="4"></ttd-die>
                   <ttd-die></ttd-die>
                   <ttd-die sides="8"></ttd-die>

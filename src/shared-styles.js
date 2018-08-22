@@ -148,6 +148,13 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         margin: 21px;
       }
 
+      /* IE10+ CSS styles go here */
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        ttd-tray ttd-die{
+          width: 50%;
+          float: left;
+        }
+      }
     </style>
   </template>
 </dom-module>`;
