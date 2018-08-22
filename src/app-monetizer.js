@@ -21,7 +21,7 @@ class AppMonetizer extends PolymerElement {
         :host {
           padding-top: 10px;
           text-align: center;
-          display: table;
+          display: none;      /*table;*/
           height: 100%;
           width: 100%;
           padding: 0px;

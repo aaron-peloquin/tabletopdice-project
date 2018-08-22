@@ -150,6 +150,7 @@ class TtdViewQuick extends PolymerElement {
   }
 
   isSupported() {
+    return true;
     var ua = window.navigator.userAgent;
     var ieClassic = (ua.indexOf("MSIE")>0);
     var ieEleven = (!!ua.match(/Trident\/7\./));

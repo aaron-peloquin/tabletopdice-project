@@ -21,6 +21,7 @@ class TtdHistory extends TtdChildHelper {
     return html`
       <style>
       :host{
+          display: block;
           padding: 10px;
           -ms-overflow-style: -ms-autohiding-scrollbar;
           overflow-x: scroll;
