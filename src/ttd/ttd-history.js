@@ -131,6 +131,17 @@ class TtdHistory extends TtdChildHelper {
         .invisible-text{
           font-size: 0px;
         }
+
+        /* IE10+ CSS styles go here */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          ol {
+            -ms-grid-rows: 1fr;
+            }
+          ol > li {
+            width: 125px;
+            float:left;
+          }
+        }
       </style>
       <template is="dom-if" if="[[results]]">
         <ol title="Copy for dice roll log">
