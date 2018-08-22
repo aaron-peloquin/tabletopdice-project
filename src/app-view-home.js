@@ -50,9 +50,8 @@ class AppViewHome extends PolymerElement {
       <div class="card">
         <h1>Dice Trays</h1>
         <div class="copy-box">
-          <h2>
-            Built with love for the tabletop gaming community &lt;3
-          </h2>
+          <h2>Save against forgetting your dice</h2>
+          <h2>Built with love for the tabletop gaming community &lt;3</h2>
           <p class="start-rolling">
             <a href="[[rootPath]]quick-dice-roller">Quick Dice Tray</a>
           </p>
