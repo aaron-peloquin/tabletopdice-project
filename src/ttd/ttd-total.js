@@ -61,9 +61,12 @@ class TtdTotal extends TtdChildHelper {
       <template is="dom-if" if="[[exclude]]">
         <select aria-label="Excluding dice with this many sides" value="{{excludeDie::change}}">
           <option value="0" selected$="{{isExclude(0)}}">All Dice</option>
-          <template is="dom-repeat" items="{{excludeSides}}" as="sides">
-            <option value="[[sides]]" selected$='[[isExclude(sides)]]'>Skip d[[sides]]s</option>
-          </template>
+          <option value="4" selected$="[[isExclude(4)]]">Skip d4s</option>
+          <option value="6" selected$="[[isExclude(6)]]">Skip d6s</option>
+          <option value="8" selected$="[[isExclude(8)]]">Skip d8s</option>
+          <option value="10" selected$="[[isExclude(10)]]">Skip d10s</option>
+          <option value="12" selected$="[[isExclude(12)]]">Skip d12s</option>
+          <option value="20" selected$="[[isExclude(20)]]">Skip d20s</option>
         </select>
       </template>
       <span aria-label="Total of all dice rolled">
@@ -95,6 +98,7 @@ class TtdTotal extends TtdChildHelper {
       exclude: {
         type: Boolean,
         value: 0,
+        notify: true,
       },
       excludeDie: {
         type: Number,
@@ -102,10 +106,12 @@ class TtdTotal extends TtdChildHelper {
         reflectToAttribute: true,
         observer: 'recalculateSum',
       },
-      excludeSides: {
+      /** Removed for now due to issues with MSIE11 */
+/*      excludeSides: {
         type: Array,
         value: function() { return []; },
       },
+*/
     };
   }
 
@@ -122,7 +128,11 @@ class TtdTotal extends TtdChildHelper {
     if (!this.trayElement) {
       return false;
     }
-    this.excludeSides = this.trayElement.standardPolyhedrons;
+    /** 
+     * Reminder: <template> dom-repeat does not work in MSIE11 on <option> tags at the moment.
+     * Have to just write normal <option> tags for now.
+     * */
+    //this.excludeSides = this.trayElement.standardPolyhedrons;
     this.trayElement.addEventListener('_updateHistory', e => {this.updateHistory(e)});
   }
 
@@ -154,6 +164,7 @@ class TtdTotal extends TtdChildHelper {
     this.sum = 0;
     var newSum = 0;
     var skipSides = this.excludeDie;
+    console.log("Skip Sides",skipSides);
     if(this.results.length>0) {
       this.results.forEach(function(r){
         if(r.sides!=skipSides) {
