@@ -43,8 +43,7 @@ class TtdViewAdvanced extends PolymerElement {
             "total__ total__"
             "highLow clear__"
             "equat_m equat_m"
-            "equat_o equat_o"
-            "equat_t equat_t";
+            "equat_o equat_o";
         }
 
         /* [Responsive] Small Styles */
@@ -55,13 +54,12 @@ class TtdViewAdvanced extends PolymerElement {
             /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
             grid-template-areas:
               "history history history"
-              "highLow total__ clear__"
-              "highLow total__ clear__"
+              "highLow total__ total__"
+              "highLow clear__ clear__"
               "die___4 die___6 die___8"
               "die__10 die__12 die__20"
               "equat_m equat_m equat_m"
-              "equat_o equat_o equat_o"
-              "equat_t equat_t equat_t";
+              "equat_o equat_o equat_o";
           }
         }
 
@@ -78,8 +76,7 @@ class TtdViewAdvanced extends PolymerElement {
               "die___4 die___4 die___6 die___6 die___8 die___8 clear__"
               "die__10 die__10 die__12 die__12 die__20 die__20 clear__"
               "equat_m equat_m equat_m equat_m equat_m equat_m equat_m"
-              "equat_o equat_o equat_o equat_o equat_o equat_o equat_o"
-              "equat_t equat_t equat_t equat_t equat_t equat_t equat_t";
+              "equat_o equat_o equat_o equat_o equat_o equat_o equat_o";
             }
         }
 
@@ -119,7 +116,6 @@ class TtdViewAdvanced extends PolymerElement {
                   <ttd-die sides="20"></ttd-die>
                   <ttd-equation class="main-hand" placeholder="eg. 3d6+4"></ttd-equation>
                   <ttd-equation class="off-hand" placeholder="eg. 1d20+1d8+2"></ttd-equation>
-                  <ttd-equation class="third-hand" placeholder="eg. (1d9+4d4)/1d8"></ttd-equation>
                 </ttd-tray>
               </slot>
             </template>
