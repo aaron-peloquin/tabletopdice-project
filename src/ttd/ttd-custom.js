@@ -67,11 +67,22 @@ class TtdCustom extends TtdChildHelper {
           display: table-cell;
           vertical-align: middle;
         }
+
+        /* IE10+ CSS styles go here */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          div{
+            display: flex;
+          }
+          span{
+            padding: 0;
+          }
+        }
+  
       </style>
       <form>
         <div>
           <span><template is="dom-if" if="[[rolled]]">{{rolled}}</template>d</span>
-          <input aria-label="Custom die value" type="number" value="{{customSides::input}}" />
+          <input aria-label="Number of sides on the custom die" type="text" value="{{customSides::input}}" />
         </div>
       </form>
       `;
@@ -101,6 +112,7 @@ class TtdCustom extends TtdChildHelper {
   /**
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * If this browser is supported (not IE), convert <input> from text to number for mobile device keyboards
    * Add [_clearResults] to reset the rolled count
    * Add [_rollCustomDie] to roll this custom die
    * Add [submit] to also roll this custom die
@@ -112,6 +124,12 @@ class TtdCustom extends TtdChildHelper {
     if (!this.trayElement) {
       return false;
     }
+
+    /** Dynamically upgrade input from text to number for best UX on IE and mobile devices */
+    if(this.browserIsSupported()) {
+      this.shadowRoot.querySelector('input').setAttribute('type','number');
+    }
+
     this.trayElement.addEventListener('_clearResults', e => {this.resetDie(e)});
     this.trayElement.addEventListener('_rollCustomDie',e => {this.roll(e)});
     this.shadowRoot.querySelector('form').addEventListener('submit', e=>{this.submitRoll(e)});
@@ -135,6 +153,22 @@ class TtdCustom extends TtdChildHelper {
     this.customSides = Math.round(this.customSides);
     this.trayElement.roll(parseInt(this.customSides));
   }
+
+  /**
+   * Is this browser supported?
+   * @returns {bool}
+   */
+  browserIsSupported() {
+    return true;
+    var ua = window.navigator.userAgent;
+    var ieClassic = (ua.indexOf("MSIE")>0);
+    var ieEleven = (!!ua.match(/Trident\/7\./));
+    if (ieClassic || ieEleven) {
+      return false;//This is IE.
+    }
+    return true; //This is not IE
+  }
+
 
   /**
    * Reset the number of times this die has been rolled
