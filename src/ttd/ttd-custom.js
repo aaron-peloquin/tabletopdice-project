@@ -76,6 +76,10 @@ class TtdCustom extends TtdChildHelper {
           span{
             padding: 0;
           }
+          :host{
+            width: 50%;
+            display: inline-block;
+          }
         }
   
       </style>

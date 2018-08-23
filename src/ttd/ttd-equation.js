@@ -119,7 +119,14 @@ class TtdEquation extends TtdChildHelper {
           }
         }
 
-      </style>
+        /* IE10+ CSS styles go here */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          :host {
+            display: flex;
+          }
+        }
+
+        </style>
         <form>
           <div>
             <input
@@ -132,10 +139,13 @@ class TtdEquation extends TtdChildHelper {
         <div class="exclude">
           <select aria-label="Select die to exclude from the this equation's result" value="{{excludeDie::change}}">
             <option value="0" selected$="{{parseSelected(0)}}">All Dice</option>
-            <template is="dom-repeat" items="{{diceTypes}}" as="sides">
-              <option value="[[sides]]" selected$='[[parseSelected(sides)]]'>Skip d[[sides]]s</option>
-            </template>
-          </select>
+            <option value="4" selected$="[[isExclude(4)]]">Skip d4s</option>
+            <option value="6" selected$="[[isExclude(6)]]">Skip d6s</option>
+            <option value="8" selected$="[[isExclude(8)]]">Skip d8s</option>
+            <option value="10" selected$="[[isExclude(10)]]">Skip d10s</option>
+            <option value="12" selected$="[[isExclude(12)]]">Skip d12s</option>
+            <option value="20" selected$="[[isExclude(20)]]">Skip d20s</option>
+            </select>
         </div>
         <span class="result">{{result}}</span>
         <span class="roll" on-click="roll"><slot style="font-size:smaller">Roll</slot></span>

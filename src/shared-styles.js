@@ -156,8 +156,8 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
           width: 50%;
           float: left;
         }
-
       }
+
     </style>
   </template>
 </dom-module>`;

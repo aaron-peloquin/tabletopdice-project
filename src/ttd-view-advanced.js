@@ -86,6 +86,17 @@ class TtdViewAdvanced extends PolymerElement {
              font-size: 32px;
           }
         }
+
+        /* IE10+ CSS styles go here */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          ttd-high-low,
+          ttd-clear{
+            width: 100%;
+            float:left;
+            padding: 0;
+          }
+        }
+
         </style>
 
         <div class="card">
