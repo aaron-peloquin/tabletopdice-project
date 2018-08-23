@@ -74,7 +74,7 @@ Creates a readout of the highest and lowest values rolled by a specific die, whi
 ### &lt;ttd-equation&gt;
 Creates a number of ui elements that allow the user to write a math equation involving dice strings (eg. 1d4), set a type of die that will be excluded from the equation's total, then roll the equation and view it's output.
 
-The use-case for this in dungeons & dragons would be a rogue using a dagger to attack and calculate their damage total at the same time with 1d4+2d6+2+1d20, then exclude d20's from the results. Rolling this equation would show the damage in the result, and the d20 would appear in any `<ttd-history>` and `<ttd-high-low die="20">` elements to quickly see if they hit or not.
+The use-case for this in dungeons & dragons would be a [rogue using a dagger](https://www.dndbeyond.com/equipment/dagger) to attack and calculate their damage total at the same time with 1d4+2d6+2+1d20, then exclude d20's from the results. Rolling this equation would show the damage in the result, and the d20 would appear in any `<ttd-history>` and `<ttd-high-low die="20">` elements to quickly see if they hit or not.
 
 You may also set an attribute of `placeholder` to set the input field's placeholder text.
 
@@ -88,7 +88,7 @@ These are the key things I focused on learning while building this application.
 	* Some ES
 * CSS
 	* Grid
-	* Variables
+	* CSS Variables
 * AWS 
 	* Route 53
   * Simple Storage Service (S3)
