@@ -57,7 +57,7 @@ class AppViewAbout extends PolymerElement {
         <h1>Web Browser Support</h1>
         <div class="copy-box">
           <p>
-            For best results, use Google Chrome. We also support Firefox and Microsoft Edge. Internet Explorer is not supported.
+            For best results, use Google Chrome. We also support Firefox and Microsoft Edge. Internet Explorer supported, but not recommended.
           </p>
         </div>
       </div>
