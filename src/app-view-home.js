@@ -15,6 +15,12 @@ class AppViewHome extends PolymerElement {
         :host {
           display: grid;
         }
+
+        .center-image{
+          width: 100%;
+          text-align: center;
+        }
+
         img.logo {
           transform: rotate( -600deg );            
           transition: transform 250ms linear;         /* Gives the feeling of "resetting" the die */
@@ -45,8 +51,9 @@ class AppViewHome extends PolymerElement {
         }
 
       </style>
-
-      <img class="logo" src="/images/icons/icon-512x512.png" alt="Tabletop Dice Logo" />
+      <div class="center-image">
+        <img class="logo" src="/images/icons/icon-512x512.png" alt="Tabletop Dice Logo" />
+      </div>
       <div class="card">
         <h1>Dice Trays</h1>
         <div class="copy-box">
