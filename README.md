@@ -21,11 +21,21 @@ This project includes a number of modular polymer elements located in the /src/t
     <!-- Creates a 44-sided die button -->
     <ttd-die sides="44"></ttd-die>
 
-    <!-- Displays a readout of the sum from all dice that have been rolled. -->
-    <ttd-sum></ttd-sum>
+    <!-- Displays a readout of the sum from all dice that have been rolled with a dropdown of die types to exclude form this sum -->
+    <ttd-total exclude exclude-die="20"></ttd-total>
 
-    <!-- Creates a 44-sided die button -->
+    <!-- Reset (clear) all roll data in this tray -->
     <ttd-clear>Erase Roll Data</ttd-clear>
+
+    <!--Displays an input field for a custom sided die & a button to roll all custom dice elements -->
+    <ttd-custom></ttd-custom>
+    <ttd-custom-roll></ttd-custom-roll>
+
+    <!-- Displays the highest and lowest values rolled from one type of die -->
+    <ttd-high-low die="20"></ttd-high-low>
+
+    <!-- Displays a 'dice logic string' input field, exclude dropdown, a total, and a button to 'roll the equation' -->
+    <ttd-equation placeholder="example: 2d6+2"></ttd-equation>
 </ttd-tray>
 ```
 ### &lt;ttd-tray&gt;
@@ -69,5 +79,5 @@ These are the key things I focused on learning while building this application.
 	* Variables
 * AWS 
 	* Route 53
-    * Simple Storage Service (S3)
-    * CloudFront with a Certificate for HTTPS and HTTP/2
+  * Simple Storage Service (S3)
+  * CloudFront with a Certificate for HTTPS + HTTP/2
