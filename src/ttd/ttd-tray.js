@@ -13,8 +13,6 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
  * @ttd
  *  Events:
  *    _updateHistory, dispatched whenever this.results is changed
- *    _updateSum, dispatched whenever this.sum is changed
- *    _recalculateSum, dispatched whenever you would like the sum to be recalculated
  *    _clearResults, dispatched whenever an element wants to clear the rolled results
  *    _rollCustomDie, dispatched whenever the custom dice are requested to be rolled
  */
@@ -68,14 +66,12 @@ class TtdTray extends PolymerElement {
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    * Add [_clearResults] to clear this.results and this.sum, then update all listeners
-   * Add [_recalculateSum] to recalculate the sum
    * @returns {void}
    */
   ready() {
     super.ready();
     // Add listener for _clearResults to clear this tray's roll results.
     this.addEventListener('_clearResults', e => {this.clearResults(e)});
-    this.addEventListener('_recalculateSum', e => {this.recalculateSum(e)});
   }
 
   /**
@@ -119,7 +115,6 @@ class TtdTray extends PolymerElement {
   /**
    * Roll a basic die and updates this.sum and this.results
    * Reports to Google with the result rolled, and any criticals
-   * Dispatch [_recalculateSum] and call updateHistoricalNodes()
    * @param {num} sides The number of sides
    * @returns {void}
    */
@@ -150,7 +145,6 @@ class TtdTray extends PolymerElement {
       }
     }
 
-    this.dispatchEvent(new CustomEvent('_recalculateSum'));
     this.updateHistoricalNodes();
     return value;
   }
@@ -175,7 +169,6 @@ class TtdTray extends PolymerElement {
 
     // Update this.sum, then push out to listeners
     this.sum = newSum;
-    this.updateSumNodes();
   }
 
   /**
@@ -186,16 +179,7 @@ class TtdTray extends PolymerElement {
     this.dispatchEvent(new CustomEvent('_updateHistory', {detail: {data:this.results}}));
   }
 
-  /**
-   * Send this.sum to all [_updateSum] listeners
-   * @returns {void}
-   */
-  updateSumNodes() {
-    this.dispatchEvent(new CustomEvent('_updateSum', {detail: {data:this.sum}}));
-  }
-
   fullRefresh() {
-    this.recalculateSum();
     this.updateHistoricalNodes();
   }
 
@@ -208,7 +192,6 @@ class TtdTray extends PolymerElement {
     this.updateHistoricalNodes();
 
     this.sum = 0;
-    this.updateSumNodes();
   }
 }
 
