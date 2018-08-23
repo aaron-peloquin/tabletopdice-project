@@ -21,20 +21,22 @@ This project includes a number of modular polymer elements located in the /src/t
     <!-- Creates a 44-sided die button -->
     <ttd-die sides="44"></ttd-die>
 
-    <!-- Displays a readout of the sum from all dice that have been rolled with a dropdown of die types to exclude form this sum -->
+    <!-- Creates a readout of the sum from all dice that have been rolled -->
     <ttd-total exclude exclude-die="20"></ttd-total>
 
-    <!-- Reset (clear) all roll data in this tray -->
+    <!-- Creates a reset (clear) all roll data in this tray -->
     <ttd-clear>Erase Roll Data</ttd-clear>
 
-    <!--Displays an input field for a custom sided die & a button to roll all custom dice elements -->
+    <!-- Creates an input field for a custom sided die -->
     <ttd-custom></ttd-custom>
+
+    <!-- Creates a button to roll all custom dice elements -->
     <ttd-custom-roll></ttd-custom-roll>
 
-    <!-- Displays the highest and lowest values rolled from one type of die -->
+    <!-- Creates the highest and lowest values rolled from one type of die -->
     <ttd-high-low die="20"></ttd-high-low>
 
-    <!-- Displays a 'dice logic string' input field, exclude dropdown, a total, and a button to 'roll the equation' -->
+    <!-- Creates a 'dice logic' input field, exclude dropdown, a total, and a submit button -->
     <ttd-equation placeholder="example: 2d6+2"></ttd-equation>
 </ttd-tray>
 ```
@@ -43,14 +45,12 @@ This custom element is **required** to wrap around all other &lt;ttd-*&gt; eleme
 
 Events that can be dispatched (fired/called) or listened to on this element:
 * **_updateHistory** dispatched whenever this.results is changed
-* **_updateSum**, dispatched whenever this.sum is changed
-* **_recalculateSum**, dispatched whenever you would like the sum to be recalculated
 * **_clearResults**, dispatched whenever an element wants to clear the rolled results
 * **_rollCustomDie**, dispatched whenever the custom dice are requested to be rolled
 
 
 ### &lt;ttd-history&gt;
-Displays a historical readout (in `<ol>` / `<li>` format) of rolls, comes nativly with horizontal scrolling. Results are displayed as the value rolled with an image of the die behind it.
+Creates a historical readout (in `<ol>` / `<li>` format) of rolls, comes nativly with horizontal scrolling in supported browsers. Results are displayed as the value rolled with an image of the die behind it.
 
 This element has an optional attribute of `excited`. Adding this attribute causes the program to add a `!` to critical rolls (when the result rolled is the same as the sides of the die).
 
@@ -59,12 +59,24 @@ A user may copy/paste from this element to recieve the sides of the die rolled a
 ### &lt;ttd-die&gt;
 Creates a clickable ui element that rolls a die. The `sides` attribute sets how many sides each `<ttd-die>` element has.
 
-### &lt;ttd-sum&gt;
-Displays a readout of the sum from all dice rolled.
+### &lt;ttd-total&gt;
+Creates a readout of the sum from all dice rolled with an optional attribute of `exclude` to add in a `<select>` of a dice type to exclude, and `exclude-die` to set the default value of that select dropdown.
 
 ### &lt;ttd-clear&gt;
 Creates a clickable ui element that resets the application's roll data. You may slot in your own copy text, but the default is "Clear".
 
+### &lt;ttd-custom&gt;
+Creates a user input for a custom sided die that can be rolled by submitting the `<form>` that is in shadowdom wrapped around the input, or by clicking the button created by `<ttd-custom-roll></ttd-custom-roll>`.
+
+### &lt;ttd-high-low&gt;
+Creates a readout of the highest and lowest values rolled by a specific die, which is set by using the `die` attribute.
+
+### &lt;ttd-equation&gt;
+Creates a number of ui elements that allow the user to write a math equation involving dice strings (eg. 1d4), set a type of die that will be excluded from the equation's total, then roll the equation and view it's output.
+
+The use-case for this in dungeons & dragons would be a rogue using a dagger to attack and calculate their damage total at the same time with 1d4+2d6+2+1d20, then exclude d20's from the results. Rolling this equation would show the damage in the result, and the d20 would appear in any `<ttd-history>` and `<ttd-high-low die="20">` elements to quickly see if they hit or not.
+
+You may also set an attribute of `placeholder` to set the input field's placeholder text.
 
 ## This project utlizes:
 These are the key things I focused on learning while building this application. 
