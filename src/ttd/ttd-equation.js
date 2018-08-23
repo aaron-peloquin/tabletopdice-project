@@ -276,12 +276,12 @@ class TtdEquation extends TtdChildHelper {
           var diceNum = parseInt(diceNumSides[0]);
           var diceSides = parseInt(diceNumSides[1]);
 
-          /** Don't allow a user to roll more than 999 times */
+          /** Don't allow a user to roll more than 999 dice in one set */
           if(diceNum > 999) {
             diceNum = 999;
           }
 
-          /** Don't allow a user to roll a die with more than 999 times */
+          /** Don't allow a user to roll a die with more than 999 sides */
           if(diceSides > 999) {
             diceSides = 999;
           }
