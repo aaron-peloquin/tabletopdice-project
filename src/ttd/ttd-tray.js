@@ -133,12 +133,12 @@ class TtdTray extends PolymerElement {
 
       if(sides==20) {
         if(value==20) {
-          gtag('event', 'natural-twenty', {
+          gtag('event', 'naturalTwenty', {
             "event_category":"critical",
           });
         }
         else if(value==1) {
-          gtag('event', 'natural-one', {
+          gtag('event', 'naturalOne', {
             "event_category":"critical",
           });
         }
