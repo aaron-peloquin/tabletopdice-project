@@ -32,6 +32,16 @@ class AppViewAbout extends PolymerElement {
           </p>
         </div>
 
+        <h1>Feedback & Contact</h1>
+        <div class="copy-box">
+          <p>
+            Please take the time to fill out this <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfPABLn01U6BDjdygscafbasK6IVeGtK4vRcOba7C3mDJaEBQ/viewform">short survey</a> to help guide this app going forward.
+          </p>
+          <p>
+            Otherwise if you need to contact me directly, you can reach me by filling out <a href="https://goo.gl/forms/HIDWZP4VsafmbQTA2">this form</a>.
+          </p>
+        </div>
+
         <h1>History</h1>
         <div class="copy-box">
           <p>
@@ -43,21 +53,11 @@ class AppViewAbout extends PolymerElement {
             so I decided to build this in service to all my kin who share this curse.
           </p>
         </div>
-  
-        <h1>Feedback & Contact</h1>
-        <div class="copy-box">
-          <p>
-            Please take the time to fill out this <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfPABLn01U6BDjdygscafbasK6IVeGtK4vRcOba7C3mDJaEBQ/viewform">short survey</a> to help guide this app going forward.
-          </p>
-          <p>
-            Alternativly you can also contact me or send feedback, please email <a href="mailto:contact@tabletopdice.com">Contact@TabletopDice.com</a> directly.
-          </p>
-        </div>
 
         <h1>Web Browser Support</h1>
         <div class="copy-box">
           <p>
-            For best results, use Google Chrome. We also support Firefox and Microsoft Edge. Internet Explorer supported, but not recommended.
+            For best results, use Google Chrome. We also support Firefox and Microsoft Edge. Internet Explorer 11 supported, but not recommended since it only uses mobile styles.
           </p>
         </div>
       </div>
