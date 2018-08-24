@@ -119,9 +119,9 @@ class TtdHighLow extends TtdChildHelper {
   updateMinMax(e) {
     this.min = 0;
     this.max = 0;
-    var dieSides = this.die;
-    var min = null;
-    var max = null;
+    let dieSides = this.die;
+    let min = null;
+    let max = null;
 
     e.detail.data.forEach(function(r) {
       if(dieSides==r.sides) {

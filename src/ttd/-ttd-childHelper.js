@@ -23,7 +23,7 @@ class TtdChildHelper extends PolymerElement {
    * @returns {void}
    */
   findTray() {
-    var el = this;
+    let el = this;
     while (el.parentNode) {
       el = el.parentNode;
       if (el.tagName == 'TTD-TRAY') {
@@ -45,12 +45,12 @@ class TtdChildHelper extends PolymerElement {
    * @returns {string} The file URI to display
    */
   dieImageURI(dieSides) {
-    var uri = 'images/d';
+    let uri = 'images/d';
     /** To approve new images, add them to this array & name their files accordingly */
     if([4,6,8,10,12,20].indexOf(dieSides)>-1) {
       uri += dieSides+'.png';
     }
-    else{
+    else {
       uri += 'default.png';
     }
     return uri;

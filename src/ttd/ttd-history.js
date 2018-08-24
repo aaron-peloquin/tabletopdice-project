@@ -214,7 +214,7 @@ class TtdHistory extends TtdChildHelper {
    */
   addLatestClass(){
     if(this.results.length>0) {
-      var myShadow = this.shadowRoot;
+      let myShadow = this.shadowRoot;
       setTimeout(function(){
         myShadow.querySelector('li').classList.add("newest")
       },1);

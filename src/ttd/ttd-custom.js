@@ -164,9 +164,9 @@ class TtdCustom extends TtdChildHelper {
    */
   browserIsSupported() {
     return true;
-    var ua = window.navigator.userAgent;
-    var ieClassic = (ua.indexOf("MSIE")>0);
-    var ieEleven = (!!ua.match(/Trident\/7\./));
+    let ua = window.navigator.userAgent;
+    let ieClassic = (ua.indexOf("MSIE")>0);
+    let ieEleven = (!!ua.match(/Trident\/7\./));
     if (ieClassic || ieEleven) {
       return false;//This is IE.
     }
