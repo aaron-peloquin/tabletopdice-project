@@ -59,12 +59,18 @@ class TtdTray extends PolymerElement {
 
   /**
    * Element ready for use, fire super.ready() for native functionality
-   * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * If localStorage.ttd is not yet created, create it
    * Add [_clearResults] to clear this.results, then update all listeners
    * @returns {void}
    */
   ready() {
     super.ready();
+    if(typeof localStorage.ttd == 'undefined') {
+      localStorage.ttd  = {
+          "conf":{},
+          "data":{},
+        };
+    }
     // Add listener for _clearResults to clear this tray's roll results.
     this.addEventListener('_clearResults', e => {this.clearResults(e)});
   }
