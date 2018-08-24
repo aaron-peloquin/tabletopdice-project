@@ -75,6 +75,10 @@ class MyApp extends PolymerElement {
           --paper-icon-button-ink-color: white;
         }
 
+        #drawer {
+          border-right: solid 5px;
+        }
+
         .drawer-list {
           margin: 0 20px;
         }
