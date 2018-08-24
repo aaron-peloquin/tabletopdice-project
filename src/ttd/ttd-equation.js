@@ -310,7 +310,10 @@ class TtdEquation extends TtdChildHelper {
          * It should be reasonably safe to run eval() here, since we have already stripped out everything except
          * for digits, the lowercase letter 'd', and equation symbols (+, -, *, /)
         */
-        var equationResult = Math.round(eval(diceEquation));
+        let equationResult = Math.round(eval(diceEquation));
+        if(isNaN(equationResult)) {
+          throw "Invalid equation (NaN)";
+        }
         this.result = equationResult.toLocaleString();
         /** Report equation results to google analytics */
         if(typeof gtag=='function') {
