@@ -125,8 +125,8 @@ class TtdViewAdvanced extends PolymerElement {
                   <ttd-die sides="10"></ttd-die>
                   <ttd-die sides="12"></ttd-die>
                   <ttd-die sides="20"></ttd-die>
-                  <ttd-equation class="main-hand" placeholder="eg. 3d6+4"></ttd-equation>
-                  <ttd-equation class="off-hand" placeholder="eg. 1d20+1d8+2"></ttd-equation>
+                  <ttd-equation class="main-hand" placeholder="eg. 3d6+4" exclude></ttd-equation>
+                  <ttd-equation class="off-hand" placeholder="eg. 1d20+1d8+2" exclude></ttd-equation>
                 </ttd-tray>
               </slot>
             </template>
