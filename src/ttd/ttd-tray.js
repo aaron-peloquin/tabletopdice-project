@@ -36,7 +36,6 @@ class TtdTray extends PolymerElement {
   /**
    * @param {array} results Holds all a local copy of all roll results, which
    * can be cloned and pushed out to [_updateHistory] listeners
-   * @param {num} sum The current sum of all dice rolled so far, excluding
    * the dice with sides equal to this.exclude
    * @param {num} exclude The type of dice to exclude
    */
@@ -45,10 +44,6 @@ class TtdTray extends PolymerElement {
       results: {
         type: Array,
         value: function() { return []; },
-      },
-      sum: {
-        type: Number,
-        value: 0,
       },
       exclude: {
         type: Number,
@@ -65,7 +60,7 @@ class TtdTray extends PolymerElement {
   /**
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
-   * Add [_clearResults] to clear this.results and this.sum, then update all listeners
+   * Add [_clearResults] to clear this.results, then update all listeners
    * @returns {void}
    */
   ready() {
@@ -82,44 +77,16 @@ class TtdTray extends PolymerElement {
     /** Utilize seedrandom.js for better random values. */
     Math.seedrandom();
     return (Math.random() * max | 0) + 1;
-
-    // var randomResult = 1;
-    // if(typeof window.crypto == 'object') {
-    //   /** How many bytes does the max number consume? */
-    //   var requestBytes = Math.ceil(Math.log2(max) / 8);
-    //   if(requestBytes) {
-    //     //Generate an array with requestBytes items
-    //     var randomArray = new Uint8Array(requestBytes);
-    //     var maxNum = Math.pow(256, requestBytes);
-    //     console.log(maxNum);
-    //     while(true) {
-    //       window.crypto.getRandomValues(randomArray);
-    //       var val = 0;
-    //       for(var i=0; i<requestBytes; i++) {
-    //         val = (val << 8) + randomArray[i];
-    //       }
-    //       if(val + max - (val % max) < maxNum) {
-    //         randomResult = 1 + (val % max);
-    //         break;
-    //       }
-    //     }
-    //   }
-    // }
-    // else {
-    //   /** Not true random, but the best we can get without a ton of overhead */
-    //   randomResult = (Math.random() * max | 0) + 1;
-    // }
-    // return randomResult;
   }
 
   /**
-   * Roll a basic die and updates this.sum and this.results
+   * Roll a basic die and updates this.results
    * Reports to Google with the result rolled, and any criticals
    * @param {num} sides The number of sides
    * @returns {void}
    */
   roll(sides) {
-    var value = this.random(sides);
+    let value = this.random(sides);
     this.results.push({"sides":sides,"result":value});
 
     //Report to Google Analytics
@@ -150,28 +117,6 @@ class TtdTray extends PolymerElement {
   }
 
   /**
-   * recalculates sum values, then calls updateSumNodes()
-   * @returns {void}
-   */
-  recalculateSum() {
-    var exclude = this.exclude;
-    var newSum = 0;
-
-    
-    if(this.results.length>0) {
-      this.results.forEach(function(roll) {
-        // Exclude any rolls that were made by the excluded die
-        if(roll.sides!=exclude) {
-          newSum += roll.result;
-        }
-      });
-    }
-
-    // Update this.sum, then push out to listeners
-    this.sum = newSum;
-  }
-
-  /**
    * Send this.results to all [_updateHistory] listeners
    * @returns {void}
    */
@@ -184,14 +129,13 @@ class TtdTray extends PolymerElement {
   }
 
   /**
-   * Clear this.results and this.sum, then update all listeners
+   * Clear this.results, then update all listeners
    * @returns {void}
    */
   clearResults() {
     this.results = [];
     this.updateHistoricalNodes();
 
-    this.sum = 0;
   }
 }
 
