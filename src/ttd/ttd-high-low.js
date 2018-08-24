@@ -123,7 +123,7 @@ class TtdHighLow extends TtdChildHelper {
     let min = null;
     let max = null;
 
-    e.detail.data.forEach(function(r) {
+    for(let r of e.detail.data) {
       if(dieSides==r.sides) {
         if (max === null || max < r.result) {
           max = r.result;
@@ -132,7 +132,7 @@ class TtdHighLow extends TtdChildHelper {
           min = r.result;
         }
       }
-    });
+    };
     this.min  = min;
     this.max  = max;
   }
