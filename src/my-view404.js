@@ -1,15 +1,20 @@
 /**
  * @license
- * Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+ * Copyright (c) 2018 The Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/LICENSE
+ * The complete set of authors may be found at https://raw.githubusercontent.com/aaron-peloquin/tabletopdice-project/master/AUTHORS
  */
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 
+/**
+ * `ttd-view-home`
+ * View for the catch-all 404 page.
+ * Note: Does not send a 404 header.. That's a problem with SPA, since no pages actually exist until we load JS.
+ *
+ * @customElement
+ * @polymer
+ */
 class MyView404 extends PolymerElement {
   static get template() {
     return html`
@@ -21,7 +26,7 @@ class MyView404 extends PolymerElement {
         }
       </style>
 
-      Oops you hit a 404. <a href="[[rootPath]]">Head back to home.</a>
+      Oops you rolled a 404. Please head back <a href="[[rootPath]]">home</a> or use the navigation.
     `;
   }
 }

@@ -78,17 +78,6 @@ class TtdViewQuick extends PolymerElement {
       <div class="card">
         <h1>Quick Dice Tray</h1>
         <div class="tray-wrapper">
-          <template is="dom-if" if="[[!browserSupported]]">
-            <h1>Unsupported Browser</h1>
-            <p>
-              <div>Supported Browsers:</div>
-              <ul>
-                <li>Google Chrome</li>
-                <li>Microsoft Edge</li>
-                <li><em>Firefox</em></li>
-              </ul>
-          </template>
-          <template is="dom-if" if="[[browserSupported]]">
             <slot>
               <ttd-tray>
                 <ttd-history excited></ttd-history>
@@ -101,7 +90,6 @@ class TtdViewQuick extends PolymerElement {
                 <ttd-clear></ttd-clear>
               </ttd-tray>
             </slot>
-          </template>
         </div>
         <app-monetizer></app-monetizer>
         <div class="card">
@@ -126,38 +114,16 @@ class TtdViewQuick extends PolymerElement {
   }
 
   /**
-   * @param {bool} browserSupported Updated when element initalizes, runs isSupported() to determin if the user is in IE.
-   * @param {str} page This paramiter is shared between all views and the main my-app.js. It's the currently loaded page
+   * @param {str} page Two-way data bind for what the current page is. Can be used to send the browser to another page on the site.
    */
   static get properties() {
     return {
-      browserSupported: {
-        type: Boolean,
-        value: true,
-      },
       page: {
         type: String,
         reflectToAttribute: true,
         notify: true,
       },
     };
-  }
-
-  ready() {
-    super.ready();
-    //Check if this browser is currently supported.
-    this.browserSupported = this.isSupported();
-  }
-
-  isSupported() {
-    return true;
-    let ua = window.navigator.userAgent;
-    let ieClassic = (ua.indexOf("MSIE")>0);
-    let ieEleven = (!!ua.match(/Trident\/7\./));
-    if (ieClassic || ieEleven) {
-      return false;//This is IE.
-    }
-    return true; //This is not IE
   }
 }
 

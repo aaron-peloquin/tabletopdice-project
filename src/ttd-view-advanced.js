@@ -102,34 +102,22 @@ class TtdViewAdvanced extends PolymerElement {
         <div class="card">
           <h1>Advanced dice tray</h1>
           <div class="tray-wrapper">
-            <template is="dom-if" if="[[!browserSupported]]">
-              <h1>Unsupported Browser</h1>
-              <p>
-                <div>Supported Browsers:</div>
-                <ul>
-                  <li>Google Chrome</li>
-                  <li>Microsoft Edge</li>
-                  <li><em>Firefox</em></li>
-                </ul>
-            </template>
-            <template is="dom-if" if="[[browserSupported]]">
-              <slot>
-                <ttd-tray>
-                  <ttd-history excited></ttd-history>
-                  <ttd-total exclude exclude-die="20"></ttd-total>
-                  <ttd-high-low die="20"></ttd-high-low>
-                  <ttd-clear></ttd-clear>
-                  <ttd-die sides="4"></ttd-die>
-                  <ttd-die></ttd-die>
-                  <ttd-die sides="8"></ttd-die>
-                  <ttd-die sides="10"></ttd-die>
-                  <ttd-die sides="12"></ttd-die>
-                  <ttd-die sides="20"></ttd-die>
-                  <ttd-equation class="main-hand" placeholder="eg. 3d6+4" exclude></ttd-equation>
-                  <ttd-equation class="off-hand" placeholder="eg. 1d20+1d8+2" exclude></ttd-equation>
-                </ttd-tray>
-              </slot>
-            </template>
+            <slot>
+              <ttd-tray>
+                <ttd-history excited></ttd-history>
+                <ttd-total exclude exclude-die="20"></ttd-total>
+                <ttd-high-low die="20"></ttd-high-low>
+                <ttd-clear></ttd-clear>
+                <ttd-die sides="4"></ttd-die>
+                <ttd-die></ttd-die>
+                <ttd-die sides="8"></ttd-die>
+                <ttd-die sides="10"></ttd-die>
+                <ttd-die sides="12"></ttd-die>
+                <ttd-die sides="20"></ttd-die>
+                <ttd-equation class="main-hand" placeholder="eg. 3d6+4" exclude></ttd-equation>
+                <ttd-equation class="off-hand" placeholder="eg. 1d20+1d8+2" exclude></ttd-equation>
+              </ttd-tray>
+            </slot>
           </div>
           <app-monetizer>Ads for advanced rollers</app-monetizer>
           <div class="card">
@@ -167,35 +155,17 @@ class TtdViewAdvanced extends PolymerElement {
     `;
   }
 
+  /**
+   * @param {str} page Two-way data bind for what the current page is. Can be used to send the browser to another page on the site.
+   */
   static get properties() {
     return {
-      browserSupported: {
-        type: Boolean,
-        value: true,
-      },
       page: {
         type: String,
         reflectToAttribute: true,
         notify: true,
       },
     };
-  }
-
-  ready() {
-    super.ready();
-    /** Check if this browser is currently supported */
-    this.browserSupported = this.isSupported();
-  }
-
-  isSupported() {
-    return true;
-    let ua = window.navigator.userAgent;
-    let ieClassic = (ua.indexOf("MSIE")>0);
-    let ieEleven = (!!ua.match(/Trident\/7\./));
-    if (ieClassic || ieEleven) {
-      return false;//This is IE.
-    }
-    return true; //This is not IE
   }
 }
 

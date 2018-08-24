@@ -8,6 +8,13 @@
  import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
 
+/**
+ * `ttd-view-about`
+ * View for the about page
+ *
+ * @customElement
+ * @polymer
+ */
 class AppViewAbout extends PolymerElement {
   static get template() {
     return html`
@@ -64,6 +71,9 @@ class AppViewAbout extends PolymerElement {
       `;
   }
 
+  /**
+   * @param {str} page Two-way data bind for what the current page is. Can be used to send the browser to another page on the site.
+   */
   static get properties() {
     return {
       page: {
