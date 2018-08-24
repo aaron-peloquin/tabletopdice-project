@@ -1,9 +1,9 @@
 {
   "name": "tabletopdice",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "A tabletop dice rolling web application",
   "author": "Aaron P",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "repository": "Polymer/polymer-starter-kit",
   "scripts": {
     "start": "polymer serve",
