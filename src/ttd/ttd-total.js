@@ -162,15 +162,15 @@ class TtdTotal extends TtdChildHelper {
    */
   recalculateSum(e) {
     this.sum = 0;
-    let newSum = 0;
+    var newSum = 0;
     let skipSides = this.excludeDie;
-    console.log("Skip Sides",skipSides);
+
     if(this.results.length>0) {
-      this.results.forEach(function(r){
+      for(let r of this.results) {
         if(r.sides!=skipSides) {
           newSum += r.result;
         }
-      });
+      };
     }
     this.sum = newSum.toLocaleString();
     return this.sum;
