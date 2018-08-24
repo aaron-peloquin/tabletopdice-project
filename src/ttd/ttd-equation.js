@@ -92,6 +92,7 @@ class TtdEquation extends TtdChildHelper {
         select{
           border: 0;
           font-family: inherit;
+          font-size: inherit;
           font-weight: inherit;
           grid-column: 1;
           grid-row: 1;
@@ -136,17 +137,19 @@ class TtdEquation extends TtdChildHelper {
               value="{{customString::input}}" />
           </div>
         </form>
-        <div class="exclude">
-          <select aria-label="Select die to exclude from the this equation's result" value="{{excludeDie::change}}">
-            <option value="0" selected$="{{parseSelected(0)}}">All Dice</option>
-            <option value="4" selected$="[[isExclude(4)]]">Skip d4s</option>
-            <option value="6" selected$="[[isExclude(6)]]">Skip d6s</option>
-            <option value="8" selected$="[[isExclude(8)]]">Skip d8s</option>
-            <option value="10" selected$="[[isExclude(10)]]">Skip d10s</option>
-            <option value="12" selected$="[[isExclude(12)]]">Skip d12s</option>
-            <option value="20" selected$="[[isExclude(20)]]">Skip d20s</option>
-            </select>
-        </div>
+        <template is="dom-if" if="[[exclude]]">
+          <div class="exclude">
+            <select aria-label="Select die to exclude from the this equation's result" value="{{excludeDie::change}}">
+              <option value="0" selected$="{{parseSelected(0)}}">All Dice</option>
+              <option value="4" selected$="[[isExclude(4)]]">Skip d4s</option>
+              <option value="6" selected$="[[isExclude(6)]]">Skip d6s</option>
+              <option value="8" selected$="[[isExclude(8)]]">Skip d8s</option>
+              <option value="10" selected$="[[isExclude(10)]]">Skip d10s</option>
+              <option value="12" selected$="[[isExclude(12)]]">Skip d12s</option>
+              <option value="20" selected$="[[isExclude(20)]]">Skip d20s</option>
+              </select>
+          </div>
+        </template>
         <span class="result">{{result}}</span>
         <span class="roll" on-click="roll"><slot style="font-size:smaller">Roll</slot></span>
       </form>
@@ -196,6 +199,10 @@ class TtdEquation extends TtdChildHelper {
         value: 0,
         reflectToAttribute: true,
       },
+      exclude: {
+        type: Boolean,
+        value: 0,
+      }
     };
   }
 
