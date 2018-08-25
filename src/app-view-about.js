@@ -59,6 +59,13 @@ class AppViewAbout extends PolymerElement {
             Decades later, I never seem to forget my phone when coming to the table,
             so I decided to build this in service to all my kin who share this curse.
           </p>
+          <!-- p>
+            On the first night I used this app in a real game, a small army attack our island fortress in the night.
+            They had to make a a ton of d20 climb check to scale a cliff out of the water in this app. They monsters all rolled poorly and almost all fell off into the ocean.
+            A few rounds later and we'd thined their numbers quite a bit.
+            Six of them made it across our bridge and ganged up on our tank, all 6 had 3 attacks that all had advantage. DM had me roll their attacks (36d20).
+            They landed 6 critical hits on him, immediately dropping our tank from near-full health to having failed all of his death saving throws.
+          </p -->
         </div>
 
         <h1>Web Browser Support</h1>
