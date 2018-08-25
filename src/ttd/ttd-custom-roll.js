@@ -10,7 +10,7 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
  * `ttd-custom`
- * Allow the app visitor to define a custom sided die (ie 1d100 or 1d32), then roll that die
+ * Allow the app user to define a custom sided die (ie 1d100 or 1d32), then roll that die
  *
  * @customElement
  * @polymer
