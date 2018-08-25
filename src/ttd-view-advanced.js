@@ -14,8 +14,6 @@ import './ttd/ttd-history.js';
 import './ttd/ttd-total.js';
 import './ttd/ttd-die.js';
 import './ttd/ttd-clear.js';
-import './ttd/ttd-custom.js';
-import './ttd/ttd-custom-roll.js';
 import './ttd/ttd-high-low.js';
 import './ttd/ttd-equation.js';
 
