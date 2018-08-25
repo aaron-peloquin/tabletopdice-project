@@ -151,7 +151,7 @@ class TtdEquation extends TtdChildHelper {
           </div>
         </template>
         <span class="result">{{result}}</span>
-        <span class="roll" on-click="roll"><slot style="font-size:smaller">Roll</slot></span>
+        <span class="roll" on-click="roll"><slot>Roll</slot></span>
       </form>
       `;
   }
