@@ -169,7 +169,7 @@ class TtdEquation extends TtdChildHelper {
    * @param {str} placeholder Placeholder text for the <input /> tag
    * @param {num} excludeDie An optional die to exclude from this equation's result.
    * Note, this die is still rolled, it just always equates to a sum of 0
-   * @param {num} exclude Boolean attribute that enables a user select to change the excludeDie to one of the standard die
+   * @param {bool} exclude Boolean attribute that enables a user select to change the excludeDie to one of the standard die
    */
   static get properties() {
     return {
