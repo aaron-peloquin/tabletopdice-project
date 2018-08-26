@@ -15,6 +15,8 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
  *    _updateHistory, dispatched whenever this.results is changed
  *    _clearResults, dispatched whenever an element wants to clear the rolled results
  *    _rollCustomDie, dispatched whenever the custom dice are requested to be rolled
+ *    _updateLocalStorage, dispatched whenever the localStorage needs to be updated.
+ *    This is because of a limitation in polymer's observer functionality, since we do not know how deep the storage can go.
  */
 class TtdTray extends PolymerElement {
   static get template() {
@@ -54,25 +56,35 @@ class TtdTray extends PolymerElement {
         reflectToAttribute: true,
         value: function() { return [4,6,8,10,12,20]; }
       },
+      storage: {
+        type: Object,
+        value: function() {
+          if(!localStorage.getItem('ttd')) {
+            let newStorage = {"conf":{},"data":{}};
+            localStorage.setItem('ttd', JSON.stringify(newStorage));
+          };
+      
+          let ttdStorage = localStorage.getItem('ttd');
+          return JSON.parse(ttdStorage);
+        },
+      }
     };
   }
 
   /**
    * Element ready for use, fire super.ready() for native functionality
-   * If localStorage.ttd is not yet created, create it
    * Add [_clearResults] to clear this.results, then update all listeners
+   * Add [_updateLocalStorage] to update localStorage.ttd with a JSON string of this.storage
    * @returns {void}
    */
   ready() {
     super.ready();
-    if(typeof localStorage.ttd == 'undefined') {
-      localStorage.ttd  = {
-          "conf":{},
-          "data":{},
-        };
-    }
-    // Add listener for _clearResults to clear this tray's roll results.
-    this.addEventListener('_clearResults', e => {this.clearResults(e)});
+    console.log("ready storage",this.storage);
+    this.addEventListener('_clearResults', e => {
+      this.results = [];
+      this.updateHistoricalNodes();
+    });
+    this.addEventListener('_updateLocalStorage', e=> { localStorage.setItem('ttd',JSON.stringify(this.storage)); });
   }
 
   /**
@@ -130,18 +142,11 @@ class TtdTray extends PolymerElement {
     this.dispatchEvent(new CustomEvent('_updateHistory', {detail: {data:this.results}}));
   }
 
+  /**
+   * Fully refresh all app data.
+   */
   fullRefresh() {
     this.updateHistoricalNodes();
-  }
-
-  /**
-   * Clear this.results, then update all listeners
-   * @returns {void}
-   */
-  clearResults() {
-    this.results = [];
-    this.updateHistoricalNodes();
-
   }
 }
 
