@@ -113,6 +113,7 @@ class MyApp extends PolymerElement {
             <a name="basic-dice-roller" href="[[rootPath]]quick-dice-roller">Roll Quick</a>
             <a name="basic-dice-roller" href="[[rootPath]]basic-dice-roller">Roll Basic</a>
             <a name="advanced-dice-roller" href="[[rootPath]]advanced-dice-roller">Roll Advanced</a>
+            <a name="combat-dice-roller" href="[[rootPath]]combat-dice-roller">Roll Combat</a>
           </iron-selector>
         </app-drawer>
 
@@ -132,6 +133,7 @@ class MyApp extends PolymerElement {
             <ttd-view-quick name="quick-dice-roller"></ttd-view-quick>
             <ttd-view-basic name="basic-dice-roller"></ttd-view-basic>
             <ttd-view-advanced name="advanced-dice-roller"></ttd-view-advanced>
+            <ttd-view-combat name="combat-dice-roller"></ttd-view-combat>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -163,7 +165,14 @@ class MyApp extends PolymerElement {
      // Show views that are called out, otherwise if the 'page' doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'app-view-home';
-    } else if (['app-view-home','about','quick-dice-roller','basic-dice-roller','advanced-dice-roller'].indexOf(page) !== -1) {
+    } else if ([
+      'app-view-home',
+      'about',
+      'quick-dice-roller',
+      'basic-dice-roller',
+      'advanced-dice-roller',
+      'combat-dice-roller'
+    ].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -180,6 +189,12 @@ class MyApp extends PolymerElement {
     //
     // Note: `polymer build` doesn't like string concatenation in the import
     // statement, so break it up.
+
+    /**
+     * Developer's note:
+     * Updating the document.title and meta-description do not affect SEO right now.
+     * However they might in the future, so I figured it can't hurt to add in and it's nice for the user to see the tab description.
+     */
     switch (page) {
       case 'app-view-home':
         import('./app-view-home.js');
@@ -200,10 +215,15 @@ class MyApp extends PolymerElement {
         document.title = 'Basic Dice Tray : TabletopDice.com';
         document.getElementsByName("description")[0].content = "Roll any type of dice in your tabletop game.";
         break;
-      case 'advanced-dice-roller':
+        case 'advanced-dice-roller':
         import('./ttd-view-advanced.js');
         document.title = 'Advanced Dice Tray : TabletopDice.com';
         document.getElementsByName("description")[0].content = "Roll any type of dice in your tabletop game using an equation-like string of dice logic.";
+        break;
+      case 'combat-dice-roller':
+        import('./ttd-view-combat.js');
+        document.title = 'Combat Dice Tray : TabletopDice.com';
+        document.getElementsByName("description")[0].content = "Digital dice tray geared towards helping players and dungeon masters in combat.";
         break;
       case 'view404':
         import('./my-view404.js');

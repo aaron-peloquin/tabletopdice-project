@@ -77,6 +77,9 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       ttd-clear               { grid-area: clear__; }
       ttd-custom              { grid-area: custom_; }
       ttd-custom-roll         { grid-area: custrol; }
+      ttd-attack              { grid-area: attack_; }
+      ttd-attacks-manage      { grid-area: atk_man; }
+      ttd-attacks-list        { grid-area: atk_lst; }
       ttd-die                 { grid-area: die___6; }
       ttd-die[sides="4"]      { grid-area: die___4; }
       ttd-die[sides="8"]      { grid-area: die___8; }
