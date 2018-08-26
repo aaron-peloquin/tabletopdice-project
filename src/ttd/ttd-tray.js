@@ -67,7 +67,7 @@ class TtdTray extends PolymerElement {
           let ttdStorage = localStorage.getItem('ttd');
           return JSON.parse(ttdStorage);
         },
-      }
+      },
     };
   }
 
