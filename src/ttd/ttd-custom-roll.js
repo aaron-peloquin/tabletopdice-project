@@ -30,7 +30,7 @@ class TtdCustomRoll extends TtdChildHelper {
           vertical-align: middle;
         }
       </style>
-      <span><slot>Roll</slot></span>
+      <span role="button"><slot>Roll</slot></span>
     `;
   }
 

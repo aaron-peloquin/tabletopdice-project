@@ -27,8 +27,6 @@ class TtdEquation extends TtdChildHelper {
           width:100%;
           flex-wrap: nowrap;
           text-align: center;
-          height:100%;
-          width: 100%;
 
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -151,7 +149,7 @@ class TtdEquation extends TtdChildHelper {
           </div>
         </template>
         <span class="result">{{result}}</span>
-        <span class="roll" on-click="roll"><slot>Roll</slot></span>
+        <span class="roll" on-click="roll" role="button"><slot>Roll</slot></span>
       </form>
       `;
   }
