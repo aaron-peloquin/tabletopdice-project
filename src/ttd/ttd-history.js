@@ -7,6 +7,7 @@
 
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {} from '@polymer/polymer/lib/elements/dom-if.js';
+import '@polymer/polymer/lib/elements/dom-repeat.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
