@@ -58,32 +58,39 @@ class TtdTray extends PolymerElement {
       },
       storage: {
         type: Object,
-        value: function() {
-          if(!localStorage.getItem('ttd')) {
-            let newStorage = {"conf":{},"data":{}};
-            localStorage.setItem('ttd', JSON.stringify(newStorage));
-          };
-      
-          let ttdStorage = localStorage.getItem('ttd');
-          return JSON.parse(ttdStorage);
-        },
+        value: function() { return {}; },
       },
+      key: {
+        type: String,
+        value: "ttd",
+      }
     };
   }
 
   /**
    * Element ready for use, fire super.ready() for native functionality
+   * Initilize localStorage into this.storage
    * Add [_clearResults] to clear this.results, then update all listeners
-   * Add [_updateLocalStorage] to update localStorage.ttd with a JSON string of this.storage
+   * Add [_updateLocalStorage] to update localStorage with a JSON string of this.storage
    * @returns {void}
    */
   ready() {
     super.ready();
+
+    if(!localStorage.getItem(this.key)) {
+      let newStorage = {"conf":{},"data":{}};
+      localStorage.setItem(this.key, JSON.stringify(newStorage));
+    };
+
+    let ttdStorage = localStorage.getItem(this.key);
+    this.storage = JSON.parse(ttdStorage);
+
     this.addEventListener('_clearResults', e => {
       this.results = [];
       this.updateHistoricalNodes();
     });
-    this.addEventListener('_updateLocalStorage', e=> { localStorage.setItem('ttd',JSON.stringify(this.storage)); });
+
+    this.addEventListener('_updateLocalStorage', e=> { localStorage.setItem(this.key,JSON.stringify(this.storage)); });
   }
 
   /**
