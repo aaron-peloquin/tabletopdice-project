@@ -79,7 +79,6 @@ class TtdTray extends PolymerElement {
    */
   ready() {
     super.ready();
-    console.log("ready storage",this.storage);
     this.addEventListener('_clearResults', e => {
       this.results = [];
       this.updateHistoricalNodes();
