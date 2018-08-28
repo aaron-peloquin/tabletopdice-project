@@ -8,6 +8,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {} from '@polymer/polymer/lib/elements/dom-if.js';
 import '@polymer/polymer/lib/elements/dom-repeat.js';
+import './../-ttd-sharedStyles.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
@@ -20,10 +21,9 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
 class TtdHistory extends TtdChildHelper {
   static get template() {
     return html`
-      <style>
+      <style include="ttd-styles">
       :host{
           display: block;
-          padding: 10px;
           -ms-overflow-style: -ms-autohiding-scrollbar;
           overflow-x: scroll;
 
@@ -42,7 +42,7 @@ class TtdHistory extends TtdChildHelper {
           margin: 0 10px;
           padding: 0;
           height: 100%;
-          min-height: 75px;
+          min-height: 130px;
 
           display: grid;
           grid-gap: 10px;
@@ -68,16 +68,14 @@ class TtdHistory extends TtdChildHelper {
         }
 
         ol > li {
-          box-shadow: -1px -1px 1px 1px #aaa;
           display: inline-grid;
           border-radius: 10px;
           align-items: center;
-          margin: 2px 2px 2px 15px;
           padding: 2px;
           align-self: center;
           justify-self: center;
           grid-row: 1;
-          background-color: var(--ttd-default-background-color);
+          background-color: var(--ttd-special-background-color);
           color: #ddd;
           min-width: 90px;
         }
@@ -149,6 +147,7 @@ class TtdHistory extends TtdChildHelper {
         }
       </style>
       <template is="dom-if" if="[[results]]">
+        <span class="readout-text">Roll Results</span>
         <ol title="Copy for dice roll log">
           <dom-repeat items="{{results}}">
             <template>

@@ -6,6 +6,7 @@
  */
 
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import './../-ttd-sharedStyles.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
@@ -18,9 +19,8 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
 class TtdHighLow extends TtdChildHelper {
   static get template() {
     return html`
-      <style>
+      <style include="ttd-styles">
       :host{
-          padding: 10px;
           text-align: center;
           font-size: smaller;
 
@@ -41,12 +41,22 @@ class TtdHighLow extends TtdChildHelper {
         img{
           justify-self: center;
           align-self: center;
-          font-size: 1.25rem;
-          grid-row: 1fr;
         }
 
         img{
           width: 50%;
+        }
+
+        .results-wrapper {
+          margin-top: 20px
+        }
+
+        .results-wrapper .max {
+          align-self: end;
+        }
+
+        .results-wrapper .min {
+          align-self: start;
         }
 
         .invisible-text{
@@ -65,9 +75,10 @@ class TtdHighLow extends TtdChildHelper {
 
       </style>
       <div class="results-wrapper">
-        <span class="result">{{max}}<span class="invisible-text">(high), </span></span>
+        <span class="readout-text">High/Low</span>
+        <span class="result max">{{max}}<span class="invisible-text">(high), </span></span>
         <img src="[[dieImageURI(die)]]" alt="[[die]] sided die image" />
-        <span class="result">{{min}}<span class="invisible-text">(low)</span></span>
+        <span class="result min">{{min}}<span class="invisible-text">(low), [[average]](average)</span></span>
       </div>
     `;
   }
@@ -93,6 +104,10 @@ class TtdHighLow extends TtdChildHelper {
         type: Number,
         value: '',
       },
+      average: {
+        type: Number,
+        value: '',
+      }
     };
   }
 
@@ -119,12 +134,15 @@ class TtdHighLow extends TtdChildHelper {
   updateMinMax(e) {
     this.min = 0;
     this.max = 0;
+    this.average = 0;
+    let total = 0;
     let dieSides = this.die;
     let min = null;
     let max = null;
 
     for(let r of e.detail.data) {
       if(dieSides==r.sides) {
+        total += r.result;
         if (max === null || max < r.result) {
           max = r.result;
         }
@@ -135,6 +153,7 @@ class TtdHighLow extends TtdChildHelper {
     };
     this.min  = min;
     this.max  = max;
+    this.average = Math.round(total / e.detail.data.length);
   }
 
 }

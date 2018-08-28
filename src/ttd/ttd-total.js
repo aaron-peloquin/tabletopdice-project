@@ -7,6 +7,7 @@
 
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {} from '@polymer/polymer/lib/elements/dom-if.js';
+import './../-ttd-sharedStyles.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 
 /**
@@ -19,7 +20,7 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
 class TtdTotal extends TtdChildHelper {
   static get template() {
     return html`
-      <style>
+      <style include="ttd-styles">
         :host{
           text-align: center;
           display: table;
@@ -39,10 +40,12 @@ class TtdTotal extends TtdChildHelper {
           align-items: center;
         }
 
-        span{
-          display: table-cell;
-          vertical-align: middle;
+        .results-text{
+          display: grid;
           overflow: hidden;
+          position: relative;
+          height: 100%;
+          align-items: center;
         }
 
         select{
@@ -58,6 +61,12 @@ class TtdTotal extends TtdChildHelper {
           font-size: 0px;
         }
       </style>
+      <span class="results-text" aria-label="Total of all dice rolled">
+        <span class="readout-text">Total</span>
+        <span class="sum">
+          [[sum]]<span class="invisible-text">(Total)</span>
+        </span>
+      </span>
       <template is="dom-if" if="[[exclude]]">
         <select aria-label="Excluding dice with this many sides" value="{{excludeDie::change}}">
           <option value="0" selected$="{{isExclude(0)}}">All Dice</option>
@@ -69,9 +78,6 @@ class TtdTotal extends TtdChildHelper {
           <option value="20" selected$="[[isExclude(20)]]">Skip d20s</option>
         </select>
       </template>
-      <span aria-label="Total of all dice rolled">
-        [[sum]]<span class="invisible-text">(Total)</span>
-      </span>
     `;
   }
 
