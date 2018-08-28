@@ -7,6 +7,7 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import './-ttd-sharedStyles.js';
 import './app-monetizer.js';
 import './ttd/ttd-tray.js';
 import './ttd/ttd-history.js';
@@ -93,24 +94,24 @@ class TtdViewAdvanced extends PolymerElement {
         }
 
         </style>
-
+        <style include="ttd-styles"></style>
         <div class="card">
           <h1>Advanced dice tray</h1>
           <div class="tray-wrapper">
             <slot>
               <ttd-tray>
-                <ttd-history excited></ttd-history>
-                <ttd-total exclude exclude-die="20"></ttd-total>
-                <ttd-high-low die="20"></ttd-high-low>
-                <ttd-clear></ttd-clear>
-                <ttd-die sides="4"></ttd-die>
-                <ttd-die></ttd-die>
-                <ttd-die sides="8"></ttd-die>
-                <ttd-die sides="10"></ttd-die>
-                <ttd-die sides="12"></ttd-die>
-                <ttd-die sides="20"></ttd-die>
-                <ttd-equation class="main-hand" placeholder="eg. 3d6+4" exclude></ttd-equation>
-                <ttd-equation class="off-hand" placeholder="eg. 1d20+1d8+2" exclude></ttd-equation>
+                <ttd-history class="readout" excited></ttd-history>
+                <ttd-total class="readout" exclude exclude-die="20"></ttd-total>
+                <ttd-high-low class="readout" die="20"></ttd-high-low>
+                <ttd-clear class="button animate-shake"></ttd-clear>
+                <ttd-die class="button animate-shake" sides="4"></ttd-die>
+                <ttd-die class="button animate-shake"></ttd-die>
+                <ttd-die class="button animate-shake" sides="8"></ttd-die>
+                <ttd-die class="button animate-shake" sides="10"></ttd-die>
+                <ttd-die class="button animate-shake" sides="12"></ttd-die>
+                <ttd-die class="button animate-shake" sides="20"></ttd-die>
+                <ttd-equation class="readout main-hand" placeholder="eg. 3d6+4" exclude></ttd-equation>
+                <ttd-equation class="readout off-hand" placeholder="eg. 1d20+1d8+2" exclude></ttd-equation>
               </ttd-tray>
             </slot>
           </div>
