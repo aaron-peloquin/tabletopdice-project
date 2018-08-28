@@ -54,8 +54,8 @@ class TtdCustom extends TtdChildHelper {
           min-width: 0;
           font-family: var(--app-font-family);
           font-weight: var(--app-font-weight);
-          background-color: var(--app-ttd-clean-background-color);
-          color: var(--app-ttd-clean-color);
+          background-color: var(--ttd-clean-background-color);
+          color: var(--ttd-clean-color);
         }
 
         input:focus{
