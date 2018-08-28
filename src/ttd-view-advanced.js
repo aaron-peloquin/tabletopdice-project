@@ -31,7 +31,6 @@ class TtdViewAdvanced extends PolymerElement {
         ttd-tray{
           grid-template-columns: 1fr 1fr;
 
-          /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
           grid-template-areas:
             "history history"
             "die___4 die___6"
@@ -48,7 +47,6 @@ class TtdViewAdvanced extends PolymerElement {
           ttd-tray{
             grid-template-columns: 1fr 1fr 1fr;
 
-            /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
             grid-template-areas:
               "history history history"
               "highLow total__ total__"

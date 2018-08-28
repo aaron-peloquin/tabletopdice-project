@@ -28,7 +28,6 @@ class TtdViewQuick extends PolymerElement {
       ttd-tray{
         grid-template-columns: 1fr 1fr;
 
-        /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
         grid-template-areas:
           "history history"
           "clear__ clear__"
@@ -42,7 +41,6 @@ class TtdViewQuick extends PolymerElement {
         ttd-tray{
           grid-template-columns: 1fr 1fr 1fr;
 
-          /* just wanna say, grid-template-areas is amazing. IE does not support, tho.. :(    */
           grid-template-areas:
             "history history history"
             "clear__ clear__ clear__"

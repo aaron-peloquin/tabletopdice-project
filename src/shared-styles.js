@@ -73,7 +73,8 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       /**
        *  Define grid-area for all <ttd-*> child elements using
        * 7 characters for equal spacing
-       * */
+       * I also just wanna say, grid-template-areas is amazing. IE does not support, tho.. :'(
+        * */
       ttd-clear               { grid-area: clear__; }
       ttd-custom              { grid-area: custom_; }
       ttd-custom-roll         { grid-area: custrol; }
