@@ -11,6 +11,18 @@ const $_documentContainer = document.createElement('template');
 $_documentContainer.innerHTML = `<dom-module id="shared-styles">
   <template>
     <style>
+      :host {
+        /* #596955 */
+        --ttd-color: #EFEFEF;                           /* TTD child element font color */
+        --ttd-button-background-color: #694834;         /* TTD child element background color (default) */
+        --ttd-special-background-color: #694834;        /* TTD child element background color (special) */
+        --ttd-readout-background-color: #596955;        /* TTD child element background color (secondary) */
+        --ttd-readout-color: #FFFFFF;                   /* TTD child element background color (secondary) */
+        --ttd-clean-color: #222;                        /* TTD child element color (clean) */
+        --ttd-clean-background-color: #fff;             /* TTD child element background color (clean) */
+        --ttd-noninteractive-color: #EFEFEF;            /* TTD non-interactive color */
+        --ttd-noninteractive-background-color: #596955; /* TTD non-interactive background color */
+      }
       /** Standard view CSS */
       .card {
         max-width: 900px;
@@ -18,8 +30,8 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         padding: 0;
         display: grid;
         color: var(--app-secondary-color);
+        background: var(--app-primary-color);
         border-radius: 5px;
-        background-color: var(--app-card-background);
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
         width: 100%;
       }
@@ -40,8 +52,9 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         font-size: 2rem;
         margin: 0;
         margin-top: 15px;
-        background: var(--app-primary-color);
-        color: #EFEFEF;
+        background-color: var(--app-copybox-background);
+        color: #222;
+        width: 100%;
       }
 
       h2{
@@ -55,20 +68,6 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       }
 
       /** == TTD views CSS == */
-      /** Setup CSS Animations */
-      @keyframes buttonShake {
-        0% { transform: translate(1px, 0px) rotate(2deg); }
-        10% { transform: translate(0px, 1px) rotate(1deg); }
-        20% { transform: translate(-1px, 0px) rotate(-1deg); }
-        30% { transform: translate(-2px, -1px) rotate(0deg); }
-        40% { transform: translate(-1px, 0px) rotate(1deg); }
-        50% { transform: translate(0px, 1px) rotate(2deg); }
-        60% { transform: translate(1px, 2px) rotate(3deg); }
-        70% { transform: translate(2px, 1px) rotate(4deg); }
-        80% { transform: translate(3px, 0px) rotate(3deg); }
-        90% { transform: translate(2px, 1px) rotate(2deg); }
-        100% { transform: translate(0px, 0px) rotate(1deg); }
-      }
 
       /**
        *  Define grid-area for all <ttd-*> child elements using
@@ -105,46 +104,8 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       }
 
       ttd-tray > *{
-        background-color: var(--ttd-default-background-color);
-        box-shadow:
-          2px 2px 2px 1px var(--app-ttd-clean-color),
-          -1px -1px 2px 1px var(--app-ttd-child-color);
-        border-radius: 5px;
-        color: var(--app-ttd-child-color);
         overflow: hidden;
         font-size: 2rem;
-      }
-
-      ttd-die,
-      ttd-clear,
-      ttd-custom-roll{
-        cursor: pointer;
-      }
-
-
-      /** Target specific fields for animation */
-      ttd-tray ttd-die:active,
-      ttd-tray ttd-clear:active,
-      ttd-tray ttd-custom-roll:active{
-        animation: buttonShake;
-        animation-duration: .25s;
-      }
-
-      ttd-tray ttd-history,
-      ttd-tray ttd-high-low,
-      ttd-tray ttd-total,
-      ttd-tray ttd-clear{
-        background-color: var(--ttd-noninteractive-background-color);
-        color: var(--ttd-noninteractive-color);
-      }
-      ttd-tray ttd-custom,
-      ttd-tray ttd-custom-roll,
-      ttd-tray ttd-equation{
-        background-color: var(--app-ttd-special-background-color);
-      }
-
-      ttd-tray ttd-equation{
-        margin-bottom: 10px;
       }
 
       /** Misc. minor Styles */
