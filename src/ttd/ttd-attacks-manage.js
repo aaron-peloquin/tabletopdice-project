@@ -6,7 +6,8 @@
  */
 
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import {TtdChildHelper} from './-ttd-childHelper.js';
+import './../-ttd-sharedStyles.js';
+import {TtdEquationHelper} from './-ttd-equationHelper.js';
 
 /**
  * `ttd-attacks-manage`
@@ -21,10 +22,10 @@ import {TtdChildHelper} from './-ttd-childHelper.js';
  * @customElement
  * @polymer
  */
-class TtdAttacksManage extends TtdChildHelper {
+class TtdAttacksManage extends TtdEquationHelper {
   static get template() {
     return html`
-      <style>
+      <style include="ttd-styles">
         :host {
           flex-wrap: nowrap;
           height:100%;
@@ -75,8 +76,8 @@ class TtdAttacksManage extends TtdChildHelper {
           min-width: 0;
           font-family: var(--app-font-family);
           font-weight: var(--app-font-weight);
-          background-color: var(--app-ttd-clean-background-color);
-          color: var(--app-ttd-clean-color);
+          background-color: var(--ttd-clean-background-color);
+          color: var(--ttd-clean-color);
         }
         input:focus{
           outline: none;
@@ -89,7 +90,7 @@ class TtdAttacksManage extends TtdChildHelper {
         .damage { grid-area: damage; }
         .label  { grid-area: label_; }
         .type   { grid-area: type__; }
-        button  { grid-area: submit; }
+        button { grid-area: submit; }
 
         /* [Responsive] Medium Styles */
         @media (min-width: 900px) {
@@ -118,9 +119,9 @@ class TtdAttacksManage extends TtdChildHelper {
         <label class="label">
           <input
             type="text"
-            required
+            required="required"
             aria-label="This attack's name"
-            placeholder="Label (Spear)"
+            placeholder="* Label (Spear)"
             value="{{attackLabel::input}}"
           />
         </label>
@@ -148,7 +149,7 @@ class TtdAttacksManage extends TtdChildHelper {
             value="{{damageString::input}}"
           />
         </label>
-        <button type="submit"><slot>Save Attack</slot></button>
+        <button type="submit" role="button" on-click="saveAttackToLocalStorage"><slot>Save Attack</slot></button>
       </form>
     `;
   }
@@ -173,10 +174,12 @@ class TtdAttacksManage extends TtdChildHelper {
       hitString: {
         type: String,
         value: "",
+        observer: "cleanseHit",
       },
       damageString: {
         type: String,
         value: "",
+        observer: "cleanseDamage",
       },
       sharedEditData: {
         type: Object,
@@ -213,16 +216,21 @@ class TtdAttacksManage extends TtdChildHelper {
    */
   saveAttackToLocalStorage(e) {
     e.preventDefault();
+    let labelKey = this.attackLabel.trim();
+    if(labelKey == '') {
+      this.attackLabel = labelKey;
+      this.shadowRoot.querySelector('.label input').focus();
+      return;
+    }
     let trayAttacks = this.trayElement.storage.data.attacks;
     let overwriteKey = -1;
     let saved = false;
     let newAttack = {
-      attackLabel: this.attackLabel,
+      attackLabel: labelKey,
       damageType: this.damageType,
       hitString: this.hitString,
       damageString: this.damageString,
     }
-
 
     for(let atk in trayAttacks) {
       if(newAttack.attackLabel == trayAttacks[atk].attackLabel) {
@@ -247,6 +255,17 @@ class TtdAttacksManage extends TtdChildHelper {
       this.trayElement.dispatchEvent(new CustomEvent('_updateLocalStorage'));
       this.clearForm();
     }
+  }
+
+  /** Cleanse this.hitString */
+  cleanseHit() {
+    this.hitString = this.cleanseEquationStr(this.hitString);
+  }
+
+
+  /** Cleanse this.damageString */
+  cleanseDamage() {
+    this.damageString = this.cleanseEquationStr(this.damageString);
   }
 
   /**
