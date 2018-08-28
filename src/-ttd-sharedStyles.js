@@ -41,6 +41,7 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
       .readout {
         background-color: var(--ttd-noninteractive-background-color);
         color: var(--ttd-noninteractive-color);
+        position: relative;
       }
 
       .button {
@@ -62,10 +63,12 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
       }
 
       .readout-text {
-        position: relative:
-        top: 0;
-        left: 0;
+        position: absolute;
+        top: 5px;
+        left: 5px;
         font-size: 1rem;
+        text-decoration: underline;
+        color: #ccc;
       }
 
       img {
