@@ -7,6 +7,7 @@
 
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {} from '@polymer/polymer/lib/elements/dom-if.js';
+import './../-ttd-sharedStyles.js';
 import {TtdEquationHelper} from './-ttd-equationHelper.js';
 
 /**
@@ -21,7 +22,7 @@ import {TtdEquationHelper} from './-ttd-equationHelper.js';
 class TtdEquation extends TtdEquationHelper {
   static get template() {
     return html`
-      <style>
+      <style include="ttd-styles">
         :host {
           height:100%;
           width:100%;
@@ -67,8 +68,8 @@ class TtdEquation extends TtdEquationHelper {
           min-width: 0;
           font-family: var(--app-font-family);
           font-weight: var(--app-font-weight);
-          background-color: var(--app-ttd-clean-background-color);
-          color: var(--app-ttd-clean-color);
+          background-color: var(--ttd-clean-background-color);
+          color: var(--ttd-clean-color);
         }
         input:focus{
           outline: none;
@@ -77,7 +78,11 @@ class TtdEquation extends TtdEquationHelper {
         form        { grid-area: string__; }
         .result     { grid-area: result__; }
         .roll       { grid-area: roll____; }
-        .exclude    { grid-area: exclude_; }
+
+        .roll {
+          border-radius: 5px;
+          margin: 3px;
+        }
 
         select{
           border: 0;
@@ -102,8 +107,8 @@ class TtdEquation extends TtdEquationHelper {
         @media (min-width: 600px) {
           :host{
             grid-template-rows: 1fr;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-areas: "string__ string__ string__ exclude_ result roll__";
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: "string__ string__ string__ result__ roll____";
           }
           select{
             border-left: 1px solid;
@@ -128,7 +133,7 @@ class TtdEquation extends TtdEquationHelper {
           </div>
         </form>
         <span class="result">{{result}}</span>
-        <span class="roll" on-click="roll" role="button"><slot>Roll</slot></span>
+        <span class="roll button animate-shake" on-click="roll" role="button"><slot>Roll</slot></span>
       </form>
       `;
   }
