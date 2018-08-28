@@ -13,7 +13,8 @@ import './../my-icons.js';
 
 /**
  * `ttd-attack`
- * Displays an attack object and allows the user to roll it's to-hit and damage strings.
+ * Displays an attack and allows the user to roll it's to-hit and damage strings.
+ * May be called by <ttd-attacks-list>, or on it's own as a child of <ttd-tray>
  *
  * @customElement
  * @polymer
@@ -85,6 +86,7 @@ class TtdAttack extends TtdEquationHelper {
    * @param {num} hitResult The result from this attack's the most recent hit roll
    * @param {num} damageResult The result from this attack's the most recent damage roll
    * @param {obj} sharedEditData When updated, this object will replace all user inputs with it's fields
+   * @param {obj} trayElement Might be the parent's parent <ttd-tray>, otherwise it seeks out it's own <ttd-tray> element
    */
   static get properties() {
     return {
@@ -142,6 +144,10 @@ class TtdAttack extends TtdEquationHelper {
     this.trayElement.addEventListener('_clearResults', e => {this.clearResults(e)});
 	}
 
+  /**
+   * Trigger editing this attack's data in <ttd-attacks-manager>
+   * @returns {void}
+   */
   editMyData() {
     let myEditData = {
       attackLabel: this.attackLabel,
@@ -153,6 +159,10 @@ class TtdAttack extends TtdEquationHelper {
     this.sharedEditData = myEditData;
   }
 
+  /**
+   * Trigger <ttd-attacks-manager> to delete this attack
+   * @returns {void}
+   */
   deleteMyData() {
     let deleteData = {
       delete: true,
@@ -162,6 +172,10 @@ class TtdAttack extends TtdEquationHelper {
     this.sharedEditData = deleteData;
   }
 
+  /**
+   * Roll this attack and update local results
+   * @returns {void}
+   */
   roll() {
     this.trayElement.dispatchEvent(new CustomEvent('_clearResults'));
     let hitResultStr = this.rollEquationDice(this.hitString);
@@ -172,6 +186,10 @@ class TtdAttack extends TtdEquationHelper {
     this.trayElement.fullRefresh();
   }
 
+  /**
+   * Clear this attack's results
+   * @returns {void}
+   */
   clearResults() {
     this.hitResult = 0;
     this.damageResult = 0
