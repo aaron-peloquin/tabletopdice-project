@@ -41,6 +41,7 @@ class TtdAttacksList extends TtdChildHelper {
                 hit-string="{{atk.hitString}}"
                 damage-string="{{atk.damageString}}"
                 shared-edit-data="{{sharedEditData}}"
+                tray-element="{{trayElement}}"
               /></ttd-attack>
             </li>
           </template>
