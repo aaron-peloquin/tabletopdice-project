@@ -6,8 +6,10 @@
  */
 
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@polymer/paper-icon-button/paper-icon-button.js';
 import {} from '@polymer/polymer/lib/elements/dom-if.js';
 import {TtdEquationHelper} from './-ttd-equationHelper.js';
+import './../my-icons.js';
 
 /**
  * `ttd-attack`
@@ -33,6 +35,10 @@ class TtdAttack extends TtdEquationHelper {
             "roll______ dmg_result";
         }
 
+        paper-icon-button {
+          --paper-icon-button-ink-color: white;
+        }
+
         .label span{
           font-size: smaller;
         }
@@ -45,8 +51,12 @@ class TtdAttack extends TtdEquationHelper {
       </style>
       <span class="attack-label">
         {{attackLabel}}
-        <span role="button" aria-label="label" on-click="editMyData">Edit</span>
-        <span role="button" aria-label="label" on-click="deleteMyData">Delete</span>
+        <span role="button" on-click="editMyData">
+          <paper-icon-button aria-label="Edit this attack" icon="my-icons:edit"></paper-icon-button>
+        </span>
+        <span role="button" on-click="deleteMyData">
+          <paper-icon-button aria-label="Delete this attack" icon="my-icons:delete"></paper-icon-button>
+        </span>
       </span>
       <span role="button" class="roll" on-click="roll"><slot>Attack</slot></button></span>
       <template is="dom-if" if="{{hitResult}}">
