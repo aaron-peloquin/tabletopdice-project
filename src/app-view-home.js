@@ -70,10 +70,10 @@ class AppViewHome extends PolymerElement {
             <a href="[[rootPath]]quick-dice-roller">Quick Dice Tray</a>
           </p>
           <p class="start-rolling">
-            <a href="[[rootPath]]basic-dice-roller">Basic Dice Tray</a>
+            <a href="[[rootPath]]advanced-dice-roller">Advanced Dice Tray</a>
           </p>
           <p class="start-rolling">
-            <a href="[[rootPath]]advanced-dice-roller">Advanced Dice Tray</a>
+            <a href="[[rootPath]]combat-dice-roller">Combat Dice Tray</a>
           </p>
         </div>
       </div>
