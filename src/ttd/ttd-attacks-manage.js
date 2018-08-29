@@ -17,7 +17,7 @@ import {TtdEquationHelper} from './-ttd-equationHelper.js';
  * you'll want to two-way databind their edit-data attributes
  * example:
  *    <ttd-attacks-manage shared-edit-data={{sharedEditData}}></ttd-attacks-manage>
- *    <ttd-attacks-list shared-edit-data={{sharedEditData}}></ttd-attacks-manage>
+ *    <ttd-attacks-list shared-edit-data={{sharedEditData}}></ttd-attacks-list>
  *
  * @customElement
  * @polymer
@@ -34,9 +34,6 @@ class TtdAttacksManage extends TtdEquationHelper {
         }
 
         form{
-          display: inline-grid;
-          height: 100%;
-
           display: grid;
           grid-gap: 0.75rem;
           grid-template-columns: 1fr;
@@ -51,7 +48,6 @@ class TtdAttacksManage extends TtdEquationHelper {
         }
 
         form > *{
-          grid-column: 1;
           height: 100%;
         }
 
@@ -96,11 +92,11 @@ class TtdAttacksManage extends TtdEquationHelper {
         @media (min-width: 900px) {
           form{
             grid-template-rows: 1fr 1fr;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             grid-template-areas:
-            "label_ label_ type__ type__"
-            "hit___ hit___ damage damage "
-            "submit submit submit submit";
+            "label_ type__"
+            "hit___ damage "
+            "submit submit";
           }
           select{
             border-left: 1px solid;
@@ -121,7 +117,7 @@ class TtdAttacksManage extends TtdEquationHelper {
             type="text"
             required="required"
             aria-label="This attack's name"
-            placeholder="* Label (Spear)"
+            placeholder="* Attack (Spear)"
             value="{{attackLabel::input}}"
           />
         </label>
