@@ -90,7 +90,7 @@ class TtdTray extends PolymerElement {
       this.updateHistoricalNodes();
     });
 
-    this.addEventListener('_updateLocalStorage', e=> { localStorage.setItem(this.key,JSON.stringify(this.storage)); });
+    this.addEventListener('_updateLocalStorage', e=> { this.saveToLocalStorage(); });
   }
 
   /**
@@ -153,6 +153,23 @@ class TtdTray extends PolymerElement {
    */
   fullRefresh() {
     this.updateHistoricalNodes();
+  }
+
+  /**
+   * Attempt to safely write to localStorage
+   */
+  saveToLocalStorage() {
+    try {
+      localStorage.setItem(this.key,JSON.stringify(this.storage));
+      let check = JSON.parse(localStorage.getItem(this.key));
+      if(typeof check !='object') {
+        throw 'Unable to check JSON for localdata save';
+      }
+    }
+    catch(e) {
+      localStorage.removeItem(this.key);
+      localStorage.setItem(this.key,JSON.stringify(this.storage));
+    }
   }
 }
 
