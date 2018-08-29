@@ -115,7 +115,8 @@ class TtdAttacksManage extends TtdEquationHelper {
         <label class="label">
           <input
             type="text"
-            required="required"
+            required
+            maxlength="14"
             aria-label="This attack's name"
             placeholder="* Attack (Spear)"
             value="{{attackLabel::input}}"
@@ -124,6 +125,7 @@ class TtdAttacksManage extends TtdEquationHelper {
         <label class="type">
           <input
             type="text"
+            maxlength="11"
             aria-label="This attack's damage type"
             placeholder="Type (Slashing)"
             value="{{damageType::input}}"
@@ -215,7 +217,7 @@ class TtdAttacksManage extends TtdEquationHelper {
     let labelKey = this.attackLabel.trim();
     if(labelKey == '') {
       this.attackLabel = labelKey;
-      this.shadowRoot.querySelector('.label input').focus();
+      this.focusAttackLabel();
       return;
     }
     let trayAttacks = this.trayElement.storage.data.attacks;
@@ -231,7 +233,6 @@ class TtdAttacksManage extends TtdEquationHelper {
     for(let atk in trayAttacks) {
       if(newAttack.attackLabel == trayAttacks[atk].attackLabel) {
         overwriteKey = atk;
-        console.log("overwriteKey",overwriteKey);
         break;
       }
     }
@@ -278,6 +279,13 @@ class TtdAttacksManage extends TtdEquationHelper {
   }
 
   /**
+   * Focus a user on the attack label
+   */
+  focusAttackLabel() {
+    this.shadowRoot.querySelector('.label input').focus();
+  }
+
+  /**
    * Update all local input fields to be the this.sharedEditData values.
    * @returns {void}
    */
@@ -301,6 +309,7 @@ class TtdAttacksManage extends TtdEquationHelper {
       for (let e in this.sharedEditData) {
         this[e] = this.sharedEditData[e];
       }
+      this.focusAttackLabel();
     }
   }
 }
