@@ -53,6 +53,10 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
         cursor: pointer;
       }
 
+      .button:hover{
+        filter: brightness(110%);
+      }
+
       .animate-shake:active{
         animation: buttonShake;
         animation-duration: .25s;
