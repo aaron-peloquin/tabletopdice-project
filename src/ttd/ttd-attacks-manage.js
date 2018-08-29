@@ -81,6 +81,8 @@ class TtdAttacksManage extends TtdEquationHelper {
 
         button {
           font-size: inherit;
+          font-family: inherit;
+          font-weight: bold;
         }
         .hit    { grid-area: hit___; }
         .damage { grid-area: damage; }
