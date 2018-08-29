@@ -113,7 +113,7 @@ class TtdViewCombat extends PolymerElement {
                 <ttd-die class="button animate-shake" sides="10"></ttd-die>
                 <ttd-die class="button animate-shake" sides="12"></ttd-die>
                 <ttd-die class="button animate-shake" sides="20"></ttd-die>
-                <ttd-attacks-manage shared-edit-data="{{sharedEditData}}"></ttd-attacks-manage>
+                <ttd-attacks-manage class="readout" shared-edit-data="{{sharedEditData}}"></ttd-attacks-manage>
                 <ttd-attacks-list class="readout" shared-edit-data="{{sharedEditData}}"></ttd-attacks-list>
               </ttd-tray>
             </slot>
