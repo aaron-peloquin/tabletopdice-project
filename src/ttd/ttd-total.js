@@ -64,7 +64,7 @@ class TtdTotal extends TtdChildHelper {
       <span class="results-text" aria-label="Total of all dice rolled">
         <span class="readout-text">Total</span>
         <span class="sum">
-          [[sum]]<span class="invisible-text">(Total)</span>
+          [[sum]]
         </span>
       </span>
       <template is="dom-if" if="[[exclude]]">
