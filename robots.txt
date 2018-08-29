@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: /view2
 
 Sitemap: http://TabletopDice.com/sitemap.xml
