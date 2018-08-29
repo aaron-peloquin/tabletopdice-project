@@ -22,6 +22,8 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         --ttd-clean-background-color: #fff;             /* TTD child element background color (clean) */
         --ttd-noninteractive-color: #EFEFEF;            /* TTD non-interactive color */
         --ttd-noninteractive-background-color: #596955; /* TTD non-interactive background color */
+        --ttd-heading-background-color: #bbcca8;        /* TTD heading background color */
+        --ttd-heading-color: #222;                      /* TTD heading color */
       }
       /** Standard view CSS */
       .card {

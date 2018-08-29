@@ -8,6 +8,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import {} from '@polymer/polymer/lib/elements/dom-if.js';
+import './../-ttd-sharedStyles.js';
 import {TtdEquationHelper} from './-ttd-equationHelper.js';
 import './../my-icons.js';
 
@@ -22,7 +23,7 @@ import './../my-icons.js';
 class TtdAttack extends TtdEquationHelper {
   static get template() {
     return html`
-      <style>
+      <style include="ttd-styles">
         :host {
           flex-wrap: nowrap;
           text-align: center;
@@ -30,51 +31,75 @@ class TtdAttack extends TtdEquationHelper {
           width: 100%;
 
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr 1fr;
+          grid-template-columns: 1fr;
+          grid-gap: 1rem;
           grid-template-areas:
-            "atk_label_ hit_result"
-            "roll______ dmg_result";
-        }
-
-        .label span{
-          font-size: smaller;
+            "atk_label_"
+            "action_bts"
+            "hit_result"
+            "dmg_result";
         }
 
         .attack-label   { grid-area: atk_label_; }
-        .roll           { grid-area: roll______; }
         .hit-result     { grid-area: hit_result; }
         .damage-result  { grid-area: dmg_result; }
+        .action-buttons { grid-area: action_bts; }
+
+        .attack-label{
+          color: var(--ttd-heading-color);
+          background-color: var(--ttd-heading-background-color);
+        }
+
+        .action-buttons {
+          display: grid;
+          grid-template-columns: 1fr 1fr 3fr;
+          grid-gap: 1rem;
+        }
+
+
+        .action-buttons > * {
+          border-radius: 5px;
+        }
+
+        /* [Responsive] Medium Styles */
+        @media (min-width: 900px) {
+          :host{
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+            "atk_label_ hit_result"
+            "action_bts dmg_result";
+          }
+        }
 
       </style>
-      <span class="attack-label">
+      <span class="attack-label readout">
         {{attackLabel}}
       </span>
       <span class="action-buttons">
-        <span role="button" on-click="editMyData">
+        <span class="button edit" role="button" on-click="editMyData">
           <paper-icon-button aria-label="Edit this attack" icon="my-icons:edit"></paper-icon-button>
         </span>
-        <span role="button" on-click="deleteMyData">
+        <span class="button delete" role="button" on-click="deleteMyData">
           <paper-icon-button aria-label="Delete this attack" icon="my-icons:delete"></paper-icon-button>
         </span>
-        <span role="button" class="roll" on-click="roll">
-          <slot>Attack</slot>
+        <span role="button" class="roll button animate-shake" on-click="roll">
+          <slot>Roll</slot>
         </span>
       </span>
-      <template is="dom-if" if="{{hitResult}}">
-        <div class="hit-result" title="{{hitString}}">
-        <span class="label">Hit:</span>
+      <div class="hit-result readout" title="{{hitString}}">
+        <template is="dom-if" if="{{hitResult}}">
+          <span class="label readout-text">Hit</span>
           <span class="result">{{hitResult}}</span>
+        </template>
       </div>
-      </template>
-      <template is="dom-if" if="{{damageResult}}">
-        <div class="damage-result" title="{{damageString}}">
-          <span class="label">Damage:</span>
+      <div class="damage-result readout" title="{{damageString}}">
+        <template is="dom-if" if="{{damageResult}}">
+          <span class="label readout-text">{{displayDamageType()}}</span>
           <span class="result">{{damageResult}}</span>
-          <template is="dom-if" if="{{damageType}}">
-            <span class="damage-type">({{damageType}})</span>
-          </template>
+        </template>
         </div>
-    </template>
     `;
   }
 
@@ -193,6 +218,13 @@ class TtdAttack extends TtdEquationHelper {
   clearResults() {
     this.hitResult = 0;
     this.damageResult = 0
+  }
+
+  /**
+   * @returns {str} The damage type string, or just a string of "damage"
+   */
+  displayDamageType() {
+    return this.damageType||'Damage';
   }
 }
 

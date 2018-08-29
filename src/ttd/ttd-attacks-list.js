@@ -29,6 +29,16 @@ class TtdAttacksList extends TtdChildHelper {
         width: 100%;
       }
 
+      ol {
+        list-style: none;
+        padding: 0 5px;
+      }
+
+      li {
+        margin-bottom: 2rem;
+        border-radius: 15px;
+      }
+
     </style>
     <template is="dom-if" if="{{hasAttacks}}">
       <ol>
