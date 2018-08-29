@@ -28,10 +28,10 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
         40% { transform: translate(-1px, 0px) rotate(1deg); }
         50% { transform: translate(0px, 1px) rotate(2deg); }
         60% { transform: translate(1px, 2px) rotate(3deg); }
-        70% { transform: translate(2px, 1px) rotate(4deg); }
-        80% { transform: translate(3px, 0px) rotate(3deg); }
-        90% { transform: translate(2px, 1px) rotate(2deg); }
-        100% { transform: translate(0px, 0px) rotate(1deg); }
+        70% { transform: translate(2px, 1px) rotate(3deg); }
+        80% { transform: translate(3px, 0px) rotate(2deg); }
+        90% { transform: translate(2px, 1px) rotate(1deg); }
+        100% { transform: translate(0px, 0px) rotate(0deg); }
       }
 
       ttd-tray > * {
