@@ -153,7 +153,7 @@ class TtdHighLow extends TtdChildHelper {
     };
     this.min  = min;
     this.max  = max;
-    this.average = Math.round(total / e.detail.data.length);
+    this.average = total / e.detail.data.length;
   }
 
 }
