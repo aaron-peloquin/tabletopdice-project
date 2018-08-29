@@ -105,13 +105,6 @@ class TtdAttacksManage extends TtdEquationHelper {
           }
         }
 
-        /* IE10+ CSS styles go here */
-        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-          form {
-            display: flex;
-          }
-        }
-
       </style>
       <form>
         <label class="label">

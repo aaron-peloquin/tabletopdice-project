@@ -21,7 +21,7 @@ class TtdTotal extends TtdChildHelper {
   static get template() {
     return html`
       <style include="ttd-styles">
-        :host{
+        :host {
           text-align: center;
           display: table;
           height:100%;
@@ -40,7 +40,7 @@ class TtdTotal extends TtdChildHelper {
           align-items: center;
         }
 
-        .results-text{
+        .results-text {
           display: grid;
           overflow: hidden;
           position: relative;
@@ -48,7 +48,7 @@ class TtdTotal extends TtdChildHelper {
           align-items: center;
         }
 
-        select{
+        select {
           border: 0;
           display: table-cell;
           font-size: inherit;
@@ -57,9 +57,20 @@ class TtdTotal extends TtdChildHelper {
           height: 100%;
         }
 
-        .invisible-text{
+        .invisible-text {
           font-size: 0px;
         }
+        /* IE10+ CSS styles go here */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          select {
+            height; 100%;
+            width: 100%;
+          }
+          .readout-text {
+            display: none;
+          }
+        }
+  
       </style>
       <span class="results-text" aria-label="Total of all dice rolled">
         <span class="readout-text">Total</span>

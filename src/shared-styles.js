@@ -117,6 +117,11 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
 
       /* IE10+ CSS styles go here */
       @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        ttd-tray > * {
+          width: 100%;
+          float: left;
+        }
+
         ttd-tray ttd-die,
         ttd-tray ttd-custom,
         ttd-tray ttd-custom-roll{

@@ -8,6 +8,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {} from '@polymer/polymer/lib/elements/dom-if.js';
 import '@polymer/polymer/lib/elements/dom-repeat.js';
+import './../-ttd-sharedStyles.js';
 import {TtdChildHelper} from './-ttd-childHelper.js';
 import {} from './ttd-attack.js';
 
@@ -21,7 +22,7 @@ import {} from './ttd-attack.js';
 class TtdAttacksList extends TtdChildHelper {
   static get template() {
     return html`
-      <style>
+      <style include="ttd-styles">
       :host {
         flex-wrap: nowrap;
         text-align: center;
@@ -59,7 +60,7 @@ class TtdAttacksList extends TtdChildHelper {
       </ol>
     </template>
     <template is="dom-if" if="{{!hasAttacks}}">
-      <p>No attacks exist yet, create one</p>
+      <p class="readout">No attacks exist yet, create one</p>
     </template>
     `;
   }
