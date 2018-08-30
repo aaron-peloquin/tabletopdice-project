@@ -88,13 +88,13 @@ class TtdAttack extends TtdEquationHelper {
           <slot>Roll</slot>
         </span>
       </span>
-      <div class="hit-result readout" title="{{hitString}}">
+      <div aria-live="polite" class="hit-result readout" title="{{hitString}}">
         <template is="dom-if" if="{{hitResult}}">
           <span class="label readout-text">Hit</span>
           <span class="result">{{hitResult}}</span>
         </template>
       </div>
-      <div class="damage-result readout" title="{{damageString}}">
+      <div aria-live="polite" class="damage-result readout" title="{{damageString}}">
         <template is="dom-if" if="{{damageResult}}">
           <span class="label readout-text">{{displayDamageType()}}</span>
           <span class="result">{{damageResult}}</span>
@@ -153,13 +153,13 @@ class TtdAttack extends TtdEquationHelper {
 
   /**
    * Element ready for use, fire super.ready() for native functionality
-   * Attach the <ttd-tray> with TtdChildHelper:findTray() if it was not passed to this element.
+   * If this.trayElement was not passed as a paramiter, search for a parent <ttd-tray> with TtdChildHelper:findTray()
    * Add [_clearResults] listener to clear results
    * @returns {void}
    */
   ready() {
     super.ready();
-    if (!this.trayElement) {
+    if (typeof this.trayElement.tagName==='undefined') {
       this.findTray();
       if (!this.trayElement) {
         return false;
@@ -203,11 +203,17 @@ class TtdAttack extends TtdEquationHelper {
    */
   roll() {
     this.trayElement.dispatchEvent(new CustomEvent('_clearResults'));
-    let hitResultStr = this.rollEquationDice(this.hitString);
-    let damageResultStr = this.rollEquationDice(this.damageString);
+    if(this.hitString) {
+      let hitResultStr = this.rollEquationDice(this.hitString);
+      this.hitResult = this.runEquation(hitResultStr, this.hitString);
+      console.log("Hit:", this.hitString, hitResultStr, '=', this.hitResult);
+    }
 
-    this.hitResult = this.runEquation(hitResultStr, this.hitString);
-    this.damageResult = this.runEquation(damageResultStr, this.damageString);
+    if(this.damageString) {
+      let damageResultStr = this.rollEquationDice(this.damageString);
+      this.damageResult = this.runEquation(damageResultStr, this.damageString);
+      console.log("Damage:", this.damageString, damageResultStr, '=', this.damageResult);
+    }
     this.trayElement.fullRefresh();
   }
 
