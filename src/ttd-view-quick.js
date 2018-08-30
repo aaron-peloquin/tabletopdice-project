@@ -97,11 +97,11 @@ class TtdViewQuick extends PolymerElement {
               The quick dice tray is meant to be the most straightforward. It provides the roll history, the dice buttons most commonly used in tabletop gaming, and a clear button.
             </p>
             <dl>
-              <dt>Roll History</dt>
+              <dt>Results</dt>
               <dd>Displays the full history of all dice since the last time you cleared the dice tray.</dd>
 
-              <dt>Dice Button</dt>
-              <dd>A standard array of polyhdron dice most commonly used in tabletop gaming to makine ability checks, deal damage, and make saving throws.</dd>
+              <dt>Standard Dice</dt>
+              <dd>A standard array of polyhedrondice most commonly used in tabletop gaming to make an ability checks, deal damage, and make saving throws.</dd>
 
               <dt>Clear Button</dt>
               <dd>This button clears the dice tray, resetting it back to having no dice rolled.</dd>

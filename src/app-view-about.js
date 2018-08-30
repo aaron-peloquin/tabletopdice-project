@@ -22,6 +22,13 @@ class AppViewAbout extends PolymerElement {
         :host {
           display: block;
         }
+
+        img.logo,
+        .card > h1{  
+          background-color: var(--app-primary-color);
+          color: var(--ttd-color);
+        }
+  
       </style>
 
       <div class="card">
@@ -71,7 +78,7 @@ class AppViewAbout extends PolymerElement {
         <h1>Web Browser Support</h1>
         <div class="copy-box">
           <p>
-            For best results, use Google Chrome. We also support Firefox and Microsoft Edge. Internet Explorer 11 supported, but not recommended since it only uses mobile styles.
+            For best results, use Google Chrome. We also support Firefox and Microsoft Edge. Internet Explorer 11 supported, but not recommended since it only uses very basic mobile styles.
           </p>
         </div>
       </div>

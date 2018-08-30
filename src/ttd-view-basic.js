@@ -100,7 +100,7 @@ class TtdViewBasic extends PolymerElement {
               It provides the roll history, a total of all dice rolled (with an option to exclude one type of die), a clear button, the standard dice buttons, and a custom sided dice button (defaulted to a d100).
             </p>
             <dl>
-              <dt>Roll History</dt>
+              <dt>Results</dt>
               <dd>Displays the full history of all dice since the last time you cleared the dice tray.</dd>
 
               <dt>Total</dt>
@@ -109,8 +109,8 @@ class TtdViewBasic extends PolymerElement {
               <dt>Clear Button</dt>
               <dd>This button clears the dice tray, resetting it back to having no dice rolled.</dd>
 
-              <dt>Dice Button</dt>
-              <dd>A standard array of polyhdron dice most commonly used in tabletop gaming to makine ability checks, deal damage, and make saving throws.</dd>
+              <dt>Standard Dice</dt>
+              <dd>A standard array of polyhedrondice most commonly used in tabletop gaming to make an ability checks, deal damage, and make saving throws.</dd>
 
               <dt>Custom sided die</dt>
               <dd>Allows you to set any number of sides on a die you want, then roll that die. Defaulted to act like a 1d100.</dd>

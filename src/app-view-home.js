@@ -7,6 +7,7 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import './-ttd-sharedStyles.js';
 
 /**
  * `ttd-view-home`
@@ -39,6 +40,11 @@ class AppViewHome extends PolymerElement {
           transition: transform 640ms ease-in-out;    /* Gives the feeling of rolling the die */  
         }
 
+        .card > h1{  
+          background-color: var(--app-primary-color);
+          color: var(--ttd-color);
+        }
+
         .start-rolling{
           text-align: center;
           padding: 15px;
@@ -58,6 +64,8 @@ class AppViewHome extends PolymerElement {
         }
 
       </style>
+      <style include="ttd-styles"></style>
+
       <div class="center-image">
         <img class="logo" src="/images/icons/icon-512x512.png" alt="Tabletop Dice Logo" />
       </div>
@@ -66,13 +74,13 @@ class AppViewHome extends PolymerElement {
         <div class="copy-box">
           <h2>Save against forgetting your dice</h2>
           <h2>Built with love for the tabletop gaming community &lt;3</h2>
-          <p class="start-rolling">
+          <p class="start-rolling button">
             <a href="[[rootPath]]quick-dice-roller">Quick Dice Tray</a>
           </p>
-          <p class="start-rolling">
+          <p class="start-rolling button">
             <a href="[[rootPath]]advanced-dice-roller">Advanced Dice Tray</a>
           </p>
-          <p class="start-rolling">
+          <p class="start-rolling button">
             <a href="[[rootPath]]combat-dice-roller">Combat Dice Tray</a>
           </p>
         </div>

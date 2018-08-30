@@ -119,25 +119,25 @@ class TtdViewAdvanced extends PolymerElement {
           <div class="card">
           <div class="copy-box">
             <p>
-              The advanced dice tray gamers complete control over their dice tray. Including most features from the basic dice tray, adding in two new elements;
+              The advanced dice tray gives dungeon masters complete control over their dice tray. Including most features from the basic dice tray, adding in two new elements;
                 a high/low readout for d20 rolls,
-                and replacing the custom sided die with three dice equation fields.
+                and replacing the custom sided die with two dice equation fields.
             </p>
             <dl>
-              <dt>Roll History</dt>
+              <dt>Results</dt>
               <dd>Displays the full history of all dice since the last time you cleared the dice tray.</dd>
 
               <dt>Total</dt>
               <dd>Displays the sum of all dice rolled with a dropdown option to exclude a specific type of die, which is defaulted to exclude d20 results. Clearing results resets this total.</dd>
 
-              <dt>d20 High / Low Readout</dt>
+              <dt>d20 High / Low</dt>
               <dd>Displays the highest and lowest values from all d20 results rolled since the tray was last cleared.</dd>
 
               <dt>Clear Button</dt>
               <dd>This button clears the dice tray, resetting it back to having no dice rolled.</dd>
 
-              <dt>Dice Button</dt>
-              <dd>A standard array of polyhdron dice most commonly used in tabletop gaming to makine ability checks, deal damage, and make saving throws.</dd>
+              <dt>Standard Dice</dt>
+              <dd>A standard array of polyhedrondice most commonly used in tabletop gaming to make an ability checks, deal damage, and make saving throws.</dd>
 
               <dt>Dice Equations</dt>
               <dd>

@@ -99,7 +99,7 @@ class TtdViewCombat extends PolymerElement {
         <style include="ttd-styles"></style>
 
         <div class="card">
-          <h1>Advanced dice tray</h1>
+          <h1>Combat dice tray</h1>
           <div class="tray-wrapper">
             <slot>
               <ttd-tray>
@@ -122,23 +122,26 @@ class TtdViewCombat extends PolymerElement {
           <div class="card">
           <div class="copy-box">
             <p>
-
+              The combat dice tray is intended to give tabletop gaming players the fastest way to roll dice in an encounter.
             </p>
             <dl>
-              <dt>Roll History</dt>
+              <dt>Results</dt>
               <dd>Displays the full history of all dice since the last time you cleared the dice tray.</dd>
 
               <dt>Total</dt>
               <dd>Displays the sum of all dice rolled with a dropdown option to exclude a specific type of die, which is defaulted to exclude d20 results. Clearing results resets this total.</dd>
 
-              <dt>d20 High / Low Readout</dt>
+              <dt>d20 High / Low</dt>
               <dd>Displays the highest and lowest values from all d20 results rolled since the tray was last cleared.</dd>
 
               <dt>Clear Button</dt>
               <dd>This button clears the dice tray, resetting it back to having no dice rolled.</dd>
 
-              <dt>Dice Button</dt>
+              <dt>Standard Dice</dt>
               <dd>A standard array of polyhdron dice most commonly used in tabletop gaming to makine ability checks, deal damage, and make saving throws.</dd>
+
+              <dt>Attacks</dt>
+              <dd>Create attacks custom to your character that quickly roll their attack and damage. These attacks must have unique names. Attacks persist between page loads, but can be deleted, copied, or overwritten with new dice equations.</dd>
             </dl>
           </div>
         </div>

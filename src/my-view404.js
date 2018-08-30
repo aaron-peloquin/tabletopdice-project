@@ -26,7 +26,8 @@ class MyView404 extends PolymerElement {
         }
       </style>
 
-      Oops you rolled a 404. Please head back <a href="[[rootPath]]">home</a> or use the navigation.
+      <p>Oops you rolled a 404. Please head back <a href="[[rootPath]]">home</a> or use the navigation.</p>
+      <p>If you feel you have reached this error in error, try clearing your web browser's cache &and data, then reload this page.</p>
     `;
   }
 }
