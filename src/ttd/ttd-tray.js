@@ -69,7 +69,7 @@ class TtdTray extends PolymerElement {
 
   /**
    * Element ready for use, fire super.ready() for native functionality
-   * Initilize localStorage into this.storage
+   * Initilize localStorage[this.key] into this.storage
    * Add [_clearResults] to clear this.results, then update all listeners
    * Add [_updateLocalStorage] to update localStorage with a JSON string of this.storage
    * @returns {void}
@@ -78,12 +78,15 @@ class TtdTray extends PolymerElement {
     super.ready();
 
     if(!localStorage.getItem(this.key)) {
-      let newStorage = {"conf":{},"data":{}};
-      localStorage.setItem(this.key, JSON.stringify(newStorage));
+      this.resetLocalStorage();
     };
 
     let ttdStorage = localStorage.getItem(this.key);
     this.storage = JSON.parse(ttdStorage);
+
+    if(typeof this.storage!='object') {
+      this.resetLocalStorage();
+    }
 
     this.addEventListener('_clearResults', e => {
       this.results = [];
@@ -155,8 +158,14 @@ class TtdTray extends PolymerElement {
     this.updateHistoricalNodes();
   }
 
+  resetLocalStorage() {
+    let newStorage = {"conf":{},"data":{}};
+    localStorage.setItem(this.key, JSON.stringify(newStorage));
+  }
+
+
   /**
-   * Attempt to safely write to localStorage
+   * Attempt to safely write to localStorage, otherwise reset data then save
    */
   saveToLocalStorage() {
     try {
@@ -167,7 +176,7 @@ class TtdTray extends PolymerElement {
       }
     }
     catch(e) {
-      localStorage.removeItem(this.key);
+      this.resetLocalStorage();
       localStorage.setItem(this.key,JSON.stringify(this.storage));
     }
   }
