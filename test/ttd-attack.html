@@ -20,28 +20,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../node_modules/wct-browser-legacy/browser.js"></script>
     <script src="../node_modules/seedrandom/seedrandom.min.js"></script>
 
-
     <!-- Import the element to test -->
     <script type="module" src="../src/ttd/ttd-tray.js"></script>
+    <script type="module" src="../src/ttd/ttd-attack.js"></script>
   </head>
   <body>
-    <test-fixture id="trayElement">
+    <test-fixture id="attackElement">
       <template>
         <ttd-tray>
-          <ttd-tray>
-          </ttd-tray>
+          <ttd-attack></ttd-attack>
         </ttd-tray>
       </template>
     </test-fixture>
 
     <script type="module">
-      suite('<ttd-tray>', function() {
-        test('this.roll()', function() {
-          var tray = fixture('trayElement');
-          var randomNumber = tray.roll(999);
-          var randomNumber2 = tray.roll(999);
-          assert.equal(tray.results[0].result,randomNumber);
-          assert.equal(tray.results[1].result,randomNumber2);
+      suite('<ttd-attack>', function() {
+        test('this.cleanseEquationStr()', function() {
+          var tray = fixture('attackElement');
+          var cleansedEquation = tray.querySelector('ttd-attack').cleanseEquationStr('1d20+5/1d4^5');
+          assert.equal(cleansedEquation,'1d20+5/1d45');
+        });
+
+        test('this.rollEquationDice', function() {
+          var tray = fixture('attackElement');
+          var cleansedEquation = tray.querySelector('ttd-attack').rollEquationDice('1d20+5/1d4^5');
+          assert.ok(cleansedEquation,'result ('+cleansedEquation+') is not ok');
         });
       });
     </script>
