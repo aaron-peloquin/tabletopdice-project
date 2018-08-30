@@ -113,7 +113,7 @@ class TtdAttacksManage extends TtdEquationHelper {
             required
             maxlength="14"
             aria-label="This attack's name"
-            placeholder="* Attack (Spear)"
+            placeholder="* Attack (Maul)"
             value="{{attackLabel::input}}"
           />
         </label>
@@ -122,7 +122,7 @@ class TtdAttacksManage extends TtdEquationHelper {
             type="text"
             maxlength="11"
             aria-label="This attack's damage type"
-            placeholder="Type (Slashing)"
+            placeholder="Type (Bludgeoning)"
             value="{{damageType::input}}"
           />
         </label>
@@ -130,7 +130,7 @@ class TtdAttacksManage extends TtdEquationHelper {
           <input
             aria-label="This attack's chance to hit roll equation"
             title="Max: 999d999"
-            placeholder="To hit (1d20+5)"
+            placeholder="To hit (1d20+4)"
             value="{{hitString::input}}"
           />
         </label>
@@ -138,7 +138,7 @@ class TtdAttacksManage extends TtdEquationHelper {
           <input
             aria-label="This attack's damage roll equation"
             title="Max: 999d999"
-            placeholder="Damage (1d6+3)"
+            placeholder="Damage (2d6+2)"
             value="{{damageString::input}}"
           />
         </label>
