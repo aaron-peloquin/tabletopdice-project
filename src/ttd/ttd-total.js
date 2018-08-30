@@ -70,7 +70,6 @@ class TtdTotal extends TtdChildHelper {
             display: none;
           }
         }
-  
       </style>
       <span class="results-text" aria-label="Total of all dice rolled">
         <span class="readout-text">Total</span>
