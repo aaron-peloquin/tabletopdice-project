@@ -74,7 +74,7 @@ class TtdHighLow extends TtdChildHelper {
         }
 
       </style>
-      <div class="results-wrapper">
+      <div class="results-wrapper" aria-live="polite">
         <span class="readout-text">High/Low</span>
         <span class="result max">{{max}}<span class="invisible-text">(high), </span></span>
         <img src="[[dieImageURI(die)]]" alt="[[die]] sided die image" />

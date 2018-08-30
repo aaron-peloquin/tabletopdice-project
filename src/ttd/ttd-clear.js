@@ -30,7 +30,7 @@ class TtdClear extends TtdChildHelper {
           vertical-align: middle;
         }
       </style>
-      <div on-click="clear"><slot>Clear</slot></div>
+      <div on-click="clear" role="button"><slot>Clear</slot></div>
     `;
   }
 

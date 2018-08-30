@@ -31,7 +31,7 @@ static get template() {
           vertical-align: middle;
         }
       </style>
-        <div on-click="roll">
+        <div on-click="roll" role="button">
         <template is="dom-if" if="[[rolled]]">{{rolled}}</template>d[[sides]]
       </div>
     `;

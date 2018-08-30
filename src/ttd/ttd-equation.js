@@ -132,7 +132,7 @@ class TtdEquation extends TtdEquationHelper {
               value="{{customString::input}}" />
           </div>
         </form>
-        <span class="result">{{result}}</span>
+        <span class="result" aria-live="polite">{{result}}</span>
         <span class="roll button animate-shake" on-click="roll" role="button"><slot>Roll</slot></span>
       </form>
       `;

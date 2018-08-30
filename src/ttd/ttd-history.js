@@ -148,7 +148,7 @@ class TtdHistory extends TtdChildHelper {
       </style>
       <template is="dom-if" if="[[results]]">
         <span class="readout-text">Results</span>
-        <ol title="Copy for dice roll log">
+        <ol title="Copy for dice roll log" aria-live="polite">
           <dom-repeat items="{{results}}">
             <template>
               <li>

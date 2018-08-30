@@ -72,7 +72,7 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
         left: 5px;
         font-size: 1rem;
         text-decoration: underline;
-        color: #ccc;
+        color: #eee;
       }
 
       img {
