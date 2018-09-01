@@ -78,7 +78,7 @@ class TtdHighLow extends TtdChildHelper {
         <span class="readout-text">High/Low</span>
         <span class="result max">{{max}}<span class="invisible-text">(high), </span></span>
         <img src="[[dieImageURI(die)]]" alt="[[die]] sided die image" />
-        <span class="result min">{{min}}<hr />[[avg]]<span class="invisible-text">(low), [[avg]](average)</span></span>
+        <span class="result min">{{min}}<span class="invisible-text">(low), [[avg]](average)</span></span>
       </div>
     `;
   }
