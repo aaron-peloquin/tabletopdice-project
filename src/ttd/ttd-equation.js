@@ -167,10 +167,6 @@ class TtdEquation extends TtdEquationHelper {
         value: "",
         reflectToAttribute: true,
       },
-      diceTypes: {
-        type: Array,
-        value: function() { return []; },
-      },
       placeholder: {
         type: String,
         value: "",
@@ -182,7 +178,6 @@ class TtdEquation extends TtdEquationHelper {
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
    * Add [_clearResults] listener to clear results
-   * Update this.diceTypes with <ttd-tray>.standardPolyhedrons
    * Add [submit] to also roll this custom die
    * @returns {void}
    */
@@ -193,7 +188,6 @@ class TtdEquation extends TtdEquationHelper {
       return false;
     }
 
-    this.diceTypes = this.trayElement.standardPolyhedrons;
     this.trayElement.addEventListener('_clearResults', e => {this.clearResults(e)});
     this.shadowRoot.querySelector('form').addEventListener('submit', e=>{this.submitRoll(e)});
 	}
