@@ -83,6 +83,11 @@ class TtdEquationHelper extends TtdChildHelper {
 
   /**
    * Roll a single die string (#d#), and set results into this.rolledResults
+   * Note: About Math.seedrandom()
+   * gives better results than Math.random() on it's own, but it is not perfect.
+   * In tests its roughly 0.5 higher than true random would be (always higher, almost never lower).
+   * I have explored other options, but I think I'll get more players using it if it's slightly higher rolls.
+   * Will revisit this decision after a few months of usage or if there is negative public feedback. So far all my alpha-testers are happy.
    */
   rollDie(dieString, _this) {
     let rollResult = 0;
