@@ -171,12 +171,17 @@ class TtdEquation extends TtdEquationHelper {
         type: String,
         value: "",
       },
+      processingEquation: {
+        type: Boolean,
+        value: false,
+      }
     };
   }
 
   /**
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
+   * Ensure that this.ProcessingEquation is set to false
    * Add [_clearResults] listener to clear results
    * Add [submit] to also roll this custom die
    * @returns {void}
@@ -188,6 +193,7 @@ class TtdEquation extends TtdEquationHelper {
       return false;
     }
 
+    this.processingEquation = false;
     this.trayElement.addEventListener('_clearResults', e => {this.clearResults(e)});
     this.shadowRoot.querySelector('form').addEventListener('submit', e=>{this.submitRoll(e)});
 	}
@@ -202,12 +208,23 @@ class TtdEquation extends TtdEquationHelper {
   }
 
   /**
+   * Handles <form> submissions, prevents default form submission, and stops
+   * users from locking up their browser with multiple submissions of complex dice equations (ie: 999d999*999d999/999d999)
    * @param {obj} e eventListener contains the updated data from the <form>'s submit event
    * @returns {void}
    */
   submitRoll(e) {
     e.preventDefault();
-    this.roll();
+    /** If we are already processing an equation, do not double-process */
+    if(this.processingEquation==true) {
+      return;
+    }
+    /** Switch processing flag and roll the equation */
+    this.processingEquation = true;
+    setTimeout(() => {
+      this.roll();
+      this.processingEquation = false;
+      }, 100);
   }
 
   /**
@@ -215,10 +232,11 @@ class TtdEquation extends TtdEquationHelper {
    * Push dice results into tray element, but do not use it's method to roll
    * Instead use our own internally to better track button clicks vs 
    * die equation strings in google analytics
-   * @returns {str} The new this.result value;
+   * @returns {str} The new this.result value. This is usually a number,
+   * but could be formatted with commas, a string of "ERR", or an infinity symbol
    */
   roll() {
-    var rollResult = 0;
+    let rollResult = 0;
     if(this.customString=='') {
       this.result = 0;
       this.shadowRoot.querySelector('input').focus();
@@ -261,7 +279,7 @@ class TtdEquation extends TtdEquationHelper {
         }
       }
     }
-      
+
     return this.result;
   }
 
