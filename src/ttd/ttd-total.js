@@ -134,7 +134,6 @@ class TtdTotal extends TtdChildHelper {
   /**
    * Element ready for use, fire super.ready() for native functionality
    * Attach the <ttd-tray> with TtdChildHelper:findTray()
-   * Update this.diceTypes with <ttd-tray>.standardPolyhedrons
    * Add [_updateHistory] to update the local results
    * @returns {void}
    */
