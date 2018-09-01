@@ -98,7 +98,7 @@ class TtdViewQuick extends PolymerElement {
             </p>
             <dl>
               <dt>Results</dt>
-              <dd>Displays the full history of all dice since the last time you cleared the dice tray.</dd>
+              <dd>Displays the most recent 400 dice results since the last time you cleared the dice tray.</dd>
 
               <dt>Standard Dice</dt>
               <dd>A standard array of polyhedrondice most commonly used in tabletop gaming to make an ability checks, deal damage, and make saving throws.</dd>

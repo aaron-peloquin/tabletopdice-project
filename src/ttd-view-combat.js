@@ -126,7 +126,7 @@ class TtdViewCombat extends PolymerElement {
             </p>
             <dl>
               <dt>Results</dt>
-              <dd>Displays the full history of all dice since the last time you cleared the dice tray.</dd>
+              <dd>Displays the most recent 400 dice results since the last time you cleared the dice tray.</dd>
 
               <dt>Total</dt>
               <dd>Displays the sum of all dice rolled with a dropdown option to exclude a specific type of die, which is defaulted to exclude d20 results. Clearing results resets this total.</dd>
