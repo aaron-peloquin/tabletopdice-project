@@ -166,6 +166,7 @@ class TtdHistory extends TtdChildHelper {
 
   /**
    * @param {array} results Stores rolled results locally
+   * @param {num} limit The maximum amount of results to show at once
    * @param {bool} excited Paramiter that determins if we append a ! to
    * the end of each result that matches it's sides
    */
@@ -175,6 +176,11 @@ class TtdHistory extends TtdChildHelper {
         type: Array,
         value: function() { return []; },
         observer: 'addLatestClass',
+      },
+      limit: {
+        type: Number,
+        value: 444,
+        reflectToAttribute: true,
       },
       excited: {
         type: Boolean,
@@ -205,7 +211,8 @@ class TtdHistory extends TtdChildHelper {
    */
   updateHistory(e) {
     this.results = [];
-    this.results = e.detail.data.slice(0).reverse();
+    let numShow = ( this.limit>0 ? -this.limit : 0 )
+    this.results = e.detail.data.slice(numShow).reverse();
   }
 
   /**
