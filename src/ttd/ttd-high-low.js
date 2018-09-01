@@ -78,7 +78,7 @@ class TtdHighLow extends TtdChildHelper {
         <span class="readout-text">High/Low</span>
         <span class="result max">{{max}}<span class="invisible-text">(high), </span></span>
         <img src="[[dieImageURI(die)]]" alt="[[die]] sided die image" />
-        <span class="result min">{{min}}<span class="invisible-text">(low), [[average]](average)</span></span>
+        <span class="result min">{{min}}<hr />[[avg]]<span class="invisible-text">(low), [[avg]](average)</span></span>
       </div>
     `;
   }
@@ -104,7 +104,7 @@ class TtdHighLow extends TtdChildHelper {
         type: Number,
         value: '',
       },
-      average: {
+      avg: {
         type: Number,
         value: '',
       }
@@ -123,38 +123,42 @@ class TtdHighLow extends TtdChildHelper {
     if (!this.trayElement) {
       return false;
     }
-    this.trayElement.addEventListener('_updateHistory', e => {this.updateMinMax(e)});
+    this.trayElement.addEventListener('_updateHistory', e => {this.updateResults(e)});
   }
 
   /**
-   * Updates this.min and this.max
+   * Updates this.min, this.max, and this.avg values
    * @param {obj} e eventListener contains the updated data from _updateHistory listener.
    * @returns {void}
    */
-  updateMinMax(e) {
+  updateResults(e) {
     this.min = 0;
     this.max = 0;
-    this.average = 0;
-    let total = 0;
+    this.avg = 0;
     let dieSides = this.die;
-    let min = null;
-    let max = null;
 
-    for(let r of e.detail.data) {
-      if(dieSides==r.sides) {
-        total += r.result;
-        if (max === null || max < r.result) {
-          max = r.result;
-        }
-        if (min === null || min > r.result) {
-          min = r.result;
-        }
-      }
-    };
-    this.min  = min;
-    this.max  = max;
-    this.average = total / e.detail.data.length;
+    /** Get an array of the new result values, limited to only the dieSides */
+    let newResults = e.detail.data
+      .filter((r)=>{ return r.sides==dieSides; })
+      .map(r=>{return r.result});
+
+    if(newResults.length<1) {
+      return;
+    }
+
+    this.max = Math.max(...newResults);
+    this.min = Math.min(...newResults);
+    this.avg = this.getAverage(newResults);
   }
+
+  /**
+   * Processes an array of numbers, returning their average.
+   * @param {array} arr An array of numbers
+   */
+  getAverage(arr) {
+    return arr.reduce((a,b) => a + b, 0) / arr.length;
+  } 
+
 
 }
 
