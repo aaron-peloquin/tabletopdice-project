@@ -46,6 +46,19 @@ class AppViewAbout extends PolymerElement {
           </p>
         </div>
 
+        <h1>Etiquette</h1>
+        <div class="copy-box">
+          <p>
+            If you are a player, you should always ask your Dungeon Master if they are comfortable with you using a virtual dice roller like TabletopDice.com.
+            Since the Dungeon Master cannot see how they physcally work, some do not trust them, especially when you get lucky and roll 2 natural 20's in a row.
+          </p>
+          <p>
+            Additionally reguardless if you're physical real dice or digital dice, you should either announce that you're rolling,
+              or wait until your dungeon master asks for you to roll -
+              do not roll early, since this could encourage or at least appear as though you are fudging your rolls.
+          </p>
+        </div>
+
         <h1>Feedback & Contact</h1>
         <div class="copy-box">
           <p>
