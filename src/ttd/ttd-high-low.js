@@ -95,18 +95,22 @@ class TtdHighLow extends TtdChildHelper {
       die: {
         type: Number,
         value: 20,
+        reflectToAttribute: true,
       },
       min: {
         type: Number,
         value: '',
+        reflectToAttribute: true,
       },
       max: {
         type: Number,
         value: '',
+        reflectToAttribute: true,
       },
       avg: {
         type: Number,
         value: '',
+        reflectToAttribute: true,
       }
     };
   }

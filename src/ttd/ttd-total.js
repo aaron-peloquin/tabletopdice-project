@@ -105,6 +105,7 @@ class TtdTotal extends TtdChildHelper {
       sum: {
         type: Number,
         value: 0,
+        reflectToAttribute: true,
       },
       results: {
         type: Array,
