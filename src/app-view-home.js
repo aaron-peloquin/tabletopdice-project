@@ -68,6 +68,10 @@ class AppViewHome extends PolymerElement {
           padding: 5px;
           width: 90%;
         }
+
+        .link-card .last-link {
+          margin-bottom: 35px;
+        }
         
         /** [Responsive] Large Styles */
         @media screen and (min-width: 800) {
@@ -97,7 +101,7 @@ class AppViewHome extends PolymerElement {
         <p class="start-rolling button">
           <a href="[[rootPath]]advanced-dice-roller">Advanced</a>
         </p>
-        <p class="start-rolling button">
+        <p class="start-rolling button last-link">
           <a href="[[rootPath]]combat-dice-roller">Combat</a>
         </p>
       </div>
