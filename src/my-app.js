@@ -48,10 +48,6 @@ class MyApp extends PolymerElement {
           display: block;
         }
 
-        iron-pages > *{
-          padding: 15px;
-        }
-
         app-drawer-layout:not([narrow]) [drawer-toggle] {
           display: none;
         }

@@ -47,7 +47,7 @@ class AppViewHome extends PolymerElement {
 
         .start-rolling{
           text-align: center;
-          padding: 15px;
+          padding: 0;
           border-radius: 15px;
           background-color: var(--app-card-background);
           box-shadow: 2px 2px 2px 2px #eeeeee;
@@ -63,6 +63,19 @@ class AppViewHome extends PolymerElement {
           display: block;
         }
 
+        .button {
+          margin: 10px auto;
+          padding: 5px;
+          width: 90%;
+        }
+        
+        /** [Responsive] Large Styles */
+        @media screen and (min-width: 800) {
+          .button{
+            width: 50vw;
+          }
+        }
+
       </style>
       <style include="ttd-styles"></style>
 
@@ -70,20 +83,23 @@ class AppViewHome extends PolymerElement {
         <img class="logo" src="/images/icons/icon-512x512.png" alt="Tabletop Dice Logo" />
       </div>
       <div class="card">
-        <h1>Dice Trays</h1>
+        <h1>Tabletop Dice</h1>
         <div class="copy-box">
           <h2>Save against forgetting your dice</h2>
           <h2>Built with love for the tabletop gaming community &lt;3</h2>
-          <p class="start-rolling button">
-            <a href="[[rootPath]]quick-dice-roller">Quick Dice Tray</a>
-          </p>
-          <p class="start-rolling button">
-            <a href="[[rootPath]]advanced-dice-roller">Advanced Dice Tray</a>
-          </p>
-          <p class="start-rolling button">
-            <a href="[[rootPath]]combat-dice-roller">Combat Dice Tray</a>
-          </p>
         </div>
+      </div>
+      <div class="card link-card">
+        <h1>Dice Trays</h1>
+        <p class="start-rolling button">
+          <a href="[[rootPath]]quick-dice-roller">Quick</a>
+        </p>
+        <p class="start-rolling button">
+          <a href="[[rootPath]]advanced-dice-roller">Advanced</a>
+        </p>
+        <p class="start-rolling button">
+          <a href="[[rootPath]]combat-dice-roller">Combat</a>
+        </p>
       </div>
     `;
   }
