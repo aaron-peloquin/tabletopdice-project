@@ -55,6 +55,11 @@ class TtdClear extends TtdChildHelper {
     if (!this.trayElement) {
       return false;
     }
+    if(typeof gtag=='function') {
+      gtag('event', 'clearResults', {
+        "event_category":"clear"
+      });
+    }
     this.trayElement.dispatchEvent(new CustomEvent('_clearResults'));
   }
 }
