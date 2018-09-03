@@ -79,16 +79,17 @@ The use-case for this in dungeons & dragons would be a [rogue using a dagger](ht
 You may also set an attribute of `placeholder` to set the input field's placeholder text.
 
 ## This project utlizes:
-These are the key things I focused on learning while building this application. 
+These are the key things I focused on learning while building this application.
 * Javascript
-	* Polymer v3. I used the polymer starter kit as a base.
+  * Pseudo two-way data binding to localStorage for the &lt;ttd-attack*&gt; tags
+	* Polymer v3. I used the polymer starter kit as a base
       * Single Page Application (SPA)
       * Progressive Web App (PWA)
     * Web Components
-	* Some ES
+	* Some quirks of ES6
 * CSS
-	* Grid
-	* CSS Variables
+	* Display Grid (and all it's IE11 issues)
+	* Native CSS Variables
 * AWS 
 	* Route 53
   * Simple Storage Service (S3)
