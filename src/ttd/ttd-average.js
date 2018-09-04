@@ -39,6 +39,10 @@ class TtdAverage extends TtdChildHelper {
           display: grid;
         }
 
+        .average {
+          margin-top: 20px;
+        }
+
         /* IE10+ CSS styles go here */
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
           span {
@@ -49,7 +53,7 @@ class TtdAverage extends TtdChildHelper {
       </style>
       <div class="results-wrapper" aria-live="polite" title="Note: The average of 1d20 is 10.5">
         <span class="readout-text">Average</span>
-        <span class="result average">[[avg]]</span>
+        <span class="average">[[avg]]</span>
       </div>
     `;
   }
@@ -61,7 +65,7 @@ class TtdAverage extends TtdChildHelper {
     return {
       avg: {
         type: Number,
-        value: '',
+        value: 0,
         reflectToAttribute: true,
       }
     };
