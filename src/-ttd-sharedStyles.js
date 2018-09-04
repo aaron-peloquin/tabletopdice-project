@@ -44,6 +44,14 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
         position: relative;
       }
 
+      .readout-text {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        font-size: 1rem;
+        text-decoration: underline;
+        color: #eee;
+      }
       .button {
         background-color: var(--ttd-button-background-color);
         box-shadow:
@@ -66,13 +74,8 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
         --paper-icon-button-ink-color: white;
       }
 
-      .readout-text {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        font-size: 1rem;
-        text-decoration: underline;
-        color: #eee;
+      .invisible-text{
+        font-size: 0px;
       }
 
       img {

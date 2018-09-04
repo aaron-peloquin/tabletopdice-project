@@ -59,10 +59,6 @@ class TtdHighLow extends TtdChildHelper {
           align-self: start;
         }
 
-        .invisible-text{
-          font-size: 0px;
-        }
-
         /* IE10+ CSS styles go here */
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
           img {
