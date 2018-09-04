@@ -37,9 +37,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script type="module">
       suite('<ttd-tray>', function() {
         test('this.roll()', function() {
-          var tray = fixture('trayElement');
-          var randomNumber = tray.roll(999);
-          var randomNumber2 = tray.roll(999);
+          let tray = fixture('trayElement');
+          let randomNumber = tray.roll(999);
+          let randomNumber2 = tray.roll(999);
+          assert.equal(tray.results[0].result,randomNumber);
+          assert.equal(tray.results[1].result,randomNumber2);
+        });
+
+        test('localStorage test', function() {
+          let tray = fixture('trayElement');
+          let randomNumber = tray.roll(999);
+          let randomNumber2 = tray.roll(999);
           assert.equal(tray.results[0].result,randomNumber);
           assert.equal(tray.results[1].result,randomNumber2);
         });
