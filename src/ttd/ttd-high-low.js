@@ -83,7 +83,7 @@ class TtdHighLow extends TtdChildHelper {
    * @param {num} die The number of sides on the die you want to report for
    * @param {num} min The current minimum result of your chosen die,
    * updated automatically on _updateHistory listener
-   * @param {num} max The current maximum result of yoru chosen die,
+   * @param {num} max The current maximum result of your chosen die,
    * updated automatically on _updateHistory listener
    */
   static get properties() {
