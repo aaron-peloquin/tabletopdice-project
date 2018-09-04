@@ -246,38 +246,7 @@ class TtdEquation extends TtdEquationHelper {
       let diceEquation = this.rollEquationDice(this.customString);
       this.trayElement.fullRefresh();
       this.parsedEquation = diceEquation;
-      try {
-        /**
-         * It should be reasonably safe to run eval() here, since we have already stripped out everything except
-         * for digits, the lowercase letter 'd', and equation symbols (+, -, *, /)
-        */
-        let equationResult = Math.round(eval(diceEquation));
-        if(isNaN(equationResult)) {
-          throw "Invalid equation (NaN)";
-        }
-        this.result = equationResult.toLocaleString();
-        /** Report equation results to google analytics */
-        if(typeof gtag=='function') {
-          gtag('event', 'rollEquation', {
-            "event_category":"roll",
-            'event_label': this.customString,
-            'dieEquation': diceEquation,
-            'rollResult': this.result
-          });
-        }
-      }
-      /** Throw custom error on failure to parse. */
-      catch(e) {
-        console.error('Invalid Dice String Equation: ',diceEquation);
-        this.result = "ERR";
-        /** Report error to Google Analytics */
-        if(typeof gtag=='function') {
-          gtag('event', 'rollEquationError', {
-            "event_category":"error",
-            'dieEquation': diceEquation
-          });
-        }
-      }
+      this.result = this.runEquation(diceEquation, this.customString);
     }
 
     return this.result;
