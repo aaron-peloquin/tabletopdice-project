@@ -74,7 +74,7 @@ class TtdHighLow extends TtdChildHelper {
         <span class="readout-text">High/Low</span>
         <span class="result max">{{max}}<span class="invisible-text">(high), </span></span>
         <img src="[[dieImageURI(die)]]" alt="[[die]] sided die image" />
-        <span class="result min">{{min}}<span class="invisible-text">(low), [[avg]](average)</span></span>
+        <span class="result min">{{min}}<span class="invisible-text">(low)</span></span>
       </div>
     `;
   }
@@ -103,11 +103,6 @@ class TtdHighLow extends TtdChildHelper {
         value: '',
         reflectToAttribute: true,
       },
-      avg: {
-        type: Number,
-        value: '',
-        reflectToAttribute: true,
-      }
     };
   }
 
@@ -127,14 +122,13 @@ class TtdHighLow extends TtdChildHelper {
   }
 
   /**
-   * Updates this.min, this.max, and this.avg values
+   * Updates this.min, this.max values
    * @param {obj} e eventListener contains the updated data from _updateHistory listener.
    * @returns {void}
    */
   updateResults(e) {
     this.min = 0;
     this.max = 0;
-    this.avg = 0;
     let dieSides = this.die;
 
     /** Get an array of the new result values, limited to only the dieSides */
@@ -148,17 +142,7 @@ class TtdHighLow extends TtdChildHelper {
 
     this.max = Math.max(...newResults);
     this.min = Math.min(...newResults);
-    this.avg = this.getAverage(newResults);
   }
-
-  /**
-   * Processes an array of numbers, returning their average.
-   * @param {array} arr An array of numbers
-   */
-  getAverage(arr) {
-    return arr.reduce((a,b) => a + b, 0) / arr.length;
-  } 
-
 
 }
 
