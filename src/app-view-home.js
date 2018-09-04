@@ -99,10 +99,10 @@ class AppViewHome extends PolymerElement {
           <a href="[[rootPath]]quick-dice-roller">Quick</a>
         </p>
         <p class="start-rolling button">
-          <a href="[[rootPath]]advanced-dice-roller">Advanced</a>
+          <a href="[[rootPath]]advanced-dice-roller">Advanced (for DMs)</a>
         </p>
         <p class="start-rolling button last-link">
-          <a href="[[rootPath]]combat-dice-roller">Combat</a>
+          <a href="[[rootPath]]combat-dice-roller">Combat (for PCs)</a>
         </p>
       </div>
     `;
