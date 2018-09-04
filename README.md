@@ -78,6 +78,12 @@ The use-case for this in dungeons & dragons would be a [rogue using a dagger](ht
 
 You may also set an attribute of `placeholder` to set the input field's placeholder text.
 
+## Browser Support
+- Google Chrome
+- Mozilla Firefox
+- Microsoft Edge
+- Internet Explorer 11 (really only supported in JS as a tech demo, rough styles)
+
 ## This project utlizes:
 These are the key things I focused on learning while building this application.
 * Javascript
