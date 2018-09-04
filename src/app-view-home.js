@@ -76,7 +76,7 @@ class AppViewHome extends PolymerElement {
         /** [Responsive] Large Styles */
         @media screen and (min-width: 800) {
           .button{
-            width: 50vw;
+            width: 30vw;
           }
         }
 
