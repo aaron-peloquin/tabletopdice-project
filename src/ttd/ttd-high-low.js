@@ -95,12 +95,12 @@ class TtdHighLow extends TtdChildHelper {
       },
       min: {
         type: Number,
-        value: '',
+        value: 0,
         reflectToAttribute: true,
       },
       max: {
         type: Number,
-        value: '',
+        value: 0,
         reflectToAttribute: true,
       },
     };
