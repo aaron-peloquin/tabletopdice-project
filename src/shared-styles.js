@@ -78,6 +78,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
        * 7 characters for equal spacing
        * I also just wanna say, grid-template-areas is amazing. IE does not support, tho.. :'(
         * */
+      ttd-average             { grid-area: average; }
       ttd-clear               { grid-area: clear__; }
       ttd-custom              { grid-area: custom_; }
       ttd-custom-roll         { grid-area: custrol; }

@@ -12,6 +12,7 @@ import './app-monetizer.js';
 import './ttd/ttd-tray.js';
 import './ttd/ttd-history.js';
 import './ttd/ttd-total.js';
+import './ttd/ttd-average.js';
 import './ttd/ttd-die.js';
 import './ttd/ttd-clear.js';
 import './ttd/ttd-high-low.js';
@@ -38,6 +39,7 @@ class TtdViewAdvanced extends PolymerElement {
             "die___8 die__10"
             "die__12 die__20"
             "total__ total__"
+            "highLow average"
             "highLow clear__"
             "equat_m equat_m"
             "equat_o equat_o";
@@ -51,7 +53,7 @@ class TtdViewAdvanced extends PolymerElement {
             grid-template-areas:
               "history history history"
               "highLow total__ total__"
-              "highLow clear__ clear__"
+              "highLow average clear__"
               "die___4 die___6 die___8"
               "die__10 die__12 die__20"
               "equat_m equat_m equat_m"
@@ -67,10 +69,10 @@ class TtdViewAdvanced extends PolymerElement {
           ttd-tray{
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
             grid-template-areas:
-              "history history history history total__ total__ highLow"
-              "history history history history total__ total__ highLow"
-              "die___4 die___4 die___6 die___6 die___8 die___8 clear__"
-              "die__10 die__10 die__12 die__12 die__20 die__20 clear__"
+              "history history history history history history highLow"
+              "history history history history history history highLow"
+              "die___4 die___6 die___8 total__ total__ average clear__"
+              "die__10 die__12 die__20 total__ total__ average clear__"
               "equat_m equat_m equat_m equat_m equat_m equat_m equat_m"
               "equat_o equat_o equat_o equat_o equat_o equat_o equat_o";
             }
@@ -102,6 +104,7 @@ class TtdViewAdvanced extends PolymerElement {
               <ttd-tray>
                 <ttd-history class="readout" excited></ttd-history>
                 <ttd-total class="readout" exclude exclude-die="20"></ttd-total>
+                <ttd-average class="readout"></ttd-average>
                 <ttd-high-low class="readout" die="20"></ttd-high-low>
                 <ttd-clear class="button animate-shake"></ttd-clear>
                 <ttd-die class="button animate-shake" sides="4"></ttd-die>
