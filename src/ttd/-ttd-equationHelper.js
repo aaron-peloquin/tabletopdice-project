@@ -83,7 +83,6 @@ class TtdEquationHelper extends TtdChildHelper {
 
   /**
    * Roll a single die string (#d#), and set results into this.rolledResults
-   * Note: Ohh DUH, 10.5 is the accurate average.
    */
   rollDie(dieString, _this) {
     let rollResult = 0;
