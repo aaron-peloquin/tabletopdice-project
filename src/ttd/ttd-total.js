@@ -175,17 +175,17 @@ class TtdTotal extends TtdChildHelper {
    */
   recalculateSum(e) {
     this.sum = 0;
-    var newSum = 0;
+    let total = 0
     let skipSides = this.excludeDie;
-
     if(this.results.length>0) {
-      for(let r of this.results) {
+      total = this.results.reduce((t,r)=>{
         if(r.sides!=skipSides) {
-          newSum += r.result;
+          t+=r.result
         }
-      };
+        return t
+      },0)
     }
-    this.sum = newSum.toLocaleString();
+    this.sum = total.toLocaleString();
     return this.sum;
   }
 }
