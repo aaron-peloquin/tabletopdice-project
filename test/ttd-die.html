@@ -32,11 +32,19 @@
 
     <script type="module">
       suite('<ttd-die>', function() {
-        test('changing dice type', function() {
+        test('this.roll() reporting correct sides', function() {
+          let dieElement = fixture('dieElement').querySelector('ttd-die')
+          dieElement.sides = 44
+          dieElement.roll()
+          assert.equal(dieElement.trayElement.results[0].sides,44);
+        });
+        test('this.rolled', function() {
           let dieElement = fixture('dieElement').querySelector('ttd-die')
           dieElement.sides = 20
           dieElement.roll()
-          assert.equal(dieElement.trayElement.results[0].sides,20);
+          dieElement.roll()
+          dieElement.roll()
+          assert.equal(dieElement.rolled,3);
         });
       });
     </script>
