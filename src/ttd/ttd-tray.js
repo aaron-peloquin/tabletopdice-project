@@ -69,31 +69,30 @@ class TtdTray extends PolymerElement {
 
   /**
    * Element ready for use, fire super.ready() for native functionality
-   * Initilize localStorage[this.key] into this.storage
    * Add [_clearResults] to clear this.results, then update all listeners
    * Add [_updateLocalStorage] to update localStorage with a JSON string of this.storage
+   * Initilize localStorage[this.key] into this.storage
    * @returns {void}
    */
   ready() {
     super.ready();
 
-    if(!localStorage.getItem(this.key)) {
-      this.resetLocalStorage();
-    };
-
-    let ttdStorage = localStorage.getItem(this.key);
-    this.storage = JSON.parse(ttdStorage);
-
-    if(typeof this.storage!='object') {
-      this.resetLocalStorage();
-    }
+    this.addEventListener('_updateLocalStorage', e=> { this.saveToLocalStorage(); });
 
     this.addEventListener('_clearResults', e => {
       this.results = [];
       this.updateHistoricalNodes();
     });
 
-    this.addEventListener('_updateLocalStorage', e=> { this.saveToLocalStorage(); });
+    /** If localStorage for this.key does not exist, create it. */
+    if(!localStorage.getItem(this.key)) {
+      this.resetLocalStorage();
+    };
+    /** Load localStorage */
+    this.storage = JSON.parse(localStorage.getItem(this.key));
+
+    /** If localStorage is corrupt, reset it */
+    if(typeof this.storage!='object') {this.resetLocalStorage();}
   }
 
   /**
@@ -153,6 +152,8 @@ class TtdTray extends PolymerElement {
 
   /**
    * Fully refresh all app data.
+   * A bit silly to keep this method around, since I removed this.sum,
+   * but I want to keep it incase I might use it in the future for other custom elements.
    */
   fullRefresh() {
     this.updateHistoricalNodes();
@@ -165,7 +166,8 @@ class TtdTray extends PolymerElement {
 
 
   /**
-   * Attempt to safely write to localStorage, otherwise reset data then save
+   * Attempt to safely write to localStorage,
+   * otherwise reset data then save
    */
   saveToLocalStorage() {
     try {
