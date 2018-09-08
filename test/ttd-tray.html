@@ -42,27 +42,42 @@
 
         test('dispatch _updateLocalStorage event', function() {
           let trayElement = fixture('trayElement')
-          trayElement.key = Symbol("_unit_test")
+          trayElement.key = Symbol.for("_unit_test")
           trayElement.resetLocalStorage()
           let spy = sinon.spy(trayElement,'saveToLocalStorage')
           trayElement.dispatchEvent(new CustomEvent('_updateLocalStorage'));
-          localStorage.removeItem(trayElement.key)
           expect(spy).calledOnce
+        })
+
+        test('this.loadStorage()', function() {
+          let trayElement = fixture('trayElement')
+          let blankData = {"conf":{},"data":{}};
+          /** Change to a unique value */
+          trayElement.key = Symbol.for("_unit_test")
+          trayElement.resetLocalStorage()
+          trayElement.loadStorage()
+          //assert.equal(trayElement.storage,blankData)
+          expect(trayElement.storage).a('object')
+          expect(trayElement.storage.conf).a('object')
+          expect(trayElement.storage.data.attacks).a('undefined')
         })
 
         test('this.storage, modifying data', function() {
           let trayElement = fixture('trayElement')
           /** Change to a unique value */
-          trayElement.key = Symbol("_unit_test")
+          trayElement.key = Symbol.for("_unit_test")
           trayElement.resetLocalStorage()
           trayElement.loadStorage()
           trayElement.storage.conf.hello = "world"
           trayElement.dispatchEvent(new CustomEvent('_updateLocalStorage'))
-          let storage = JSON.parse(localStorage.getItem(trayElement.key))
-          localStorage.removeItem(trayElement.key)
+          let storage = trayElement.getStorage()
           assert.equal(storage.conf.hello,"world")
         })
       });
+
+      /** Cleanup localStorage */
+      try{localStorage.removeItem(Symbol.for('_unit_test'))}
+      catch(e){console.log("Issue with Tests!",e)}
     </script>
   </body>
 </html>
