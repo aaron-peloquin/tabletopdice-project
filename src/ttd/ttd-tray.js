@@ -96,53 +96,6 @@ class TtdTray extends PolymerElement {
   }
 
   /**
-   * @param {num} max The maximum value returned. Minimum values are 1.
-   * @returns {num} a Random(y) number
-   */
-  random(max) {
-    /** Utilize seedrandom.js for better random values. */
-    Math.seedrandom();
-    return (Math.random() * max | 0) + 1;
-  }
-
-  /**
-   * Roll a basic die and updates this.results
-   * Reports to Google with the result rolled, and any criticals
-   * @param {num} sides The number of sides
-   * @returns {void}
-   */
-  roll(sides) {
-    let value = this.random(sides);
-    this.results.push({"sides":sides,"result":value});
-
-    //Report to Google Analytics
-    if(typeof gtag=='function') {
-      gtag('event', 'rollStandard', {
-        "event_category":"roll",
-        "event_label":"1d"+sides,
-        'dieSides': sides,
-        'rollResult': value
-      });
-
-      if(sides==20) {
-        if(value==20) {
-          gtag('event', 'naturalTwenty', {
-            "event_category":"critical",
-          });
-        }
-        else if(value==1) {
-          gtag('event', 'naturalOne', {
-            "event_category":"critical",
-          });
-        }
-      }
-    }
-
-    this.updateHistoricalNodes();
-    return value;
-  }
-
-  /**
    * Send this.results to all [_updateHistory] listeners
    * @returns {void}
    */

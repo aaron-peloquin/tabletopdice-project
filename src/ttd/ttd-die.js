@@ -70,15 +70,68 @@ static get template() {
   }
 
   /**
-   * Roll this die, incriment the number of times rolled
    * @returns {void}
    */
   roll() {
-    this.rolled++;
     if (!this.trayElement) {
       return false;
     }
     this.trayElement.roll(this.sides);
+  }
+
+  /**
+   * @param {num} max The maximum value returned. Minimum values are 1.
+   * @returns {num} a Random(y) number
+   */
+  random(max) {
+    /** Utilize seedrandom.js for better random values. */
+    Math.seedrandom();
+    return (Math.random() * max | 0) + 1;
+  }
+
+  /**
+   * Roll this die, incriment the number of times rolled and updates the tray element's results
+   * Reports to Google with the result rolled, and any criticals
+   * Finally, tell the trayElement to do a fullRefresh()
+   * @returns {void}
+   */
+  roll() {
+    if(!this.trayElement) {
+      return;
+    }
+    if(parseInt(this.sides)<1) {
+      console.warn("The rolled die does not have any sides",this);
+      return;
+    }
+    this.rolled++;
+    let value = this.random(this.sides);
+    this.trayElement.results.push({"sides":this.sides,"result":value});
+
+    //Report to Google Analytics
+    if(typeof gtag=='function') {
+      gtag('event', 'rollStandard', {
+        "event_category":"roll",
+        "event_label":"1d"+this.sides,
+        'dieSides': this.sides,
+        'rollResult': value
+      });
+
+      if(this.sides==20) {
+        if(value==20) {
+          gtag('event', 'naturalTwenty', {
+            "event_category":"critical",
+          });
+        }
+        else if(value==1) {
+          gtag('event', 'naturalOne', {
+            "event_category":"critical",
+          });
+        }
+      }
+    }
+
+    this.trayElement.fullRefresh();
+    return value;
   }
 
   /**
