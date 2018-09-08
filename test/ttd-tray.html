@@ -33,15 +33,35 @@
 
     <script type="module">
       suite('<ttd-tray>', function() {
-        test('localStorage test', function() {
-          let tray = fixture('trayElement')
-          tray.key = "_unit_test"
-          tray.storage.conf.hello = "world"
-          tray.dispatchEvent(new CustomEvent('_updateLocalStorage'))
-          let storage = JSON.parse(localStorage.getItem(tray.key))
-          localStorage.removeItem(tray.key)
+        test('dispatch _clearResults event', function() {
+          let trayElement = fixture('trayElement')
+          let spy = sinon.spy(trayElement,'updateHistoricalNodes')
+          trayElement.dispatchEvent(new CustomEvent('_clearResults'));
+          expect(spy).calledOnce
+        })
+
+        test('dispatch _updateLocalStorage event', function() {
+          let trayElement = fixture('trayElement')
+          trayElement.key = Symbol("_unit_test")
+          trayElement.resetLocalStorage()
+          let spy = sinon.spy(trayElement,'saveToLocalStorage')
+          trayElement.dispatchEvent(new CustomEvent('_updateLocalStorage'));
+          localStorage.removeItem(trayElement.key)
+          expect(spy).calledOnce
+        })
+
+        test('this.storage, modifying data', function() {
+          let trayElement = fixture('trayElement')
+          /** Change to a unique value */
+          trayElement.key = Symbol("_unit_test")
+          trayElement.resetLocalStorage()
+          trayElement.loadStorage()
+          trayElement.storage.conf.hello = "world"
+          trayElement.dispatchEvent(new CustomEvent('_updateLocalStorage'))
+          let storage = JSON.parse(localStorage.getItem(trayElement.key))
+          localStorage.removeItem(trayElement.key)
           assert.equal(storage.conf.hello,"world")
-        });
+        })
       });
     </script>
   </body>
