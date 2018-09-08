@@ -51,11 +51,11 @@ class TtdTray extends PolymerElement {
         type: Number,
         value: 0,
       },
-      standardPolyhedrons: {
-        type: Array,
-        reflectToAttribute: true,
-        value: function() { return [4,6,8,10,12,20]; }
-      },
+      // standardPolyhedrons: {
+      //   type: Array,
+      //   reflectToAttribute: true,
+      //   value: function() { return [4,6,8,10,12,20]; }
+      // },
       storage: {
         type: Object,
         value: function() { return {}; },
@@ -85,11 +85,10 @@ class TtdTray extends PolymerElement {
     });
 
     /** If localStorage for this.key does not exist, create it. */
-    if(!localStorage.getItem(this.key)) {
+    if(!this.getStorage()) {
       this.resetLocalStorage();
     };
-    /** Load localStorage */
-    this.storage = JSON.parse(localStorage.getItem(this.key));
+    this.loadStorage()
 
     /** If localStorage is corrupt, reset it */
     if(typeof this.storage!='object') {this.resetLocalStorage();}
@@ -117,6 +116,27 @@ class TtdTray extends PolymerElement {
     localStorage.setItem(this.key, JSON.stringify(newStorage));
   }
 
+  /**
+   * @returns the local storage value object for this.key
+   */
+  getStorage() {
+    return  JSON.parse(localStorage.getItem(this.key));
+  }
+
+  /**
+   * Sets this.storage to localStorage using this.key.
+   */
+  setStorage() {
+    localStorage.setItem(this.key,JSON.stringify(this.storage));
+  }
+
+  /**
+   * Loads localStorage for this.key into this.storage
+   * @returns {void}
+   */
+  loadStorage() {
+    this.storage = this.getStorage();
+  }
 
   /**
    * Attempt to safely write to localStorage,
@@ -124,15 +144,15 @@ class TtdTray extends PolymerElement {
    */
   saveToLocalStorage() {
     try {
-      localStorage.setItem(this.key,JSON.stringify(this.storage));
-      let check = JSON.parse(localStorage.getItem(this.key));
+      this.setStorage();
+      let check = this.getStorage()
       if(typeof check !='object') {
         throw 'Unable to check JSON for localdata save';
       }
     }
     catch(e) {
       this.resetLocalStorage();
-      localStorage.setItem(this.key,JSON.stringify(this.storage));
+      this.setStorage();
     }
   }
 }
