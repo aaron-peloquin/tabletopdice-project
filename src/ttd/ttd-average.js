@@ -96,7 +96,7 @@ class TtdAverage extends TtdChildHelper {
     let dieSides = this.die;
 
     /** Get an array of the new result values, limited to only the dieSides */
-    let newResults = e.detail.data.map(r=>{return r.result});
+    let newResults = e.detail.data.map(r=>r.result);
 
     if(newResults.length<1) {
       return;
@@ -110,7 +110,7 @@ class TtdAverage extends TtdChildHelper {
    * @param {array} arr An array of numbers
    */
   getAverage(arr) {
-    return arr.reduce((a,b) => a + b, 0) / arr.length;
+    return arr.reduce((a,b)=>a+b, 0) / arr.length;
   } 
 
 

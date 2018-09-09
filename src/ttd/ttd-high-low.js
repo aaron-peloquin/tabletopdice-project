@@ -133,8 +133,8 @@ class TtdHighLow extends TtdChildHelper {
 
     /** Get an array of the new result values, limited to only the dieSides */
     let newResults = e.detail.data
-      .filter((r)=>{ return r.sides==dieSides; })
-      .map(r=>{return r.result});
+      .filter(r=>r.sides==dieSides)
+      .map(r=>r.result);
 
     if(newResults.length<1) {
       return;
