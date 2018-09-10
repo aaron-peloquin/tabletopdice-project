@@ -14,8 +14,8 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
       /** Standard ttd element CSS */
       :host {
         flex-wrap: nowrap;
-        text-align: center;
         height:100%;
+        text-align: center;
         width: 100%;
       }
 
@@ -45,12 +45,12 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
       }
 
       .readout-text {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        font-size: 1rem;
-        text-decoration: underline;
         color: #eee;
+        font-size: 1rem;
+        left: 5px;
+        position: absolute;
+        text-decoration: underline;
+        top: 5px;
       }
       .button {
         background-color: var(--ttd-button-background-color);

@@ -25,14 +25,14 @@ class AppViewHome extends PolymerElement {
         }
 
         .center-image{
-          width: 100%;
           text-align: center;
+          width: 100%;
         }
 
         img.logo {
+          padding: 15px;
           transform: rotate( -600deg );            
           transition: transform 250ms linear;         /* Gives the feeling of "resetting" the die */
-          padding: 15px;
         }
 
         img.logo:hover {
@@ -46,21 +46,21 @@ class AppViewHome extends PolymerElement {
         }
 
         .start-rolling{
-          text-align: center;
-          padding: 0;
-          border-radius: 15px;
           background-color: var(--app-card-background);
+          border-radius: 15px;
           box-shadow: 2px 2px 2px 2px #eeeeee;
+          padding: 0;
+          text-align: center;
         }
         
         .start-rolling a{
           color: #FFF;
+          display: block;
           font-size: 2rem;
+          height: 100%;
           text-align: center;
           text-decoration: none;
-          height: 100%;
           width: 100%;
-          display: block;
         }
 
         .button {

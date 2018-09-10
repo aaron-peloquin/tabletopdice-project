@@ -33,19 +33,17 @@ class MyApp extends PolymerElement {
     return html`
       <style>
         :host {
-          --app-font-family: "Cinzel", "Georgia", serif;  /* App font family */
-          --app-font-weight: Bolder;                      /* App font weight */
-
-          /* Color variables */
-          --app-primary-color: #33472f;                   /* App Heading Color */
-          --app-secondary-color: black;                   /* App Font Color */
           --app-card-background: #33472f;                 /* Card Background */
           --app-copybox-background: #bbcca8;              /* TTD child element background color (default) */
+          --app-font-family: "Cinzel", "Georgia", serif;  /* App font family */
+          --app-font-weight: Bolder;                      /* App font weight */
+          --app-primary-color: #33472f;                   /* App Heading Color */
+          --app-secondary-color: black;                   /* App Font Color */
+
+          display: block;
   
           font-family: var(--app-font-family);
           font-weight: var(--app-font-weight);
-
-          display: block;
         }
 
         app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -53,8 +51,8 @@ class MyApp extends PolymerElement {
         }
 
         app-header {
-          color: #fff;
           background-color: var(--app-primary-color);
+          color: #fff;
         }
 
         app-header paper-icon-button {
@@ -70,11 +68,11 @@ class MyApp extends PolymerElement {
         }
 
         .drawer-list a {
+          color: var(--app-secondary-color);
           display: block;
+          line-height: 40px;
           padding: 0 16px;
           text-decoration: none;
-          color: var(--app-secondary-color);
-          line-height: 40px;
         }
 
         .drawer-list a.iron-selected {

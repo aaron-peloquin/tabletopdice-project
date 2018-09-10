@@ -19,18 +19,17 @@ class AppMonetizer extends PolymerElement {
     return html`
       <style>
         :host {
-          padding-top: 10px;
-          text-align: center;
-          display: none;      /*table;*/
+          display: none;
           height: 100%;
+          padding: 10px 0 0 0;
+          text-align: center;
           width: 100%;
-          padding: 0px;
         }
         div{
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-            background-color: lightgrey;
+          background-color: lightgrey;
+          display: table-cell;
+          text-align: center;
+          vertical-align: middle;
         }
       </style>
       <!-- div on-click="track"><slot>&#123; Ad Placeholder &#125;</slot></div -->
