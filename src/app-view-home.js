@@ -57,7 +57,6 @@ class AppViewHome extends PolymerElement {
           color: #FFF;
           display: block;
           font-size: 2rem;
-          height: 100%;
           text-align: center;
           text-decoration: none;
           width: 100%;

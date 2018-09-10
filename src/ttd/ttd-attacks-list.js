@@ -26,7 +26,6 @@ class TtdAttacksList extends TtdChildHelper {
       :host {
         flex-wrap: nowrap;
         text-align: center;
-        height:100%;
         width: 100%;
       }
 

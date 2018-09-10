@@ -25,7 +25,6 @@ class TtdCustom extends TtdChildHelper {
           flex-wrap: nowrap;
           text-align: center;
           display: table;
-          height:100%;
           width: 100%;
         }
 
@@ -35,7 +34,6 @@ class TtdCustom extends TtdChildHelper {
         }
 
         div{
-          height: 100%;
           width: 100%;
           display: inline-grid;
           align-items: center;

@@ -14,7 +14,6 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
       /** Standard ttd element CSS */
       :host {
         flex-wrap: nowrap;
-        height:100%;
         text-align: center;
         width: 100%;
       }

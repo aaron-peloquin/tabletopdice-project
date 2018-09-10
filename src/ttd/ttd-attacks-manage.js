@@ -28,7 +28,6 @@ class TtdAttacksManage extends TtdEquationHelper {
       <style include="ttd-styles">
         :host {
           flex-wrap: nowrap;
-          height:100%;
           text-align: center;
           width:100%;
         }
@@ -49,17 +48,6 @@ class TtdAttacksManage extends TtdEquationHelper {
 
         form > *{
           height: 100%;
-        }
-
-        div{
-          height: 100%;
-          width: 100%;
-          display: inline-grid;
-          align-items: center;
-        }
-
-        div > *{
-          grid-row: 1;
         }
 
         input{
