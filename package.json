@@ -23,7 +23,9 @@
     "@polymer/lit-element": "^0.5.2",
     "@polymer/paper-icon-button": "^3.0.0-pre.15",
     "@polymer/polymer": "^3.0.0",
+    "@webcomponents/shadycss": "^1.5.0",
     "@webcomponents/webcomponentsjs": "^2.1.1",
+    "growl": "^1.10.5",
     "seedrandom": "^2.4.4"
   },
   "devDependencies": {
