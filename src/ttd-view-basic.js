@@ -30,8 +30,6 @@ class TtdViewBasic extends PolymerElement {
       <style include="shared-styles">
       /* [Responsive] Tiny Styles */
       ttd-tray{
-        grid-template-columns: 1fr 1fr;
-
         grid-template-areas:
           "history history"
           "total__ total__"
@@ -40,19 +38,19 @@ class TtdViewBasic extends PolymerElement {
           "die___8 die__10"
           "die__12 die__20"
           "custom_ custrol";
+        grid-template-columns: 1fr 1fr;
       }
 
       /* [Responsive] Small Styles */
       @media (min-width: 350px) {
         ttd-tray{
-          grid-template-columns: 1fr 1fr 1fr;
-
           grid-template-areas:
             "history history history"
             "total__ total__ clear__"
             "die___4 die___6 die___8"
             "die__10 die__12 die__20"
             "custom_ custom_ custrol";
+          grid-template-columns: 1fr 1fr 1fr;
         }
       }
 
@@ -66,7 +64,7 @@ class TtdViewBasic extends PolymerElement {
       /** [Responsive] Large Styles */
       @media screen and (min-width: 1200px) {
         :host{
-           font-size: 32px;
+          font-size: 32px;
         }
       }
 

@@ -27,26 +27,24 @@ class TtdViewQuick extends PolymerElement {
       <style include="shared-styles">
       /* [Responsive] Tiny Styles */
       ttd-tray{
-        grid-template-columns: 1fr 1fr;
-
         grid-template-areas:
           "history history"
           "clear__ clear__"
           "die___4 die___6"
           "die___8 die__10"
           "die__12 die__20";
+        grid-template-columns: 1fr 1fr;
       }
 
       /* [Responsive] Small Styles */
       @media (min-width: 350px) {
         ttd-tray{
-          grid-template-columns: 1fr 1fr 1fr;
-
           grid-template-areas:
             "history history history"
             "clear__ clear__ clear__"
             "die___4 die___6 die___8"
             "die__10 die__12 die__20";
+          grid-template-columns: 1fr 1fr 1fr;
         }
       }
 
@@ -58,9 +56,9 @@ class TtdViewQuick extends PolymerElement {
 
         ttd-tray{
           grid-template-areas:
-          "history history history history"
-          "die___4 die___6 die___8 clear__"
-          "die__10 die__12 die__20 clear__";
+            "history history history history"
+            "die___4 die___6 die___8 clear__"
+            "die__10 die__12 die__20 clear__";
         }
       }
 

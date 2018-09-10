@@ -31,8 +31,6 @@ class TtdViewAdvanced extends PolymerElement {
       <style include="shared-styles">
         /* [Responsive] Tiny Styles */
         ttd-tray{
-          grid-template-columns: 1fr 1fr;
-
           grid-template-areas:
             "history history"
             "die___4 die___6"
@@ -43,13 +41,12 @@ class TtdViewAdvanced extends PolymerElement {
             "highLow clear__"
             "equat_m equat_m"
             "equat_o equat_o";
+          grid-template-columns: 1fr 1fr;
         }
 
         /* [Responsive] Small Styles */
         @media (min-width: 350px) {
           ttd-tray{
-            grid-template-columns: 1fr 1fr 1fr;
-
             grid-template-areas:
               "history history history"
               "highLow total__ total__"
@@ -58,6 +55,7 @@ class TtdViewAdvanced extends PolymerElement {
               "die__10 die__12 die__20"
               "equat_m equat_m equat_m"
               "equat_o equat_o equat_o";
+            grid-template-columns: 1fr 1fr 1fr;
           }
         }
 
@@ -67,7 +65,6 @@ class TtdViewAdvanced extends PolymerElement {
             font-size: 2rem;
           }
           ttd-tray{
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
             grid-template-areas:
               "history history history history history history highLow"
               "history history history history history history highLow"
@@ -75,7 +72,8 @@ class TtdViewAdvanced extends PolymerElement {
               "die__10 die__12 die__20 total__ total__ average clear__"
               "equat_m equat_m equat_m equat_m equat_m equat_m equat_m"
               "equat_o equat_o equat_o equat_o equat_o equat_o equat_o";
-            }
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+          }
         }
 
         /** [Responsive] Large Styles */
@@ -89,9 +87,9 @@ class TtdViewAdvanced extends PolymerElement {
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
           ttd-high-low,
           ttd-clear{
-            width: 100%;
             float:left;
             padding: 0;
+            width: 100%;
           }
         }
 
