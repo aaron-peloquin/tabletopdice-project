@@ -78,6 +78,7 @@ $_documentContainer.innerHTML = `<dom-module id="ttd-styles">
       }
 
       img {
+        /* Text selection */
         -webkit-touch-callout: none; /* iOS Safari */
         -webkit-user-select: none; /* Safari */
         -khtml-user-select: none; /* Konqueror HTML */
