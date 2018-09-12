@@ -25,19 +25,20 @@ class TtdAttack extends TtdEquationHelper {
     return html`
       <style include="ttd-styles">
         :host {
-          flex-wrap: nowrap;
-          text-align: center;
-          width: 100%;
-
           display: grid;
-          grid-template-rows: 1fr 1fr 1fr 1fr;
-          grid-template-columns: 1fr;
+          flex-wrap: nowrap;
+
           grid-gap: 1rem;
           grid-template-areas:
             "atk_label_"
             "action_bts"
             "hit_result"
             "dmg_result";
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr 1fr 1fr;
+
+          text-align: center;
+          width: 100%;
         }
 
         .attack-label   { grid-area: atk_label_; }
@@ -46,14 +47,14 @@ class TtdAttack extends TtdEquationHelper {
         .action-buttons { grid-area: action_bts; }
 
         .attack-label{
-          color: var(--ttd-heading-color);
           background-color: var(--ttd-heading-background-color);
+          color: var(--ttd-heading-color);
         }
 
         .action-buttons {
           display: grid;
-          grid-template-columns: 1fr 1fr 3fr;
           grid-gap: 1rem;
+          grid-template-columns: 1fr 1fr 3fr;
         }
 
 
@@ -64,11 +65,11 @@ class TtdAttack extends TtdEquationHelper {
         /* [Responsive] Medium Styles */
         @media (min-width: 900px) {
           :host{
-            grid-template-rows: 1fr 1fr;
-            grid-template-columns: 1fr 1fr;
             grid-template-areas:
-            "atk_label_ hit_result"
-            "action_bts dmg_result";
+              "atk_label_ hit_result"
+              "action_bts dmg_result";
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
           }
         }
 

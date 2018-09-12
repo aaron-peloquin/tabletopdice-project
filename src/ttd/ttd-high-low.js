@@ -21,9 +21,10 @@ class TtdHighLow extends TtdChildHelper {
     return html`
       <style include="ttd-styles">
       :host{
-          text-align: center;
           font-size: smaller;
+          text-align: center;
 
+          /* Text selection */
           -webkit-touch-callout: text; /* iOS Safari */
           -webkit-user-select: text; /* Safari */
           -khtml-user-select: text; /* Konqueror HTML */
@@ -39,8 +40,8 @@ class TtdHighLow extends TtdChildHelper {
 
         span.result,
         img{
-          justify-self: center;
           align-self: center;
+          justify-self: center;
         }
 
         img{

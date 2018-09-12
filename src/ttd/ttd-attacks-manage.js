@@ -33,17 +33,17 @@ class TtdAttacksManage extends TtdEquationHelper {
         }
 
         form{
+          align-items: center;
           display: grid;
           grid-gap: 0.75rem;
-          grid-template-columns: 1fr;
-          grid-template-rows: 1fr 1fr;
           grid-template-areas:
             "label_"
             "type__"
             "hit___"
             "damage"
             "submit";
-          align-items: center;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
         }
 
         form > *{
@@ -51,25 +51,25 @@ class TtdAttacksManage extends TtdEquationHelper {
         }
 
         input{
-          height: 100%;
-          width: 100%;
-          margin-right: -1px;
-          font-size: inherit;
-          border: 0;
-          padding-left: 10px;
-          min-width: 0;
-          font-family: var(--app-font-family);
-          font-weight: var(--app-font-weight);
           background-color: var(--ttd-clean-background-color);
+          border: 0;
           color: var(--ttd-clean-color);
+          font-family: var(--app-font-family);
+          font-size: inherit;
+          font-weight: var(--app-font-weight);
+          height: 100%;
+          margin-right: -1px;
+          min-width: 0;
+          padding-left: 10px;
+          width: 100%;
         }
         input:focus{
           outline: none;
         }
 
         button {
-          font-size: inherit;
           font-family: inherit;
+          font-size: inherit;
           font-weight: bold;
         }
         .hit    { grid-area: hit___; }
@@ -81,12 +81,12 @@ class TtdAttacksManage extends TtdEquationHelper {
         /* [Responsive] Medium Styles */
         @media (min-width: 900px) {
           form{
-            grid-template-rows: 1fr 1fr;
-            grid-template-columns: 1fr 1fr;
             grid-template-areas:
-            "label_ type__"
-            "hit___ damage "
-            "submit submit";
+              "label_ type__"
+              "hit___ damage "
+              "submit submit";
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
           }
           select{
             border-left: 1px solid;

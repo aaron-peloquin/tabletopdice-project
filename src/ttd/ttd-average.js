@@ -21,10 +21,11 @@ class TtdAverage extends TtdChildHelper {
     return html`
       <style include="ttd-styles">
       :host{
-          text-align: center;
           font-size: smaller;
           position: relative;
+          text-align: center;
 
+          /* Text selection */
           -webkit-touch-callout: text; /* iOS Safari */
           -webkit-user-select: text; /* Safari */
           -khtml-user-select: text; /* Konqueror HTML */
@@ -34,9 +35,9 @@ class TtdAverage extends TtdChildHelper {
         }
 
         .results-wrapper {
-          height: 100%;
           align-items: center;
           display: grid;
+          height: 100%;
         }
 
         .average {

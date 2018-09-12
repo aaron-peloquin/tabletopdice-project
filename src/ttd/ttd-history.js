@@ -24,29 +24,30 @@ class TtdHistory extends TtdChildHelper {
       <style include="ttd-styles">
       :host{
           display: block;
-          -ms-overflow-style: -ms-autohiding-scrollbar;
-          overflow-x: scroll;
 
+          /* Text selection */
           -webkit-touch-callout: text; /* iOS Safari */
           -webkit-user-select: text; /* Safari */
           -khtml-user-select: text; /* Konqueror HTML */
           -moz-user-select: text; /* Firefox */
           -ms-user-select: text; /* Internet Explorer/Edge */
           user-select: text; /* Non-prefixed version, currently supported by Chrome and Opera */
+
+          -ms-overflow-style: -ms-autohiding-scrollbar;
+          overflow-x: scroll;
         }
         :host::-webkit-scrollbar {
           display: none;
         }
 
         ol {
-          margin: 0 10px;
-          padding: 0;
-          height: 100%;
-          min-height: 130px;
-
           display: grid;
           grid-gap: 10px;
           grid-template-columns: repeat(auto-fill, 90px);
+          height: 100%;
+          margin: 0 10px;
+          min-height: 130px;
+          padding: 0;
 
           /* horizontal scrollbar functionality */
           -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -68,41 +69,45 @@ class TtdHistory extends TtdChildHelper {
         }
 
         ol > li {
-          display: inline-grid;
-          border-radius: 10px;
           align-items: center;
-          padding: 2px;
           align-self: center;
-          justify-self: center;
-          grid-row: 1;
           background-color: var(--ttd-special-background-color);
+          border-radius: 10px;
           color: #ddd;
+          display: inline-grid;
+          grid-row: 1;
+          justify-self: center;
           min-width: 90px;
+          padding: 2px;
         }
 
         li > *{
-          grid-row: 1;
           grid-column: 1;
+          grid-row: 1;
         }
 
         li > img{
           vertical-align: middle;
+          margin: 0 auto;
+
+          /* Text selection */
+          -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+          -khtml-user-select: none; /* Konqueror HTML */
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+
+          /* Image filtering */
           -webkit-filter: invert(90%);
           -filter: invert(90%);
-          margin: 0 auto;
-          -webkit-user-select: none;
-          -khtml-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          -o-user-select: none;
-          user-select: none;
         }
 
         li > span{
-          position: relative;
-          z-index: 20; /* naturally */
           font-weight: bold;
+          position: relative;
           text-align: center;
+          z-index: 20; /* naturally */
         }
 
         @keyframes jitters {

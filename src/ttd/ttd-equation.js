@@ -24,18 +24,19 @@ class TtdEquation extends TtdEquationHelper {
     return html`
       <style include="ttd-styles">
         :host {
-          height:100%;
-          width:100%;
-          flex-wrap: nowrap;
-          text-align: center;
-
+          align-items: center;
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-template-rows: 1fr 1fr;
+          flex-wrap: nowrap;
+
           grid-template-areas:
             "string__ string__ roll____"
             "result__ result__ roll____";
-          align-items: center;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+  
+          height:100%;
+          text-align: center;
+          width:100%;
         }
 
         form{
@@ -49,10 +50,10 @@ class TtdEquation extends TtdEquationHelper {
         }
 
         div{
+          align-items: center;
+          display: inline-grid;
           height: 100%;
           width: 100%;
-          display: inline-grid;
-          align-items: center;
         }
 
         div > *{
@@ -60,17 +61,20 @@ class TtdEquation extends TtdEquationHelper {
         }
 
         input{
-          height: 100%;
-          width: 100%;
-          margin-right: -1px;
-          font-size: inherit;
-          border: 0;
-          min-width: 0;
-          font-family: var(--app-font-family);
-          font-weight: var(--app-font-weight);
           background-color: var(--ttd-clean-background-color);
+          border: 0;
           color: var(--ttd-clean-color);
+
+          font-family: var(--app-font-family);
+          font-size: inherit;
+          font-weight: var(--app-font-weight);
+
+          height: 100%;
+          margin-right: -1px;
+          min-width: 0;
+          width: 100%;
         }
+
         input:focus{
           outline: none;
         }
@@ -86,11 +90,14 @@ class TtdEquation extends TtdEquationHelper {
 
         select{
           border: 0;
+
           font-family: inherit;
           font-size: inherit;
           font-weight: inherit;
+
           grid-column: 1;
           grid-row: 1;
+
           height: 100%;
           margin-right: -1px;
           min-width: 0;
@@ -98,17 +105,17 @@ class TtdEquation extends TtdEquationHelper {
         }
 
         span{
-          padding: .25em;
           display: table-cell;
+          padding: .25em;
           vertical-align: middle;
         }
 
         /* [Responsive] Medium Styles */
         @media (min-width: 600px) {
           :host{
-            grid-template-rows: 1fr;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             grid-template-areas: "string__ string__ string__ result__ roll____";
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
           }
           select{
             border-left: 1px solid;

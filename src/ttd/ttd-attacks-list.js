@@ -35,8 +35,8 @@ class TtdAttacksList extends TtdChildHelper {
       }
 
       li {
-        margin-bottom: 2rem;
         border-radius: 15px;
+        margin-bottom: 2rem;
       }
 
     </style>

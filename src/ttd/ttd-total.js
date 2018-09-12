@@ -22,38 +22,38 @@ class TtdTotal extends TtdChildHelper {
     return html`
       <style include="ttd-styles">
         :host {
-          text-align: center;
-          display: table;
+          align-items: center;
+          display: grid;
+          grid-gap: 5px;
+          grid-template-columns: 1fr;
           height:100%;
+          text-align: center;
           width: 100%;
 
+
+          /* Text selection */
           -webkit-touch-callout: text; /* iOS Safari */
           -webkit-user-select: text; /* Safari */
           -khtml-user-select: text; /* Konqueror HTML */
           -moz-user-select: text; /* Firefox */
           -ms-user-select: text; /* Internet Explorer/Edge */
           user-select: text; /* Non-prefixed version, currently supported by Chrome and Opera */
-
-          display: grid;
-          grid-gap: 5px;
-          grid-template-columns: 1fr;
-          align-items: center;
         }
 
         .results-text {
+          align-items: center;
           display: grid;
+          height: 100%;
           overflow: hidden;
           position: relative;
-          height: 100%;
-          align-items: center;
         }
 
         select {
           border: 0;
           display: table-cell;
+          font-family: inherit;
           font-size: inherit;
           font-weight: inherit;
-          font-family: inherit;
           height: 100%;
         }
 

@@ -22,9 +22,9 @@ class TtdCustom extends TtdChildHelper {
     return html`
       <style>
         :host {
+          display: table;
           flex-wrap: nowrap;
           text-align: center;
-          display: table;
           width: 100%;
         }
 
@@ -34,9 +34,9 @@ class TtdCustom extends TtdChildHelper {
         }
 
         div{
-          width: 100%;
-          display: inline-grid;
           align-items: center;
+          display: inline-grid;
+          width: 100%;
         }
 
         div > *{
@@ -44,16 +44,16 @@ class TtdCustom extends TtdChildHelper {
         }
 
         input{
-          height: 100%;
-          width: 100%;
-          margin-right: -1px;
-          font-size: inherit;
-          border: 0;
-          min-width: 0;
-          font-family: var(--app-font-family);
-          font-weight: var(--app-font-weight);
           background-color: var(--ttd-clean-background-color);
+          border: 0;
           color: var(--ttd-clean-color);
+          font-family: var(--app-font-family);
+          font-size: inherit;
+          font-weight: var(--app-font-weight);
+          height: 100%;
+          margin-right: -1px;
+          min-width: 0;
+          width: 100%;
         }
 
         input:focus{
@@ -61,8 +61,8 @@ class TtdCustom extends TtdChildHelper {
         }
 
         span{
-          padding: .25em;
           display: table-cell;
+          padding: .25em;
           vertical-align: middle;
         }
 
@@ -75,8 +75,8 @@ class TtdCustom extends TtdChildHelper {
             padding: 0;
           }
           :host{
-            width: 50%;
             display: inline-block;
+            width: 50%;
           }
         }
   

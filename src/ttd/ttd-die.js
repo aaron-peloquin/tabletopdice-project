@@ -21,9 +21,9 @@ static get template() {
     return html`
       <style>
         :host{
-          text-align: center;
           display: table;
           height: 100%;
+          text-align: center;
           width: 100%;
         }
         div{
