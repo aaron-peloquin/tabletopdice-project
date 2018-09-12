@@ -70,16 +70,6 @@ static get template() {
   }
 
   /**
-   * @returns {void}
-   */
-  roll() {
-    if (!this.trayElement) {
-      return false;
-    }
-    this.trayElement.roll(this.sides);
-  }
-
-  /**
    * @param {num} max The maximum value returned. Minimum values are 1.
    * @returns {num} a Random(y) number
    */
