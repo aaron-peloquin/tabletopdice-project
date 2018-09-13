@@ -21,7 +21,6 @@ class AppViewHome extends PolymerElement {
     return html`
       <style include="shared-styles">
         :host {
-          display: grid;
         }
 
         .center-image{
@@ -49,8 +48,10 @@ class AppViewHome extends PolymerElement {
           background-color: var(--app-card-background);
           border-radius: 15px;
           box-shadow: 2px 2px 2px 2px #eeeeee;
-          padding: 0;
+          margin: 10px auto;
+          padding: 5px;
           text-align: center;
+          width: 90%;
         }
         
         .start-rolling a{
@@ -62,19 +63,13 @@ class AppViewHome extends PolymerElement {
           width: 100%;
         }
 
-        .button {
-          margin: 10px auto;
-          padding: 5px;
-          width: 90%;
-        }
-
         .link-card .last-link {
           margin-bottom: 35px;
         }
         
         /** [Responsive] Large Styles */
         @media screen and (min-width: 800) {
-          .button{
+          .start-rolling{
             width: 30vw;
           }
         }
