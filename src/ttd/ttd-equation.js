@@ -22,119 +22,125 @@ import {TtdEquationHelper} from './-ttd-equationHelper.js';
 class TtdEquation extends TtdEquationHelper {
   static get template() {
     return html`
-      <style include="ttd-styles">
-        :host {
-          height:100%;
-          width:100%;
-          flex-wrap: nowrap;
-          text-align: center;
+    :host {
+      align-items: center;
+      display: grid;
+      flex-wrap: nowrap;
 
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-template-rows: 1fr 1fr;
-          grid-template-areas:
-            "string__ string__ roll____"
-            "result__ result__ roll____";
-          align-items: center;
-        }
+      grid-template-areas:
+        "string__ string__ roll____"
+        "result__ result__ roll____";
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
 
-        form{
-          display: inline-grid;
-          height: 100%;
-        }
+      height:100%;
+      text-align: center;
+      width:100%;
+    }
 
-        form > *{
-          grid-column: 1;
-          height: 100%;
-        }
+    form{
+      display: inline-grid;
+      height: 100%;
+    }
 
-        div{
-          height: 100%;
-          width: 100%;
-          display: inline-grid;
-          align-items: center;
-        }
+    form > *{
+      grid-column: 1;
+      height: 100%;
+    }
 
-        div > *{
-          grid-row: 1;
-        }
+    div{
+      align-items: center;
+      display: inline-grid;
+      height: 100%;
+      width: 100%;
+    }
 
-        input{
-          height: 100%;
-          width: 100%;
-          margin-right: -1px;
-          font-size: inherit;
-          border: 0;
-          min-width: 0;
-          font-family: var(--app-font-family);
-          font-weight: var(--app-font-weight);
-          background-color: var(--ttd-clean-background-color);
-          color: var(--ttd-clean-color);
-        }
-        input:focus{
-          outline: none;
-        }
+    div > *{
+      grid-row: 1;
+    }
 
-        form        { grid-area: string__; }
-        .result     { grid-area: result__; }
-        .roll       { grid-area: roll____; }
+    input{
+      background-color: var(--ttd-clean-background-color);
+      border: 0;
+      color: var(--ttd-clean-color);
 
-        .roll {
-          border-radius: 5px;
-          margin: 3px;
-        }
+      font-family: var(--app-font-family);
+      font-size: inherit;
+      font-weight: var(--app-font-weight);
 
-        select{
-          border: 0;
-          font-family: inherit;
-          font-size: inherit;
-          font-weight: inherit;
-          grid-column: 1;
-          grid-row: 1;
-          height: 100%;
-          margin-right: -1px;
-          min-width: 0;
-          width: 100%;
-        }
+      height: 100%;
+      margin-right: -1px;
+      min-width: 0;
+      width: 100%;
+    }
 
-        span{
-          padding: .25em;
-          display: table-cell;
-          vertical-align: middle;
-        }
+    input:focus{
+      outline: none;
+    }
 
-        /* [Responsive] Medium Styles */
-        @media (min-width: 600px) {
-          :host{
-            grid-template-rows: 1fr;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            grid-template-areas: "string__ string__ string__ result__ roll____";
-          }
-          select{
-            border-left: 1px solid;
-          }
-        }
+    form        { grid-area: string__; }
+    .result     { grid-area: result__; }
+    .roll       { grid-area: roll____; }
 
-        /* IE10+ CSS styles go here */
-        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-          :host {
-            display: flex;
-          }
-        }
+    .roll {
+      border-radius: 5px;
+      margin: 3px;
+    }
 
-        </style>
-        <form>
-          <div>
-            <input
-              aria-label="Dice command string (example: 1d8+3+(2d20*0)). Note: The maximum dice to roll is 999d999"
-              title="Max: 999d999"
-              placeholder="{{placeholder}}"
-              value="{{customString::input}}" />
-          </div>
-        </form>
-        <span class="result" aria-live="polite">{{result}}</span>
-        <span class="roll button animate-shake" on-click="roll" role="button"><slot>Roll</slot></span>
-      </form>
+    select{
+      border: 0;
+
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+
+      grid-column: 1;
+      grid-row: 1;
+
+      height: 100%;
+      margin-right: -1px;
+      min-width: 0;
+      width: 100%;
+    }
+
+    span{
+      display: table-cell;
+      padding: .25em;
+      vertical-align: middle;
+    }
+
+    /* [Responsive] Medium Styles */
+    @media (min-width: 600px) {
+      :host{
+        grid-template-areas: "string__ string__ string__ result__ roll____";
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+      }
+      select{
+        border-left: 1px solid;
+      }
+    }
+
+    /* IE10+ CSS styles go here */
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      :host {
+        display: flex;
+      }
+    }
+
+    </style>
+    <form>
+      <div>
+        <input
+          aria-label="Dice command string (example: 1d8+3+(2d20*0)). Note: The maximum dice to roll is 999d999"
+          title="Max: 999d999"
+          placeholder="{{placeholder}}"
+          value="{{customString::input}}" />
+      </div>
+    </form>
+    <span class="result" aria-live="polite">{{result}}</span>
+    <span class="roll button animate-shake" on-click="roll" role="button"><slot>Roll</slot></span>
+  </form>
       `;
   }
 
