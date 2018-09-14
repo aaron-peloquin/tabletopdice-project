@@ -22,112 +22,112 @@ import {TtdEquationHelper} from './-ttd-equationHelper.js';
 class TtdEquation extends TtdEquationHelper {
   static get template() {
     return html`
-    :host {
-      align-items: center;
-      display: grid;
-      flex-wrap: nowrap;
-
-      grid-template-areas:
-        "string__ string__ roll____"
-        "result__ result__ roll____";
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-
-      height:100%;
-      text-align: center;
-      width:100%;
-    }
-
-    form{
-      display: inline-grid;
-      height: 100%;
-    }
-
-    form > *{
-      grid-column: 1;
-      height: 100%;
-    }
-
-    div{
-      align-items: center;
-      display: inline-grid;
-      height: 100%;
-      width: 100%;
-    }
-
-    div > *{
-      grid-row: 1;
-    }
-
-    input{
-      background-color: var(--ttd-clean-background-color);
-      border: 0;
-      color: var(--ttd-clean-color);
-
-      font-family: var(--app-font-family);
-      font-size: inherit;
-      font-weight: var(--app-font-weight);
-
-      height: 100%;
-      margin-right: -1px;
-      min-width: 0;
-      width: 100%;
-    }
-
-    input:focus{
-      outline: none;
-    }
-
-    form        { grid-area: string__; }
-    .result     { grid-area: result__; }
-    .roll       { grid-area: roll____; }
-
-    .roll {
-      border-radius: 5px;
-      margin: 3px;
-    }
-
-    select{
-      border: 0;
-
-      font-family: inherit;
-      font-size: inherit;
-      font-weight: inherit;
-
-      grid-column: 1;
-      grid-row: 1;
-
-      height: 100%;
-      margin-right: -1px;
-      min-width: 0;
-      width: 100%;
-    }
-
-    span{
-      display: table-cell;
-      padding: .25em;
-      vertical-align: middle;
-    }
-
-    /* [Responsive] Medium Styles */
-    @media (min-width: 600px) {
-      :host{
-        grid-template-areas: "string__ string__ string__ result__ roll____";
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
-      }
-      select{
-        border-left: 1px solid;
-      }
-    }
-
-    /* IE10+ CSS styles go here */
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    <style include="shared-styles">
       :host {
-        display: flex;
-      }
-    }
+        align-items: center;
+        display: grid;
+        flex-wrap: nowrap;
 
+        grid-template-areas:
+          "string__ string__ roll____"
+          "result__ result__ roll____";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+
+        height:100%;
+        text-align: center;
+        width:100%;
+      }
+
+      form{
+        display: inline-grid;
+        height: 100%;
+      }
+
+      form > *{
+        grid-column: 1;
+        height: 100%;
+      }
+
+      div{
+        align-items: center;
+        display: inline-grid;
+        height: 100%;
+        width: 100%;
+      }
+
+      div > *{
+        grid-row: 1;
+      }
+
+      input{
+        background-color: var(--ttd-clean-background-color);
+        border: 0;
+        color: var(--ttd-clean-color);
+
+        font-family: var(--app-font-family);
+        font-size: inherit;
+        font-weight: var(--app-font-weight);
+
+        height: 100%;
+        margin-right: -1px;
+        min-width: 0;
+        width: 100%;
+      }
+
+      input:focus{
+        outline: none;
+      }
+
+      form        { grid-area: string__; }
+      .result     { grid-area: result__; }
+      .roll       { grid-area: roll____; }
+
+      .roll {
+        border-radius: 5px;
+        margin: 3px;
+      }
+
+      select{
+        border: 0;
+
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+
+        grid-column: 1;
+        grid-row: 1;
+
+        height: 100%;
+        margin-right: -1px;
+        min-width: 0;
+        width: 100%;
+      }
+
+      span{
+        display: table-cell;
+        padding: .25em;
+        vertical-align: middle;
+      }
+
+      /* [Responsive] Medium Styles */
+      @media (min-width: 600px) {
+        :host{
+          grid-template-areas: "string__ string__ string__ result__ roll____";
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+          grid-template-rows: 1fr;
+        }
+        select{
+          border-left: 1px solid;
+        }
+      }
+
+      /* IE10+ CSS styles go here */
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        :host {
+          display: flex;
+        }
+      }
     </style>
     <form>
       <div>
