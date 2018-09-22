@@ -32,7 +32,12 @@ class TtdTray extends PolymerElement {
           user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
         }
       </style>
-      <slot></slot>
+      <slot>
+        <ttd-tray>
+          <ttd-total></ttd-total>
+          <ttd-die></ttd-die>
+        </ttd-tray>
+      </slot>
     `;
   }
 
