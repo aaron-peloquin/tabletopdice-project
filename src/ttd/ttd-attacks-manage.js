@@ -63,6 +63,7 @@ class TtdAttacksManage extends TtdEquationHelper {
           padding-left: 10px;
           width: 100%;
         }
+
         input:focus{
           outline: none;
         }
@@ -72,11 +73,12 @@ class TtdAttacksManage extends TtdEquationHelper {
           font-size: inherit;
           font-weight: bold;
         }
+
         .hit    { grid-area: hit___; }
         .damage { grid-area: damage; }
         .label  { grid-area: label_; }
         .type   { grid-area: type__; }
-        button { grid-area: submit; }
+        button  { grid-area: submit; }
 
         /* [Responsive] Medium Styles */
         @media (min-width: 900px) {
@@ -88,6 +90,7 @@ class TtdAttacksManage extends TtdEquationHelper {
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
           }
+
           select{
             border-left: 1px solid;
           }
