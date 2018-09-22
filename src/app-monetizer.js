@@ -24,6 +24,7 @@ class AppMonetizer extends PolymerElement {
           text-align: center;
           width: 100%;
         }
+
         div{
           background-color: lightgrey;
           display: table-cell;
