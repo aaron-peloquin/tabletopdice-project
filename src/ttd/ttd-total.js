@@ -30,7 +30,6 @@ class TtdTotal extends TtdChildHelper {
           text-align: center;
           width: 100%;
 
-
           /* Text selection */
           -webkit-touch-callout: text; /* iOS Safari */
           -webkit-user-select: text; /* Safari */
