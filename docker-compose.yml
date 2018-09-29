@@ -1,9 +1,0 @@
-version: '3'
-services:
-  polymer-dev:
-    command: polymer serve -H 0.0.0.0 -p 1974
-    build: ./
-    ports:
-      - 1974:1974
-    volumes:
-      - ./:/home/polymer/app

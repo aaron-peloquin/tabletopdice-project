@@ -1,0 +1,9 @@
+/** Main Styles for the app */
+/** Attach all CSS variables to the :root */
+:root{
+  --primary-color: Green;
+}
+
+h1 {
+  color: var(--primary-color);
+}

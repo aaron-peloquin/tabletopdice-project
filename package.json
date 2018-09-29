@@ -1,39 +1,18 @@
 {
-  "name": "tabletopdice",
-  "version": "1.4.4",
-  "description": "A tabletop dice rolling web application",
-  "author": "Aaron P",
-  "license": "BSD-3-Clause",
-  "repository": "Polymer/polymer-starter-kit",
-  "scripts": {
-    "start": "polymer serve",
-    "build": "polymer build",
-    "lint": "polymer lint",
-    "test": "polymer test",
-    "test:integration": "polymer build # test that psk builds without error with the CLI"
-  },
+  "name": "ttd-react",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@polymer/app-layout": "^3.0.0-pre.26",
-    "@polymer/app-route": "^3.0.0-pre.26",
-    "@polymer/iron-flex-layout": "^3.0.0-pre.26",
-    "@polymer/iron-iconset-svg": "^3.0.0-pre.26",
-    "@polymer/iron-media-query": "^3.0.0-pre.26",
-    "@polymer/iron-pages": "^3.0.0-pre.26",
-    "@polymer/iron-selector": "^3.0.0-pre.26",
-    "@polymer/lit-element": "^0.5.2",
-    "@polymer/paper-icon-button": "^3.0.0-pre.26",
-    "@polymer/polymer": "^3.0.0",
-    "@webcomponents/shadycss": "^1.5.0",
-    "@webcomponents/webcomponentsjs": "^2.1.1",
-    "growl": "^1.10.5",
-    "seedrandom": "^2.4.4"
+    "@material-ui/core": "^3.0.3",
+    "@material-ui/icons": "^3.0.1",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-scripts": "1.1.5"
   },
-  "devDependencies": {
-    "polymer-cli": "^1.8.0",
-    "sw-precache": "^5.2.1",
-    "wct-browser-legacy": "^1.0.1"
-  },
-  "engines": {
-    "node": ">=8.0"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
