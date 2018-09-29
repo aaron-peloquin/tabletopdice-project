@@ -1,2 +1,2 @@
 # TabletopDice.com Application
-Decided to Learning React
+Decided to start learning React
