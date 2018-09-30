@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
   Button,
-  Grow,
   Modal,
   Typography
 } from '@material-ui/core/';
