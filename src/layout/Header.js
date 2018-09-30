@@ -17,14 +17,13 @@ function Header(PropTypes) {
           <Typography variant="headline" color="textPrimary" align="center">Tabletop Dice</Typography>
           </Grid>
           <Grid item sm>
-            <Button color="secondary" onClick={Settings.handleOpen} variant="contained">Dice Sets</Button>
+            <Settings />
           </Grid>
           <Grid item sm>
             <Button color="secondary" variant="contained">Settings</Button>
           </Grid>
       </Grid>
       </Toolbar>
-      <Settings />
     </AppBar>
 }
 
