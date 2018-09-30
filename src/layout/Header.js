@@ -9,11 +9,6 @@ import {
   Settings,
   Sets
 } from './../modals/'
-import {
-  GoogleLogin,
-  GoogleLogout 
-} from 'react-google-login'
-
 
 function Header(PropTypes) {
   return <AppBar position="static" color="primary">
