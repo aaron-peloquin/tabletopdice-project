@@ -10,19 +10,18 @@ import {
   Sets
 } from './../modals/'
 
-function Header(PropTypes) {
-  return
-    <AppBar position="static" color="primary">
+function Header() {
+  return <AppBar position="static" color="primary">
       <Toolbar>
       <Grid container spacing={24} justify="center">
         <Grid item sm>
         <Typography variant="headline" color="textPrimary" align="left">Tabletop Dice</Typography>
         </Grid>
         <Grid item xs="3" align="right">
-          <Settings />
+          <Sets />
         </Grid>
         <Grid item xs="3" align="left">
-          <Sets />
+          <Settings />
         </Grid>
       </Grid>
       </Toolbar>

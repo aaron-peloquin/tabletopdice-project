@@ -47,7 +47,7 @@ class DiceSetsModal extends React.Component {
 
     return (
       <div>
-        <Button color="secondary" onClick={this.handleOpen} variant="contained">Dice Sets</Button>
+        <Button color="secondary" onClick={this.handleOpen} variant="contained">Sets</Button>
         <Modal
           aria-labelledby="dice-sets-modal-title"
           aria-describedby="dice-sets-modal-description"
