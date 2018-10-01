@@ -2,16 +2,10 @@
   "name": "ttd-react",
   "version": "0.1.0",
   "private": true,
-  "quokka": {
-    "babbel": {
-      "presets": [
-        "react-app"
-      ]
-    }
-  },
   "dependencies": {
     "@material-ui/core": "^3.0.3",
     "@material-ui/icons": "^3.0.1",
+    "babbel": "^3.0.12",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",

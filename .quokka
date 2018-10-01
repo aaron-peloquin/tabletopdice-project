@@ -1,0 +1,8 @@
+{
+  "pro":true,
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  }
+}
