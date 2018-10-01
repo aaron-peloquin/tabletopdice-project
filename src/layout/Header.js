@@ -11,12 +11,10 @@ import {
 } from './../modals/'
 
 function Header(PropTypes) {
-  return <AppBar position="static" color="primary">
+  return
+    <AppBar position="static" color="primary">
       <Toolbar>
-      <Grid container
-        spacing={24}
-        justify="center"
-      >
+      <Grid container spacing={24} justify="center">
         <Grid item sm>
         <Typography variant="headline" color="textPrimary" align="left">Tabletop Dice</Typography>
         </Grid>
